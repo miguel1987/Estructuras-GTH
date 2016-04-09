@@ -1,0 +1,227 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MP.master.cs" Inherits="WebUI.Template.MP" %>
+
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
+<%@ Register TagPrefix="telerik" Namespace="Telerik.Web.UI" Assembly="Telerik.Web.UI" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+    <script src="../Scripts/jquery-1.7.2.js" type="text/javascript"></script>
+    
+    <title></title>
+    <link href="../Styles/General.css" rel="stylesheet" type="text/css" />
+    
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <style>
+        #MnuPeti
+        {
+            font-size: 15px;
+        }
+        #MnuPeti ul.level1
+        {
+            width: 100% !important;
+        }
+        #MnuPeti ul.level1 li
+        {
+            width: 25% !important;
+        }
+        
+        
+        
+        #MnuPeti ul.level2
+        {
+            width: 100% !important;
+        }
+        #MnuPeti ul.level2 li
+        {
+            width: 95% !important;
+        }
+    </style>
+</head>
+<body>
+    <form id="form2" runat="server">
+    <div>
+        <cc1:ToolkitScriptManager ID="smMaster" runat="server" ScriptMode="Release" EnableScriptGlobalization="true"
+            EnablePartialRendering="true" AsyncPostBackErrorMessage="Error de Conexión, intente otra vez."
+            AsyncPostBackTimeout="360000">
+        </cc1:ToolkitScriptManager>
+        <link href="../Styles/Grid.MySilk.css" rel="stylesheet" type="text/css" />
+        <link href="../Styles/ListBox.MyOffice2010Blue.css" rel="stylesheet" type="text/css" />
+        <link href="../Styles/PivotGrid.MyDefault.css" rel="stylesheet" type="text/css" />
+        <asp:Panel ID="PnlProgress" runat="server" CssClass="updateProgress" Style="display: none;">
+            <!-- Inicio UpdatePogress -->
+            <asp:UpdateProgress ID="upg_Progreso" runat="server" DisplayAfter="0">
+                <ProgressTemplate>
+                    <div style="position: relative; top: 30%; text-align: center;">
+                        <img src="../Images/iconos/Loading.gif" style="vertical-align: middle" alt="Processing"
+                            width="30px" height="30px" />
+                        <asp:Label ID="lbl_Text" CssClass="txt_gris" runat="server" Text="Procesando..."></asp:Label>
+                        <br />
+                    </div>
+                </ProgressTemplate>
+            </asp:UpdateProgress>
+            <!-- Fin UpdatePogress -->
+        </asp:Panel>
+        <!-- Inicio modal popup extender -->
+        <cc1:ModalPopupExtender ID="mp" runat="server" TargetControlID="PnlProgress" BackgroundCssClass="modalBackground"
+            PopupControlID="PnlProgress" />
+        <!-- Fin modal popup extender -->
+        <div>
+            <table width="100%" style="height: 450px" border="0" cellspacing="0" cellpadding="0"
+                class="tabla_pagina">
+                <tr>
+                    <td class="contorno_sup_izq">
+                    </td>
+                    <td class="contorno_sup_rep">
+                    </td>
+                    <td class="contorno_sup_der">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="contorno_centro_izq">
+                    </td>
+                    <td>
+                        <table width="100%" style="height: 450px;" border="0" cellpadding="0" cellspacing="0"
+                            class="tabla_principal">
+                            <tr>
+                                <td class="cabecera">
+                                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                        <tr>
+                                            <td align="left" style="width: 50%; font-family: Aharoni; font-size: x-large; font-weight: normal; color: #616365;">
+                                                <img src="../Images/logo.jpg" width="30%" /> 
+                                                <br />
+                                                REP - ETIQUETAS                                         
+                                            </td>
+                                            <td align="right" class="tit_sys" style="width: 80%">
+                                            </td>
+                                            <td width="10%">
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="menu" style="height: 26px">
+                                    <table width="100%" border="0" cellspacing="0" cellpadding="6">
+                                        <tr>
+                                            <td class="txt_blanco" style="padding-left: 05px;">
+                                                <span class="menu_sep">.::</span> <span class="txt_blanco" style="font-size:12px;">Sistema</span> <span class="menu_sep">
+                                                    ::.</span>
+                                            </td>
+                                            <td align="left">
+                                                <asp:Menu ID="MnuPeti" Width="100%" runat="server" Orientation="Horizontal" BackColor="#5BC6E8"
+                                                    DynamicHorizontalOffset="2" Font-Names="Verdana" Font-Size="0.9em" Font-Bold="true" ForeColor="#003C69"
+                                                    StaticSubMenuIndent="10px">
+                                                    <DynamicHoverStyle BackColor="#003C69" ForeColor="White" Font-Bold="false" />
+                                                    <DynamicMenuItemStyle HorizontalPadding="6px" VerticalPadding="2px" Width="100%" />
+                                                    <DynamicMenuStyle BackColor="#5BC6E8" Font-Bold="false" />
+                                                    <DynamicSelectedStyle BackColor="#5BC6E8" Font-Bold="false" />
+                                                    <Items>
+                                                        <asp:MenuItem NavigateUrl="" Text="Archivo" ToolTip="" Value="ARCHIVO">
+                                                            <asp:MenuItem Text="Nuevo" Value="Nuevo">
+                                                                <asp:MenuItem Text="Solicitud de Correspondencia" Value="Nuevo" NavigateUrl="~/UI_ARCHIVO/Solicitud.aspx">
+                                                                </asp:MenuItem>                                                                
+                                                            </asp:MenuItem>
+                                                            <asp:MenuItem Text="Consultar" Value="Consultar">
+                                                                <asp:MenuItem Text="Solicitudes" Value="Consultar" NavigateUrl="~/UI_ARCHIVO/SolicitudesBusqueda.aspx">
+                                                                </asp:MenuItem>
+                                                                <asp:MenuItem Text="Solicitudes Pendientes de Aprobación" Value="Consultar" NavigateUrl="~/UI_ARCHIVO/SolicitudesAprobacion.aspx">
+                                                                </asp:MenuItem>                                                                
+                                                            </asp:MenuItem>
+                                                        </asp:MenuItem>
+                                                        <asp:MenuItem NavigateUrl="" Text="Reportes" ToolTip="" Value="REPORTES">
+                                                            <asp:MenuItem Text="Etiquetas Generadas" Value="EtiquetasGeneradas" NavigateUrl="~/UI_REPORTES/ReporteSolicitud.aspx">
+                                                            </asp:MenuItem>
+                                                            <asp:MenuItem Text="Etiquetas Por Gerencia" Value="EtiquetasGeneradasGerencia" NavigateUrl="~/UI_REPORTES/ReporteSolicitudPeriodo.aspx">
+                                                            </asp:MenuItem>                                                           
+                                                        </asp:MenuItem>
+                                                        <asp:MenuItem NavigateUrl="" Text="Administracion" ToolTip="" Value="ADMINISTRACION">
+                                                            <asp:MenuItem Text="Empresas" Value="Administracion" NavigateUrl="~/UI_ADMINISTRACION/Empresa.aspx">
+                                                            </asp:MenuItem>
+                                                            <asp:MenuItem Text="Gerencias" Value="Administracion" NavigateUrl="~/UI_ADMINISTRACION/Gerencia.aspx">
+                                                            </asp:MenuItem>
+                                                            <asp:MenuItem Text="Areas" Value="Administracion" NavigateUrl="~/UI_ADMINISTRACION/Area.aspx">
+                                                            </asp:MenuItem>      
+                                                            <asp:MenuItem Text="Personal" Value="Administracion" NavigateUrl="~/UI_ADMINISTRACION/Personal.aspx">
+                                                            </asp:MenuItem> 
+                                                            <asp:MenuItem Text="Proveedores" Value="Administracion" NavigateUrl="~/UI_ADMINISTRACION/Proveedor.aspx">
+                                                            </asp:MenuItem>
+                                                            <asp:MenuItem Text="Centros de Costo" Value="Administracion" NavigateUrl="~/UI_ADMINISTRACION/CentroCosto.aspx">
+                                                            </asp:MenuItem>
+                                                            <asp:MenuItem Text="Órdenes" Value="Administracion" NavigateUrl="~/UI_ADMINISTRACION/Orden.aspx">
+                                                            </asp:MenuItem>
+                                                            <asp:MenuItem Text="Centros Gestores" Value="Administracion" NavigateUrl="~/UI_ADMINISTRACION/CentroGestor.aspx">
+                                                            </asp:MenuItem>
+                                                            <asp:MenuItem Text="Cuentas Mayores" Value="Administracion" NavigateUrl="~/UI_ADMINISTRACION/CuentaMayor.aspx">
+                                                            </asp:MenuItem>
+                                                            <asp:MenuItem Text="Direcciones" Value="Administracion" NavigateUrl="~/UI_ADMINISTRACION/Direccion.aspx">
+                                                            </asp:MenuItem>
+                                                            <asp:MenuItem Text="Direcciones Atención" Value="Administracion" NavigateUrl="~/UI_ADMINISTRACION/DireccionAtencion.aspx">
+                                                            </asp:MenuItem>
+                                                            
+                                                        </asp:MenuItem>
+                                                        <asp:MenuItem NavigateUrl="~/Manual_Usuario_Etiquetas.pdf" Text="Ayuda" ToolTip=""
+                                                            Value="AYUDA"></asp:MenuItem>
+                                                    </Items>
+                                                    <StaticHoverStyle BackColor="#003C69" ForeColor="White" Font-Bold="false" />
+                                                    <StaticMenuItemStyle HorizontalPadding="20px" VerticalPadding="2px" />
+                                                    <StaticSelectedStyle BackColor="#5BC6E8" Font-Bold="false" />
+                                                </asp:Menu>
+                                            </td>
+                                            <td align="right" class="txt_blanco"  style="font-size:12px;">
+                                                Bienvenido
+
+                                                <asp:LoginName ID="LoginName1" runat="server" Font-Bold="true" />
+                                                
+                                            
+                                        
+                                                <img src="../Images/iconos/Icono_Candado.gif" alt="Cerrar Sesión" width="13" height="15"
+                                                    hspace="5" vspace="0" border="0" align="absmiddle" id="IMG1" /><asp:LinkButton CssClass="txt_blanco"
+                                                        ID="lkbSalir" runat="server" OnClick="lkbSalir_Click">Salir</asp:LinkButton>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <asp:ContentPlaceHolder ID="cph_contenedor" runat="server">
+                                    </asp:ContentPlaceHolder>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="piedepag" style="height: 27px">
+                                    <span class="txt_loading">©
+                                        <%=(DateTime.Now.Year).ToString() %>
+                                        . Sistema. </span>
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                    <td class="contorno_centro_der">
+                    </td>
+                </tr>
+                <tr>
+                    <td class="contorno_inf_izq">
+                    </td>
+                    <td class="contorno_inf_rep">
+                    </td>
+                    <td class="contorno_inf_der">
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    </form>
+</body>
+<script language="jscript" type="text/jscript">
+    Sys.WebForms.PageRequestManager.getInstance().add_beginRequest(beginReq);
+    Sys.WebForms.PageRequestManager.getInstance().add_endRequest(endReq);
+    function beginReq(sender, args) {
+
+    }
+    function endReq(sender, args) {
+
+    }
+</script>
+</html>

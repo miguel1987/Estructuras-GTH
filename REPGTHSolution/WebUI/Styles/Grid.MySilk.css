@@ -1,0 +1,669 @@
+.RadGrid_MySilk
+{
+    border: 1px solid #d9d9d9;
+    background: white;
+    color: #333333;
+    font: normal 13px Arial, Helvetica, sans-serif;
+    line-height: 22px;
+}
+.RadGrid_MySilk .rgMasterTable, .RadGrid_MySilk .rgDetailTable, .RadGrid_MySilk .rgGroupPanel table, .RadGrid_MySilk .rgCommandRow table, .RadGrid_MySilk .rgEditForm table, .RadGrid_MySilk .rgPager table
+{
+    font: normal 13px Arial, Helvetica, sans-serif;
+    line-height: 22px;
+}
+.RadGrid_MySilk .rgEditForm table
+{
+    width: 100%
+    }
+.RadGrid_MySilk .rgAdd, .RadGrid_MySilk .rgRefresh, .RadGrid_MySilk .rgEdit, .RadGrid_MySilk .rgDel, .RadGrid_MySilk .rgExpand, .RadGrid_MySilk .rgCollapse, .RadGrid_MySilk .rgSortAsc, .RadGrid_MySilk .rgSortDesc, .RadGrid_MySilk .rgUpdate, .RadGrid_MySilk .rgCancel, .RadGrid_MySilk .rgUngroup
+{
+    background-image: url('Common/radActionsSprite.png');
+}
+.RadGrid_MySilk .rgFilter, .RadGrid_MySilk .rgPageFirst, .RadGrid_MySilk .rgPagePrev, .RadGrid_MySilk .rgPageNext, .RadGrid_MySilk .rgPageLast
+{
+    background-image: url('Grid/sprite.png');
+}
+
+.GridToolTip_MySilk
+{
+    font: normal 13px Arial, Helvetica, sans-serif;
+    line-height: 22px;
+}
+
+.RadGrid_MySilk .rgHeader:first-child, .RadGrid_MySilk th.rgResizeCol:first-child, .RadGrid_MySilk .rgFilterRow > td:first-child, .RadGrid_MySilk .rgRow > td:first-child, .RadGrid_MySilk .rgAltRow > td:first-child
+{
+    border-left-width: 0;
+    padding-left: 8px;
+}
+.RadGrid_MySilk .rgHeader, .RadGrid_MySilk th.rgResizeCol, .RadGrid_MySilk .rgHeaderWrapper, .RadGrid_MySilk .rgFilterRow
+{
+    background-color: #F3F3F0;
+    border-bottom: 1px solid white;
+}
+.RadGrid_MySilk .rgHeaderDiv
+{
+    border-right-color: white;
+}
+.RadGrid_MySilk .rgMultiHeaderRow th.rgHeader, .RadGrid_MySilk .rgMultiHeaderRow th.rgResizeCol
+{
+    border: 0;
+    border-bottom: 1px solid white;
+    border-left: 1px solid white;
+}
+.RadGrid_MySilk th.rgSorted
+{
+    background-color: #c1c1c1;
+}
+.RadGrid_MySilk th.rgSorted, .RadGrid_MySilk th.rgSorted a
+{
+    color: #333333;
+}
+.RadGrid_MySilk .rgHeader
+{
+    color: #616365;
+    text-transform: uppercase;
+    font-size: 9px;
+}
+.RadGrid_MySilk .rgHeader a
+{
+    color: #878787;
+}
+.RadGrid_MySilk .rgRow td, .RadGrid_MySilk .rgAltRow td, .RadGrid_MySilk .rgEditRow td
+{
+    border-style: solid;
+    border-bottom: 1px solid #e3e3e3;
+    border-width: 0 0 1px;
+}
+.RadGrid_MySilk .rgRow a, .RadGrid_MySilk .rgAltRow a, .RadGrid_MySilk tr.rgEditRow a, .RadGrid_MySilk .rgFooter a, .RadGrid_MySilk .rgEditForm a
+{
+    color: #000;
+}
+.RadGrid_MySilk .rgHoveredRow
+{
+    background: #e5e5e5;
+}
+.RadGrid_MySilk .rgMasterTable .rgSelectedCell, .RadGrid_MySilk .rgSelectedRow
+{
+    color: #333333;
+    background: #fff1cc;
+}
+.RadGrid_MySilk .rgSelectedCell a, .RadGrid_MySilk .rgSelectedRow a
+{
+    color: #333333;
+}
+.RadGrid_MySilk .rgMasterTable .rgActiveCell, .RadGrid_MySilk .rgActiveRow
+{
+    color: #333333;
+    background: #fffae8;
+}
+.RadGrid_MySilk .rgMasterTable .rgActiveCell input, .RadGrid_MySilk .rgMasterTable .rgActiveCell a, .RadGrid_MySilk .rgActiveRow input, .RadGrid_MySilk .rgActiveRow a
+{
+    color: #333333;
+}
+.RadGrid_MySilk .rgHoveredRow
+{
+    background: #CEEBF9;
+    color: #616365;
+}
+.RadGrid_MySilk .rgHoveredRow a
+{
+    color: #333333;
+}
+.RadGrid_MySilk .rgSorted
+{
+    background-color: #f3f3f3;
+    color: black;
+}
+.RadGrid_MySilk .rgSelectedRow .rgSorted
+{
+    background-color: #f3efe3;
+}
+.RadGrid_MySilk .rgHoveredRow .rgSorted
+{
+    background-color: #c3e4eb;
+}
+.RadGrid_MySilk .rgEditRow td
+{
+    border-color: #999;
+}
+.RadGrid_MySilk .rgDrag
+{
+    background-image: url('Grid/rgDrag.gif');
+}
+.RadGrid_MySilk .rgFooterDiv, .RadGrid_MySilk .rgFooter, .RadGrid_MySilk .rgFooterWrapper
+{
+    background: #D5D6D2;
+}
+.RadGrid_MySilk .rgFooterWrapper
+{
+    border-top: 0 none;
+}
+.RadGrid_MySilk .rgPager
+{
+    background-color: #e6e6e6;
+    color: #555555;
+}
+.RadGrid_MySilk .rgWrap, .RadGrid_MySilk .rgPager .rgPagerButton, .RadGrid_MySilk .rgPager .riSingle .riTextBox
+{
+    line-height: 30px;
+    height: 29px;
+}
+.RadGrid_MySilk td.rgPagerCell, .RadGrid_MySilk .rgPager .rgStatus
+{
+    border: 1px solid #d9d9d9;
+    border-width: 1px 0;
+}
+.RadGrid_MySilk .rgStatus div
+{
+    background-image: url('Common/loading_small.gif');
+}
+.RadGrid_MySilk .rgInfoPart strong
+{
+    color: black;
+}
+.RadGrid_MySilk .rgPageFirst, .RadGrid_MySilk .rgPagePrev, .RadGrid_MySilk .rgPageNext, .RadGrid_MySilk .rgPageLast
+{
+    width: 30px;
+    height: 30px;
+}
+.RadGrid_MySilk .rgPageFirst
+{
+    background-position: 0 -150px;
+}
+.RadGrid_MySilk .rgPageFirst:hover
+{
+    background-position: 0 -350px;
+}
+.RadGrid_MySilk .rgPageFirst:active
+{
+    background-position: 0 -550px;
+}
+.RadGrid_MySilk .rgPagePrev
+{
+    background-position: 0 -200px;
+}
+.RadGrid_MySilk .rgPagePrev:hover
+{
+    background-position: 0 -400px;
+}
+.RadGrid_MySilk .rgPagePrev:active
+{
+    background-position: 0 -600px;
+}
+.RadGrid_MySilk .rgPageNext
+{
+    background-position: 0 -250px;
+}
+.RadGrid_MySilk .rgPageNext:hover
+{
+    background-position: 0 -450px;
+}
+.RadGrid_MySilk .rgPageNext:active
+{
+    background-position: 0 -650px;
+}
+.RadGrid_MySilk .rgPageLast
+{
+    background-position: 0 -300px;
+}
+.RadGrid_MySilk .rgPageLast:hover
+{
+    background-position: 0 -500px;
+}
+.RadGrid_MySilk .rgPageLast:active
+{
+    background-position: 0 -700px;
+}
+.RadGrid_MySilk .rgPager .rgPagerButton
+{
+    background-image: url('../Common/Gradients/radGradientDarkV20.png');
+    _background-image: none;
+    background-repeat: repeat-x;
+    border-color: #c9c9c9;
+    color: #3b3b3b;
+    background-color: #ebebeb;
+    background-image: -webkit-linear-gradient(top, #fefefe 0%, #e3e3e3 100%);
+    background-image: -moz-linear-gradient(top, #fefefe 0%, #e3e3e3 100%);
+    background-image: -ms-linear-gradient(top, #fefefe 0%, #e3e3e3 100%);
+    background-image: -o-linear-gradient(top, #fefefe 0%, #e3e3e3 100%);
+    background-image: linear-gradient(top, #fefefe 0%, #e3e3e3 100%);
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    border-radius: 4px;
+    border: 1px solid #c9c9c9;
+    color: #3b3b3b;
+    font-size: 13px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.RadGrid_MySilk .rgNumPart a
+{
+    border-radius: 4px;
+    line-height: 28px;
+    color: #333333;
+    margin-right: 1px;
+    margin-top: 1px;
+}
+.RadGrid_MySilk .rgNumPart a:hover
+{
+    color: black;
+    background-color: #d6d6d6;
+    background-image: -webkit-linear-gradient(top, #d6d6d6 0%, #929292 100%);
+    background-image: -moz-linear-gradient(top, #d6d6d6 0%, #929292 100%);
+    background-image: -ms-linear-gradient(top, #d6d6d6 0%, #929292 100%);
+    background-image: -o-linear-gradient(top, #d6d6d6 0%, #929292 100%);
+    background-image: linear-gradient(top, #d6d6d6 0%, #929292 100%);
+}
+.RadGrid_MySilk .rgNumPart a.rgCurrentPage
+{
+    background: none repeat scroll 0 0 #cccccc;
+    border: 1px solid #f9f9f9;
+    box-shadow: 0 0 1px 1px rgba(72, 72, 72, 0.4) inset;
+    color: black;
+    margin-top: 0;
+}
+.RadGrid_MySilk .rgSortAsc
+{
+    background-position: -17.5px -18px;
+    height: 14px;
+    width: 15px;
+}
+.RadGrid_MySilk .rgSortAsc:hover
+{
+    background-position: -67.5px -18px;
+}
+.RadGrid_MySilk .rgSortDesc
+{
+    background-position: -17.5px -68px;
+    height: 14px;
+    width: 15px;
+}
+.RadGrid_MySilk .rgSortDesc:hover
+{
+    background-position: -67.5px -68px;
+}
+
+.RadGrid_MySilk .rgFilterRow .riSingle .riTextBox
+{
+    height: 28px;
+}
+.RadGrid_MySilk .rgFilterRow td
+{
+    border-bottom: 1px solid #d9d9d9;
+}
+.RadGrid_MySilk .rgFilterRow input
+{
+    vertical-align: top;
+}
+.RadGrid_MySilk .rgFilter
+{
+    width: 32px;
+    height: 32px;
+}
+.RadGrid_MySilk .rgFilter
+{
+    background-position: 0 0;
+}
+.RadGrid_MySilk .rgFilter:hover
+{
+    background-position: 0 -50px;
+}
+.RadGrid_MySilk:hover, .RadGrid_MySilk .rgFilterActive
+{
+    background-position: 0 -100px;
+}
+.RadGrid_MySilk input.rgFilterBox
+{
+    border-color: #d9d9d9;
+    font: 12px "segoe ui" , arial, sans-serif;
+    color: #000;
+    height: 21px;
+    vertical-align: top;
+}
+
+.RadMenu_MySilk .rgHCMClear, .RadMenu_MySilk .rgHCMFilter
+{
+    border-color: #7e7e7e;
+    background: #25a0da;
+    color: #000;
+    font-family: "segoe ui" ,arial,sans-serif;
+    -moz-border-radius: 0;
+    -webkit-border-radius: 0;
+    border-radius: 0;
+}
+.RadMenu_MySilk .rgHCMClear:hover, .RadMenu_MySilk .rgHCMFilter:hover
+{
+    border-color: #c98400;
+    background-color: #ffe79c;
+    color: #882501;
+}
+
+.GridContextMenu_MySilk .rmLeftImage
+{
+    background-image: url('../Common/Grid/contextMenu.gif');
+}
+.GridContextMenu_MySilk .rgHCMSortAsc .rmLeftImage
+{
+    background-position: 0 0;
+}
+.GridContextMenu_MySilk .rgHCMSortDesc .rmLeftImage
+{
+    background-position: 0 -40px;
+}
+.GridContextMenu_MySilk .rgHCMUnsort .rmLeftImage
+{
+    background-position: 0 -80px;
+}
+.GridContextMenu_MySilk .rgHCMGroup .rmLeftImage
+{
+    background-position: 0 -120px;
+}
+.GridContextMenu_MySilk .rgHCMUngroup .rmLeftImage
+{
+    background-position: 0 -160px;
+}
+.GridContextMenu_MySilk .rgHCMCols .rmLeftImage
+{
+    background-position: 0 -200px;
+}
+.GridContextMenu_MySilk .rgHCMFilter .rmLeftImage
+{
+    background-position: 0 -240px;
+}
+.GridContextMenu_MySilk .rgHCMUnfilter .rmLeftImage
+{
+    background-position: 0 -280px;
+}
+
+.RadGrid_MySilk .rgGroupPanel
+{
+    background-color: #e6e6e6;
+    border: 0;
+    border-bottom: 1px solid white;
+    color: #5f5f5f;
+}
+.RadGrid_MySilk .rgGroupPanel td
+{
+    border: 0;
+    padding: 3px 4px;
+}
+.RadGrid_MySilk .rgGroupPanel td td
+{
+    padding: 0;
+}
+.RadGrid_MySilk .rgUngroup
+{
+    background-position: -17.5px -2217.5px;
+    width: 15px;
+    height: 15px;
+}
+.RadGrid_MySilk .rgUngroup:hover
+{
+    background-position: -67.5px -2217.5px;
+}
+.RadGrid_MySilk .rgGroupItem
+{
+    background-image: url('../Common/Gradients/radGradientDarkV20.png');
+    _background-image: none;
+    background-repeat: repeat-x;
+    border-color: #c9c9c9;
+    color: #3b3b3b;
+    background-color: #ebebeb;
+    background-image: -webkit-linear-gradient(top, #fefefe 0%, #e3e3e3 100%);
+    background-image: -moz-linear-gradient(top, #fefefe 0%, #e3e3e3 100%);
+    background-image: -ms-linear-gradient(top, #fefefe 0%, #e3e3e3 100%);
+    background-image: -o-linear-gradient(top, #fefefe 0%, #e3e3e3 100%);
+    background-image: linear-gradient(top, #fefefe 0%, #e3e3e3 100%);
+    color: #3b3b3b;
+    border: 1px solid #c9c9c9;
+    border-radius: 4px;
+}
+.RadGrid_MySilk .rgGroupHeader
+{
+    background: #e3e3e3 url('../Common/Gradients/radGradientLightV50.png') 0 0 repeat-x;
+    _background-image: none;
+    background-image: -webkit-linear-gradient(top, white 0%, #f2f2f2 30%, #d5d4d3 100%);
+    background-image: -moz-linear-gradient(top, white 0%, #f2f2f2 30%, #d5d4d3 100%);
+    background-image: -ms-linear-gradient(top, white 0%, #f2f2f2 30%, #d5d4d3 100%);
+    background-image: -o-linear-gradient(top, white 0%, #f2f2f2 30%, #d5d4d3 100%);
+    background-image: linear-gradient(top, white 0%, #f2f2f2 30%, #d5d4d3 100%);
+    box-shadow: 0 1px 3px #d7d7d7;
+    font-size: 11px;
+    text-transform: uppercase;
+    line-height: 22px;
+    color: #878787;
+}
+.RadGrid_MySilk .rgGroupHeader td
+{
+    padding: 5px 8px 2px;
+    border-bottom: 1px solid #e3e3e3;
+}
+.RadGrid_MySilk .rgExpand
+{
+    background-position: -16px -168px;
+}
+.RadGrid_MySilk .rgCollapse
+{
+    background-position: -66px -68px;
+}
+.RadGrid_MySilk .rgEditForm
+{
+    border-bottom: 1px solid #999999;
+    width: 100%;
+}
+
+.RadGrid_MySilk .rgEditForm input[type=text]
+{
+    width: 50%;
+}
+
+.RadGrid_MySilk .rgEditForm label
+{
+    display: block;
+    width: 160px;
+}
+
+
+
+.RadGrid_MySilk .rgUpdate
+{
+    background-position: 0 -1800px;
+}
+.RadGrid_MySilk .rgCancel
+{
+    background-position: 0 -1850px;
+}
+.RadGrid_MySilk .rgDetailTable
+{
+    border-color: #ccc;
+}
+.RadGrid_MySilk td.rgExpandCol
+{
+    border-bottom-color: #e6e6e6;
+    background-color: #e6e6e6;
+}
+.RadGrid_MySilk .rgCommandRow
+{
+    background: #e3e3e3 url('../Common/Gradients/radGradientLightV50.png') 0 0 repeat-x;
+    _background-image: none;
+    background-image: -webkit-linear-gradient(top, white 0%, #D5D6D2 30%, #D5D6D2 100%);
+    background-image: -moz-linear-gradient(top, white 0%, #D5D6D2 30%, #D5D6D2 100%);
+    background-image: -ms-linear-gradient(top, white 0%, #D5D6D2 30%, #D5D6D2 100%);
+    background-image: -o-linear-gradient(top, white 0%, #D5D6D2 30%, #D5D6D2 100%);
+    background-image: linear-gradient(top, white 0%, #D5D6D2 30%, #D5D6D2 100%);
+    box-shadow: 0 1px 3px #d7d7d7;
+    color: #5f5f5f;
+    text-decoration: none;
+}
+.RadGrid_MySilk .rgCommandRow a
+{
+    color: #5f5f5f;
+    text-decoration: none;
+}
+.RadGrid_MySilk .rgCommandCell
+{
+    border: 0;
+    border-bottom: 1px solid #d9d9d9;
+    padding: 0;
+}
+.RadGrid_MySilk tfoot .rgCommandCell, .RadGrid_MySilk .rgMasterTable > tbody > tr.rgCommandRow .rgCommandCell
+{
+    border-top: 1px solid #d9d9d9;
+    border-bottom: 0;
+}
+.RadGrid_MySilk .rgCommandTable
+{
+    border: 0;
+}
+.RadGrid_MySilk .rgCommandTable td
+{
+    border: 0;
+    padding: 7px;
+}
+.RadGrid_MySilk .rgAdd
+{
+    margin-right: 3px;
+    width: 20px;
+    height: 20px;
+    vertical-align: top;
+    background-position: -15px -2315px;
+}
+.RadGrid_MySilk .rgAdd:hover
+{
+    background-position: -65px -2315px;
+}
+.RadGrid_MySilk .rgRefresh
+{
+    margin-right: 3px;
+    width: 20px;
+    height: 20px;
+    vertical-align: top;
+    background-position: -15px -1015px;
+}
+.RadGrid_MySilk .rgRefresh:hover
+{
+    background-position: -65px -1015px;
+}
+.RadGrid_MySilk .rgEdit
+{
+    margin-right: 3px;
+    background-position: -17px -2417px;
+}
+.RadGrid_MySilk .rgEdit:hover
+{
+    background-position: -67px -2417px;
+}
+.RadGrid_MySilk .rgDel
+{
+    margin-right: 3px;
+    background-position: -17px -2667px;
+}
+.RadGrid_MySilk .rgDel:hover
+{
+    background-position: -67px -2667px;
+}
+.RadGrid_MySilk .rgExpXLS, .RadGrid_MySilk .rgExpDOC, .RadGrid_MySilk .rgExpPDF, .RadGrid_MySilk .rgExpCSV
+{
+    background-image: url('../Common/Grid/export.gif');
+}
+.RadGrid_MySilk .rgExpXLS
+{
+    background-position: 0 0;
+}
+.RadGrid_MySilk .rgExpDOC
+{
+    background-position: 0 -50px;
+}
+.RadGrid_MySilk .rgExpPDF
+{
+    background-position: 0 -100px;
+}
+.RadGrid_MySilk .rgExpCSV
+{
+    background-position: 0 -150px;
+}
+
+.rgCellSelectorArea_MySilk, .GridRowSelector_MySilk
+{
+    background: #4c4e54;
+}
+
+.GridItemDropIndicator_MySilk
+{
+    border-top: 1px dashed #666666;
+}
+
+.GridReorderTop_MySilk, .GridReorderBottom_MySilk
+{
+    background-image: url('Common/radActionsSprite.png');
+    background-repeat: no-repeat;
+    background-position: -20px -70px;
+}
+
+.GridReorderBottom_MySilk
+{
+    background-position: -20px -20px;
+}
+
+.GridToolTip_MySilk
+{
+    border: 1px solid #c98400;
+    padding: 3px;
+    background: #ffefbd;
+    color: #333;
+}
+
+.RadGridRTL_MySilk .rgHeader:first-child, .RadGridRTL_MySilk th.rgResizeCol:first-child, .RadGridRTL_MySilk .rgFilterRow > td:first-child, .RadGridRTL_MySilk .rgRow > td:first-child, .RadGridRTL_MySilk .rgAltRow > td:first-child
+{
+    padding-left: 7px;
+}
+.RadGridRTL_MySilk .rgExpand
+{
+    background-position: -15px -118px;
+}
+.RadGridRTL_MySilk .rgPageFirst
+{
+    background-position: 0 -300px;
+}
+.RadGridRTL_MySilk .rgPageFirst:hover
+{
+    background-position: 0 -500px;
+}
+.RadGridRTL_MySilk .rgPageFirst:active
+{
+    background-position: 0 -700px;
+}
+.RadGridRTL_MySilk .rgPagePrev
+{
+    background-position: 0 -250px;
+}
+.RadGridRTL_MySilk .rgPagePrev:hover
+{
+    background-position: 0 -450px;
+}
+.RadGridRTL_MySilk .rgPagePrev:active
+{
+    background-position: 0 -650px;
+}
+.RadGridRTL_MySilk .rgPageNext
+{
+    background-position: 0 -200px;
+}
+.RadGridRTL_MySilk .rgPageNext:hover
+{
+    background-position: 0 -400px;
+}
+.RadGridRTL_MySilk .rgPageNext:active
+{
+    background-position: 0 -600px;
+}
+.RadGridRTL_MySilk .rgPageLast
+{
+    background-position: 0 -150px;
+}
+.RadGridRTL_MySilk .rgPageLast:hover
+{
+    background-position: 0 -350px;
+}
+.RadGridRTL_MySilk .rgPageLast:active
+{
+    background-position: 0 -550px;
+}

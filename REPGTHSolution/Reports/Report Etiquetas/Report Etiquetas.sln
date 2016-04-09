@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 10.00
+# Visual Studio 2008
+Project("{F14B399A-7131-4C87-9E4B-1186C45EF12D}") = "Report Etiquetas", "Report Etiquetas.rptproj", "{FEAA5673-CBDF-4EFE-9DC3-0E9CE35285FC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Default = Debug|Default
+		DebugLocal|Default = DebugLocal|Default
+		Release|Default = Release|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FEAA5673-CBDF-4EFE-9DC3-0E9CE35285FC}.Debug|Default.ActiveCfg = Debug
+		{FEAA5673-CBDF-4EFE-9DC3-0E9CE35285FC}.Debug|Default.Build.0 = DebugLocal
+		{FEAA5673-CBDF-4EFE-9DC3-0E9CE35285FC}.Debug|Default.Deploy.0 = DebugLocal
+		{FEAA5673-CBDF-4EFE-9DC3-0E9CE35285FC}.DebugLocal|Default.ActiveCfg = DebugLocal
+		{FEAA5673-CBDF-4EFE-9DC3-0E9CE35285FC}.DebugLocal|Default.Build.0 = DebugLocal
+		{FEAA5673-CBDF-4EFE-9DC3-0E9CE35285FC}.Release|Default.ActiveCfg = Release
+		{FEAA5673-CBDF-4EFE-9DC3-0E9CE35285FC}.Release|Default.Build.0 = Release
+		{FEAA5673-CBDF-4EFE-9DC3-0E9CE35285FC}.Release|Default.Deploy.0 = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

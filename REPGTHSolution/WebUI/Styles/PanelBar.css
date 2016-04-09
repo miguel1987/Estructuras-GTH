@@ -1,0 +1,178 @@
+/* CSS Document */
+/** Customize the canvas */
+.panel-container {
+    width: 740px;
+    text-align: center;       
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    
+}
+
+.panel-container-grid {
+    width: 750px;
+    text-align: center;       
+    display: block;
+    margin-left: 170px;
+    margin-right: auto;
+    
+}
+
+.panel-container-consultar {
+    width: 100%;
+    text-align: center;       
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    
+}
+ 
+.panel-container .qsf-fb {
+    padding: 45px 45px 20px;
+}
+ 
+.panel-container .qsf-fb ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+ 
+.panel-container .qsf-fb li {
+    margin: 0 0 10px 0;
+}
+ 
+.panel-container .button_next {
+    text-align: right;
+}
+
+.panel-container .buttons {
+    text-align: center;
+}
+  
+.panel-container #datosSolicitud label {
+    display: inline;
+    display: inline-block;  
+    width: 120px;
+    text-align: left;
+   
+}
+ 
+.panel-container #datosSolicitud label.label2 {
+    display: inline;
+    display: inline-block;  
+    width: 50px;
+    text-align: center;
+   
+} 
+
+.panel-container #datosEnvioNacional label {
+    display: inline;
+    display: inline-block;  
+    width: 120px;
+    text-align: left;
+    vertical-align: top;
+   
+}
+ 
+.panel-container #datosEnvioNacional label.label2 {
+    display: inline;
+    display: inline-block;  
+    width: 50px;
+    text-align: center;
+   
+} 
+
+.panel-container #datosEnvioNacional label.label3 {
+    display: inline;
+    display: inline-block;  
+    width: 90px;
+    text-align: right;
+   
+} 
+
+.panel-container #datosEnvioNacional label.label4 {
+    display: inline;
+    display: inline-block;  
+    width: 70px;
+     text-align: left;
+    padding: 0px 15px 0;
+   
+}
+
+.panel-container #datosEnvioInternacional label {
+    display: inline;
+    display: inline-block;  
+    width: 120px;
+    text-align: left;
+    vertical-align: top;
+   
+}
+ 
+.panel-container #datosEnvioInternacional label.label2 {
+    display: inline;
+    display: inline-block;  
+    width: 50px;
+    text-align: center;
+   
+} 
+
+.panel-container #datosEnvioInternacional label.label3 {
+    display: inline;
+    display: inline-block;  
+    width: 90px;
+    text-align: right;
+   
+} 
+
+.panel-container #datosEnvioInternacional label.label4 {
+    display: inline;
+    display: inline-block;  
+    width: 70px;
+     text-align: left;
+    padding: 0px 15px 0;
+   
+}
+
+.panel-container .textInput {
+    width: 350px !important;
+}
+
+.panel-container .textInput2 
+{    
+    width: 150px !important;
+}
+
+.panel-container .textInput3 
+{    
+    width: 105px !important;
+}
+
+.panel-container .textInput4 
+{    
+    width: 200px !important;
+}
+ 
+.panel-container .dateInput 
+{    
+    width: 185px;
+    text-align: left;
+   
+} 
+
+.panel-container .RadButton input {
+    width: 100px;
+}
+ 
+.panel-container .formList {
+    text-align: center;
+}
+
+.panel-container .documentos {
+    text-align: left;
+    padding: 0px 5px 0;
+}
+
+.panel-container .mensaje {
+    text-align: left;
+}
+ 
