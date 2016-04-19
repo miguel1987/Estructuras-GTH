@@ -1,0 +1,19 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+namespace BussinesEntities
+{
+    /// <summary>
+    /// Entidad que representa la tabla SEDES
+    /// </summary>
+    public partial class BE_SEDE : BE_GENERICO
+    {
+        public Guid ID { get; set; }
+        public String CODIGO { get; set; }
+        public String DESCRIPCION { get; set; }
+        public Nullable<Int32> ESTADO { get; set; }
+        public Guid EMPRESA_ID { get; set; }
+    }
+}

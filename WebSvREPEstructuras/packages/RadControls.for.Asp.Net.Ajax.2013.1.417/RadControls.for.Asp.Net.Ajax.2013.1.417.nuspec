@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2010/07/nuspec.xsd">
+  <metadata>
+    <id>RadControls.for.Asp.Net.Ajax</id>
+    <version>2013.1.417</version>
+    <title>RadControls for ASP NET AJAX</title>
+    <authors>Telerik</authors>
+    <owners>Telerik</owners>
+    <licenseUrl>http://www.telerik.com/purchase/license-agreement/ajax.aspx</licenseUrl>
+    <projectUrl>http://www.telerik.com/products/aspnet-ajax.aspx</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>RadControls for ASP.NET AJAX is a complete WebForms toolset for rapid component-based UI development. The controls enhance user experience by adding slick, desktop-like UI features to your web apps without negatively-impacting performance.</description>
+    <language>en-US</language>
+  </metadata>
+</package>

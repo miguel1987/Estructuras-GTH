@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<publishData>
+  <publishProfile publishUrl="D:\REP\wsIPD" deleteExistingFiles="False" ftpAnonymousLogin="False" ftpPassiveMode="True" msdeploySite="" msdeploySiteID="" msdeployRemoteSitePhysicalPath="" msdeployAllowUntrustedCertificate="False" msdeploySkipExtraFilesOnServer="True" msdeployMarkAsApp="False" profileName="Profile1" publishMethod="FileSystem" replaceMatchingFiles="True" userName="" savePWD="False" userPWD="" SelectedForPublish="True">
+    <file relUrl="Web.config" publishTime="02/03/2014 15:55:10" />
+    <file relUrl="bin/WebSv.dll" publishTime="02/03/2014 15:54:58" />
+    <file relUrl="bin/BussinesEntities.pdb" publishTime="02/03/2014 15:54:56" />
+    <file relUrl="bin/DataConnectionComponent.dll" publishTime="02/03/2014 15:54:55" />
+    <file relUrl="bin/WebSv.pdb" publishTime="02/03/2014 15:54:58" />
+    <file relUrl="bin/DataAccessLayer.pdb" publishTime="02/03/2014 15:54:57" />
+    <file relUrl="bin/DataConnectionComponent.pdb" publishTime="02/03/2014 15:54:55" />
+    <file relUrl="bin/WebSv.XML" publishTime="02/03/2014 15:54:58" />
+    <file relUrl="bin/BussinesEntities.dll" publishTime="02/03/2014 15:54:56" />
+    <file relUrl="bin/DataAccessLayer.xml" publishTime="02/03/2014 15:54:57" />
+    <file relUrl="bacthIndicadores.asmx" publishTime="01/21/2014 13:48:27" />
+    <file relUrl="bin/BussinesLogicLayer.pdb" publishTime="02/03/2014 15:54:58" />
+    <file relUrl="bin/DataConnectionComponent.xml" publishTime="02/03/2014 15:54:55" />
+    <file relUrl="bin/BussinesLogicLayer.dll" publishTime="02/03/2014 15:54:58" />
+    <file relUrl="bin/BussinesLogicLayer.xml" publishTime="02/03/2014 15:54:58" />
+    <file relUrl="bin/DataAccessLayer.dll" publishTime="02/03/2014 15:54:57" />
+    <file relUrl="bin/BussinesEntities.xml" publishTime="02/03/2014 15:54:56" />
+  </publishProfile>
+</publishData>
