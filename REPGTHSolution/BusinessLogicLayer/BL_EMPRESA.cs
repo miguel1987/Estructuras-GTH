@@ -12,7 +12,9 @@ namespace BusinessLogicLayer
     public class BL_EMPRESA
     {
         //Inicializamos web service para consulta y actualización de maestros genéricos.  
-        wsMaestros.mantenimientoMaestros wsMantenimientoMaestros = new wsMaestros.mantenimientoMaestros();   
+        //wsMaestros.mantenimientoMaestros wsMantenimientoMaestros = new wsMaestros.mantenimientoMaestros();
+        wsMaestros.mantenimientoEstructuras wsMantenimientoEstructuras = new wsMaestros.mantenimientoEstructuras();
+ 
 
         /// <summary>
         ///  Devuelve los datos de todas las EMPRESAS.
@@ -20,7 +22,7 @@ namespace BusinessLogicLayer
         /// <returns> List de BE_EMPRESA con los objetos de la entidad, que a su vez representan la tabla EMPRESAS de la base de datos.En caso no existan datos devuelve nothing </returns>
         public List<BE_EMPRESA> SeleccionarEmpresa()
         {
-            wsMaestros.BE_EMPRESA[] oLista = wsMantenimientoMaestros.SeleccionarEmpresa();
+            wsMaestros.BE_EMPRESA[] oLista = wsMantenimientoEstructuras.SeleccionarEmpresa();
             List<BE_EMPRESA> oListaEmpresa = new List<BE_EMPRESA>();
             if (oLista != null)
             {
@@ -54,7 +56,7 @@ namespace BusinessLogicLayer
             oEmpresa.USUARIO_CREACION = oBE_EMPRESA.USUARIO_CREACION;
             oEmpresa.ESTADO = oBE_EMPRESA.ESTADO;
 
-            return wsMantenimientoMaestros.InsertarEmpresa(oEmpresa);
+            return wsMantenimientoEstructuras.InsertarEmpresa(oEmpresa);
 
         }
 
@@ -71,7 +73,7 @@ namespace BusinessLogicLayer
             oEmpresa.USUARIO_CREACION = oBE_EMPRESA.USUARIO_CREACION;
             oEmpresa.ESTADO = oBE_EMPRESA.ESTADO;
 
-            return wsMantenimientoMaestros.ActualizarEmpresa(oEmpresa);
+            return wsMantenimientoEstructuras.ActualizarEmpresa(oEmpresa);
         }
 
         /// <summary>
@@ -81,7 +83,7 @@ namespace BusinessLogicLayer
         /// <returns>True o False. True, si se ingreso con exito. False, si hubo un error al ingresar</returns>
         public Boolean EliminarEmpresa(Guid empresa_id)
         {
-            return wsMantenimientoMaestros.EliminarEmpresa(empresa_id);
+            return wsMantenimientoEstructuras.EliminarEmpresa(empresa_id);
         }
     }
 }

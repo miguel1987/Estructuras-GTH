@@ -76,6 +76,23 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="About.aspx" />
+    <Content Include="Images\ha-down.gif" />
+    <Content Include="Images\ha-up.gif" />
+    <Content Include="Images\ico-config.png" />
+    <Content Include="Images\ico-delete.png" />
+    <Content Include="Images\ico-edit.png" />
+    <Content Include="Images\ico-user.png" />
+    <Content Include="Images\img-principal.png" />
+    <Content Include="Images\logo-isa-rep.png" />
+    <Content Include="Images\pag_anterior.png" />
+    <Content Include="Images\pag_primero.png" />
+    <Content Include="Images\pag_siguiente.png" />
+    <Content Include="Images\pag_ultimo.png" />
+    <Content Include="Images\sort.gif" />
+    <Content Include="Styles\Grid.Material.css" />
+    <Content Include="Styles\main.css" />
+    <Content Include="Styles\menu.css" />
+    <Content Include="Styles\normalize.css" />
     <Content Include="Images\Bienvenido.jpg" />
     <Content Include="Images\contenido_restringido.jpg" />
     <Content Include="Images\iconos\btn_naranja_p.gif" />
@@ -100,6 +117,19 @@
     <Content Include="Images\iconos\success.png" />
     <Content Include="Images\iconos\warning.png" />
     <Content Include="Images\logo.jpg" />
+    <Content Include="Scripts\iepngfix.htc" />
+    <Content Include="Scripts\iepngfix_tilebg.js" />
+    <Content Include="Scripts\jquery.hoveraccordion.js" />
+    <Content Include="Scripts\jquery.hoveraccordion.min.js" />
+    <Content Include="Scripts\jquery.min.js" />
+    <Content Include="obj\Debug\WebUI.csproj.FileListAbsolute.txt" />
+    <Content Include="obj\Debug\WebUI.dll" />
+    <Content Include="obj\Debug\WebUI.pdb" />
+    <Content Include="obj\Release\WebUI.csproj.FileListAbsolute.txt" />
+    <Content Include="Scripts\PIE.htc" />
+    <Content Include="Scripts\PIE.js" />
+    <Content Include="Scripts\PIE_uncompressed.htc" />
+    <Content Include="Scripts\PIE_uncompressed.js" />
     <Content Include="Scripts\jquery-1.7.2.js" />
     <Content Include="Scripts\jquery.lightbox.js" />
     <Content Include="Styles\Common\loading.gif" />
@@ -170,6 +200,9 @@
     <Content Include="UI_ARCHIVO\Solicitud.aspx" />
     <Content Include="UI_ARCHIVO\SolicitudesAprobacion.aspx" />
     <Content Include="UI_ARCHIVO\SolicitudesBusqueda.aspx" />
+    <Content Include="UI_EVALUACION\EvaluacionesTransversalesLiderazgo.aspx" />
+    <Content Include="UI_EVALUACION\EvaluacionCompetenciasPuesto.aspx" />
+    <Content Include="UI_EVALUACION\pruebaM.aspx" />
     <Content Include="UI_REPORTES\ReporteSolicitudPeriodo.aspx" />
     <Content Include="UI_REPORTES\Etiqueta.aspx" />
     <Content Include="UI_REPORTES\ReporteSolicitud.aspx" />
@@ -322,6 +355,27 @@
     <Compile Include="UI_ARCHIVO\SolicitudesBusqueda.aspx.designer.cs">
       <DependentUpon>SolicitudesBusqueda.aspx</DependentUpon>
     </Compile>
+    <Compile Include="UI_EVALUACION\EvaluacionesTransversalesLiderazgo.aspx.cs">
+      <DependentUpon>EvaluacionesTransversalesLiderazgo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI_EVALUACION\EvaluacionesTransversalesLiderazgo.aspx.designer.cs">
+      <DependentUpon>EvaluacionesTransversalesLiderazgo.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI_EVALUACION\EvaluacionCompetenciasPuesto.aspx.cs">
+      <DependentUpon>EvaluacionCompetenciasPuesto.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI_EVALUACION\EvaluacionCompetenciasPuesto.aspx.designer.cs">
+      <DependentUpon>EvaluacionCompetenciasPuesto.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI_EVALUACION\pruebaM.aspx.cs">
+      <DependentUpon>pruebaM.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI_EVALUACION\pruebaM.aspx.designer.cs">
+      <DependentUpon>pruebaM.aspx</DependentUpon>
+    </Compile>
     <Compile Include="UI_REPORTES\ReporteSolicitudPeriodo.aspx.cs">
       <DependentUpon>ReporteSolicitudPeriodo.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -375,6 +429,8 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Documentos\" />
+    <Folder Include="obj\Debug\TempPE\" />
+    <Folder Include="obj\Release\TempPE\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Site.Master" />
@@ -404,6 +460,11 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Manual_Usuario_Etiquetas.pdf" />
+    <None Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <None Include="obj\Debug\WebUI.csprojResolveAssemblyReference.cache" />
+    <None Include="obj\Release\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <None Include="obj\Release\WebUI.csprojResolveAssemblyReference.cache" />
+    <None Include="Scripts\PIE.php" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

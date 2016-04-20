@@ -47,6 +47,7 @@
     <Compile Include="DA_DESTINATARIO.cs" />
     <Compile Include="DA_DIRECCION.cs" />
     <Compile Include="DA_DOCUMENTO.cs" />
+    <Compile Include="DA_EVALUACION_COMPETENCIA_PUESTO.cs" />
     <Compile Include="DA_ORDEN.cs" />
     <Compile Include="DA_PERFILES.cs" />
     <Compile Include="DA_PROVEEDOR.cs" />

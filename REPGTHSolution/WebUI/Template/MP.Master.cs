@@ -18,14 +18,14 @@ namespace WebUI.Template
 
             if (Session["PERFIL_ID"].ToString() != "1")
             {
-                MenuItemCollection menuItems = MnuPeti.Items;
-                MenuItem adminItem = new MenuItem();
-                foreach (MenuItem menuItem in menuItems)
-                {
-                    if (menuItem.Text == "Administracion")
-                        adminItem = menuItem;
-                }
-                menuItems.Remove(adminItem);
+                //MenuItemCollection menuItems = MnuPeti.Items;
+                //MenuItem adminItem = new MenuItem();
+                //foreach (MenuItem menuItem in menuItems)
+                //{
+                //    if (menuItem.Text == "Administracion")
+                //        adminItem = menuItem;
+                //}
+                //menuItems.Remove(adminItem);
 
             }
             

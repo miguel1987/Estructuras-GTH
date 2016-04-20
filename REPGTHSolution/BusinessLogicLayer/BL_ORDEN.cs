@@ -13,7 +13,8 @@ namespace BusinessLogicLayer
     public class BL_ORDEN
     {
         //Inicializamos web service para consulta y actualización de maestros genéricos.  
-        wsMaestros.mantenimientoMaestros wsMantenimientoMaestros = new wsMaestros.mantenimientoMaestros();  
+        //wsMaestros.mantenimientoMaestros wsMantenimientoMaestros = new wsMaestros.mantenimientoMaestros();
+        wsMaestros.mantenimientoEstructuras wsMantenimientoEstructuras = new wsMaestros.mantenimientoEstructuras();
 
         /// <summary>
         ///  Devuelve los datos de todos los Órdenes.
@@ -29,7 +30,7 @@ namespace BusinessLogicLayer
             {
                 foreach (var oBE_ORDEN_TMP in oORDEN)
                 {
-                    wsMaestros.BE_AREA[] oArea = wsMantenimientoMaestros.SeleccionarAreas();
+                    wsMaestros.BE_AREA[] oArea = wsMantenimientoEstructuras.SeleccionarAreas();
                     if (oArea != null)
                     {
                         foreach (var itemArea in oArea)
@@ -45,7 +46,7 @@ namespace BusinessLogicLayer
                                 oBE_ORDEN_TMP.oBE_AREA = oBE_AREA;
 
                                 //Asignar gerencia y empresa
-                                wsMaestros.BE_GERENCIA[] oGerencia = wsMantenimientoMaestros.SeleccionarGerencia();
+                                wsMaestros.BE_GERENCIA[] oGerencia = wsMantenimientoEstructuras.SeleccionarGerencia();
                                 if (oGerencia != null)
                                 {
                                     foreach (var itemGerencia in oGerencia)
@@ -59,7 +60,7 @@ namespace BusinessLogicLayer
                                             oBE_ORDEN_TMP.oBE_GERENCIA = oBE_GERENCIA;
                                             oBE_ORDEN_TMP.EMPRESA_ID = itemGerencia.EMPRESA_ID;
 
-                                            wsMaestros.BE_EMPRESA[] oEmpresa = wsMantenimientoMaestros.SeleccionarEmpresa();
+                                            wsMaestros.BE_EMPRESA[] oEmpresa = wsMantenimientoEstructuras.SeleccionarEmpresa();
                                             if (oEmpresa != null)
                                             {
                                                 foreach (var itemEmpresa in oEmpresa)

@@ -20,6 +20,7 @@ namespace WebUI.UI_ADMINISTRACION
         {
             this.validarUsuarioEnDominio();
             USUARIO = Guid.Parse(Session["PERSONAL_ID"].ToString());
+            
            
         }
 
@@ -68,6 +69,7 @@ namespace WebUI.UI_ADMINISTRACION
         protected void rgArea_InsertCommand(object sender, GridCommandEventArgs e)
         {
             GrabarActualizar(sender, e, "add");
+            
         }
 
 

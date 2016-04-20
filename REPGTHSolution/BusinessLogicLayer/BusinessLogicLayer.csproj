@@ -47,15 +47,18 @@
     <Compile Include="BL_AREA.cs" />
     <Compile Include="BL_CENTRO_COSTO.cs" />
     <Compile Include="BL_CENTRO_GESTOR.cs" />
+    <Compile Include="BL_COORDINACION.cs" />
     <Compile Include="BL_CUENTA_MAYOR.cs" />
     <Compile Include="BL_DESTINATARIO.cs" />
     <Compile Include="BL_DIRECCION.cs" />
     <Compile Include="BL_DOCUMENTO.cs" />
     <Compile Include="BL_EMPRESA.cs" />
+    <Compile Include="BL_EVALUACION_COMPETENCIAS_PUESTO.cs" />
     <Compile Include="BL_GERENCIA.cs" />
     <Compile Include="BL_ORDEN.cs" />
     <Compile Include="BL_PERFILES.cs" />
     <Compile Include="BL_PERSONAL.cs" />
+    <Compile Include="BL_PRESIDENCIA.cs" />
     <Compile Include="BL_PROVEEDOR.cs" />
     <Compile Include="BL_SOLICITUD.cs" />
     <Compile Include="BL_USUARIO.cs" />
@@ -95,6 +98,9 @@
     <None Include="Web References\wsMaestros\BE_AREA.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </None>
+    <None Include="Web References\wsMaestros\BE_COORDINACION.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
     <None Include="Web References\wsMaestros\BE_EMPRESA.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </None>
@@ -104,7 +110,13 @@
     <None Include="Web References\wsMaestros\BE_PERSONAL.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </None>
-    <None Include="Web References\wsMaestros\mantenimientoMaestros.wsdl" />
+    <None Include="Web References\wsMaestros\BE_PRESIDENCIA.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\wsMaestros\BE_PUESTO.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\wsMaestros\mantenimientoEstructuras.wsdl" />
     <None Include="Web References\wsMaestros\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
@@ -114,10 +126,10 @@
     <WebReferences Include="Web References\" />
   </ItemGroup>
   <ItemGroup>
-    <WebReferenceUrl Include="http://pelimrepaplv001/wsIPD/mantenimientoMaestros.asmx">
+    <WebReferenceUrl Include="http://localhost:9771/mantenimientoEstructuras.asmx">
       <UrlBehavior>Dynamic</UrlBehavior>
       <RelPath>Web References\wsMaestros\</RelPath>
-      <UpdateFromURL>http://pelimrepaplv001/wsIPD/mantenimientoMaestros.asmx</UpdateFromURL>
+      <UpdateFromURL>http://localhost:9771/mantenimientoEstructuras.asmx</UpdateFromURL>
       <ServiceLocationURL>
       </ServiceLocationURL>
       <CachedDynamicPropName>
@@ -127,7 +139,7 @@
     </WebReferenceUrl>
   </ItemGroup>
   <ItemGroup>
-    <None Include="Web References\wsMaestros\mantenimientoMaestros.disco" />
+    <None Include="Web References\wsMaestros\mantenimientoEstructuras.disco" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

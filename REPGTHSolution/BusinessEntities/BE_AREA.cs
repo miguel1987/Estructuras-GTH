@@ -12,6 +12,7 @@ namespace BusinessEntities
     {
         public Guid ID { get; set; }
         public Guid GERENCIA_ID { get; set; }
+        public String CODIGO { get; set; }
         public String DESCRIPCION { get; set; }
         public Int32 ESTADO { get; set; }
         public Guid EMPRESA_ID { get; set; }

@@ -168,7 +168,7 @@ namespace WebUI.UI_ARCHIVO
             LoadEmpresa(0);
             LoadGerencia(0);
             LoadCuentaMayor();
-            LoadAutorizador();
+            //LoadAutorizador();
             txtSolicitante.Text = Session["PERSONAL_NOMBRE_COMPLETO"].ToString();
 
         }
@@ -274,17 +274,17 @@ namespace WebUI.UI_ARCHIVO
 
         }
 
-        protected void LoadAutorizador()
-        {
-            BL_PERSONAL BL_PERSONAL = new BL_PERSONAL();
+        //protected void LoadAutorizador()
+        //{
+        //    BL_PERSONAL BL_PERSONAL = new BL_PERSONAL();
 
-            DropDownList ddlAutoriza = (DropDownList)rpbSolicitud.FindItemByValue("DatosSolicitud").FindControl("ddlAutoriza");
-            DropDownList ddlGerencia = (DropDownList)rpbSolicitud.FindItemByValue("DatosSolicitud").FindControl("ddlGerencia");
+        //    DropDownList ddlAutoriza = (DropDownList)rpbSolicitud.FindItemByValue("DatosSolicitud").FindControl("ddlAutoriza");
+        //    DropDownList ddlGerencia = (DropDownList)rpbSolicitud.FindItemByValue("DatosSolicitud").FindControl("ddlGerencia");
 
-            if (ddlGerencia.SelectedValue != String.Empty)
-                this.CargarDropDownList(ddlAutoriza, "ID", "NOMBRES_COMPLETOS", BL_PERSONAL.SeleccionarPersonalJefesPorGerencia(Guid.Parse(ddlGerencia.SelectedValue)));
+        //    if (ddlGerencia.SelectedValue != String.Empty)
+        //        this.CargarDropDownList(ddlAutoriza, "ID", "NOMBRES_COMPLETOS", BL_PERSONAL.SeleccionarPersonalJefesPorGerencia(Guid.Parse(ddlGerencia.SelectedValue)));
 
-        }
+        //}
 
         protected void LoadProveedor(int tipoSolicitud)
         {
@@ -590,7 +590,7 @@ namespace WebUI.UI_ARCHIVO
         {
             LoadGerencia(1);
             LoadArea(1);
-            LoadAutorizador();
+            //LoadAutorizador();
             LoadCentroCosto();
             LoadOrden();
             LoadCentroGestor();
@@ -600,7 +600,7 @@ namespace WebUI.UI_ARCHIVO
         protected void ddlGerencia_SelectedIndexChanged(object sender, EventArgs e)
         {
             LoadArea(1);
-            LoadAutorizador();
+            //LoadAutorizador();
             LoadCentroCosto();
             LoadOrden();
             LoadCentroGestor();
@@ -777,7 +777,7 @@ namespace WebUI.UI_ARCHIVO
 
                 ddlGerencia.SelectedValue = oBE_SOLICITUD.GERENCIA_ID.ToString();
 
-                LoadAutorizador();
+                //LoadAutorizador();
 
                 LoadArea(1);
 
@@ -1577,7 +1577,7 @@ namespace WebUI.UI_ARCHIVO
                             {
                                 //Enviar solicitud de aprobacion por correo
                                 //Obtener correo del autorizador
-                                emailAutorizador = BL_PERSONAL.GetEmailAutorizador(oBE_SOLICITUD.AUTORIZADOR, oBE_SOLICITUD.GERENCIA_ID);
+                                //emailAutorizador = BL_PERSONAL.GetEmailAutorizador(oBE_SOLICITUD.AUTORIZADOR, oBE_SOLICITUD.GERENCIA_ID);
                                 if (emailAutorizador != String.Empty)
                                 {
                                     if (BL_SOLICITUD.SolicitarAprobacionSolicitud(Guid.Parse(hdfSolicitudId.Value), emailAutorizador))
@@ -1626,7 +1626,7 @@ namespace WebUI.UI_ARCHIVO
                             {
                                 //Enviar solicitud de aprobacion por correo
                                 //Obtener correo del autorizador
-                                emailAutorizador = BL_PERSONAL.GetEmailAutorizador(oBE_SOLICITUD.AUTORIZADOR, oBE_SOLICITUD.GERENCIA_ID);
+                                //emailAutorizador = BL_PERSONAL.GetEmailAutorizador(oBE_SOLICITUD.AUTORIZADOR, oBE_SOLICITUD.GERENCIA_ID);
                                 if (emailAutorizador != String.Empty)
                                 {
                                     if (BL_SOLICITUD.SolicitarAprobacionSolicitud(Guid.Parse(hdfSolicitudId.Value), emailAutorizador))

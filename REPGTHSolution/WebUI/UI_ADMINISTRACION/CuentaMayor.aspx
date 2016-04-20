@@ -1,7 +1,7 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Template/MP.Master" CodeBehind="CuentaMayor.aspx.cs" Inherits="WebUI.UI_ADMINISTRACION.CuentaMayor" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-</asp:Content>
+<%--<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+</asp:Content>--%>
 <asp:Content ID="Content2" ContentPlaceHolderID="cph_contenedor" runat="server">
  <h1 class="tit_01">MANTENIMIENTO DE CUENTA MAYOR</h1>
  <telerik:RadGrid ID="rgCuentaMayor" HorizontalAlign="Center" runat="server"  

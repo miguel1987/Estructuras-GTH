@@ -12,7 +12,9 @@ namespace BusinessLogicLayer
     public class BL_AREA
     {
         //Inicializamos web service para consulta y actualización de maestros genéricos.  
-        wsMaestros.mantenimientoMaestros wsMantenimientoMaestros = new wsMaestros.mantenimientoMaestros();     
+        //wsMaestros.mantenimientoMaestros wsMantenimientoMaestros = new wsMaestros.mantenimientoMaestros();
+        wsMaestros.mantenimientoEstructuras wsMantenimientoEstructuras = new wsMaestros.mantenimientoEstructuras();
+        
 
         /// <summary>
         ///  Devuelve los datos de todas las AREAS.
@@ -20,7 +22,8 @@ namespace BusinessLogicLayer
         /// <returns> List de BE_AREA con los objetos de la entidad, que a su vez representan la tabla AREAS de la base de datos.En caso no haiga datos devuelve nothing </returns>
         public List<BE_AREA> SeleccionarArea()
         {
-            wsMaestros.BE_AREA[] oLista = wsMantenimientoMaestros.SeleccionarAreas();
+            wsMaestros.BE_AREA[] oLista = wsMantenimientoEstructuras.SeleccionarAreas();
+           
             List<BE_AREA> oListaAreas = new List<BE_AREA>();
             if (oLista != null)
             {
@@ -35,7 +38,8 @@ namespace BusinessLogicLayer
                     oArea.USUARIO_ACTUALIZACION = item.USUARIO_ACTUALIZACION;
                     oArea.ESTADO = item.ESTADO;
 
-                    wsMaestros.BE_GERENCIA[] oGerencia = wsMantenimientoMaestros.SeleccionarGerencia();
+                    wsMaestros.BE_GERENCIA[] oGerencia = wsMantenimientoEstructuras.SeleccionarGerencia();
+                   
                     if (oGerencia != null)
                     {
                         foreach (var itemGerencia in oGerencia)
@@ -49,7 +53,8 @@ namespace BusinessLogicLayer
                                 oArea.oBE_GERENCIA = oBE_GERENCIA;
                                 oArea.EMPRESA_ID = itemGerencia.EMPRESA_ID;
 
-                                wsMaestros.BE_EMPRESA[] oEmpresa = wsMantenimientoMaestros.SeleccionarEmpresa();
+                                wsMaestros.BE_EMPRESA[] oEmpresa = wsMantenimientoEstructuras.SeleccionarEmpresa();
+                                
                                 if (oEmpresa != null)
                                 {
                                     foreach (var itemEmpresa in oEmpresa)
@@ -89,7 +94,8 @@ namespace BusinessLogicLayer
         public List<BE_AREA> SeleccionarArea(Guid gerencia_id)
         {
 
-            wsMaestros.BE_AREA[] oLista = wsMantenimientoMaestros.SeleccionarAreas();
+            wsMaestros.BE_AREA[] oLista = wsMantenimientoEstructuras.SeleccionarAreas();
+            
             List<BE_AREA> oListaAreas = new List<BE_AREA>();
             foreach (var item in oLista)
             {
@@ -121,7 +127,7 @@ namespace BusinessLogicLayer
         public List<BE_AREA> SeleccionarAreaGerencia(Guid gerenciaId)
         {
 
-            wsMaestros.BE_AREA[] oLista = wsMantenimientoMaestros.SeleccionarAreas();
+            wsMaestros.BE_AREA[] oLista = wsMantenimientoEstructuras.SeleccionarAreas();
             List<BE_AREA> oListaAreas = new List<BE_AREA>();
             if (oLista != null)
             {
@@ -162,7 +168,7 @@ namespace BusinessLogicLayer
             oArea.ESTADO = oBE_AREA.ESTADO;
             oArea.GERENCIA_ID = oBE_AREA.GERENCIA_ID;
 
-            return wsMantenimientoMaestros.InsertarArea(oArea);
+            return wsMantenimientoEstructuras.InsertarArea(oArea);
 
         }
 
@@ -180,7 +186,7 @@ namespace BusinessLogicLayer
             oArea.ESTADO = oBE_AREA.ESTADO;
             oArea.GERENCIA_ID = oBE_AREA.GERENCIA_ID;
 
-            return wsMantenimientoMaestros.ActualizarArea(oArea);
+            return wsMantenimientoEstructuras.ActualizarArea(oArea);
         }
 
         /// <summary>
@@ -190,7 +196,7 @@ namespace BusinessLogicLayer
         /// <returns>True o False. True, si se ingreso con exito. False, si hubo un error al ingresar</returns>
         public Boolean EliminarArea(Guid area_id)
         {
-            return wsMantenimientoMaestros.EliminarArea(area_id);
+            return wsMantenimientoEstructuras.EliminarArea(area_id);
         }
 
     }

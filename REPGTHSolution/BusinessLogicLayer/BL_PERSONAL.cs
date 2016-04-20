@@ -10,7 +10,8 @@ namespace BusinessLogicLayer
     public class BL_PERSONAL
     {
         //Inicializamos web service para consulta y actualización de maestros genéricos.  
-        wsMaestros.mantenimientoMaestros wsMantenimientoMaestros = new wsMaestros.mantenimientoMaestros();  
+        //wsMaestros.mantenimientoMaestros wsMantenimientoMaestros = new wsMaestros.mantenimientoMaestros();
+        wsMaestros.mantenimientoEstructuras wsMantenimientoEstructuras = new wsMaestros.mantenimientoEstructuras();
 
         /// <summary>
         /// Devuelve los datos de todo el personal
@@ -18,7 +19,7 @@ namespace BusinessLogicLayer
         /// <returns>List de BE_PERSONAL con los objetos de la entidad, que a su vez representan la tabla BE_PERSONAL de la base de datos. En caso no haiga datos devuelve nothing.</returns>
         public List<BE_PERSONAL> SeleccionarPersonal()
         {
-            wsMaestros.BE_PERSONAL[] oLista = wsMantenimientoMaestros.SeleccionarPersonalGenerico();
+            wsMaestros.BE_PERSONAL[] oLista = wsMantenimientoEstructuras.SeleccionarPersonal();
             List<BE_PERSONAL> oPERSONAL = new List<BE_PERSONAL>();
             BE_PERFILES oBE_PERFILES = null;
             BE_USUARIO oBE_USUARIO = null;
@@ -55,7 +56,7 @@ namespace BusinessLogicLayer
                     oBE_PERSONAL.oBE_PERFILES = oBE_PERFILES;
                 }
 
-                wsMaestros.BE_AREA[] oArea = wsMantenimientoMaestros.SeleccionarAreas();
+                wsMaestros.BE_AREA[] oArea = wsMantenimientoEstructuras.SeleccionarAreas();
                 if (oArea != null)
                 {
                     foreach (var itemArea in oArea)
@@ -67,8 +68,8 @@ namespace BusinessLogicLayer
                             oBE_AREA.DESCRIPCION = itemArea.DESCRIPCION;
                             oBE_AREA.GERENCIA_ID = itemArea.GERENCIA_ID;
                             oBE_PERSONAL.oBE_AREA = oBE_AREA;
-                            
-                            wsMaestros.BE_GERENCIA[] oGerencia = wsMantenimientoMaestros.SeleccionarGerencia();
+
+                            wsMaestros.BE_GERENCIA[] oGerencia = wsMantenimientoEstructuras.SeleccionarGerencia();
                             if (oGerencia != null)
                             {
                                 foreach (var itemGerencia in oGerencia)
@@ -81,7 +82,7 @@ namespace BusinessLogicLayer
                                         oBE_GERENCIA.DESCRIPCION = itemGerencia.DESCRIPCION;
                                         oBE_PERSONAL.oBE_GERENCIA = oBE_GERENCIA;
 
-                                        wsMaestros.BE_EMPRESA[] oEmpresa = wsMantenimientoMaestros.SeleccionarEmpresa();
+                                        wsMaestros.BE_EMPRESA[] oEmpresa = wsMantenimientoEstructuras.SeleccionarEmpresa();
                                         if (oEmpresa != null)
                                         {
                                             foreach (var itemEmpresa in oEmpresa)
@@ -130,7 +131,7 @@ namespace BusinessLogicLayer
         /// <returns>List de BE_PERSONAL con los objetos de la entidad, que a su vez representan la tabla BE_PERSONAL de la base de datos. En caso no haiga datos devuelve nothing.</returns>
         public BE_PERSONAL SeleccionarPersonalPorUsuario(String NombreUsuario)
         {
-            wsMaestros.BE_PERSONAL oPersonal = wsMantenimientoMaestros.SeleccionarPersonalGenericoPorUsuario(NombreUsuario);
+            wsMaestros.BE_PERSONAL oPersonal = wsMantenimientoEstructuras.SeleccionarPersonalPorUsuario(NombreUsuario);
             
             BE_PERSONAL oBE_PERSONAL = new BE_PERSONAL();                   
 
@@ -161,65 +162,65 @@ namespace BusinessLogicLayer
         /// <param name="autorizador_id">id del jefe que autoriza la solicitud</param>
         /// <param name="gerencia_id">id gerencia a la que pertenece el jefe que autoriza la solicitud</param>
         /// <returns>String con el email del jefe que autoriza la solicitud. En caso no haiga datos devuelve string.empty.</returns>
-        public string GetEmailAutorizador(Guid autorizador_id, Guid gerencia_id)
-        {
-            wsMaestros.BE_PERSONAL[] oLista = wsMantenimientoMaestros.SeleccionarPersonalGenericoJefesPorGerencia(gerencia_id);
+        //public string GetEmailAutorizador(Guid autorizador_id, Guid gerencia_id)
+        //{
+        //    wsMaestros.BE_PERSONAL[] oLista = wsMantenimientoEstructuras.SeleccionarPersonalGenericoJefesPorGerencia(gerencia_id);
 
-            string email = String.Empty;
+        //    string email = String.Empty;
 
-            foreach (var item in oLista)
-            {
-                if (item.ID == autorizador_id)
-                {
-                    if (item.CORREO != null)
-                        email = item.CORREO;
-                    else
-                        email = string.Empty;
-                }
-            }
+        //    foreach (var item in oLista)
+        //    {
+        //        if (item.ID == autorizador_id)
+        //        {
+        //            if (item.CORREO != null)
+        //                email = item.CORREO;
+        //            else
+        //                email = string.Empty;
+        //        }
+        //    }
 
-            return email;
-        }
+        //    return email;
+        //}
 
         /// <summary>
         /// Devuelve los datos de los jefes que corresponden a una gerencia especificada
         /// </summary>
         /// <param name="gerencia_id">nombre de usuario al cual se desea consultar</param>
         /// <returns>List de BE_PERSONAL con los objetos de la entidad, que a su vez representan la tabla BE_PERSONAL de la base de datos. En caso no haiga datos devuelve nothing.</returns>
-        public List<BE_PERSONAL> SeleccionarPersonalJefesPorGerencia(Guid gerencia_id)
-        {
-            wsMaestros.BE_PERSONAL[] oLista = wsMantenimientoMaestros.SeleccionarPersonalGenericoJefesPorGerencia(gerencia_id);
+        //public List<BE_PERSONAL> SeleccionarPersonalJefesPorGerencia(Guid gerencia_id)
+        //{
+        //    wsMaestros.BE_PERSONAL[] oLista = wsMantenimientoEstructuras.SeleccionarPersonalGenericoJefesPorGerencia(gerencia_id);
 
-            List<BE_PERSONAL> oPERSONAL = new List<BE_PERSONAL>();
+        //    List<BE_PERSONAL> oPERSONAL = new List<BE_PERSONAL>();
 
-            if (oLista != null)
-            {
+        //    if (oLista != null)
+        //    {
 
-                foreach (var item in oLista)
-                {
-                    BE_PERSONAL oBE_PERSONAL = new BE_PERSONAL();
-                    oBE_PERSONAL.ID = item.ID;
-                    oBE_PERSONAL.CODIGO_TRABAJO = item.CODIGO_TRABAJO;
-                    oBE_PERSONAL.APELLIDO_PATERNO = item.APELLIDO_PATERNO;
-                    oBE_PERSONAL.APELLIDO_MATERNO = item.APELLIDO_MATERNO;
-                    oBE_PERSONAL.NOMBRES = item.NOMBRES;
-                    oBE_PERSONAL.NOMBRES_COMPLETOS = item.NOMBRES_COMPLETOS;
-                    oBE_PERSONAL.GERENCIA_ID = item.GERENCIA_ID;
-                    oBE_PERSONAL.AREA_ID = item.AREA_ID;
-                    oBE_PERSONAL.DEPARTAMENTO = item.DEPARTAMENTO;
-                    oBE_PERSONAL.PUESTO = item.PUESTO;
-                    oBE_PERSONAL.CORREO = item.CORREO;
-                    oBE_PERSONAL.NOMBRE_USUARIO = item.NOMBRE_USUARIO;
-                    oBE_PERSONAL.EMPRESA_ID = item.EMPRESA_ID;
-                    oBE_PERSONAL.ES_JEFE = item.ES_JEFE;
-                    oBE_PERSONAL.NOMBRES_COMPLETOS_EMAIL = String.Format("{0} <{1}>", oBE_PERSONAL.NOMBRES_COMPLETOS, oBE_PERSONAL.CORREO);
+        //        foreach (var item in oLista)
+        //        {
+        //            BE_PERSONAL oBE_PERSONAL = new BE_PERSONAL();
+        //            oBE_PERSONAL.ID = item.ID;
+        //            oBE_PERSONAL.CODIGO_TRABAJO = item.CODIGO_TRABAJO;
+        //            oBE_PERSONAL.APELLIDO_PATERNO = item.APELLIDO_PATERNO;
+        //            oBE_PERSONAL.APELLIDO_MATERNO = item.APELLIDO_MATERNO;
+        //            oBE_PERSONAL.NOMBRES = item.NOMBRES;
+        //            oBE_PERSONAL.NOMBRES_COMPLETOS = item.NOMBRES_COMPLETOS;
+        //            oBE_PERSONAL.GERENCIA_ID = item.GERENCIA_ID;
+        //            oBE_PERSONAL.AREA_ID = item.AREA_ID;
+        //            oBE_PERSONAL.DEPARTAMENTO = item.DEPARTAMENTO;
+        //            oBE_PERSONAL.PUESTO = item.PUESTO;
+        //            oBE_PERSONAL.CORREO = item.CORREO;
+        //            oBE_PERSONAL.NOMBRE_USUARIO = item.NOMBRE_USUARIO;
+        //            oBE_PERSONAL.EMPRESA_ID = item.EMPRESA_ID;
+        //            oBE_PERSONAL.ES_JEFE = item.ES_JEFE;
+        //            oBE_PERSONAL.NOMBRES_COMPLETOS_EMAIL = String.Format("{0} <{1}>", oBE_PERSONAL.NOMBRES_COMPLETOS, oBE_PERSONAL.CORREO);
 
-                    oPERSONAL.Add(oBE_PERSONAL);
-                }
-            }
+        //            oPERSONAL.Add(oBE_PERSONAL);
+        //        }
+        //    }
 
-            return oPERSONAL;
-        }
+        //    return oPERSONAL;
+        //}
 
         /// <summary>
         ///  Devuelve los tipos de jefe: Si o no.
@@ -279,7 +280,7 @@ namespace BusinessLogicLayer
                 BL_USUARIO.InsertarUsuario(oUsuario);
             }
 
-            return wsMantenimientoMaestros.InsertarPersonalGenerico(oPersonal);
+            return wsMantenimientoEstructuras.InsertarPersonal(oPersonal);
 
         }
 
@@ -332,7 +333,7 @@ namespace BusinessLogicLayer
                 }
             }
 
-            return wsMantenimientoMaestros.ActualizarPersonalGenerico(oPersonal);
+            return wsMantenimientoEstructuras.ActualizarPersonal(oPersonal);
         }
         
         /// <summary>
@@ -343,7 +344,7 @@ namespace BusinessLogicLayer
         public Boolean EliminarPersonal(Guid personal_id)
         {
             BL_USUARIO.EliminarUsuarioPorPersonal(personal_id);
-            return wsMantenimientoMaestros.EliminarPersonal(personal_id);
+            return wsMantenimientoEstructuras.EliminarPersonal(personal_id);
         }
     }
 }

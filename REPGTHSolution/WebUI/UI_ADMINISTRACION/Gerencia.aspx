@@ -1,6 +1,7 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Template/MP.Master" AutoEventWireup="true" CodeBehind="Gerencia.aspx.cs" Inherits="WebUI.UI_ADMINISTRACION.Gerencia" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-</asp:Content>
+<%--<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+</asp:Content>--%>
+
 <asp:Content ID="Content2" ContentPlaceHolderID="cph_contenedor" runat="server">
  <h1 class="tit_01">MANTENIMIENTO DE GERENCIA</h1>
  <script type="text/javascript">
@@ -8,6 +9,7 @@
          radalert(text, null, null, "Elimnar Gerencia");
      }
     </script>
+    <link href="../Styles/Grid.MySilk.css" rel="stylesheet" type="text/css" />
  <telerik:RadGrid ID="rgGerencia" HorizontalAlign="Center" runat="server"  
         CellSpacing="0" Culture="es-ES" DataSourceID="odsGerencia"
         OnInsertCommand="rgGerencia_InsertCommand" OnDeleteCommand="rgGerencia_DeleteCommand"
@@ -18,6 +20,7 @@
         <ExportSettings>
             <Pdf PageWidth="" />
         </ExportSettings>
+        
         <MasterTableView DataSourceID="odsGerencia" AllowFilteringByColumn="True" CommandItemDisplay="Top" EditMode="EditForms"
          ShowHeadersWhenNoRecords="true" EnableNoRecordsTemplate="True" ShowHeader="True" HorizontalAlign="NotSet" AutoGenerateColumns="False"   
          OverrideDataSourceControlSorting="true">

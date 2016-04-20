@@ -1,9 +1,10 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Template/MP.Master" CodeBehind="CentroCosto.aspx.cs" Inherits="WebUI.UI_ADMINISTRACION.CentroCosto" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-</asp:Content>
+<%--<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+</asp:Content>--%>
 <asp:Content ID="Content2" ContentPlaceHolderID="cph_contenedor" runat="server">
  <h1 class="tit_01">MANTENIMIENTO DE CENTRO DE COSTO</h1>
+    <link href="../Styles/Grid.MySilk.css" rel="stylesheet" type="text/css" />
  <telerik:RadGrid ID="rgCentroCosto" HorizontalAlign="Center" runat="server" EditMode="InPlace"  
         CellSpacing="0" Culture="es-ES" DataSourceID="odsCentroCosto"
         OnInsertCommand="rgCentroCosto_InsertCommand" OnDeleteCommand="rgCentroCosto_DeleteCommand"

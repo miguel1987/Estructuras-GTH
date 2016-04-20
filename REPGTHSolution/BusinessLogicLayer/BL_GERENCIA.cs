@@ -12,7 +12,8 @@ namespace BusinessLogicLayer
     public class BL_GERENCIA
     {
         //Inicializamos web service para consulta y actualización de maestros genéricos.  
-        wsMaestros.mantenimientoMaestros wsMantenimientoMaestros = new wsMaestros.mantenimientoMaestros();      
+        //wsMaestros.mantenimientoMaestros wsMantenimientoMaestros = new wsMaestros.mantenimientoMaestros();  
+        wsMaestros.mantenimientoEstructuras wsMantenimientoEstructuras = new wsMaestros.mantenimientoEstructuras();
 
 
         /// <summary>
@@ -22,7 +23,7 @@ namespace BusinessLogicLayer
         public List<BE_GERENCIA> SeleccionarGerencia()
         {                     
             
-            wsMaestros.BE_GERENCIA[] oLista = wsMantenimientoMaestros.SeleccionarGerencia();
+            wsMaestros.BE_GERENCIA[] oLista = wsMantenimientoEstructuras.SeleccionarGerencia();
             List<BE_GERENCIA> oListaGerencia = new List<BE_GERENCIA>();
             if (oLista != null)
             {
@@ -37,7 +38,7 @@ namespace BusinessLogicLayer
                     oGerencia.ESTADO = item.ESTADO;
                     oGerencia.EMPRESA_ID = item.EMPRESA_ID;
 
-                    wsMaestros.BE_EMPRESA[] oEmpresa = wsMantenimientoMaestros.SeleccionarEmpresa();
+                    wsMaestros.BE_EMPRESA[] oEmpresa = wsMantenimientoEstructuras.SeleccionarEmpresa();
                    // List<BE_EMPRESA> oListaEmpresa = new List<BE_EMPRESA>();
                     if (oEmpresa != null)
                     {
@@ -71,7 +72,7 @@ namespace BusinessLogicLayer
         public List<BE_GERENCIA> SeleccionarGerencia(Guid empresa_id)
         {
 
-            wsMaestros.BE_GERENCIA[] oLista = wsMantenimientoMaestros.SeleccionarGerenciaPorEmpresa(empresa_id);
+            wsMaestros.BE_GERENCIA[] oLista = wsMantenimientoEstructuras.SeleccionarGerenciaPorEmpresa(empresa_id);
             List<BE_GERENCIA> oListaGerencia = new List<BE_GERENCIA>();
             if (oLista != null)
             {
@@ -100,7 +101,7 @@ namespace BusinessLogicLayer
         public List<BE_GERENCIA> SeleccionarGerenciaPorEmpresa(Guid empresa_id)
         {
 
-            wsMaestros.BE_GERENCIA[] oLista = wsMantenimientoMaestros.SeleccionarGerenciaPorEmpresa(empresa_id);
+            wsMaestros.BE_GERENCIA[] oLista = wsMantenimientoEstructuras.SeleccionarGerenciaPorEmpresa(empresa_id);
             List<BE_GERENCIA> oListaGerencia = new List<BE_GERENCIA>();
 
             if (oLista != null)
@@ -139,7 +140,7 @@ namespace BusinessLogicLayer
             oGerencia.ESTADO = oBE_GERENCIA.ESTADO;
             oGerencia.EMPRESA_ID = oBE_GERENCIA.EMPRESA_ID;
 
-            return wsMantenimientoMaestros.InsertarGerencia(oGerencia);
+            return wsMantenimientoEstructuras.InsertarGerencia(oGerencia);
              
         }
 
@@ -157,7 +158,7 @@ namespace BusinessLogicLayer
             oGerencia.ESTADO = oBE_GERENCIA.ESTADO;
             oGerencia.EMPRESA_ID = oBE_GERENCIA.EMPRESA_ID;
 
-            return wsMantenimientoMaestros.ActualizarGerencia(oGerencia);
+            return wsMantenimientoEstructuras.ActualizarGerencia(oGerencia);
         }
 
         /// <summary>
@@ -167,7 +168,7 @@ namespace BusinessLogicLayer
         /// <returns>True o False. True, si se ingreso con exito. False, si hubo un error al ingresar</returns>
         public Boolean EliminarGerencia(Guid gerencia_id)
         {
-            return wsMantenimientoMaestros.EliminarGerencia(gerencia_id);
+            return wsMantenimientoEstructuras.EliminarGerencia(gerencia_id);
         }
 
     }
