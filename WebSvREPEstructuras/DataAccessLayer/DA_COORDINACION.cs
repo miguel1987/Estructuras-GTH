@@ -192,7 +192,7 @@ namespace DataAccessLayer
                 {
                     Connection = cnx,
                     CommandType = CommandType.StoredProcedure,
-                    CommandText = "USP_COORDDINACION_SELECCIONAR_POR_AREA"
+                    CommandText = "USP_COORDINACION_SELECCIONAR_POR_AREA"
                 })
                 {
 

@@ -124,7 +124,7 @@ namespace DataAccessLayer
                 })
                 {
                     
-                    objCmd.Parameters.Add("@PERSONAL_EMPRESA", SqlDbType.UniqueIdentifier).Value = empresa_id;
+                    objCmd.Parameters.Add("@EMPRESA_ID", SqlDbType.UniqueIdentifier).Value = empresa_id;
 
                     cnx.Open();
                     dr = objCmd.ExecuteReader();
@@ -142,8 +142,7 @@ namespace DataAccessLayer
                     int PERSONAL_COORDINACION_ID = dr.GetOrdinal("PERSONAL_COORDINACION");
                     int PERSONAL_PUESTO_ID = dr.GetOrdinal("PERSONAL_PUESTO");                    
                     int PERSONAL_GRUPO_ORGANIZACIONAL_ID = dr.GetOrdinal("PERSONAL_GRUPO_ORGANIZACIONAL");
-                    int PERSONAL_CORREO = dr.GetOrdinal("PERSONAL_CORREO");
-                    int NOMBRE_USUARIO = dr.GetOrdinal("PERSONAL_NOMBRE_USUARIO");                    
+                    int PERSONAL_CORREO = dr.GetOrdinal("PERSONAL_CORREO");                                      
                     
                     // creamos un objeto del tamaño de la tupla en el array de objeto Valores
                     object[] Valores = new object[dr.FieldCount];
@@ -172,10 +171,7 @@ namespace DataAccessLayer
                             oBE_PERSONAL.COORDINACION_ID = DBNull.Value == Valores.GetValue(PERSONAL_COORDINACION_ID) ? Guid.Empty : (Guid)Valores.GetValue(PERSONAL_COORDINACION_ID);
                             oBE_PERSONAL.PUESTO_ID = (Guid)Valores.GetValue(PERSONAL_PUESTO_ID);
                             oBE_PERSONAL.GRUPO_ORGANIZACIONAL_ID = DBNull.Value == Valores.GetValue(PERSONAL_GRUPO_ORGANIZACIONAL_ID) ? Guid.Empty : (Guid)Valores.GetValue(PERSONAL_GRUPO_ORGANIZACIONAL_ID);                            
-                            oBE_PERSONAL.CORREO = Valores.GetValue(PERSONAL_CORREO).ToString();
-                            oBE_PERSONAL.NOMBRE_USUARIO = Valores.GetValue(NOMBRE_USUARIO).ToString();
-
-                            if (DBNull.Value != Valores.GetValue(NOMBRE_USUARIO)) oBE_PERSONAL.NOMBRE_USUARIO = Valores.GetValue(NOMBRE_USUARIO).ToString();
+                            oBE_PERSONAL.CORREO = Valores.GetValue(PERSONAL_CORREO).ToString();                           
 
                             oPERSONAL.Add(oBE_PERSONAL);
                         }
@@ -215,7 +211,7 @@ namespace DataAccessLayer
                     CommandText = "USP_PERSONAL_SELECCIONAR_GERENTES_POR_EMPRESA"
                 })
                 {
-                    objCmd.Parameters.Add("@PERSONAL_EMPRESA", SqlDbType.UniqueIdentifier).Value = empresa_id;
+                    objCmd.Parameters.Add("@EMPRESA_ID", SqlDbType.UniqueIdentifier).Value = empresa_id;
 
                     cnx.Open();
                     dr = objCmd.ExecuteReader();
@@ -234,7 +230,7 @@ namespace DataAccessLayer
                     int PERSONAL_PUESTO_ID = dr.GetOrdinal("PERSONAL_PUESTO");                    
                     int PERSONAL_GRUPO_ORGANIZACIONAL_ID = dr.GetOrdinal("PERSONAL_GRUPO_ORGANIZACIONAL");
                     int PERSONAL_CORREO = dr.GetOrdinal("PERSONAL_CORREO");
-                    int NOMBRE_USUARIO = dr.GetOrdinal("PERSONAL_NOMBRE_USUARIO");
+                    
 
                     // creamos un objeto del tamaño de la tupla en el array de objeto Valores
                     object[] Valores = new object[dr.FieldCount];
@@ -264,9 +260,9 @@ namespace DataAccessLayer
                             oBE_PERSONAL.PUESTO_ID = (Guid)Valores.GetValue(PERSONAL_PUESTO_ID);
                             oBE_PERSONAL.GRUPO_ORGANIZACIONAL_ID = DBNull.Value == Valores.GetValue(PERSONAL_GRUPO_ORGANIZACIONAL_ID) ? Guid.Empty : (Guid)Valores.GetValue(PERSONAL_GRUPO_ORGANIZACIONAL_ID);                            
                             oBE_PERSONAL.CORREO = Valores.GetValue(PERSONAL_CORREO).ToString();
-                            oBE_PERSONAL.NOMBRE_USUARIO = Valores.GetValue(NOMBRE_USUARIO).ToString();
+                            
 
-                            if (DBNull.Value != Valores.GetValue(NOMBRE_USUARIO)) oBE_PERSONAL.NOMBRE_USUARIO = Valores.GetValue(NOMBRE_USUARIO).ToString();
+                            
 
                             oPERSONAL.Add(oBE_PERSONAL);
                         }
@@ -305,7 +301,7 @@ namespace DataAccessLayer
                     CommandText = "USP_PERSONAL_SELECCIONAR_POR_GERENCIA"
                 })
                 {
-                    objCmd.Parameters.Add("@PERSONAL_GERENCIA", SqlDbType.UniqueIdentifier).Value = gerencia_id;
+                    objCmd.Parameters.Add("@GERENCIA_ID", SqlDbType.UniqueIdentifier).Value = gerencia_id;
 
                     cnx.Open();
                     dr = objCmd.ExecuteReader();
@@ -324,7 +320,7 @@ namespace DataAccessLayer
                     int PERSONAL_PUESTO_ID = dr.GetOrdinal("PERSONAL_PUESTO");                    
                     int PERSONAL_GRUPO_ORGANIZACIONAL_ID = dr.GetOrdinal("PERSONAL_GRUPO_ORGANIZACIONAL");
                     int PERSONAL_CORREO = dr.GetOrdinal("PERSONAL_CORREO");
-                    int NOMBRE_USUARIO = dr.GetOrdinal("PERSONAL_NOMBRE_USUARIO");
+                    
 
                     // creamos un objeto del tamaño de la tupla en el array de objeto Valores
                     object[] Valores = new object[dr.FieldCount];
@@ -354,9 +350,9 @@ namespace DataAccessLayer
                             oBE_PERSONAL.PUESTO_ID = (Guid)Valores.GetValue(PERSONAL_PUESTO_ID);
                             oBE_PERSONAL.GRUPO_ORGANIZACIONAL_ID = DBNull.Value == Valores.GetValue(PERSONAL_GRUPO_ORGANIZACIONAL_ID) ? Guid.Empty : (Guid)Valores.GetValue(PERSONAL_GRUPO_ORGANIZACIONAL_ID);                            
                             oBE_PERSONAL.CORREO = Valores.GetValue(PERSONAL_CORREO).ToString();
-                            oBE_PERSONAL.NOMBRE_USUARIO = Valores.GetValue(NOMBRE_USUARIO).ToString();
+                            
 
-                            if (DBNull.Value != Valores.GetValue(NOMBRE_USUARIO)) oBE_PERSONAL.NOMBRE_USUARIO = Valores.GetValue(NOMBRE_USUARIO).ToString();
+                           
 
                             oPERSONAL.Add(oBE_PERSONAL);
                         }
@@ -370,6 +366,7 @@ namespace DataAccessLayer
                 throw ex;
             }
             finally
+            
             {
                 cnx.Close();
             }
@@ -395,7 +392,7 @@ namespace DataAccessLayer
                     CommandText = "USP_PERSONAL_SELECCIONAR_POR_AREA"
                 })
                 {
-                    objCmd.Parameters.Add("@PERSONAL_AREA", SqlDbType.UniqueIdentifier).Value = area_id;
+                    objCmd.Parameters.Add("@AREA_ID", SqlDbType.UniqueIdentifier).Value = area_id;
 
                     cnx.Open();
                     dr = objCmd.ExecuteReader();
@@ -414,7 +411,7 @@ namespace DataAccessLayer
                     int PERSONAL_PUESTO_ID = dr.GetOrdinal("PERSONAL_PUESTO");
                     int PERSONAL_GRUPO_ORGANIZACIONAL_ID = dr.GetOrdinal("PERSONAL_GRUPO_ORGANIZACIONAL");
                     int PERSONAL_CORREO = dr.GetOrdinal("PERSONAL_CORREO");
-                    int NOMBRE_USUARIO = dr.GetOrdinal("PERSONAL_NOMBRE_USUARIO");
+                    
 
                     // creamos un objeto del tamaño de la tupla en el array de objeto Valores
                     object[] Valores = new object[dr.FieldCount];
@@ -444,9 +441,9 @@ namespace DataAccessLayer
                             oBE_PERSONAL.PUESTO_ID = (Guid)Valores.GetValue(PERSONAL_PUESTO_ID);
                             oBE_PERSONAL.GRUPO_ORGANIZACIONAL_ID = DBNull.Value == Valores.GetValue(PERSONAL_GRUPO_ORGANIZACIONAL_ID) ? Guid.Empty : (Guid)Valores.GetValue(PERSONAL_GRUPO_ORGANIZACIONAL_ID);                            
                             oBE_PERSONAL.CORREO = Valores.GetValue(PERSONAL_CORREO).ToString();
-                            oBE_PERSONAL.NOMBRE_USUARIO = Valores.GetValue(NOMBRE_USUARIO).ToString();
+                            
 
-                            if (DBNull.Value != Valores.GetValue(NOMBRE_USUARIO)) oBE_PERSONAL.NOMBRE_USUARIO = Valores.GetValue(NOMBRE_USUARIO).ToString();
+                            
 
                             oPERSONAL.Add(oBE_PERSONAL);
                         }
@@ -485,7 +482,7 @@ namespace DataAccessLayer
                     CommandText = "USP_PERSONAL_SELECCIONAR_POR_COORDINACION"
                 })
                 {
-                    objCmd.Parameters.Add("@PERSONAL_COORDINACION", SqlDbType.UniqueIdentifier).Value = coordinacion_id;
+                    objCmd.Parameters.Add("@COORDINACION_ID", SqlDbType.UniqueIdentifier).Value = coordinacion_id;
 
                     cnx.Open();
                     dr = objCmd.ExecuteReader();
@@ -504,7 +501,7 @@ namespace DataAccessLayer
                     int PERSONAL_PUESTO_ID = dr.GetOrdinal("PERSONAL_PUESTO");
                     int PERSONAL_GRUPO_ORGANIZACIONAL_ID = dr.GetOrdinal("PERSONAL_GRUPO_ORGANIZACIONAL");
                     int PERSONAL_CORREO = dr.GetOrdinal("PERSONAL_CORREO");
-                    int NOMBRE_USUARIO = dr.GetOrdinal("PERSONAL_NOMBRE_USUARIO");
+                    
 
                     // creamos un objeto del tamaño de la tupla en el array de objeto Valores
                     object[] Valores = new object[dr.FieldCount];
@@ -534,9 +531,9 @@ namespace DataAccessLayer
                             oBE_PERSONAL.PUESTO_ID = (Guid)Valores.GetValue(PERSONAL_PUESTO_ID);
                             oBE_PERSONAL.GRUPO_ORGANIZACIONAL_ID = DBNull.Value == Valores.GetValue(PERSONAL_GRUPO_ORGANIZACIONAL_ID) ? Guid.Empty : (Guid)Valores.GetValue(PERSONAL_GRUPO_ORGANIZACIONAL_ID);                            
                             oBE_PERSONAL.CORREO = Valores.GetValue(PERSONAL_CORREO).ToString();
-                            oBE_PERSONAL.NOMBRE_USUARIO = Valores.GetValue(NOMBRE_USUARIO).ToString();
+                            
 
-                            if (DBNull.Value != Valores.GetValue(NOMBRE_USUARIO)) oBE_PERSONAL.NOMBRE_USUARIO = Valores.GetValue(NOMBRE_USUARIO).ToString();
+                            
 
                             oPERSONAL.Add(oBE_PERSONAL);
                         }
