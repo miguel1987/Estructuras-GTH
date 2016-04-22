@@ -50,6 +50,7 @@
     <Compile Include="BE_DIRECCION.cs" />
     <Compile Include="BE_DOCUMENTO.cs" />
     <Compile Include="BE_EMPRESA.cs" />
+    <Compile Include="BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES.cs.cs" />
     <Compile Include="BE_EVALUACION_COMPETENCIA_PUESTO.cs" />
     <Compile Include="BE_GENERICO.cs" />
     <Compile Include="BE_GERENCIA.cs" />

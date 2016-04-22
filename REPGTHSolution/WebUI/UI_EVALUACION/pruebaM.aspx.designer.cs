@@ -31,21 +31,21 @@ namespace WebUI.UI_EVALUACION {
         protected global::System.Web.UI.WebControls.TreeView TreeView1;
         
         /// <summary>
-        /// rgEvaluaciones control.
+        /// RadGrid1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Telerik.Web.UI.RadGrid rgEvaluaciones;
+        protected global::Telerik.Web.UI.RadGrid RadGrid1;
         
         /// <summary>
-        /// odsGerencia control.
+        /// odsEvaluacionesTransversales control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ObjectDataSource odsGerencia;
+        protected global::System.Web.UI.WebControls.ObjectDataSource odsEvaluacionesTransversales;
     }
 }

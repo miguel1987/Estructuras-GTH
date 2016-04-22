@@ -12,6 +12,7 @@ namespace BusinessEntities
       public string PERSONAL_DESCRIPCION { get; set; }
       public Guid PUESTO_ID { get; set; }
       public string PUESTO_DESCRIPCION { get; set; }
+      public string CODIGO { get; set; }
       public Guid COMPETENCIA_ID { get; set; }
       public int VALOR_REAL { get; set; }
       public string COMENTARIO { get; set; }
@@ -26,6 +27,15 @@ namespace BusinessEntities
           Pendiente = 0,
           En_Evaluacion = 1,
           Evaluado = 2
+      }
+
+      public enum PERSONAL_CODIGO
+      {
+              GE=1,
+              SE=2,
+              JD=3,
+              CO=4
+      
       }
 
     }

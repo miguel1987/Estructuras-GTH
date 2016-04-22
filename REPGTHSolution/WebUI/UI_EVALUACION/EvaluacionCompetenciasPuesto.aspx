@@ -17,41 +17,47 @@
       </div>
           <div class="margen"></div>
           <table border="0" cellspacing="0" cellpadding="0" 
-        style="width: 104%; height: 110px" >
+        style="width: 99%; height: 726px" >
         <link href="../Styles/Grid.MySilk.css" rel="stylesheet" type="text/css" />
         <tr>
-              <td valign="top" style="width: 73px" <div class="cont_frm">
+              <td valign="top" style="width: 24px"> <div class="cont_frm">
               
-              <telerik:RadTreeView  ID="rtvEstructuras" runat="server"  OnNodeClick="rtvEstructuras_NodeClick"></telerik:RadTreeView>
-              </td>              
-              <td valign="top" style="width: 269px">
+              <telerik:RadTreeView  ID="rtvEstructuras" runat="server"  OnNodeClick="rtvEstructuras_NodeClick" ></telerik:RadTreeView>
+             </div> </td>              
+              <td valign="top" style="width: 269px"> <div class="cont_frm">
               <telerik:RadGrid ID="rgEvaluaciones" HorizontalAlign="Center" runat="server"  
         CellSpacing="0" Culture="es-ES" DataSourceID="odsEvaluacionesEstado"
-        PageSize="10" GridLines="None" AllowPaging="True" Width="50%" AllowSorting="true" 
-        EnableEmbeddedSkins="False" Skin="MySilk" ImagesPath="../Styles/Grid/" style="margin: auto">
+        PageSize="10" GridLines="None" AllowPaging="True" Width="100%" AllowSorting="true" 
+        EnableEmbeddedSkins="False" Skin="MySilk" ImagesPath="../Styles/Grid/" >
+        
+
+       
         <ExportSettings>
             <Pdf PageWidth="" />
         </ExportSettings>
         
-        <MasterTableView DataSourceID="odsEvaluacionesEstado" CommandItemDisplay="Top" DataKeyNames="ID"
+        <MasterTableView DataSourceID="odsEvaluacionesEstado" font-size = "9" CommandItemDisplay="None" DataKeyNames="ID"
          ShowHeadersWhenNoRecords="true" EnableNoRecordsTemplate="True" ShowHeader="True" HorizontalAlign="NotSet" AutoGenerateColumns="False"   
          OverrideDataSourceControlSorting="true">
             <NoRecordsTemplate>
                 No existen evaluaciones registrados para los parámetros seleccionados.
             </NoRecordsTemplate>
+            
             <CommandItemSettings AddNewRecordText="Añadir Nuevo Registro" RefreshText="Actualizar" ExportToPdfText="Exportar a PDF"></CommandItemSettings>           
             <Columns>
                 <telerik:GridBoundColumn DataField="PUESTO_ID" HeaderText="PUESTO_ID" SortExpression="PUESTO_ID" UniqueName="PUESTO_ID" HeaderStyle-Width="90%" Display="false">                    
                 </telerik:GridBoundColumn>    
                 <telerik:GridBoundColumn DataField="PERSONAL_ID" HeaderText="PERSONAL_ID" SortExpression="PERSONAL_ID" UniqueName="PERSONAL_ID" HeaderStyle-Width="90%" Display="false">                    
-                </telerik:GridBoundColumn>   
-                <telerik:GridBoundColumn DataField="PUESTO_DESCRIPCION" HeaderText="PUESTO" SortExpression="PUESTO_DESCRIPCION" UniqueName="PUESTO_DESCRIPCION" 
+                </telerik:GridBoundColumn> 
+                <telerik:GridBoundColumn DataField="CODIGO" HeaderText="CODIGO_ID" SortExpression="CODIGO" UniqueName="CODIGO" HeaderStyle-Width="90%" Display="false">                    
+                </telerik:GridBoundColumn>     
+                <telerik:GridBoundColumn DataField="PUESTO_DESCRIPCION" HeaderText="PUESTO" SortExpression="PUESTO_DESCRIPCION" UniqueName="PUESTO_DESCRIPCION" HeaderStyle-Font-Size="8" 
                     AutoPostBackOnFilter="true">                    
                 </telerik:GridBoundColumn>  
-                <telerik:GridBoundColumn DataField="PERSONAL_DESCRIPCION" HeaderText="COLABORADORES" SortExpression="PERSONAL_DESCRIPCION" UniqueName="PERSONAL_DESCRIPCION" 
+                <telerik:GridBoundColumn DataField="PERSONAL_DESCRIPCION" HeaderText="COLABORADORES" SortExpression="PERSONAL_DESCRIPCION" UniqueName="PERSONAL_DESCRIPCION" HeaderStyle-Font-Size="8" HeaderStyle-Width="260px"  
                     AutoPostBackOnFilter="true">                    
                 </telerik:GridBoundColumn>   
-                <telerik:GridBoundColumn DataField="ESTADO_DESCRIPCION" HeaderText="ESTADO_DESCRIPCION" SortExpression="ESTADO_DESCRIPCION" UniqueName="ESTADO" AutoPostBackOnFilter="true">                    
+                <telerik:GridBoundColumn DataField="ESTADO_DESCRIPCION" HeaderText="ESTADO_DESCRIPCION" SortExpression="ESTADO_DESCRIPCION" UniqueName="ESTADO" AutoPostBackOnFilter="true" HeaderStyle-Font-Size="8" >                    
                 </telerik:GridBoundColumn>                               
                 <telerik:GridEditCommandColumn ButtonType="ImageButton" 
                     UniqueName="EditCommandColumn" CancelImageUrl="../Styles/Grid/Cancel.gif" 
@@ -72,10 +78,11 @@
             <PagerStyle PageSizeControlType="RadComboBox"></PagerStyle>
         </MasterTableView>
         <PagerStyle PageSizeControlType="RadComboBox"></PagerStyle>
+        
         <FilterMenu EnableImageSprites="False">
         </FilterMenu>
     </telerik:RadGrid>
-   </div></td>
+  </div> </td>
               <%--recuperar aca %>
               <%--<td valign="top"><table border="0" cellpadding="0" cellspacing="0" class="grid">
                   <tbody>
