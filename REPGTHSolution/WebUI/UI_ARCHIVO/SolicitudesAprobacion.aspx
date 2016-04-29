@@ -1,9 +1,10 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Template/MP.Master" CodeBehind="SolicitudesAprobacion.aspx.cs" Inherits="WebUI.UI_ARCHIVO.SolicitudesAprobacion" %>
 
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+<%--<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link href="../Styles/PanelBar.css" rel="stylesheet" type="text/css" />
-</asp:Content>
+</asp:Content>--%>
 <asp:Content ID="Content2" ContentPlaceHolderID="cph_contenedor" runat="server">
+<link href="../Styles/PanelBar.css" rel="stylesheet" type="text/css" />
 <telerik:RadFormDecorator ID="RadFormDecorator1" runat="server" DecoratedControls="Label,Textbox,select,textarea" Skin="Silk" />
     <h1 class="tit_01">LISTADO DE SOLICITUDES PENDIENTES DE APROBACIÓN</h1>
     <div class="panel-container-consultar">

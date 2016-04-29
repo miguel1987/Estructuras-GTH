@@ -43,6 +43,8 @@
     <Compile Include="BE_AREA.cs" />
     <Compile Include="BE_CENTRO_COSTO.cs" />
     <Compile Include="BE_CENTRO_GESTOR.cs" />
+    <Compile Include="BE_COMPETENCIAS_POR_PUESTO.cs" />
+    <Compile Include="BE_COMPETENCIAS_TIPOS.cs" />
     <Compile Include="BE_COORDINACION.cs" />
     <Compile Include="BE_CORRESPONDENCIA.cs" />
     <Compile Include="BE_CUENTA_MAYOR.cs" />

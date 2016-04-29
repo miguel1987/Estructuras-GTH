@@ -24,34 +24,11 @@
     </head>
     <body>
     <form id="form" runat="server">
-<div class="configuracion"> <a class="user" href="#"> </a>
- <cc1:ToolkitScriptManager ID="smMaster" runat="server" ScriptMode="Release" EnableScriptGlobalization="true"
+<div class="configuracion"> <a class="user" href="#"> </a> <a class="soporte" href="#"> Soporte administrador del Sistema</a> 
+      <cc1:ToolkitScriptManager ID="smMaster" runat="server" ScriptMode="Release" EnableScriptGlobalization="true"
 EnablePartialRendering="true" AsyncPostBackErrorMessage="Error de Conexión, intente otra vez."
 AsyncPostBackTimeout="360000">
 </cc1:ToolkitScriptManager>
-      <div class="infobox"> <img alt="" src="../Images/ico-configuracion.png"></img>
-    <div class="more">
-          <ul id="conf-menu">
-        <li>
-              <ul class="sub-menu">
-            <li><a href="#" class="separador">Configuración del Sistema</a></li>
-            <li><a href="#">Gerencias</a></li>
-            <li><a href="#">Áreas</a></li>
-            <li><a href="#">Coordinaciones</a></li>
-            <li><a href="#" class="separador">Puestos</a></li>
-            <li><a href="#">Usuarios</a></li>
-            <li><a href="#" class="separador">Perfiles</a></li>
-            <li><a href="#">Matriz de Evaluación Transversal</a></li>
-            <li><a href="#">Catálogo de Competencias</a></li>
-            <li><a href="#" class="separador">Matriz de Competencias por Puesto</a></li>
-            <li><a href="#">Parametros del Sistema</a></li>
-          </ul>
-            </li>
-      </ul>
-        </div>
-  </div>
-      <a class="soporte" href="#"> Soporte administrador del Sistema</a> 
-      
       <!--<div class="soporte"> Soporte administrador del Sistema </div>--> 
     </div>
 <table class="master" width="100%" border="0" cellspacing="0" cellpadding="0">
@@ -60,7 +37,7 @@ AsyncPostBackTimeout="360000">
           <ul id="menu">
         <li><a href="#">Registro de Evaluaciones </a>
               <ul>
-            <li><a href="../UI_EVALUACION/EvaluacionCompetenciasPuesto.aspx">Completencias del Puesto</a></li>
+            <li><a href="../UI_EVALUACION/EvaluacionCompetenciasPuesto.aspx">Competencias del Puesto</a></li>
           </ul>
             </li>
         <li><a href="#"> Consulta de Evaluaciones </a>
@@ -83,11 +60,12 @@ AsyncPostBackTimeout="360000">
             </li>
       </ul></td>
     <td align="center" valign="top" class="contenido">
-    <!--Area de Contenido --> 
-      <asp:ContentPlaceHolder ID="cph_contenedor" runat="server">
-         </asp:ContentPlaceHolder>      
-    <!--Area de Contenido -->
-    </td>
+        <!--Area de Contenido --> 
+           <asp:ContentPlaceHolder ID="cph_contenedor" runat="server">
+         </asp:ContentPlaceHolder>          
+        <!--Area de Contenido -->
+         
+          </td>
   </tr>
     </table>
     </form>

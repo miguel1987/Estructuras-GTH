@@ -1,66 +1,97 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Template/MP.Master" CodeBehind="EvaluacionesTransversalesLiderazgo.aspx.cs" Inherits="WebUI.UI_ARCHIVO.EvaluacionesTransversalesLiderazgo" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Template/MP.Master" CodeBehind="EvaluacionCompetenciasPuesto.aspx.cs" Inherits="WebUI.UI_ARCHIVO.EvaluacionCompetenciasPuesto" %>
 
 <%@ Register assembly="Telerik.Web.UI" namespace="Telerik.Web.UI" tagprefix="telerik" %>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="cph_contenedor" runat="server">
+<link href="../Styles/jquery.lightbox.css" rel="stylesheet" type="text/css" />
+ <link href="../Styles/jquery.lightbox.ie6.css" rel="stylesheet" type="text/css" />
+ <script src="../Scripts/jquery.lightbox.js" type="text/javascript"></script>
 
-   <div class="frm_titulo01">Evaluaciones transversales y de liderazgo</div>
+   <div class="frm_titulo01">Evaluaciones Competencias por Puesto</div>
           <div class="margen"></div>
           <div class="margen"></div>
           <div class="izquierda">
+    
         <table width="100%" border="0" cellspacing="0" cellpadding="0">
               <tr>
-            <td><a class="frm_boton ">Generar Reporte</a></td>
+            <%--<td><a class="frm_boton ">Generar Reporte</a></td>--%>
             <td width="20">&nbsp;</td>
-            <td><input type="text"  class="frmTxtBuscar " value="Buscar" /></td>
-            <td><a class="frm_boton ">Ir</a></td>
+            <td>
+                <telerik:RadTextBox ID="txtBuscar" runat="server" AutoPostBack="true" OnTextChanged="txtBuscar_TextChanged"
+                 Skin="Silk">
+                </telerik:RadTextBox><%--<input type="text"  class="frmTxtBuscar " value="Buscar" />--%></td>
+            <%--<td><a class="frm_boton ">Ir</a></td>--%>
           </tr>
             </table>
       </div>
           <div class="margen"></div>
-          <table border="0" cellspacing="0" cellpadding="0" 
-        style="width: 100%; height: 110px" >
-        <%--<link href="../Styles/Grid.MySilk.css" rel="stylesheet" type="text/css" />--%>
-              <link href="../Styles/Grid.prueba1.css" rel="stylesheet" type="text/css" />
+          <table>
+        <link href="../Styles/Grid.MySilk.css" rel="stylesheet" type="text/css" />
         <tr>
-              <td valign="top" style="width: 28px"> <div class="cont_frm">
+              <td valign="top"> <div class="cont_frm">
               
-              <%--<telerik:RadTreeView  ID="rtvTransversales" runat="server"  OnNodeClick="rtvTransversales_NodeClick"></telerik:RadTreeView>--%>
-              <telerik:RadTreeView ID="rtvTransversales" runat="server" OnNodeClick="rtvTransversales_NodeClick"></telerik:RadTreeView>
+              <telerik:RadTreeView  ID="rtvEstructuras" runat="server"  
+                      OnNodeClick="rtvEstructuras_NodeClick" Skin="Silk" Width="250px"></telerik:RadTreeView>
              </div> </td>              
-              <td valign="top" style="width: 310px"> <div class="cont_frm">
-              <telerik:RadGrid RenderMode = "Lightweight" ID="rgEvaluacionesTransversales"  runat="server"  
-        CellSpacing="0" Culture="es-ES" DataSourceID="odsEvaluacionesTransversales"
-        PageSize="10" GridLines="None" AllowPaging="True" Width="100%" AllowSorting="true" 
-        EnableEmbeddedSkins="False" Skin="Metro"  FilterItemStyle-Wrap="False" ActiveItemStyle-Wrap="False" EditItemStyle-Wrap="False" EnableEmbeddedScripts="True" FilterMenu-RenderMode="Lightweight" GroupHeaderItemStyle-Wrap="False" HeaderStyle-Wrap="False" MasterTableView-EnableSplitHeaderText="False" MasterTableView-InsertItemDisplay="Top" MasterTableView-ShowHeader="True" PagerStyle-Wrap="False" ShowHeader="False">
+              <td valign="top" style="width: 269px"> <div class="cont_frm">
+              <telerik:RadGrid ID="rgEvaluaciones" HorizontalAlign="Center" runat="server"  
+        CellSpacing="0" Culture="es-ES" DataSourceID="odsEvaluacionesEstado"
+        PageSize="10" GridLines="None" AllowPaging="True" Width="103%" AllowSorting="true"  
+                      OnItemDataBound="rgEvaluaciones_ItemDataBound" OnNeedDataSource="rgEvaluaciones_NeedDataSource"
+       EnableEmbeddedSkins="False" Skin="MySilk" ImagesPath="../Styles/Grid/" >
+        
+
+       
         <ExportSettings>
             <Pdf PageWidth="" />
         </ExportSettings>
         
-        <MasterTableView DataSourceID="odsEvaluacionesTransversales" font-size = "9" CommandItemDisplay="None" DataKeyNames="ID"
-         ShowHeadersWhenNoRecords="true" EnableNoRecordsTemplate="true" ShowHeader="true" HorizontalAlign="NotSet" AutoGenerateColumns="False"   
-         OverrideDataSourceControlSorting="true">
+        <MasterTableView DataSourceID="odsEvaluacionesEstado" font-size = "9" CommandItemDisplay="None" DataKeyNames="ID"
+         ShowHeadersWhenNoRecords="true" EnableNoRecordsTemplate="True" ShowHeader="True" HorizontalAlign="NotSet" AutoGenerateColumns="False"   
+         OverrideDataSourceControlSorting="true" FilterExpression="True" AllowFiltering="true">
             <NoRecordsTemplate>
                 No existen evaluaciones registrados para los parámetros seleccionados.
             </NoRecordsTemplate>
             
-             <CommandItemSettings  ShowRefreshButton="false" />       
+            <CommandItemSettings AddNewRecordText="Añadir Nuevo Registro" RefreshText="Actualizar" ExportToPdfText="Exportar a PDF"></CommandItemSettings>           
             <Columns>
                 <telerik:GridBoundColumn DataField="PUESTO_ID" HeaderText="PUESTO_ID" SortExpression="PUESTO_ID" UniqueName="PUESTO_ID" HeaderStyle-Width="90%" Display="false">                    
                 </telerik:GridBoundColumn>    
                 <telerik:GridBoundColumn DataField="PERSONAL_ID" HeaderText="PERSONAL_ID" SortExpression="PERSONAL_ID" UniqueName="PERSONAL_ID" HeaderStyle-Width="90%" Display="false">                    
-                </telerik:GridBoundColumn>   
-                <telerik:GridBoundColumn DataField="CODIGO" HeaderText="CODIGO" SortExpression="CODIGO" UniqueName="CODIGO" 
+                </telerik:GridBoundColumn> 
+                <telerik:GridBoundColumn DataField="CODIGO" HeaderText="CODIGO_ID" SortExpression="CODIGO" UniqueName="CODIGO" HeaderStyle-Width="90%" Display="false">                    
+                </telerik:GridBoundColumn>     
+                <telerik:GridBoundColumn DataField="PUESTO_DESCRIPCION" HeaderText="PUESTO" SortExpression="PUESTO_DESCRIPCION" UniqueName="PUESTO_DESCRIPCION"  
                     AutoPostBackOnFilter="true">                    
                 </telerik:GridBoundColumn>  
-                <telerik:GridBoundColumn DataField="PERSONAL_DESCRIPCION" HeaderText="COLABORADORES" SortExpression="PERSONAL_DESCRIPCION" UniqueName="PERSONAL_DESCRIPCION" 
-                    AutoPostBackOnFilter="true">                    
+                <telerik:GridBoundColumn DataField="PERSONAL_DESCRIPCION" HeaderText="COLABORADORES" SortExpression="PERSONAL_DESCRIPCION" UniqueName="PERSONAL_DESCRIPCION" HeaderStyle-Font-Size="8" HeaderStyle-Width="260px"  
+                    AutoPostBackOnFilter="true" AllowFiltering="true">  
+                    
+        
+
+
                 </telerik:GridBoundColumn>   
-                <telerik:GridBoundColumn DataField="PUESTO_DESCRIPCION" HeaderText="PUESTO" SortExpression="PUESTO_DESCRIPCION" UniqueName="PUESTO_DESCRIPCION" AutoPostBackOnFilter="true">                    
-                </telerik:GridBoundColumn>                               
+                <telerik:GridBoundColumn DataField="ESTADO_DESCRIPCION" HeaderText="ESTADO_DESCRIPCION" SortExpression="ESTADO_DESCRIPCION" UniqueName="ESTADO" AutoPostBackOnFilter="true" HeaderStyle-Font-Size="8" >                    
+                </telerik:GridBoundColumn>       
+                
+                
+                <telerik:GridTemplateColumn HeaderText="EVALUAR" HeaderStyle-Width="80px" UniqueName="ASIGNAR_PARTICIPANTES" EditFormHeaderTextFormat = "">
+                    <ItemTemplate>
+                    
+                        <asp:HyperLink ID="hplAsignarParticipantes" ImageUrl="../Styles/Grid/Edit.gif" ToolTip="Asignar Participantes" Text="Asignar Participantes" runat="server" CssClass="lightbox"></asp:HyperLink>
+                    </ItemTemplate>
+                    <EditItemTemplate>
+                        <asp:HyperLink ID="hplAsignarParticipantes2" ImageUrl="../Styles/Grid/Edit.gif" ToolTip="Asignar Participantes" Text="Asignar Participantes" runat="server" CssClass="lightbox"></asp:HyperLink>
+                    </EditItemTemplate>
+                    <HeaderStyle Width="80px"></HeaderStyle>
+                </telerik:GridTemplateColumn>
+                <telerik:GridButtonColumn UniqueName="SortAsc" ImageUrl ="../Styles/Grid/Edit.gif" ButtonType="ImageButton" CommandName="SortAsc" >
+                
+</telerik:GridButtonColumn>
+                
+                                        
                 <%--<telerik:GridEditCommandColumn ButtonType="ImageButton" 
                     UniqueName="EditCommandColumn" CancelImageUrl="../Styles/Grid/Cancel.gif" 
-                  
                     InsertImageUrl="../Styles/Grid/Update.gif" UpdateImageUrl="../Styles/Grid/Update.gif" EditText="Actualizar">
                     <ItemStyle CssClass="MyImageButton"></ItemStyle>
                 </telerik:GridEditCommandColumn>--%>
@@ -77,14 +108,12 @@
             </EditFormSettings>
             <PagerStyle PageSizeControlType="RadComboBox"></PagerStyle>
         </MasterTableView>
-        
         <PagerStyle PageSizeControlType="RadComboBox"></PagerStyle>
+        
         <FilterMenu EnableImageSprites="False">
         </FilterMenu>
-        <HeaderStyle Width="200px" />
-            <PagerStyle Mode="NextPrevAndNumeric" />
     </telerik:RadGrid>
-   </div></td>
+  </div> </td>
               <%--recuperar aca %>
               <%--<td valign="top"><table border="0" cellpadding="0" cellspacing="0" class="grid">
                   <tbody>
@@ -247,8 +276,8 @@
    <%--<asp:ObjectDataSource ID="ObjectDataSourceEvaluaciones" runat="server" SelectMethod="SeleccionarEvaluacionesPorJerarquia"         
         TypeName="BusinessLogicLayer.BL_EVALUACION_COMPETENCIAS_PUESTO" >
     </asp:ObjectDataSource>--%>
-    <asp:ObjectDataSource ID="odsEvaluacionesTransversales" runat="server" SelectMethod="SeleccionarEvaluacionesTransversalesPorJerarquia"         
-        TypeName="BusinessLogicLayer.BL__EVALUACIONES_COMPETENCIAS_TRANSVERSALES" DataObjectTypeName="BusinessEntities.BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES">
+    <asp:ObjectDataSource ID="odsEvaluacionesEstado" runat="server" SelectMethod="SeleccionarEvaluacionesPorJerarquia"         
+        TypeName="BusinessLogicLayer.BL_EVALUACION_COMPETENCIAS_PUESTO" DataObjectTypeName="BusinessEntities.BE_EVALUACION_COMPETENCIA_PUESTO">
     </asp:ObjectDataSource>
      <p class="mensaje">
          <asp:Label ID="lblMensaje" runat="server" Font-Bold="true" Font-Size="Medium" ForeColor="Red"></asp:Label>

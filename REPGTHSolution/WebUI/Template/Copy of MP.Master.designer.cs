@@ -7,45 +7,36 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WebUI.UI_ADMINISTRACION {
+namespace WebUI.Template {
     
     
-    public partial class DireccionAtencion {
+    public partial class MP {
         
         /// <summary>
-        /// rgDireccionAtencion control.
+        /// form control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Telerik.Web.UI.RadGrid rgDireccionAtencion;
+        protected global::System.Web.UI.HtmlControls.HtmlForm form;
         
         /// <summary>
-        /// ValidationSummary control.
+        /// smMaster control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ValidationSummary ValidationSummary;
+        protected global::AjaxControlToolkit.ToolkitScriptManager smMaster;
         
         /// <summary>
-        /// odsDireccion control.
+        /// cph_contenedor control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ObjectDataSource odsDireccion;
-        
-        /// <summary>
-        /// odsDireccionAtencion control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ObjectDataSource odsDireccionAtencion;
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder cph_contenedor;
     }
 }

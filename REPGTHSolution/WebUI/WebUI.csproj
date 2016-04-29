@@ -78,10 +78,14 @@
     <Content Include="About.aspx" />
     <Content Include="Images\ha-down.gif" />
     <Content Include="Images\ha-up.gif" />
+    <Content Include="Images\ico-add.png" />
     <Content Include="Images\ico-config.png" />
+    <Content Include="Images\ico-configuracion.png" />
     <Content Include="Images\ico-delete.png" />
     <Content Include="Images\ico-edit.png" />
     <Content Include="Images\ico-user.png" />
+    <Content Include="Images\icon-collapse.gif" />
+    <Content Include="Images\icon-expand.gif" />
     <Content Include="Images\img-principal.png" />
     <Content Include="Images\logo-isa-rep.png" />
     <Content Include="Images\pag_anterior.png" />
@@ -89,6 +93,7 @@
     <Content Include="Images\pag_siguiente.png" />
     <Content Include="Images\pag_ultimo.png" />
     <Content Include="Images\sort.gif" />
+    <Content Include="Scripts\jquery.tree.js" />
     <Content Include="Styles\Grid.gridskin.css" />
     <Content Include="Styles\Grid.Material.css" />
     <Content Include="Styles\Grid.nuevogrid.css" />
@@ -111,6 +116,10 @@
     <Content Include="Styles\Grid\PagingLast.gif" />
     <Content Include="Styles\Grid\PagingNext.gif" />
     <Content Include="Styles\Grid\PagingPrev.gif" />
+    <Content Include="Styles\Grid\pag_anterior.png" />
+    <Content Include="Styles\Grid\pag_primero.png" />
+    <Content Include="Styles\Grid\pag_siguiente.png" />
+    <Content Include="Styles\Grid\pag_ultimo.png" />
     <Content Include="Styles\Grid\Refresh.gif" />
     <Content Include="Styles\Grid\rgDrag.gif" />
     <Content Include="Styles\Grid\Silk.gif" />
@@ -120,6 +129,7 @@
     <Content Include="Styles\Grid\SortDesc.gif" />
     <Content Include="Styles\Grid\sprite.png" />
     <Content Include="Styles\Grid\Update.gif" />
+    <Content Include="Styles\jquerysctipttop.css" />
     <Content Include="Styles\main.css" />
     <Content Include="Styles\menu.css" />
     <Content Include="Styles\normalize.css" />
@@ -194,6 +204,19 @@
     <Content Include="Scripts\jquery-1.4.1-vsdoc.js" />
     <Content Include="Scripts\jquery-1.4.1.js" />
     <Content Include="Scripts\jquery-1.4.1.min.js" />
+    <Content Include="Styles\style.css" />
+    <Content Include="Styles\theme.css" />
+    <Content Include="Styles\TreeView.MySilk.css" />
+    <Content Include="Styles\TreeView\Default.gif" />
+    <Content Include="Styles\TreeView\icon-collapse.gif" />
+    <Content Include="Styles\TreeView\icon-expand.gif" />
+    <Content Include="Styles\TreeView\ItemHoveredBg.png" />
+    <Content Include="Styles\TreeView\ItemSelectedBg.png" />
+    <Content Include="Styles\TreeView\LoadingIcon.gif" />
+    <Content Include="Styles\TreeView\PlusMinus.png" />
+    <Content Include="Styles\TreeView\Silk.gif" />
+    <Content Include="Styles\TreeView\TriState.png" />
+    <Content Include="Styles\TreeView\WebResource.png" />
     <Content Include="UI_ADMINISTRACION\Area.aspx" />
     <Content Include="UI_ADMINISTRACION\CentroCosto.aspx" />
     <Content Include="UI_ADMINISTRACION\CentroGestor.aspx" />
@@ -208,6 +231,7 @@
     <Content Include="UI_ARCHIVO\Solicitud.aspx" />
     <Content Include="UI_ARCHIVO\SolicitudesAprobacion.aspx" />
     <Content Include="UI_ARCHIVO\SolicitudesBusqueda.aspx" />
+    <Content Include="UI_EVALUACION\AsignarEvaluacionesPorPuesto.aspx" />
     <Content Include="UI_EVALUACION\EvaluacionesTransversalesLiderazgo.aspx" />
     <Content Include="UI_EVALUACION\EvaluacionCompetenciasPuesto.aspx" />
     <Content Include="UI_EVALUACION\pruebaM.aspx" />
@@ -362,6 +386,13 @@
     </Compile>
     <Compile Include="UI_ARCHIVO\SolicitudesBusqueda.aspx.designer.cs">
       <DependentUpon>SolicitudesBusqueda.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI_EVALUACION\AsignarEvaluacionesPorPuesto.aspx.cs">
+      <DependentUpon>AsignarEvaluacionesPorPuesto.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI_EVALUACION\AsignarEvaluacionesPorPuesto.aspx.designer.cs">
+      <DependentUpon>AsignarEvaluacionesPorPuesto.aspx</DependentUpon>
     </Compile>
     <Compile Include="UI_EVALUACION\EvaluacionesTransversalesLiderazgo.aspx.cs">
       <DependentUpon>EvaluacionesTransversalesLiderazgo.aspx</DependentUpon>

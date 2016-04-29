@@ -47,6 +47,8 @@
     <Compile Include="BL_AREA.cs" />
     <Compile Include="BL_CENTRO_COSTO.cs" />
     <Compile Include="BL_CENTRO_GESTOR.cs" />
+    <Compile Include="BL_COMPETENCIAS_POR_PUESTO.cs" />
+    <Compile Include="BL_COMPETENCIAS_TIPOS.cs" />
     <Compile Include="BL_COORDINACION.cs" />
     <Compile Include="BL_CUENTA_MAYOR.cs" />
     <Compile Include="BL_DESTINATARIO.cs" />

@@ -181,23 +181,25 @@ namespace WebUI.UI_ARCHIVO
             if (e.Item.DataItem != null)
             {
                 String idPersonal = DataBinder.Eval(e.Item.DataItem, "PERSONAL_ID").ToString();
+
                 String idPuesto = DataBinder.Eval(e.Item.DataItem, "PUESTO_ID").ToString();
                 string puesto=DataBinder.Eval(e.Item.DataItem,"PUESTO_DESCRIPCION").ToString();
                 string personal = DataBinder.Eval(e.Item.DataItem, "PERSONAL_DESCRIPCION").ToString();
-                string departamento = DataBinder.Eval(e.Item.DataItem, "AREA").ToString();
 
-                HyperLink hplEvaluarPersonal1 = null;
-                string UrlEvaluar = "AsignarEvaluacionesPorPuesto.aspx?lightbox[iframe]=true&lightbox[width]=613&lightbox[height]=352&pPersonalId=" + idPersonal + "&pPuestoId=" + idPuesto + "&pDescripcionPersonal=" + personal + "&pDescripcionPuesto=" + puesto + "&PDepartamento=" +departamento;
+                HyperLink hplAsignarParticipantes1 = null;
+                string UrlAsignarParticipantes = "Asignarevaluacionesporpuesto.aspx?lightbox[iframe]=true&lightbox[width]=613&lightbox[height]=352&pPersonalId=" + idPersonal + "&pPuestoId=" + idPuesto +"&pDescripcionPersonal="+personal+"&pDescripcionPuesto="+puesto;
 
-                hplEvaluarPersonal1 = (HyperLink)e.Item.FindControl("hplEvaluarPersonal");
-                if (hplEvaluarPersonal1 == null)
+                hplAsignarParticipantes1 = (HyperLink)e.Item.FindControl("hplAsignarParticipantes");
+                if (hplAsignarParticipantes1 == null)
                 {
-                    hplEvaluarPersonal1 = (HyperLink)e.Item.FindControl("hplEvaluarPersonal2");
-                    if (hplEvaluarPersonal1 != null)
-                        hplEvaluarPersonal1.NavigateUrl = UrlEvaluar;
+
+                    if (hplAsignarParticipantes1 != null)
+                    {
+                        hplAsignarParticipantes1.NavigateUrl = UrlAsignarParticipantes;
+                    }
+                    
                 }
-                else
-                    hplEvaluarPersonal1.NavigateUrl = UrlEvaluar;
+
 
             }
 

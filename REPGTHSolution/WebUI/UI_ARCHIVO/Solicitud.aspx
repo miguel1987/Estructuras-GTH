@@ -1,8 +1,10 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Template/MP.Master" AutoEventWireup="true" CodeBehind="Solicitud.aspx.cs" Inherits="WebUI.UI_ARCHIVO.Solicitud" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-     <link href="../Styles/PanelBar.css" rel="stylesheet" type="text/css" />
-</asp:Content>
+<%@ Register assembly="Telerik.Web.UI" namespace="Telerik.Web.UI" tagprefix="telerik" %>
+<%--<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">--%>
+     
+<%--</asp:Content>--%>
 <asp:Content ID="Content2" ContentPlaceHolderID="cph_contenedor" runat="server">
+<link href="../Styles/PanelBar.css" rel="stylesheet" type="text/css" />
  <script type="text/javascript">
      var uploadedFilesCount = 0;
      var isEditMode;
@@ -534,14 +536,23 @@
                 <asp:Label ID="lblMensaje" runat="server" Font-Bold="true" Font-Size="Medium" ForeColor="Red"></asp:Label>
            </p>                    
            <p class="buttons">
-                <telerik:RadButton runat="server" Text="Guardar" ID="btnGuardar" Skin="Silk"
+                &nbsp;<telerik:RadButton runat="server" Text="Guardar" ID="btnGuardar" Skin="Silk"
                     ValidationGroup="EnvioValidationGroup" OnClick="guardarButton_Click" />
-                <telerik:RadButton runat="server" Text="Cerrar Solicitud" ID="btnCerrar" Skin="Silk" OnClick="cerrarButton_Click" />
-                <telerik:RadButton runat="server" Text="Generar Etiqueta" Width="120px" ID="btnGenerarEtiqueta" Skin="Silk" OnClick="generarSolicitud_Click" />
-                <asp:HiddenField ID="hdfSolicitudId" runat="server" />
-                <asp:HiddenField ID="hdfSolicitudCodigo" runat="server" />
-                <asp:HiddenField ID="hdfCorrespondenciaId" runat="server" />
-                <asp:HiddenField ID="hdfSolicitudEstado" runat="server" />
+                <p>
+                    &nbsp;<telerik:RadButton ID="btnCerrar" runat="server" OnClick="cerrarButton_Click" 
+                        Skin="Silk" Text="Cerrar Solicitud" />
+                    <p>
+                        &nbsp;<telerik:RadButton ID="btnGenerarEtiqueta" runat="server" 
+                            OnClick="generarSolicitud_Click" Skin="Silk" Text="Generar Etiqueta" 
+                            Width="120px" />
+                        <p>
+                            <asp:HiddenField ID="hdfSolicitudId" runat="server" />
+                            <asp:HiddenField ID="hdfSolicitudCodigo" runat="server" />
+                            <asp:HiddenField ID="hdfCorrespondenciaId" runat="server" />
+                            <asp:HiddenField ID="hdfSolicitudEstado" runat="server" />
+                        </p>
+                    </p>
+                </p>
             </p>
         </telerik:RadAjaxPanel>
     </div>

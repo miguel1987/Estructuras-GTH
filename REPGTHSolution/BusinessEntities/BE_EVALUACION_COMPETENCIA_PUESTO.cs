@@ -20,6 +20,7 @@ namespace BusinessEntities
       public Nullable<Int32> ESTADO { get; set; }
       public string ESTADO_DESCRIPCION { get; set; }
       public int AÑO { get; set; }
+      public string AREA { get; set; }
       public BE_PERSONAL oBE_PERSONAL { get; set; }
 
       public enum ESTADO_EVALUACION

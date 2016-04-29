@@ -42,6 +42,8 @@
   <ItemGroup>
     <Compile Include="DA_CENTRO_COSTO.cs" />
     <Compile Include="DA_CENTRO_GESTOR.cs" />
+    <Compile Include="DA_COMPETENCIAS_POR_PUESTO.cs" />
+    <Compile Include="DA_COMPETENCIAS_TIPOS.cs" />
     <Compile Include="DA_CORRESPONDENCIA.cs" />
     <Compile Include="DA_CUENTA_MAYOR.cs" />
     <Compile Include="DA_DESTINATARIO.cs" />

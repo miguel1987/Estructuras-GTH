@@ -7,45 +7,54 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WebUI.UI_ADMINISTRACION {
+namespace WebUI.UI_ARCHIVO {
     
     
-    public partial class DireccionAtencion {
+    public partial class EvaluacionCompetenciasPuesto {
         
         /// <summary>
-        /// rgDireccionAtencion control.
+        /// txtBuscar control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Telerik.Web.UI.RadGrid rgDireccionAtencion;
+        protected global::Telerik.Web.UI.RadTextBox txtBuscar;
         
         /// <summary>
-        /// ValidationSummary control.
+        /// rtvEstructuras control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ValidationSummary ValidationSummary;
+        protected global::Telerik.Web.UI.RadTreeView rtvEstructuras;
         
         /// <summary>
-        /// odsDireccion control.
+        /// rgEvaluaciones control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ObjectDataSource odsDireccion;
+        protected global::Telerik.Web.UI.RadGrid rgEvaluaciones;
         
         /// <summary>
-        /// odsDireccionAtencion control.
+        /// odsEvaluacionesEstado control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ObjectDataSource odsDireccionAtencion;
+        protected global::System.Web.UI.WebControls.ObjectDataSource odsEvaluacionesEstado;
+        
+        /// <summary>
+        /// lblMensaje control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblMensaje;
     }
 }
