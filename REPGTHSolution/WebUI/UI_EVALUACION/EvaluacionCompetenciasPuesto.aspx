@@ -19,7 +19,7 @@
 
  </script>
 
-  <div class="frm_titulo01">Evaluaciones transversales y de liderazgo</div>
+  <div class="frm_titulo01">Evaluar Competencias por Puesto</div>
           <div class="margen"></div>
           <div class="margen"></div>
           <table width="100%" border="0" cellspacing="0" cellpadding="0">
@@ -61,8 +61,8 @@
                   <telerik:RadGrid ID="rgEvaluaciones" HorizontalAlign="Center" runat="server"  
         CellSpacing="0" Culture="es-ES" DataSourceID="odsEvaluacionesEstado" GridLines="None" 
                       AllowPaging="True" Width="103%" AllowSorting="True"  
-                      OnItemDataBound="rgEvaluaciones_ItemDataBound" OnNeedDataSource="rgEvaluaciones_NeedDataSource"
-       EnableEmbeddedSkins="False" Skin="MySilk" ImagesPath="../Styles/Grid/" >
+                      OnItemDataBound="rgEvaluaciones_ItemDataBound" AllowFilteringByColumn="false"
+       EnableEmbeddedSkins="False" Skin="MySilk" ImagesPath="../Styles/Grid/" EnableLinqExpressions="false">
         
 
        
@@ -72,7 +72,7 @@
         
         <MasterTableView DataSourceID="odsEvaluacionesEstado" CommandItemDisplay="None" DataKeyNames="ID"
          ShowHeadersWhenNoRecords="true" EnableNoRecordsTemplate="True" ShowHeader="True" HorizontalAlign="NotSet" AutoGenerateColumns="False"   
-         OverrideDataSourceControlSorting="true" FilterExpression="True" AllowFiltering="true">
+         OverrideDataSourceControlSorting="true">
             <NoRecordsTemplate>
                 No existen evaluaciones registrados para los parámetros seleccionados.
             </NoRecordsTemplate>
@@ -88,10 +88,10 @@
                 <telerik:GridBoundColumn DataField="CODIGO" HeaderText="CODIGO_ID" SortExpression="CODIGO" UniqueName="CODIGO" HeaderStyle-Width="90%" Display="false">                    
                 </telerik:GridBoundColumn>     
                 <telerik:GridBoundColumn DataField="PUESTO_DESCRIPCION" HeaderText="PUESTO" SortExpression="PUESTO_DESCRIPCION" UniqueName="PUESTO_DESCRIPCION"  
-                    AutoPostBackOnFilter="true">                    
+                    AutoPostBackOnFilter="true" >                    
                 </telerik:GridBoundColumn>  
                 <telerik:GridBoundColumn DataField="PERSONAL_DESCRIPCION" HeaderText="COLABORADORES" SortExpression="PERSONAL_DESCRIPCION" UniqueName="PERSONAL_DESCRIPCION" HeaderStyle-Font-Size="8" HeaderStyle-Width="260px"  
-                    AutoPostBackOnFilter="true" AllowFiltering="true">  
+                    AutoPostBackOnFilter="true">  
                     
         
 

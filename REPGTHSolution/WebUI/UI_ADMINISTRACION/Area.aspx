@@ -1,5 +1,7 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Template/MP.Master" CodeBehind="Area.aspx.cs" Inherits="WebUI.UI_ADMINISTRACION.Area" %>
 
+<%@ Register assembly="Telerik.Web.UI" namespace="Telerik.Web.UI" tagprefix="telerik" %>
+
 <%--<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>--%>
 
@@ -45,7 +47,7 @@
                         </RequiredFieldValidator>
                     </ColumnValidationSettings>
                 </telerik:GridBoundColumn>       
-                <telerik:GridTemplateColumn HeaderText="EMPRESA" HeaderStyle-Width="250px" SortExpression="oBE_EMPRESA.DESCRIPCION" UniqueName="oBE_EMPRESA.DESCRIPCION" DataField="oBE_EMPRESA.DESCRIPCION"
+                <telerik:GridTemplateColumn  HeaderText="EMPRESA" HeaderStyle-Width="250px" SortExpression="oBE_EMPRESA.DESCRIPCION" UniqueName="oBE_EMPRESA.DESCRIPCION" DataField="oBE_EMPRESA.DESCRIPCION"
                 AutoPostBackOnFilter="true" FilterControlWidth="120px" CurrentFilterFunction="Contains" ShowFilterIcon="false">
                         <ItemTemplate>
                             <%# Eval("oBE_EMPRESA.DESCRIPCION")%>

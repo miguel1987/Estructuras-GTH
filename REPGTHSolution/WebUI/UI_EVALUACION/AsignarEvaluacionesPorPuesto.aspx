@@ -40,52 +40,59 @@
    <div>
    <telerik:RadGrid ID="rgAsignarCompetencias"  
            runat="server" Skin="MySilk" ImagesPath="../Styles/Grid/" Culture="es-ES" 
-           DataSourceID="odsCompetenciasPuesto" AllowPaging="True" 
+           DataSourceID="odsCompetenciasPuesto" OnDeleteCommand="rgAsignarCompetencias_DeleteCommand"
+        OnUpdateCommand="rgAsignarCompetencias_UpdateCommand" AllowPaging="True" 
            AllowSorting="True" EnableEmbeddedSkins="False">
 
            <MasterTableView DataSourceID="odsCompetenciasPuesto" CommandItemDisplay="None" DataKeyNames="COMPETENCIA_ID"
          ShowHeadersWhenNoRecords="true" EnableNoRecordsTemplate="True" ShowHeader="True" HorizontalAlign="NotSet" AutoGenerateColumns="False"   
-         OverrideDataSourceControlSorting="true" FilterExpression="True" >
+         OverrideDataSourceControlSorting="true" FilterExpression="True" EditMode="EditForms">
             <NoRecordsTemplate>
                 No existen evaluaciones registrados para los parámetros seleccionados.
             </NoRecordsTemplate>
 <RowIndicatorColumn Visible="True" FilterControlAltText="Filter RowIndicator column"></RowIndicatorColumn>
 <ExpandCollapseColumn Visible="True" FilterControlAltText="Filter ExpandColumn column"></ExpandCollapseColumn>
-            <Columns>
-                <telerik:GridBoundColumn DataField="COMPETENCIA_ID" HeaderText="COMPETENCIA_ID" SortExpression="COMPETENCIA_ID" UniqueName="COMPETENCIA_ID"  Display="false">                    
-<HeaderStyle Width="90%"></HeaderStyle>
-                </telerik:GridBoundColumn>    
-                <telerik:GridBoundColumn DataField="COMPETENCIA_DESCRIPCION" HeaderText="TECNICAS" SortExpression="COMPETENCIA_DESCRIPCION" UniqueName="COMPETENCIA_DESCRIPCION"  HeaderStyle-Font-Size="8" >                    
+            <Columns>          
+                <telerik:GridBoundColumn ReadOnly="true" DataField="COMPETENCIA_DESCRIPCION" HeaderText="TECNICAS" SortExpression="COMPETENCIA_DESCRIPCION" UniqueName="COMPETENCIA_DESCRIPCION"  HeaderStyle-Font-Size="8">                    
 <HeaderStyle Width="50%"></HeaderStyle>
                 </telerik:GridBoundColumn> 
-                <telerik:GridBoundColumn DataField="COMPETENCIA_PUESTO_VALOR_REQUERIDO" HeaderText="REQUERIDO" SortExpression="COMPETENCIA_PUESTO_VALOR_REQUERIDO" UniqueName="COMPETENCIA_PUESTO_VALOR_REQUERIDO"  HeaderStyle-Font-Size="8">                    
+                <telerik:GridBoundColumn ReadOnly="true" DataField="COMPETENCIA_PUESTO_VALOR_REQUERIDO" HeaderText="REQUERIDO" SortExpression="COMPETENCIA_PUESTO_VALOR_REQUERIDO" UniqueName="COMPETENCIA_PUESTO_VALOR_REQUERIDO"  HeaderStyle-Font-Size="8">                    
 <HeaderStyle Width="90%"></HeaderStyle>
                 </telerik:GridBoundColumn>     
                 <telerik:GridBoundColumn DataField="REAL" HeaderText="REAL" SortExpression="REAL" UniqueName="REAL" 
-                    AutoPostBackOnFilter="true">                    
+                    AutoPostBackOnFilter="true">  
+                                   
 <HeaderStyle Font-Size="8pt"></HeaderStyle>
-                </telerik:GridBoundColumn>  
+
+            </telerik:GridBoundColumn>  
                 <telerik:GridBoundColumn DataField="COMENTARIO" HeaderText="COMENTARIO" SortExpression="COMENTARIO" UniqueName="COMENTARIO" 
                     AutoPostBackOnFilter="true" AllowFiltering="true">  
 <HeaderStyle Font-Size="8pt" Width="260px"></HeaderStyle>
                     </telerik:GridBoundColumn>   
-                <telerik:GridBoundColumn DataField="BRECHA" HeaderText="BRECHA" SortExpression="BRECHA" UniqueName="BRECHA" AutoPostBackOnFilter="true"  >                    
+                <telerik:GridBoundColumn ReadOnly="true" DataField="BRECHA" HeaderText="BRECHA" SortExpression="BRECHA" UniqueName="BRECHA" AutoPostBackOnFilter="true"  >                    
 <HeaderStyle Font-Size="8pt"></HeaderStyle>
                 </telerik:GridBoundColumn>       
-                </Columns>
+               <telerik:GridEditCommandColumn ButtonType="ImageButton" EditText="Actualizar"
+                    UniqueName="EditCommandColumn" CancelImageUrl="../images/ico-delete.png" 
+                    InsertImageUrl="../images/ico-edit.png" UpdateImageUrl="../images/ico-edit.png">
+                    <ItemStyle CssClass="MyImageButton"></ItemStyle>
+                </telerik:GridEditCommandColumn>
+                <telerik:GridButtonColumn ConfirmText="¿Deseas eliminar esta Área?" ConfirmDialogType="RadWindow"
+                    ConfirmTitle="Eliminar Área " ButtonType="ImageButton" CommandName="Delete" Text="Eliminar"
+                    UniqueName="EliminarArea">
+                    <ItemStyle HorizontalAlign="Center" CssClass="MyImageButton"></ItemStyle>
+                </telerik:GridButtonColumn>
+            </Columns>
             <EditFormSettings>
-            <EditColumn UniqueName="EditCommandColumn" CancelText="Cancelar" UpdateText="Actualizar"
-                  InsertText="Insertar" cancelimageurl="Cancel.gif" 
-                    insertimageurl="Update.gif" updateimageurl="Update.gif">
-                </EditColumn>
+             <EditColumn UniqueName="EditCommandColumn" CancelText="Cancelar" UpdateText="Actualizar" InsertText="Insertar">
+             </EditColumn>
             </EditFormSettings>
             <PagerStyle PageSizeControlType="RadComboBox"></PagerStyle>
         </MasterTableView>
-        <PagerStyle PageSizeControlType="RadComboBox"></PagerStyle>
-        
+        <PagerStyle PageSizeControlType="RadComboBox"></PagerStyle>        
         <FilterMenu EnableImageSprites="False">
         </FilterMenu>
-           </telerik:RadGrid>
+       </telerik:RadGrid>
    </div>
    <div>
        <table class="tabla_pagina">

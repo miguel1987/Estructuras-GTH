@@ -213,22 +213,13 @@ namespace WebUI.UI_ARCHIVO
            //GridColumn column = rgEvaluaciones.MasterTableView.GetColumn("PERSONAL_DESCRIPCION");
            //column.CurrentFilterFunction = GridKnownFunction.Contains;
            //column.CurrentFilterValue = txtBuscar.Text.Trim();
-            GridBoundColumn masterColumn = (GridBoundColumn)rgEvaluaciones.MasterTableView.GetColumn("PUESTO_ID");
+            GridColumn masterColumn = (GridColumn)rgEvaluaciones.MasterTableView.GetColumnSafe("PERSONAL_DESCRIPCION");
            masterColumn.CurrentFilterFunction = GridKnownFunction.Contains;
            masterColumn.CurrentFilterValue = txtBuscar.Text.Trim();
-            
-           rgEvaluaciones.MasterTableView.Rebind();
+           rgEvaluaciones.Rebind();
+           
         }
-
-
-        protected void rgEvaluaciones_NeedDataSource(object sender, GridNeedDataSourceEventArgs e)
-        {
-        
-        rgEvaluaciones.DataSource=odsEvaluacionesEstado;
-        
-
-        }
-        
+              
         
         }
     }

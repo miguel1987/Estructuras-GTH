@@ -13,5 +13,7 @@ namespace BusinessEntities
         public int REAL { get; set; }
         public string COMENTARIO { get; set; }
         public int BRECHA { get; set; }
+        public int ESTADO_EVALUACION { get; set; }
+        public int ANIO_EVALUACION { get; set; }
     }
 }
