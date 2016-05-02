@@ -206,16 +206,16 @@ namespace WebUI.UI_ARCHIVO
         
         protected void txtBuscar_TextChanged(object sender, EventArgs e)
         {
-            
-            
-            rgEvaluaciones.MasterTableView.FilterExpression = "([PERSONAL_DESCRIPCION] LIKE \'%" + txtBuscar.Text.Trim() + "%\') ";
+
+
+            rgEvaluaciones.MasterTableView.FilterExpression = "([PERSONAL_DESCRIPCION] LIKE \'%" + txtBuscar.Text.Trim() + "%\' OR [PUESTO_DESCRIPCION]LIKE \'%" + txtBuscar.Text.Trim() + "%\' OR [ESTADO_DESCRIPCION]LIKE \'%" +txtBuscar.Text.Trim()+"%\')";
             
            //GridColumn column = rgEvaluaciones.MasterTableView.GetColumn("PERSONAL_DESCRIPCION");
            //column.CurrentFilterFunction = GridKnownFunction.Contains;
            //column.CurrentFilterValue = txtBuscar.Text.Trim();
-            GridColumn masterColumn = (GridColumn)rgEvaluaciones.MasterTableView.GetColumnSafe("PERSONAL_DESCRIPCION");
-           masterColumn.CurrentFilterFunction = GridKnownFunction.Contains;
-           masterColumn.CurrentFilterValue = txtBuscar.Text.Trim();
+           // GridColumn masterColumn = (GridColumn)rgEvaluaciones.MasterTableView.GetColumnSafe("PERSONAL_DESCRIPCION","PUESTO_DESCRIPCION");
+           //masterColumn.CurrentFilterFunction = GridKnownFunction.Contains;
+           //masterColumn.CurrentFilterValue = txtBuscar.Text.Trim();
            rgEvaluaciones.Rebind();
            
         }
