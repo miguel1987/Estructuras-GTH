@@ -58,7 +58,7 @@ namespace WebUI.UI_ARCHIVO
         {
             //Cargamos la estructura jerarquica de REP
             //1. Cargar una lista de objetos de tipo Empresas
-
+            
             BL_EMPRESA BL_EMPRESA = new BL_EMPRESA();
             List<BE_EMPRESA> lstEmpresas = BL_EMPRESA.SeleccionarEmpresa();
 
@@ -66,23 +66,26 @@ namespace WebUI.UI_ARCHIVO
             foreach (BE_EMPRESA oEmpresa in lstEmpresas)
             {
                 RadTreeNode nodeEmpresa = new RadTreeNode(oEmpresa.DESCRIPCION.ToString(), oEmpresa.ID.ToString());
-
+                nodeEmpresa.Expanded = true;
                 //Añadir nodo Presidencia - CEO
 
+                
+                
                 BL_PRESIDENCIA BL_PRESIDENCIA = new BL_PRESIDENCIA();
                 List<BE_PRESIDENCIA> lstPresidencias = BL_PRESIDENCIA.SeleccionarPresidenciaPorEmpresa(oEmpresa.ID);
                 foreach (BE_PRESIDENCIA oPresidencia in lstPresidencias)
                 {
                     RadTreeNode nodePresidencia = new RadTreeNode(oPresidencia.DESCRIPCION.ToString(), oPresidencia.ID.ToString());
                     nodeEmpresa.Nodes.Add(nodePresidencia);
-
+                    nodePresidencia.Expanded = true;
+                    
                     BL_GERENCIA BL_GERENCIA = new BL_GERENCIA();
                     List<BE_GERENCIA> lstGerencias = BL_GERENCIA.SeleccionarGerenciaPorEmpresa(oEmpresa.ID);
 
                     foreach (BE_GERENCIA oGerencia in lstGerencias)
                     {
                         RadTreeNode nodeGerencia = new RadTreeNode(oGerencia.DESCRIPCION.ToString(), oGerencia.ID.ToString());
-
+                        
                         BL_AREA BL_AREA = new BL_AREA();
                         List<BE_AREA> lstAreas = BL_AREA.SeleccionarAreaGerencia(oGerencia.ID);
 
@@ -135,12 +138,18 @@ namespace WebUI.UI_ARCHIVO
 
         protected void rtvEstructuras_NodeClick(object sender, RadTreeNodeEventArgs e)
         {
-
+            
             //poner codigo del radgrid
-
+           
             string idNodo = e.Node.Value.ToString();
 
             string nivel = rtvEstructuras.SelectedNode.Level.ToString();
+            
+            //Presidencia
+            //if (nivel == "1")
+            //    idNodo = e.Node.Parent;
+            
+            
             ActualizarGrilla(idNodo, nivel);
         }
 
@@ -170,7 +179,7 @@ namespace WebUI.UI_ARCHIVO
             odsEvaluacionesEstado.SelectParameters.Add("jerarquia_id", System.Data.DbType.Guid, idNodo);
 
             odsEvaluacionesEstado.SelectParameters.Add("nivel", System.Data.DbType.Int16, nivel);
-
+            //RadToolTipManager2.TargetControls.Add(idNodo, nivel, true);
             rgEvaluaciones.DataBind();
         }
 
@@ -185,9 +194,10 @@ namespace WebUI.UI_ARCHIVO
                 string puesto=DataBinder.Eval(e.Item.DataItem,"PUESTO_DESCRIPCION").ToString();
                 string personal = DataBinder.Eval(e.Item.DataItem, "PERSONAL_DESCRIPCION").ToString();
                 string departamento = DataBinder.Eval(e.Item.DataItem, "AREA").ToString();
+                string estado = DataBinder.Eval(e.Item.DataItem, "ESTADO_DESCRIPCION").ToString();
 
                 HyperLink hplEvaluarPersonal1 = null;
-                string UrlEvaluar = "AsignarEvaluacionesPorPuesto.aspx?lightbox[iframe]=true&lightbox[width]=613&lightbox[height]=352&pPersonalId=" + idPersonal + "&pPuestoId=" + idPuesto + "&pDescripcionPersonal=" + personal + "&pDescripcionPuesto=" + puesto + "&PDepartamento=" +departamento;
+                string UrlEvaluar = "AsignarEvaluacionesPorPuesto.aspx?lightbox[iframe]=true&lightbox[width]=613&lightbox[height]=352&pPersonalId=" + idPersonal + "&pPuestoId=" + idPuesto + "&pDescripcionPersonal=" + personal + "&pDescripcionPuesto=" + puesto + "&PDepartamento=" +departamento +"&PEstadoDescripcion="+estado;
 
                 hplEvaluarPersonal1 = (HyperLink)e.Item.FindControl("hplEvaluarPersonal");
                 if (hplEvaluarPersonal1 == null)
@@ -219,7 +229,11 @@ namespace WebUI.UI_ARCHIVO
            rgEvaluaciones.Rebind();
            
         }
-              
+
+
+       
+
+
         
         }
     }

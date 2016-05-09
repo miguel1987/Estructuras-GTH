@@ -18,12 +18,14 @@
     </style>
     <h2>Evaluar Competencias por Puesto</h2>
 
-    <div style="height: 62px">
+    <div style="height: 72px">
     Area: 
         <asp:Label ID="lblArea" runat="server" Text=""></asp:Label>
    <br />
+   <br />
     Cargo:
         <asp:Label ID="lblPuesto" runat="server" Text=""></asp:Label>
+    <br />
     <br />
     Colaborador:
         <asp:Label ID="lblPersonal" runat="server" Text=""></asp:Label>
@@ -40,8 +42,7 @@
    <div>
    <telerik:RadGrid ID="rgAsignarCompetencias"  
            runat="server" Skin="MySilk" ImagesPath="../Styles/Grid/" Culture="es-ES" 
-           DataSourceID="odsCompetenciasPuesto" OnDeleteCommand="rgAsignarCompetencias_DeleteCommand"
-        OnUpdateCommand="rgAsignarCompetencias_UpdateCommand" AllowPaging="True" 
+           DataSourceID="odsCompetenciasPuesto" OnUpdateCommand="rgAsignarCompetencias_UpdateCommand" AllowPaging="True" 
            AllowSorting="True" EnableEmbeddedSkins="False">
 
            <MasterTableView DataSourceID="odsCompetenciasPuesto" CommandItemDisplay="None" DataKeyNames="COMPETENCIA_ID"
@@ -76,12 +77,7 @@
                     UniqueName="EditCommandColumn" CancelImageUrl="../images/ico-delete.png" 
                     InsertImageUrl="../images/ico-edit.png" UpdateImageUrl="../images/ico-edit.png">
                     <ItemStyle CssClass="MyImageButton"></ItemStyle>
-                </telerik:GridEditCommandColumn>
-                <telerik:GridButtonColumn ConfirmText="¿Deseas eliminar esta Área?" ConfirmDialogType="RadWindow"
-                    ConfirmTitle="Eliminar Área " ButtonType="ImageButton" CommandName="Delete" Text="Eliminar"
-                    UniqueName="EliminarArea">
-                    <ItemStyle HorizontalAlign="Center" CssClass="MyImageButton"></ItemStyle>
-                </telerik:GridButtonColumn>
+                </telerik:GridEditCommandColumn>               
             </Columns>
             <EditFormSettings>
              <EditColumn UniqueName="EditCommandColumn" CancelText="Cancelar" UpdateText="Actualizar" InsertText="Insertar">
@@ -98,17 +94,13 @@
        <table class="tabla_pagina">
            <tr>
                <td class="style1">
-               <telerik:RadButton RenderMode="Lightweight" ID="RadButton1" 
-           runat="server" Primary="true"  Width="140px" Height="38px"
-    Text="Guardar Evaluación" Skin="Metro">
-    </telerik:RadButton>
-                   </td>
-               <td>
                    <telerik:RadButton RenderMode="Lightweight" ID="RadButton2" 
            runat="server" Primary="true" with="100%"
     Text="Guardar Evaluación Final" Skin="Metro"  Width="163px" Height="37px" 
            style="text-align: left">
     </telerik:RadButton></td>
+               <td>
+                   &nbsp;</td>
            </tr>
        </table>
     </div>
@@ -125,7 +117,8 @@
   <asp:HiddenField ID="hf_Personal" runat="server" />
   <asp:HiddenField ID="hf_PuestoId" runat="server" />
   <asp:HiddenField ID="hf_Puesto" runat="server" />
-  <asp:HiddenField ID="hf_Departamento" runat="server" />             
+  <asp:HiddenField ID="hf_Departamento" runat="server" />   
+  <asp:HiddenField ID="hf_Estado" runat="server" />             
 </form>
 </body>
 </html>

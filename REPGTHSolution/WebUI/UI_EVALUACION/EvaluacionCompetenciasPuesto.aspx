@@ -11,7 +11,7 @@
  <link href="../Styles/jquery.lightbox.ie6.css" rel="stylesheet" type="text/css" />
  <link href="../Styles/Grid.MySilk.css" rel="stylesheet" type="text/css" />
  <link href="../Styles/TreeView.MySilk.css" rel="stylesheet" type="text/css" />
-
+    <script src="../Scripts/prueba.js" type="text/javascript"></script>
  <script type="text/javascript">
      jQuery(document).ready(function () {
          jQuery('.lightbox').lightbox();
@@ -22,15 +22,20 @@
   <div class="frm_titulo01">Evaluar Competencias por Puesto</div>
           <div class="margen"></div>
           <div class="margen"></div>
+
           <table width="100%" border="0" cellspacing="0" cellpadding="0">
         <tr>
               <td valign="top" width="292"><div class="cont_frm area-tree"> 
+              
                   
                   <!--Arbol -->
-                  
-                  <div class="tree-menu demo" id="tree-menu">
-                    <telerik:RadTreeView  ID="rtvEstructuras" runat="server"  
-                      OnNodeClick="rtvEstructuras_NodeClick" EnableEmbeddedSkins="False" Skin="Default" ImagesPath="../Styles/TreeView/" Width="250px"></telerik:RadTreeView>
+                    <telerik:RadTreeView    EnableDragAndDrop="true"  ID="rtvEstructuras" runat="server"  
+                      OnNodeClick="rtvEstructuras_NodeClick" EnableEmbeddedSkins="False" 
+                          Skin="Default" ImagesPath="../Styles/TreeView/" Height="1000px" Width="90%">
+                        <collapseanimation type="Linear" />
+<CollapseAnimation Type="InCubic"></CollapseAnimation>
+
+                      </telerik:RadTreeView>
                   </div>
                   
                   <!--Arbol --> 
@@ -91,11 +96,7 @@
                     AutoPostBackOnFilter="true" >                    
                 </telerik:GridBoundColumn>  
                 <telerik:GridBoundColumn DataField="PERSONAL_DESCRIPCION" HeaderText="COLABORADORES" SortExpression="PERSONAL_DESCRIPCION" UniqueName="PERSONAL_DESCRIPCION" HeaderStyle-Font-Size="8" HeaderStyle-Width="260px"  
-                    AutoPostBackOnFilter="true">  
-                    
-        
-
-
+                    AutoPostBackOnFilter="true">                      
                 </telerik:GridBoundColumn>   
                 <telerik:GridBoundColumn DataField="ESTADO_DESCRIPCION" HeaderText="ESTADO" SortExpression="ESTADO_DESCRIPCION" UniqueName="ESTADO" AutoPostBackOnFilter="true" HeaderStyle-Font-Size="8" >                    
                 </telerik:GridBoundColumn>       
@@ -110,12 +111,12 @@
                     </EditItemTemplate>
                     <HeaderStyle Width="80px"></HeaderStyle>
                 </telerik:GridTemplateColumn>                
-                <telerik:GridButtonColumn ConfirmText="¿Deseas eliminar esta Etapa?" ConfirmDialogType="RadWindow"
+                <%--<telerik:GridButtonColumn ConfirmText="¿Deseas eliminar esta Etapa?" ConfirmDialogType="RadWindow"
                     ConfirmTitle="Etapa Eliminada" ButtonType="ImageButton" CommandName="Delete" ImageUrl="../images/ico-delete.png"
                     Text="Eliminar" UniqueName="EliminarEtapa">
                     <ItemStyle HorizontalAlign="Center" CssClass="MyImageButton"></ItemStyle>
                 </telerik:GridButtonColumn>  
-               
+               --%>
             </Columns>
             <EditFormSettings>
             <EditColumn UniqueName="EditCommandColumn" CancelText="Cancelar" UpdateText="Actualizar"
@@ -133,6 +134,8 @@
              <asp:ObjectDataSource ID="odsEvaluacionesEstado" runat="server" SelectMethod="SeleccionarEvaluacionesPorJerarquia"         
         TypeName="BusinessLogicLayer.BL_EVALUACION_COMPETENCIAS_PUESTO" DataObjectTypeName="BusinessEntities.BE_EVALUACION_COMPETENCIA_PUESTO">
     </asp:ObjectDataSource>
+    <telerik:RadToolTipManager ID="RadToolTipManager1" runat="server" >
+        </telerik:RadToolTipManager>
      <p class="mensaje">
          <asp:Label ID="lblMensaje" runat="server" Font-Bold="true" Font-Size="Medium" ForeColor="Red"></asp:Label>
        </p>

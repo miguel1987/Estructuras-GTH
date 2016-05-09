@@ -42,6 +42,8 @@ namespace DataAccessLayer
                   int COMPETENCIA_ID = dr.GetOrdinal("COMPETENCIA_ID");
                   int COMPETENCIA_DESCRIPCION = dr.GetOrdinal("COMPETENCIA_DESCRIPCION");
                   int COMPETENCIA_PUESTO_VALOR_REQUERIDO = dr.GetOrdinal("COMPETENCIA_PUESTO_VALOR_REQUERIDO");
+                  int EVALUACION_COMPETENCIA_VALOR_REAL = dr.GetOrdinal("EVALUACION_COMPETENCIA_VALOR_REAL");
+                  int EVALUACION_COMPETENCIA_COMENTARIO = dr.GetOrdinal("EVALUACION_COMPETENCIA_COMENTARIO");
 
                   // creamos un objeto del tamaño de la tupla en el array de objeto Valores
                   object[] Valores = new object[dr.FieldCount];
@@ -60,6 +62,8 @@ namespace DataAccessLayer
                           oBE_COMPETENCIASPUESTO.COMPETENCIA_ID = (Guid)Valores.GetValue(COMPETENCIA_ID);
                           oBE_COMPETENCIASPUESTO.COMPETENCIA_DESCRIPCION = Valores.GetValue(COMPETENCIA_DESCRIPCION).ToString();
                           oBE_COMPETENCIASPUESTO.COMPETENCIA_PUESTO_VALOR_REQUERIDO = (int)Valores.GetValue(COMPETENCIA_PUESTO_VALOR_REQUERIDO);
+                          oBE_COMPETENCIASPUESTO.REAL = (int)Valores.GetValue(EVALUACION_COMPETENCIA_VALOR_REAL);
+                          oBE_COMPETENCIASPUESTO.COMENTARIO =Valores.GetValue(EVALUACION_COMPETENCIA_COMENTARIO).ToString();
 
                           oCOMPETENCIASPORPUESTO.Add(oBE_COMPETENCIASPUESTO);
                       }

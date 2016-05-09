@@ -97,6 +97,8 @@
     <Content Include="Images\pag_ultimo.png" />
     <Content Include="Images\sort.gif" />
     <Content Include="Scripts\jquery.tree.js" />
+    <Content Include="Scripts\prueba.js" />
+    <Content Include="Scripts\pruebatootip.js" />
     <Content Include="Styles\Grid.gridskin.css" />
     <Content Include="Styles\Grid.Material.css" />
     <Content Include="Styles\Grid.nuevogrid.css" />

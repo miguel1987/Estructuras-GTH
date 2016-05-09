@@ -289,9 +289,12 @@ ul#conf-menu li ul.sub-menu li a.separador {
 	padding: 20px;
 	border: 1px solid #e3e3e3;
 	background-color: #f9f9f9;
+	overflow: auto
+	
 }
 .area-tree {
 	width: 250px;
+	
 }
 .frm_titulo01 {
 	font-family: Arial, Helvetica, sans-serif;
@@ -490,4 +493,41 @@ ul#conf-menu li ul.sub-menu li a.separador {
 	color: #fff!important;
 	text-align: center;
 	margin: 2px;
+}
+
+
+/* agregados*/
+
+.RadGrid_MySilk .rgHeader 
+{
+   padding: 12px 14px!important;
+   
+   font-family: Arial, Helvetica;
+    font-size: 11px!important;
+    text-transform: uppercase;
+    color: #9b9b9b!important;
+    text-align: left;
+    font-weight: bold!important;
+   
+}
+
+
+
+.RadGrid_MySilk .rgHeader a {
+    font-family: Arial, Helvetica;
+    font-size: 11px;
+    text-transform: uppercase;
+    color: #9b9b9b!important;
+    text-align: left;
+    font-weight:bold;
+}
+
+.RadGrid_MySilk .rgRow td, .RadGrid_MySilk .rgAltRow td, .RadGrid_MySilk .rgEditRow td 
+{
+    font-family: Arial, verdana, helvetica;
+    font-size: 12px;
+    color: #9b9b9b;
+    padding: 12px 14px!important;
+    text-align: left;
+    line-height: 16px!important;
 }

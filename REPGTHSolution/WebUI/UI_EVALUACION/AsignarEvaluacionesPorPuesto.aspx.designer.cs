@@ -76,15 +76,6 @@ namespace WebUI.UI_EVALUACION {
         protected global::Telerik.Web.UI.RadGrid rgAsignarCompetencias;
         
         /// <summary>
-        /// RadButton1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::Telerik.Web.UI.RadButton RadButton1;
-        
-        /// <summary>
         /// RadButton2 control.
         /// </summary>
         /// <remarks>
@@ -155,5 +146,14 @@ namespace WebUI.UI_EVALUACION {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField hf_Departamento;
+        
+        /// <summary>
+        /// hf_Estado control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hf_Estado;
     }
 }

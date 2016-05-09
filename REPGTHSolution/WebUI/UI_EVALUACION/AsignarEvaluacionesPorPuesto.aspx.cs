@@ -16,6 +16,7 @@ namespace WebUI.UI_EVALUACION
     public partial class AsignarEvaluacionesPorPuesto : PageBaseClass
     {
         Guid USUARIO;
+        BE_EVALUACION_COMPETENCIA_PUESTO BE_EVALUACION_COMPETENCIA_PUESTO = new BE_EVALUACION_COMPETENCIA_PUESTO();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -32,6 +33,7 @@ namespace WebUI.UI_EVALUACION
 
             if (!String.IsNullOrEmpty(Request.QueryString["pDescripcionPuesto"])) hf_Puesto.Value = Request.QueryString["pDescripcionPuesto"];
             if (!string.IsNullOrEmpty(Request.QueryString["PDepartamento"])) hf_Departamento.Value = Request.QueryString["PDepartamento"];
+            if (!string.IsNullOrEmpty(Request.QueryString["PEstadoDescripcion"])) hf_Estado.Value = Request.QueryString["PEstadoDescripcion"];
 
 
             if (!Page.IsPostBack)
@@ -88,44 +90,43 @@ namespace WebUI.UI_EVALUACION
         {
             var editableItem = ((GridEditableItem)e.Item);
             //create new entity
-            BL_COMPETENCIAS_POR_PUESTO BL_AREA = new BL_COMPETENCIAS_POR_PUESTO();
+            BL_EVALUACIONES_COMPETENCIAS_PUESTOS_PERSONAL BL_EVALUACIONES_COMPETENCIAS_PUESTOS_PERSONAL = new BL_EVALUACIONES_COMPETENCIAS_PUESTOS_PERSONAL();
             //populate its properties
             Hashtable values = new Hashtable();
             editableItem.ExtractValues(values);
 
-            BE_COMPETENCIAS_POR_PUESTO oentidad = new BE_COMPETENCIAS_POR_PUESTO();
+            BE_EVALUACIONES_COMPETENCIAS_PUESTOS_PERSONAL oentidad = new BE_EVALUACIONES_COMPETENCIAS_PUESTOS_PERSONAL();
 
             Nullable<Guid> COMPETENCIA_ID;
+            
 
             if (e.CommandName == RadGrid.PerformInsertCommandName)
                 COMPETENCIA_ID = Guid.Empty;
             else
                 COMPETENCIA_ID = Guid.Parse(editableItem.GetDataKeyValue("COMPETENCIA_ID").ToString());
-
-            oentidad.COMPETENCIA_ID = (Guid)COMPETENCIA_ID;
             
-            oentidad.REAL = (int)values["REAL"];
-            oentidad.BRECHA = oentidad.REAL - (int)values["REQUERIDO"];
+            oentidad.COMPETENCIA_ID = (Guid)COMPETENCIA_ID;
+            oentidad.PERSONAL_ID = Guid.Parse(hf_PersonalId.Value);
+            oentidad.PUESTO_ID = Guid.Parse(hf_PuestoId.Value);
+            oentidad.REAL = Convert.ToInt16(values["REAL"]);
+            oentidad.BRECHA = oentidad.REAL - Convert.ToInt16(values["REQUERIDO"]);
             oentidad.COMENTARIO = values["COMENTARIO"].ToString();
             oentidad.USUARIO_CREACION = USUARIO;
             oentidad.ESTADO_EVALUACION = (int)BE_EVALUACION_COMPETENCIA_PUESTO.ESTADO_EVALUACION.En_Evaluacion;
             oentidad.ANIO_EVALUACION = DateTime.Now.Year;
 
-        //    if (oentidad.REAL==0)
-        //    {                
-        //        BL_COMPETENCIAS_POR_PUESTO.InsertarEvaluacion(oentidad);
-        //    }
-        //    else
-        //    {
-        //        BL_COMPETENCIAS_POR_PUESTO.ActualizarEvaluacion(oentidad);
+            if (hf_Estado.Value == BE_EVALUACION_COMPETENCIA_PUESTO.ESTADO_EVALUACION.Pendiente.ToString())
+            {
+                BL_EVALUACIONES_COMPETENCIAS_PUESTOS_PERSONAL.InsertarEvaluacionCompetenciasPuestosPersonal(oentidad);
+            }
+            else
+            {
+                BL_EVALUACIONES_COMPETENCIAS_PUESTOS_PERSONAL.ActualizarEvaluacionCompetenciasPuestosPersonal(oentidad);
 
-        //    }
+            }
 
         }
 
-        //protected void rgAsignarCompetencias_UpdateCommand(object sender, GridCommandEventArgs e)
-        //{
-            
-        //}
+       
     }
 }

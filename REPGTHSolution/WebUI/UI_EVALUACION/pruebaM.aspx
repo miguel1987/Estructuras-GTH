@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="pruebaM.aspx.cs" Inherits="WebUI.UI_EVALUACION.pruebaM" %>
+<%@ Register assembly="Telerik.Web.UI" namespace="Telerik.Web.UI" tagprefix="telerik" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" runat="server">
     <style type="text/css">
         .style1
@@ -22,48 +23,7 @@
                     ontreenodeexpanded="TreeView1_TreeNodeExpanded" >
                 </asp:TreeView>
             </td>
-            <telerik:RadGrid ID="RadGrid1" runat="server" DataSourceID="odsEvaluacionesTransversales">
             
-                <MasterTableView DataSourceID="odsEvaluacionesTransversales" CommandItemDisplay="Top" DataKeyNames="ID"
-         ShowHeadersWhenNoRecords="true" EnableNoRecordsTemplate="true" ShowHeader="true" HorizontalAlign="NotSet" AutoGenerateColumns="False"   
-         OverrideDataSourceControlSorting="true">
-            <NoRecordsTemplate>
-                No existen evaluaciones registrados para los parámetros seleccionados.
-            </NoRecordsTemplate>
-            
-            <%--<CommandItemSettings  AddNewRecordText="Añadir Nuevo Registro"  RefreshText="Actualizar" ExportToPdfText="Exportar a PDF"></CommandItemSettings> --%>          
-            <Columns>
-                <telerik:GridBoundColumn DataField="PUESTO_ID" HeaderText="PUESTO_ID" SortExpression="PUESTO_ID" UniqueName="PUESTO_ID" HeaderStyle-Width="90%" Display="false">                    
-                </telerik:GridBoundColumn>    
-                <telerik:GridBoundColumn DataField="PERSONAL_ID" HeaderText="PERSONAL_ID" SortExpression="PERSONAL_ID" UniqueName="PERSONAL_ID" HeaderStyle-Width="90%" Display="false">                    
-                </telerik:GridBoundColumn>   
-                <telerik:GridBoundColumn DataField="PUESTO_DESCRIPCION" HeaderText="PUESTO" SortExpression="PUESTO_DESCRIPCION" UniqueName="PUESTO_DESCRIPCION" 
-                    AutoPostBackOnFilter="true">                    
-                </telerik:GridBoundColumn>  
-                <telerik:GridBoundColumn DataField="PERSONAL_DESCRIPCION" HeaderText="COLABORADORES" SortExpression="PERSONAL_DESCRIPCION" UniqueName="PERSONAL_DESCRIPCION" 
-                    AutoPostBackOnFilter="true">                    
-                </telerik:GridBoundColumn>   
-                <telerik:GridBoundColumn DataField="ESTADO_DESCRIPCION" HeaderText="ESTADO_DESCRIPCION" SortExpression="ESTADO_DESCRIPCION" UniqueName="ESTADO" AutoPostBackOnFilter="true">                    
-                </telerik:GridBoundColumn>                               
-                <%--<telerik:GridEditCommandColumn ButtonType="ImageButton" 
-                    UniqueName="EditCommandColumn" CancelImageUrl="../Styles/Grid/Cancel.gif" 
-                    InsertImageUrl="../Styles/Grid/Update.gif" UpdateImageUrl="../Styles/Grid/Update.gif" EditText="Actualizar">
-                    <ItemStyle CssClass="MyImageButton"></ItemStyle>
-                </telerik:GridEditCommandColumn>--%>
-                <%--<telerik:GridButtonColumn ConfirmText="¿Deseas eliminar esta Gerencia?" ConfirmDialogType="RadWindow"
-                    ConfirmTitle="Gerencia Eliminada" ButtonType="ImageButton" CommandName="Delete" Text="Eliminar"
-                    UniqueName="EliminarGerencia">
-                    <ItemStyle HorizontalAlign="Center" CssClass="MyImageButton"></ItemStyle>
-                </telerik:GridButtonColumn>--%>
-            </Columns>
-            <%--<EditFormSettings>
-            <EditColumn UniqueName="EditCommandColumn" CancelText="Cancelar" UpdateText="Actualizar"
-                  InsertText="Insertar">
-                </EditColumn>
-            </EditFormSettings>--%>
-            <%--<PagerStyle PageSizeControlType="RadComboBox"></PagerStyle>--%>
-        </MasterTableView>
-            </telerik:RadGrid>
 
 
            
