@@ -1150,24 +1150,24 @@ namespace BusinessLogicLayer.wsMaestros {
         
         /// <remarks/>
         [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/SeleccionarPersonalPorPresidencia", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
-        public BE_PERSONAL[] SeleccionarPersonalPorPresidencia(System.Guid empresa_id) {
+        public BE_PERSONAL[] SeleccionarPersonalPorPresidencia(System.Guid presidencia_id) {
             object[] results = this.Invoke("SeleccionarPersonalPorPresidencia", new object[] {
-                        empresa_id});
+                        presidencia_id});
             return ((BE_PERSONAL[])(results[0]));
         }
         
         /// <remarks/>
-        public void SeleccionarPersonalPorPresidenciaAsync(System.Guid empresa_id) {
-            this.SeleccionarPersonalPorPresidenciaAsync(empresa_id, null);
+        public void SeleccionarPersonalPorPresidenciaAsync(System.Guid presidencia_id) {
+            this.SeleccionarPersonalPorPresidenciaAsync(presidencia_id, null);
         }
         
         /// <remarks/>
-        public void SeleccionarPersonalPorPresidenciaAsync(System.Guid empresa_id, object userState) {
+        public void SeleccionarPersonalPorPresidenciaAsync(System.Guid presidencia_id, object userState) {
             if ((this.SeleccionarPersonalPorPresidenciaOperationCompleted == null)) {
                 this.SeleccionarPersonalPorPresidenciaOperationCompleted = new System.Threading.SendOrPostCallback(this.OnSeleccionarPersonalPorPresidenciaOperationCompleted);
             }
             this.InvokeAsync("SeleccionarPersonalPorPresidencia", new object[] {
-                        empresa_id}, this.SeleccionarPersonalPorPresidenciaOperationCompleted, userState);
+                        presidencia_id}, this.SeleccionarPersonalPorPresidenciaOperationCompleted, userState);
         }
         
         private void OnSeleccionarPersonalPorPresidenciaOperationCompleted(object arg) {

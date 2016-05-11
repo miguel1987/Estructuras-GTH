@@ -43,7 +43,9 @@ namespace DataAccessLayer
                   int COMPETENCIA_DESCRIPCION = dr.GetOrdinal("COMPETENCIA_DESCRIPCION");
                   int COMPETENCIA_PUESTO_VALOR_REQUERIDO = dr.GetOrdinal("COMPETENCIA_PUESTO_VALOR_REQUERIDO");
                   int EVALUACION_COMPETENCIA_VALOR_REAL = dr.GetOrdinal("EVALUACION_COMPETENCIA_VALOR_REAL");
+                  int EVALUACION_COMPETENCIA_BRECHA = dr.GetOrdinal("EVALUACION_COMPETENCIA_BRECHA");
                   int EVALUACION_COMPETENCIA_COMENTARIO = dr.GetOrdinal("EVALUACION_COMPETENCIA_COMENTARIO");
+                  int EVALUACION_COMPETENCIA_ESTADO = dr.GetOrdinal("EVALUACION_COMPETENCIA_ESTADO");
 
                   // creamos un objeto del tamaño de la tupla en el array de objeto Valores
                   object[] Valores = new object[dr.FieldCount];
@@ -63,7 +65,9 @@ namespace DataAccessLayer
                           oBE_COMPETENCIASPUESTO.COMPETENCIA_DESCRIPCION = Valores.GetValue(COMPETENCIA_DESCRIPCION).ToString();
                           oBE_COMPETENCIASPUESTO.COMPETENCIA_PUESTO_VALOR_REQUERIDO = (int)Valores.GetValue(COMPETENCIA_PUESTO_VALOR_REQUERIDO);
                           oBE_COMPETENCIASPUESTO.REAL = (int)Valores.GetValue(EVALUACION_COMPETENCIA_VALOR_REAL);
+                          oBE_COMPETENCIASPUESTO.BRECHA = (int)Valores.GetValue(EVALUACION_COMPETENCIA_BRECHA);
                           oBE_COMPETENCIASPUESTO.COMENTARIO =Valores.GetValue(EVALUACION_COMPETENCIA_COMENTARIO).ToString();
+                          oBE_COMPETENCIASPUESTO.ESTADO_EVALUACION = (int)Valores.GetValue(EVALUACION_COMPETENCIA_ESTADO);
 
                           oCOMPETENCIASPORPUESTO.Add(oBE_COMPETENCIASPUESTO);
                       }

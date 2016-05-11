@@ -11,7 +11,7 @@
  <link href="../Styles/jquery.lightbox.ie6.css" rel="stylesheet" type="text/css" />
  <link href="../Styles/Grid.MySilk.css" rel="stylesheet" type="text/css" />
  <link href="../Styles/TreeView.MySilk.css" rel="stylesheet" type="text/css" />
-    <script src="../Scripts/prueba.js" type="text/javascript"></script>
+    
  <script type="text/javascript">
      jQuery(document).ready(function () {
          jQuery('.lightbox').lightbox();
@@ -29,12 +29,14 @@
               
                   
                   <!--Arbol -->
-                    <telerik:RadTreeView    EnableDragAndDrop="true"  ID="rtvEstructuras" runat="server"  
+                  <telerik:RadToolTipManager ID="RadToolTipManager1" runat="server" OnAjaxUpdate="RadToolTipManager1_AjaxUpdate">
+                  </telerik:RadToolTipManager>
+                    <telerik:RadTreeView   EnableDragAndDrop="false" EnableDragAndDropBetweenNodes="false"  ID="rtvEstructuras" runat="server"  
                       OnNodeClick="rtvEstructuras_NodeClick" EnableEmbeddedSkins="False" 
-                          Skin="Default" ImagesPath="../Styles/TreeView/" Height="1000px" Width="90%">
+                          Skin="Default" ImagesPath="../Styles/TreeView/"   >
                         <collapseanimation type="Linear" />
-<CollapseAnimation Type="InCubic"></CollapseAnimation>
-
+                    <CollapseAnimation Type="InCubic"></CollapseAnimation>
+                    
                       </telerik:RadTreeView>
                   </div>
                   
@@ -134,8 +136,7 @@
              <asp:ObjectDataSource ID="odsEvaluacionesEstado" runat="server" SelectMethod="SeleccionarEvaluacionesPorJerarquia"         
         TypeName="BusinessLogicLayer.BL_EVALUACION_COMPETENCIAS_PUESTO" DataObjectTypeName="BusinessEntities.BE_EVALUACION_COMPETENCIA_PUESTO">
     </asp:ObjectDataSource>
-    <telerik:RadToolTipManager ID="RadToolTipManager1" runat="server" >
-        </telerik:RadToolTipManager>
+    
      <p class="mensaje">
          <asp:Label ID="lblMensaje" runat="server" Font-Bold="true" Font-Size="Medium" ForeColor="Red"></asp:Label>
        </p>

@@ -65,6 +65,8 @@ namespace DataAccessLayer
                objCmd.Transaction = otransaction;
 
                objCmd.Parameters.Clear();
+               objCmd.Parameters.Add("@PERSONAL_ID", SqlDbType.UniqueIdentifier).Value = oBE_EVALUACIONES_COMPETENCIAS_PERSONAL.PERSONAL_ID;
+               objCmd.Parameters.Add("@COMPETENCIA_ID", SqlDbType.UniqueIdentifier).Value = oBE_EVALUACIONES_COMPETENCIAS_PERSONAL.COMPETENCIA_ID;
                objCmd.Parameters.Add("@EVALUACION_COMPETENCIA_BRECHA", SqlDbType.Int).Value = oBE_EVALUACIONES_COMPETENCIAS_PERSONAL.BRECHA;
                
 

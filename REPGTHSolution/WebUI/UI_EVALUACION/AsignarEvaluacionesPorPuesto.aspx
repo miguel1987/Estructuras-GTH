@@ -42,7 +42,7 @@
    <div>
    <telerik:RadGrid ID="rgAsignarCompetencias"  
            runat="server" Skin="MySilk" ImagesPath="../Styles/Grid/" Culture="es-ES" 
-           DataSourceID="odsCompetenciasPuesto" OnUpdateCommand="rgAsignarCompetencias_UpdateCommand" AllowPaging="True" 
+           DataSourceID="odsCompetenciasPuesto" OnItemDataBound="rgAsignarCompetencias_ItemDataBound" OnUpdateCommand="rgAsignarCompetencias_UpdateCommand" AllowPaging="True" 
            AllowSorting="True" EnableEmbeddedSkins="False">
 
            <MasterTableView DataSourceID="odsCompetenciasPuesto" CommandItemDisplay="None" DataKeyNames="COMPETENCIA_ID"
@@ -57,7 +57,7 @@
                 <telerik:GridBoundColumn ReadOnly="true" DataField="COMPETENCIA_DESCRIPCION" HeaderText="TECNICAS" SortExpression="COMPETENCIA_DESCRIPCION" UniqueName="COMPETENCIA_DESCRIPCION"  HeaderStyle-Font-Size="8">                    
 <HeaderStyle Width="50%"></HeaderStyle>
                 </telerik:GridBoundColumn> 
-                <telerik:GridBoundColumn ReadOnly="true" DataField="COMPETENCIA_PUESTO_VALOR_REQUERIDO" HeaderText="REQUERIDO" SortExpression="COMPETENCIA_PUESTO_VALOR_REQUERIDO" UniqueName="COMPETENCIA_PUESTO_VALOR_REQUERIDO"  HeaderStyle-Font-Size="8">                    
+                <telerik:GridBoundColumn EditFormHeaderTextFormat="" DataField="COMPETENCIA_PUESTO_VALOR_REQUERIDO" HeaderText="REQUERIDO" SortExpression="COMPETENCIA_PUESTO_VALOR_REQUERIDO" UniqueName="COMPETENCIA_PUESTO_VALOR_REQUERIDO"  HeaderStyle-Font-Size="8">                    
 <HeaderStyle Width="90%"></HeaderStyle>
                 </telerik:GridBoundColumn>     
                 <telerik:GridBoundColumn DataField="REAL" HeaderText="REAL" SortExpression="REAL" UniqueName="REAL" 
@@ -73,6 +73,24 @@
                 <telerik:GridBoundColumn ReadOnly="true" DataField="BRECHA" HeaderText="BRECHA" SortExpression="BRECHA" UniqueName="BRECHA" AutoPostBackOnFilter="true"  >                    
 <HeaderStyle Font-Size="8pt"></HeaderStyle>
                 </telerik:GridBoundColumn>       
+                <telerik:GridBoundColumn EditFormHeaderTextFormat="" Visible="false" DataField="ESTADO_EVALUACION" HeaderText="" SortExpression="ESTADO_EVALUACION" UniqueName="ESTADO_EVALUACION" AutoPostBackOnFilter="true" Display="true">                    
+<HeaderStyle Font-Size="8pt"></HeaderStyle>
+                </telerik:GridBoundColumn>
+                <%--<telerik:GridTemplateColumn DataField="ESTADO_EVALUACION" EditFormHeaderTextFormat="" HeaderText="ESTADO_EVALUACION" SortExpression="ESTADO_EVALUACION" Visible="false"
+                    UniqueName="ESTADO_EVALUACION" ColumnEditorID="GridTextBoxColumnEditorTipo" HeaderStyle-Width="8px"
+                    ItemStyle-Width="8px">
+                    <ItemTemplate>
+                        <asp:Label ID="lblEstadoEvaluacion" runat="server" Text='<%# Eval("ESTADO_EVALUACION")%>' Visible="false" />
+                    </ItemTemplate>
+                    
+
+                    <EditItemTemplate>
+                        <asp:TextBox ID="tbEstadoEvaluacion" runat="server" Enabled="false" Columns="3" Width="300px" Text='<%# Eval("ESTADO_EVALUACION")%>' Visible="false">
+                        </asp:TextBox>
+                    </EditItemTemplate>                    
+                    <HeaderStyle Width="8px"></HeaderStyle>
+                    <ItemStyle Width="8px"></ItemStyle>
+                </telerik:GridTemplateColumn> --%>
                <telerik:GridEditCommandColumn ButtonType="ImageButton" EditText="Actualizar"
                     UniqueName="EditCommandColumn" CancelImageUrl="../images/ico-delete.png" 
                     InsertImageUrl="../images/ico-edit.png" UpdateImageUrl="../images/ico-edit.png">
@@ -94,7 +112,7 @@
        <table class="tabla_pagina">
            <tr>
                <td class="style1">
-                   <telerik:RadButton RenderMode="Lightweight" ID="RadButton2" 
+                   <telerik:RadButton RenderMode="Lightweight" ID="btnGuardarEvaluacionFinal" 
            runat="server" Primary="true" with="100%"
     Text="Guardar Evaluación Final" Skin="Metro"  Width="163px" Height="37px" 
            style="text-align: left">
@@ -103,6 +121,9 @@
                    &nbsp;</td>
            </tr>
        </table>
+          <p class="mensaje">
+         <asp:Label ID="lblMensaje" runat="server" Font-Bold="true" Font-Size="Medium" ForeColor="Red"></asp:Label>
+       </p>
     </div>
   <asp:ObjectDataSource ID="odsCompetenciasTipos" runat="server" SelectMethod="SeleccionarCompetenciasTipos"
         TypeName="BusinessLogicLayer.BL_COMPETENCIAS_TIPOS"></asp:ObjectDataSource>

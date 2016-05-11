@@ -29,6 +29,7 @@ namespace WebUI.UI_ARCHIVO
                     validarUsuarioEnDominio();
                     ValidarPerfilUsuario();
                     LoadEstructura();
+                    addTooltips();
 
                     LoadGrilla(Session["EMPRESA_ID"].ToString(), "0");
 
@@ -67,9 +68,7 @@ namespace WebUI.UI_ARCHIVO
             {
                 RadTreeNode nodeEmpresa = new RadTreeNode(oEmpresa.DESCRIPCION.ToString(), oEmpresa.ID.ToString());
                 nodeEmpresa.Expanded = true;
-                //Añadir nodo Presidencia - CEO
-
-                
+                //Añadir nodo Presidencia - CEO                
                 
                 BL_PRESIDENCIA BL_PRESIDENCIA = new BL_PRESIDENCIA();
                 List<BE_PRESIDENCIA> lstPresidencias = BL_PRESIDENCIA.SeleccionarPresidenciaPorEmpresa(oEmpresa.ID);
@@ -116,6 +115,7 @@ namespace WebUI.UI_ARCHIVO
                 }
 
                 this.rtvEstructuras.Nodes.Add(nodeEmpresa);
+                
 
 
             }
@@ -231,7 +231,42 @@ namespace WebUI.UI_ARCHIVO
         }
 
 
+        protected void addTooltips()
+        {
+            RadToolTipManager1.TargetControls.Clear();            
+           
+            foreach (RadTreeNode node in rtvEstructuras.Nodes)
+            {
+                node.Attributes.Add("ID", node.Text);
+                RadToolTipManager1.TargetControls.Add(node.Attributes["ID"], true);
+                NodesInNode(node);
+            }
+        }
        
+        protected void NodesInNode(RadTreeNode startNode)
+        {
+            if (startNode.Nodes.Count > 0)
+            {
+                foreach (RadTreeNode node in startNode.Nodes)
+                {
+
+                    node.Attributes.Add("ID", node.Text);
+                    RadToolTipManager1.TargetControls.Add(node.Attributes["ID"], true);
+                    NodesInNode(node);
+                }
+            }
+        }
+
+        protected void RadToolTipManager1_AjaxUpdate(object sender, ToolTipUpdateEventArgs e)
+        {
+            Label text = new Label();
+            text.Text = e.TargetControlID;
+            e.UpdatePanel.ContentTemplateContainer.Controls.Add(text);
+        }       
+
+
+        
+
 
 
         

@@ -76,10 +76,33 @@ namespace WebUI.UI_EVALUACION
 
             odsCompetenciasPuesto.SelectParameters.Clear();
             odsCompetenciasPuesto.SelectParameters.Add("idPuesto", hf_PuestoId.Value);
-            odsCompetenciasPuesto.SelectParameters.Add("idTipoCompetencia", ddlTipoCompetencias.SelectedValue);
-           
+            odsCompetenciasPuesto.SelectParameters.Add("idTipoCompetencia", ddlTipoCompetencias.SelectedValue);           
 
         }
+
+        protected void rgAsignarCompetencias_ItemDataBound(object sender, GridItemEventArgs e)
+        {          
+
+            if (e.Item is GridEditableItem && e.Item.IsInEditMode)
+            {
+
+                (e.Item as GridEditableItem)["COMPETENCIA_PUESTO_VALOR_REQUERIDO"].Visible = false;
+                (e.Item as GridEditableItem)["ESTADO_EVALUACION"].Visible = false;
+
+            }
+        }
+
+        
+
+
+
+
+
+
+
+
+
+
 
         protected void rgAsignarCompetencias_UpdateCommand(object sender, GridCommandEventArgs e)
         {
@@ -109,20 +132,21 @@ namespace WebUI.UI_EVALUACION
             oentidad.PERSONAL_ID = Guid.Parse(hf_PersonalId.Value);
             oentidad.PUESTO_ID = Guid.Parse(hf_PuestoId.Value);
             oentidad.REAL = Convert.ToInt16(values["REAL"]);
-            oentidad.BRECHA = oentidad.REAL - Convert.ToInt16(values["REQUERIDO"]);
+            oentidad.BRECHA = oentidad.REAL -Convert.ToInt32(values["COMPETENCIA_PUESTO_VALOR_REQUERIDO"]);
+            oentidad.ESTADO_EVALUACION = Convert.ToInt16(values["ESTADO_EVALUACION"]);
             oentidad.COMENTARIO = values["COMENTARIO"].ToString();
-            oentidad.USUARIO_CREACION = USUARIO;
-            oentidad.ESTADO_EVALUACION = (int)BE_EVALUACION_COMPETENCIA_PUESTO.ESTADO_EVALUACION.En_Evaluacion;
+            oentidad.USUARIO_CREACION = USUARIO;            
             oentidad.ANIO_EVALUACION = DateTime.Now.Year;
 
-            if (hf_Estado.Value == BE_EVALUACION_COMPETENCIA_PUESTO.ESTADO_EVALUACION.Pendiente.ToString())
+            
+            if (oentidad.ESTADO_EVALUACION == (int)BE_EVALUACION_COMPETENCIA_PUESTO.ESTADO_EVALUACION.Pendiente)
             {
+                oentidad.ESTADO_EVALUACION = (int)BE_EVALUACION_COMPETENCIA_PUESTO.ESTADO_EVALUACION.En_Evaluacion;
                 BL_EVALUACIONES_COMPETENCIAS_PUESTOS_PERSONAL.InsertarEvaluacionCompetenciasPuestosPersonal(oentidad);
             }
             else
-            {
+            {                
                 BL_EVALUACIONES_COMPETENCIAS_PUESTOS_PERSONAL.ActualizarEvaluacionCompetenciasPuestosPersonal(oentidad);
-
             }
 
         }

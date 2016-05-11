@@ -103,8 +103,7 @@ namespace DataAccessLayer
             int FilasAfectadas = 0;
             SqlTransaction oTransaction = null;
             bool bSolicitud = false;
-            cnx = DC_Connection.getConnection();
-            //Guid evluacion_competencia_puesto_personal_id = Guid.Empty;
+            cnx = DC_Connection.getConnection();            
 
             try
             {
@@ -135,8 +134,7 @@ namespace DataAccessLayer
 
                     oTransaction = cnx.BeginTransaction();
                     objCmd.Transaction = oTransaction;
-
-                    //evluacion_competencia_puesto_personal_id = (Guid)objCmd.ExecuteScalar();
+                    
                     objCmd.ExecuteNonQuery();
 
                     DA_EVALUACIONES_COMPETENCIAS_PERSONAL oDA_EVALUACIONES_COMPETENCIAS_PERSONAL = new DA_EVALUACIONES_COMPETENCIAS_PERSONAL();
