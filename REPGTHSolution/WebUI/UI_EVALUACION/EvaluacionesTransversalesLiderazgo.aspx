@@ -14,7 +14,8 @@
               <tr>
             <td><a class="frm_boton ">Generar Reporte</a></td>
             <td width="20">&nbsp;</td>
-            <td><input type="text"  class="frmTxtBuscar " value="Buscar" /></td>
+            <td><telerik:RadTextBox CssClass="frmTxtBuscar"  ID="txtBuscar" runat="server" AutoPostBack="true" OnTextChanged="txtBuscar_TextChanged" EnableEmbeddedSkins="false"
+                 Skin="MySilk"></telerik:RadTextBox></td>
             <td><a class="frm_boton ">Ir</a></td>
           </tr>
             </table>
@@ -61,7 +62,17 @@
                     AutoPostBackOnFilter="true">                    
                 </telerik:GridBoundColumn>   
                 <telerik:GridBoundColumn DataField="PUESTO_DESCRIPCION" HeaderText="PUESTO" SortExpression="PUESTO_DESCRIPCION" UniqueName="PUESTO_DESCRIPCION" AutoPostBackOnFilter="true">                    
-                </telerik:GridBoundColumn>                               
+                </telerik:GridBoundColumn> 
+                <telerik:GridBoundColumn DataField="PORCENTAJE_INSPIRAR" HeaderText="INSPIRAR_ MOTIVAR" SortExpression="PORCENTAJE_INSPIRAR" UniqueName="PORCENTAJE_INSPIRAR" AutoPostBackOnFilter="true">                    
+                </telerik:GridBoundColumn> 
+                <telerik:GridBoundColumn DataField="PORCENTAJE_ESTRATEGICA" HeaderText="VISION_ ESTRATEGICA" SortExpression="PORCENTAJE_ESTRATEGICA" UniqueName="PORCENTAJE_ESTRATEGICA" AutoPostBackOnFilter="true">                    
+                </telerik:GridBoundColumn> 
+                <telerik:GridBoundColumn DataField="PORCENTAJE_CONSTRUCCION" HeaderText="CONSTRUCCION_ REDES_COLABORATIVAS" SortExpression="PORCENTAJE_CONSTRUCCION" UniqueName="PORCENTAJE_CONSTRUCCION" AutoPostBackOnFilter="true">                    
+                </telerik:GridBoundColumn>
+                <telerik:GridBoundColumn DataField="PORCENTAJE_DECISION" HeaderText="JUICIO_  DECISION" SortExpression="PORCENTAJE_DECISION" UniqueName="PORCENTAJE_DECISION" AutoPostBackOnFilter="true">                    
+                </telerik:GridBoundColumn> 
+                <telerik:GridBoundColumn DataField="PORCENTAJE_RESULTADOS" HeaderText="ORIENTACION_ RESULTADOS" SortExpression="PORCENTAJE_RESULTADOS" UniqueName="PORCENTAJE_RESULTADOS" AutoPostBackOnFilter="true">                    
+                </telerik:GridBoundColumn>                              
             </Columns>
             <EditFormSettings>
             <EditColumn UniqueName="EditCommandColumn" CancelText="Cancelar" UpdateText="Actualizar"

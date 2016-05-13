@@ -44,17 +44,20 @@ namespace BusinessLogicLayer
 
             //List<BE_EVALUACION_COMPETENCIA_PUESTO> oListaEvaluacionesEstado = new List<BE_EVALUACION_COMPETENCIA_PUESTO>();
             if (oLista != null)
-            {
+            {               
                 foreach (var item in oLista)
                 {
-
                     BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES oEvaluacion_Competencia_Transversales = new BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES();
                     oEvaluacion_Competencia_Transversales.PERSONAL_ID = item.ID;
                     oEvaluacion_Competencia_Transversales.CODIGO = item.CODIGO_TRABAJO;
                     oEvaluacion_Competencia_Transversales.PERSONAL_DESCRIPCION = item.NOMBRES_COMPLETOS;
                     oEvaluacion_Competencia_Transversales.PUESTO_ID = item.PUESTO_ID;
                     oEvaluacion_Competencia_Transversales.PUESTO_DESCRIPCION = item.oBE_PUESTO.DESCRIPCION;
-
+                    oEvaluacion_Competencia_Transversales.PORCENTAJE_INSPIRAR = BL__EVALUACIONES_COMPETENCIAS_TRANSVERSALES.SeleccionarEvaluacionPorCompetenciaTransversal(item.ID,(int)BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES.TIPO_COMPETENCIA.INSPIRAR)*100 ;                    
+                    oEvaluacion_Competencia_Transversales.PORCENTAJE_ESTRATEGICA = BL__EVALUACIONES_COMPETENCIAS_TRANSVERSALES.SeleccionarEvaluacionPorCompetenciaTransversal(item.ID,(int)BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES.TIPO_COMPETENCIA.ESTRATEGICA)*100;
+                    oEvaluacion_Competencia_Transversales.PORCENTAJE_CONSTRUCCION = BL__EVALUACIONES_COMPETENCIAS_TRANSVERSALES.SeleccionarEvaluacionPorCompetenciaTransversal(item.ID,(int)BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES.TIPO_COMPETENCIA.CONSTRUCCION)*100;
+                    oEvaluacion_Competencia_Transversales.PORCENTAJE_DECISION = BL__EVALUACIONES_COMPETENCIAS_TRANSVERSALES.SeleccionarEvaluacionPorCompetenciaTransversal(item.ID,(int)BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES.TIPO_COMPETENCIA.DECISION)*100;
+                    oEvaluacion_Competencia_Transversales.PORCENTAJE_RESULTADOS = BL__EVALUACIONES_COMPETENCIAS_TRANSVERSALES.SeleccionarEvaluacionPorCompetenciaTransversal(item.ID, (int)BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES.TIPO_COMPETENCIA.RESULTADOS)*100;
                     oListaEvaluacionesTransversales.Add(oEvaluacion_Competencia_Transversales);
 
                 }
@@ -64,5 +67,13 @@ namespace BusinessLogicLayer
             return oListaEvaluacionesTransversales;
 
         }
+
+        public static  decimal SeleccionarEvaluacionPorCompetenciaTransversal(Guid PERSONAL_ID, int COMPETENCIA_TRANSVERSALES_CODIGO)
+        {
+            return DA_EVALUACIONES_COMPETENCIAS_TRANSVERSALES.SeleccionarEvaluacionPorCompetenciaTransversal(PERSONAL_ID, COMPETENCIA_TRANSVERSALES_CODIGO.ToString());
+        }
+
+
     }
+
 }

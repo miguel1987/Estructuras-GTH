@@ -164,5 +164,14 @@ namespace WebUI.UI_EVALUACION {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField hf_Estado;
+        
+        /// <summary>
+        /// hf_CompetenciaId control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hf_CompetenciaId;
     }
 }

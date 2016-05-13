@@ -178,6 +178,56 @@ namespace DataAccessLayer
 
 
 
+        public bool ActualizarEvaluacionFinal(BE_EVALUACIONES_COMPETENCIAS_PUESTOS_PERSONAL oBE_EVALUACIONES_COMPETENCIAS_PUESTOS_PERSONAL)
+        {
+            SqlConnection cnx = new SqlConnection();
+            SqlTransaction oTransaction = null;
+            bool bSolicitud = false;
+            cnx = DC_Connection.getConnection();
+
+            try
+            {
+
+                using (
+                    SqlCommand objCmd = new SqlCommand()
+                    {
+                        Connection = cnx,
+                        CommandType = CommandType.StoredProcedure,
+                        CommandText = "USP_EVALUACIONES_COMPETENCIAS_PUESTOS_PERSONAL_ACTUALIZAR_EVALUACION_FINAL"
+                    }
+                    )
+                {
+                    //Se crea el objeto Parameters por cada parametro                                      
+                    objCmd.Parameters.Add("@PUESTO_ID", SqlDbType.UniqueIdentifier).Value = oBE_EVALUACIONES_COMPETENCIAS_PUESTOS_PERSONAL.PUESTO_ID;
+                    objCmd.Parameters.Add("@PERSONAL_ID", SqlDbType.UniqueIdentifier).Value = oBE_EVALUACIONES_COMPETENCIAS_PUESTOS_PERSONAL.PERSONAL_ID;
+                    cnx.Open();
+
+                    oTransaction = cnx.BeginTransaction();
+                    objCmd.Transaction = oTransaction;
+
+                    objCmd.ExecuteNonQuery();
+                    bSolicitud = true;
+                    oTransaction.Commit();
+                }
+            }
+            catch (Exception ex)
+            {
+                //evluacion_competencia_puesto_personal_id = Guid.Empty;
+                oTransaction.Rollback();
+
+                throw new Exception("Error: " + ex.Message);
+
+            }
+            finally
+            {
+                cnx.Close();
+            }
+            return bSolicitud;
+        }
+
+
+
+
 
 
 

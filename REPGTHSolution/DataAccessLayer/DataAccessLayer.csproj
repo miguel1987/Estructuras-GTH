@@ -51,6 +51,7 @@
     <Compile Include="DA_DOCUMENTO.cs" />
     <Compile Include="DA_EVALUACIONES_COMPETENCIAS_PERSONAL.cs" />
     <Compile Include="DA_EVALUACIONES_COMPETENCIAS_PUESTOS_PERSONAL.cs" />
+    <Compile Include="DA_EVALUACIONES_COMPETENCIAS_TRANSVERSALES.cs" />
     <Compile Include="DA_EVALUACION_COMPETENCIA_PUESTO.cs" />
     <Compile Include="DA_ORDEN.cs" />
     <Compile Include="DA_PERFILES.cs" />

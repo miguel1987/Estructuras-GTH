@@ -60,7 +60,7 @@ AsyncPostBackTimeout="360000">
           <ul id="menu">
         <li><a href="#">Registro de Evaluaciones </a>
               <ul>
-            <li><a href="../UI_EVALUACION/EvaluacionCompetenciasPuesto.aspx">Completencias del Puesto</a></li>
+            <li><a href="../UI_EVALUACION/EvaluacionCompetenciasPuesto.aspx">Evaluar Competencias</a></li>
           </ul>
             </li>
         <li><a href="#"> Consulta de Evaluaciones </a>

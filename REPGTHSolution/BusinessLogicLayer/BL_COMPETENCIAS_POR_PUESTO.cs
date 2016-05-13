@@ -20,5 +20,10 @@ namespace BusinessLogicLayer
             return new DA_COMPETENCIAS_POR_PUESTO().SeleccionarCompetenciasPorPuestoyTipo(idPuesto, idTipoCompetencia);
         }
 
+
+       public static int EvaluacionFinalGrabar(Guid idPuesto)
+       {
+           return new DA_COMPETENCIAS_POR_PUESTO().EvaluacionFinalGrabar(idPuesto);
+       }
     }
 }

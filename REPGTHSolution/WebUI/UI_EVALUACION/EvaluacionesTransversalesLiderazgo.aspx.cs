@@ -157,6 +157,8 @@ namespace WebUI.UI_ARCHIVO
          odsEvaluacionesTransversales.SelectParameters.Add("nivel", System.Data.DbType.Int16, nivel);
 
          rgEvaluacionesTransversales.DataBind();
+
+         
         }
 
         protected void LoadGrilla(string idNodo, string nivel)
@@ -174,6 +176,33 @@ namespace WebUI.UI_ARCHIVO
             rgEvaluacionesTransversales.DataBind();
         }
 
+
+
+        protected void txtBuscar_TextChanged(object sender, EventArgs e)
+        {
+
+
+            rgEvaluacionesTransversales.MasterTableView.FilterExpression = "([PERSONAL_DESCRIPCION] LIKE \'%" + txtBuscar.Text.Trim() + "%\' OR [PUESTO_DESCRIPCION]LIKE \'%" + txtBuscar.Text.Trim() + "%\')";
+
+            //GridColumn column = rgEvaluaciones.MasterTableView.GetColumn("PERSONAL_DESCRIPCION");
+            //column.CurrentFilterFunction = GridKnownFunction.Contains;
+            //column.CurrentFilterValue = txtBuscar.Text.Trim();
+            // GridColumn masterColumn = (GridColumn)rgEvaluaciones.MasterTableView.GetColumnSafe("PERSONAL_DESCRIPCION","PUESTO_DESCRIPCION");
+            //masterColumn.CurrentFilterFunction = GridKnownFunction.Contains;
+            //masterColumn.CurrentFilterValue = txtBuscar.Text.Trim();
+            rgEvaluacionesTransversales.Rebind();
+
+        }
+
+        protected void CalcularIndicador(string idNodo, string nivel)
+        {
+            BL__EVALUACIONES_COMPETENCIAS_TRANSVERSALES BL__EVALUACIONES_COMPETENCIAS_TRANSVERSALES = new BL__EVALUACIONES_COMPETENCIAS_TRANSVERSALES();
+            List<BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES> oListaEvaluacionesTransversales = new List<BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES>();
+            oListaEvaluacionesTransversales = BL__EVALUACIONES_COMPETENCIAS_TRANSVERSALES.SeleccionarEvaluacionesTransversalesPorJerarquia(Guid.Parse(idNodo), Int32.Parse(nivel));
+
+
+
+        }
        
     }
 }

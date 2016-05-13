@@ -11,54 +11,41 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
-    <asp:ScriptManager ID="ScriptManager1" runat="server" >
-    </asp:ScriptManager>
-
-    <table class="style1">
-        <tr>
-            <td>
-                &nbsp;<br />
-                <br />
-                <asp:TreeView ID="TreeView1" runat="server" 
-                    ontreenodeexpanded="TreeView1_TreeNodeExpanded" >
-                </asp:TreeView>
-            </td>
-            
-
-
-           
-            
-        </tr>
-        </table>
     
-
-    <%--<table class="style1">
-        <tr>
-            <td class="style2">
-                <asp:TreeView ID="TreeView1" runat="server">
-                    <Nodes>
-                        <asp:TreeNode Text="New Node" Value="New Node"></asp:TreeNode>
-                        <asp:TreeNode Text="New Node" Value="New Node"></asp:TreeNode>
-                        <asp:TreeNode Text="New Node" Value="New Node"></asp:TreeNode>
-                    </Nodes>
-                </asp:TreeView>
-            </td>
-            <td class="style3">
-                <asp:GridView ID="GridView1" runat="server" Width="210px">
-                    <Columns>
-                        <asp:BoundField />
-                        <asp:BoundField />
-                        <asp:BoundField />
-                        <asp:BoundField />
-                    </Columns>
-                </asp:GridView>
-            </td>
-        </tr>
-    </table>--%>
-
-    <%--<asp:ObjectDataSource ID="ObjectDataSourceEvluaciones" runat="server" SelectMethod="SeleccionarEvaluacionesPorJerarquia" TypeName="BusinessLogicLayer.BL_EVALUACION_COMPETENCIAS_PUESTO"></asp:ObjectDataSource>--%>
-    <asp:ObjectDataSource ID="odsEvaluacionesTransversales" runat="server" SelectMethod="SeleccionarEvaluacionesPorJerarquia"         
-        TypeName="BusinessLogicLayer.BL_EVALUACION_COMPETENCIAS_PUESTO" DataObjectTypeName="BusinessEntities.BE_EVALUACION_COMPETENCIA_PUESTO">
-    </asp:ObjectDataSource>
+    <telerik:RadPivotGrid CssClass="grid_header" ShowFilterHeaderZone="false" 
+        AllowFilteringByColumn="false"  ID="RadPivotGrid1" runat="server" Culture="es-PE" 
+        ColumnGrandTotalCellStyle-CssClass="HideCell" TotalsSettings-GrandTotalsVisibility="None"
+         Width="100%" 
+        Skin="BlackMetroTouch" AllowFiltering="False">
+        <PagerStyle ChangePageSizeButtonToolTip="Change Page Size" PageSizeControlType="RadComboBox">
+        </PagerStyle>
+        <Fields>
+            <telerik:PivotGridRowField DataField="PROYECTO_ID" UniqueName="PROYECTO_ID" ZoneIndex="0"
+                CellStyle-CssClass="HideCell">
+            </telerik:PivotGridRowField>
+            <telerik:PivotGridRowField DataField="PROYECTO_NOMBRE" UniqueName="PROYECTO_NOMBRE"
+                ZoneIndex="1">
+                <CellTemplate>
+                    <asp:LinkButton ID="hplNombreProyecto" runat="server"></asp:LinkButton>
+                </CellTemplate>
+            </telerik:PivotGridRowField>
+            <telerik:PivotGridColumnField DataField="INDICADOR_ID" UniqueName="INDICADOR_ID" IsHidden="True" 
+                ZoneIndex="0" CellStyle-CssClass="HideCell">
+            </telerik:PivotGridColumnField>
+            <telerik:PivotGridColumnField DataField="INDICADOR_NOMBRE" UniqueName="INDICADOR_NOMBRE" 
+                ZoneIndex="1">
+                <CellTemplate>
+                    <asp:LinkButton ID="hplindicador" runat="server"></asp:LinkButton>
+                </CellTemplate>
+            </telerik:PivotGridColumnField>
+            <telerik:PivotGridAggregateField DataField="PLAN_GESTION_ESCALA_IMPACTO" CellStyle-CssClass="centrado">
+                <CellTemplate>
+                    <asp:TextBox ID="txtScala" runat="server" Width="30px"></asp:TextBox>
+                </CellTemplate>
+            </telerik:PivotGridAggregateField>
+        </Fields>
+        
+        <ConfigurationPanelSettings EnableOlapTreeViewLoadOnDemand="True"></ConfigurationPanelSettings>
+    </telerik:RadPivotGrid>
 </asp:Content>
 

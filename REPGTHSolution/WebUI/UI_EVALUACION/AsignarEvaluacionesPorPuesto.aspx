@@ -4,7 +4,7 @@
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html xmlns="http://www.w3.org/1999/xhtml" >
 <head runat="server">
     <title>Evaluar Competencias por Puesto</title>
     <script src="../Scripts/jquery-1.7.2.js" type="text/javascript"></script>
@@ -32,7 +32,7 @@
     </div>
 </head>
 <body>
-    <form id="form1" runat="server" >
+    <form id="form1" runat="server"  >
     <asp:ScriptManager ID="ScriptManager1" runat="server"></asp:ScriptManager>
    <center style="height: 42px"> Tipo Competencias: 
     <asp:DropDownList ID="ddlTipoCompetencias" runat="server" AutoPostBack="True" Width="150px" onselectedindexchanged="ddlTipoCompetencias_SelectedIndexChanged">
@@ -62,13 +62,19 @@
                 </telerik:GridBoundColumn>     
                 <telerik:GridBoundColumn DataField="REAL" HeaderText="REAL" SortExpression="REAL" UniqueName="REAL" 
                     AutoPostBackOnFilter="true">  
-                                   
+                                   <ColumnValidationSettings EnableRequiredFieldValidation="true"  >
+        <RequiredFieldValidator ForeColor="Red" ErrorMessage="(*)Ingresar Valor Real"></RequiredFieldValidator>     
+    </ColumnValidationSettings>  
 <HeaderStyle Font-Size="8pt"></HeaderStyle>
 
             </telerik:GridBoundColumn>  
                 <telerik:GridBoundColumn DataField="COMENTARIO" HeaderText="COMENTARIO" SortExpression="COMENTARIO" UniqueName="COMENTARIO" 
-                    AutoPostBackOnFilter="true" AllowFiltering="true">  
+                    AutoPostBackOnFilter="true" AllowFiltering="true">
+                                    <ColumnValidationSettings EnableRequiredFieldValidation="true"  >
+        <RequiredFieldValidator ForeColor="Red" ErrorMessage="(*)Ingresar Comentario"></RequiredFieldValidator>     
+    </ColumnValidationSettings>  
 <HeaderStyle Font-Size="8pt" Width="260px"></HeaderStyle>
+        
                     </telerik:GridBoundColumn>   
                 <telerik:GridBoundColumn ReadOnly="true" DataField="BRECHA" HeaderText="BRECHA" SortExpression="BRECHA" UniqueName="BRECHA" AutoPostBackOnFilter="true"  >                    
 <HeaderStyle Font-Size="8pt"></HeaderStyle>
@@ -113,7 +119,7 @@
            <tr>
                <td class="style1">
                    <telerik:RadButton RenderMode="Lightweight" ID="btnGuardarEvaluacionFinal" 
-           runat="server" Primary="true" with="100%"
+           runat="server" Primary="true" with="100%" OnClick="btnGuardarEvaluacionFinal_Click"
     Text="Guardar Evaluación Final" Skin="Metro"  Width="163px" Height="37px" 
            style="text-align: left">
     </telerik:RadButton></td>
@@ -139,7 +145,8 @@
   <asp:HiddenField ID="hf_PuestoId" runat="server" />
   <asp:HiddenField ID="hf_Puesto" runat="server" />
   <asp:HiddenField ID="hf_Departamento" runat="server" />   
-  <asp:HiddenField ID="hf_Estado" runat="server" />             
+  <asp:HiddenField ID="hf_Estado" runat="server" /> 
+  <asp:HiddenField ID="hf_CompetenciaId" runat="server" Value="" />                 
 </form>
 </body>
 </html>

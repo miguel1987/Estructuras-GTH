@@ -89,5 +89,59 @@ namespace DataAccessLayer
       }
 
 
+      public int EvaluacionFinalGrabar(Guid PUESTO_ID)
+      {
+
+          SqlConnection cnx = new SqlConnection();
+          DbDataReader dr;
+          int evaluacion = 0;
+          cnx = DC_Connection.getConnection();
+          
+          try
+          {
+              using (SqlCommand objCmd = new SqlCommand()
+              {
+                  Connection = cnx,
+                  CommandType = CommandType.StoredProcedure,
+                  CommandText = "USP_COMPETENCIAS_PUESTOS_EVALUACION_FINAL_GRABAR"
+              })
+              {
+
+                  objCmd.Parameters.Add("@PUESTO_ID", SqlDbType.UniqueIdentifier).Value = PUESTO_ID;
+
+
+
+                  cnx.Open();
+                  evaluacion =(int) objCmd.ExecuteScalar();
+
+              }
+
+              return evaluacion;
+          }
+          catch (Exception ex)
+          {
+              throw ex;
+          }
+          finally
+          {
+              cnx.Close();
+          }
+      }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     }
 }

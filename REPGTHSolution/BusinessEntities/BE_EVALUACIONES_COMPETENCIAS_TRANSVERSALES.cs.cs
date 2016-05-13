@@ -19,5 +19,23 @@ namespace BusinessEntities
         
         public BE_PERSONAL oBE_PERSONAL { get; set; }
 
+        public enum TIPO_COMPETENCIA
+        {
+            INSPIRAR = 1353,
+            ESTRATEGICA = 1354,
+            CONSTRUCCION = 738,
+            DECISION = 747,
+            RESULTADOS = 752
+
+        }
+
+        public decimal PORCENTAJE_INSPIRAR { get; set; }
+        public decimal PORCENTAJE_ESTRATEGICA { get; set; }
+        public decimal PORCENTAJE_CONSTRUCCION { get; set; }
+        public decimal PORCENTAJE_DECISION { get; set; }
+        public decimal PORCENTAJE_RESULTADOS { get; set; }
+
+        public int CONTADOR_INDICADOR { get; set; }
+
     }
 }

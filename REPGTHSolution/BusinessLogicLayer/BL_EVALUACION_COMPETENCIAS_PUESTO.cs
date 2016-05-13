@@ -15,6 +15,7 @@ namespace BusinessLogicLayer
         wsMaestros.BE_PERSONAL[] oListaPorEmpresa,oListaPorPresidencia,oListaPorGerencia,oListaPorArea,oListaPorCoordinacion=null;
         DA_EVALUACION_COMPETENCIA_PUESTO DA_COMPETENCIA_PUESTO = new DA_EVALUACION_COMPETENCIA_PUESTO();
         List<BE_EVALUACION_COMPETENCIA_PUESTO> oListaEvaluacionesEstado = new List<BE_EVALUACION_COMPETENCIA_PUESTO>();
+        wsMaestros.BE_COORDINACION[] oListaCoordinaciones = null;
         
 
         /// <summary>
@@ -41,6 +42,7 @@ namespace BusinessLogicLayer
                     break;
                 case 3:
                     oListaPorArea = wsMantenimientoEstructuras.SeleccionarPersonalPorArea(jerarquia_id);
+                    oListaCoordinaciones = wsMantenimientoEstructuras.SeleccionarCoordinacionesPorArea(jerarquia_id);
                     break;
                 case 4:
                     oListaPorCoordinacion = wsMantenimientoEstructuras.SeleccionarPersonalPorCoordinacion(jerarquia_id);
@@ -59,7 +61,10 @@ namespace BusinessLogicLayer
                     oEvaluacion_Competencia.PERSONAL_ID = item.ID;
                     oEvaluacion_Competencia.PERSONAL_DESCRIPCION = item.NOMBRES_COMPLETOS;
                     oEvaluacion_Competencia.CODIGO = item.CODIGO_TRABAJO;
-                    oEvaluacion_Competencia.AREA =item.oBE_AREA.DESCRIPCION;
+                    if (item.oBE_AREA != null)
+                        oEvaluacion_Competencia.AREA = item.oBE_AREA.DESCRIPCION;
+                    else
+                        oEvaluacion_Competencia.AREA = String.Empty;
                     if (DA_COMPETENCIA_PUESTO.SeleccionarEvaluacionEstadoPorPersonal(oEvaluacion_Competencia.PERSONAL_ID) == (Int32)BE_EVALUACION_COMPETENCIA_PUESTO.ESTADO_EVALUACION.Pendiente)
                         oEvaluacion_Competencia.ESTADO_DESCRIPCION = BE_EVALUACION_COMPETENCIA_PUESTO.ESTADO_EVALUACION.Pendiente.ToString();
                     if (DA_COMPETENCIA_PUESTO.SeleccionarEvaluacionEstadoPorPersonal(oEvaluacion_Competencia.PERSONAL_ID) == (Int32)BE_EVALUACION_COMPETENCIA_PUESTO.ESTADO_EVALUACION.En_Evaluacion)
@@ -83,7 +88,11 @@ namespace BusinessLogicLayer
                     oEvaluacion_Competencia.PERSONAL_ID = item.ID;
                     oEvaluacion_Competencia.PERSONAL_DESCRIPCION = item.NOMBRES_COMPLETOS;
                     oEvaluacion_Competencia.CODIGO = item.CODIGO_TRABAJO;
-                    oEvaluacion_Competencia.AREA = item.oBE_AREA.DESCRIPCION;
+                    if (item.oBE_AREA != null)
+                        oEvaluacion_Competencia.AREA = item.oBE_AREA.DESCRIPCION;
+                    else
+                        oEvaluacion_Competencia.AREA = String.Empty;
+
                     if (DA_COMPETENCIA_PUESTO.SeleccionarEvaluacionEstadoPorPersonal(oEvaluacion_Competencia.PERSONAL_ID) == (Int32)BE_EVALUACION_COMPETENCIA_PUESTO.ESTADO_EVALUACION.Pendiente)
                         oEvaluacion_Competencia.ESTADO_DESCRIPCION = BE_EVALUACION_COMPETENCIA_PUESTO.ESTADO_EVALUACION.Pendiente.ToString();
                     if (DA_COMPETENCIA_PUESTO.SeleccionarEvaluacionEstadoPorPersonal(oEvaluacion_Competencia.PERSONAL_ID) == (Int32)BE_EVALUACION_COMPETENCIA_PUESTO.ESTADO_EVALUACION.En_Evaluacion)
@@ -101,9 +110,30 @@ namespace BusinessLogicLayer
             {
                 foreach (var item in oListaPorGerencia)
                 {
-                    if(item.oBE_GRUPO_ORGANIZACIONAL!=null)
+                    if (item.oBE_GRUPO_ORGANIZACIONAL != null)
                     {
-                        if (item.oBE_GRUPO_ORGANIZACIONAL.CODIGO == BE_EVALUACION_COMPETENCIA_PUESTO.PERSONAL_CODIGO.JD.ToString() || item.oBE_PUESTO.NIVEL == (Int32)BE_EVALUACION_COMPETENCIA_PUESTO.PERSONAL_CODIGO.SE)
+                        if (item.oBE_GRUPO_ORGANIZACIONAL.CODIGO == BE_EVALUACION_COMPETENCIA_PUESTO.PERSONAL_CODIGO.JD.ToString() || item.oBE_PUESTO.CODIGO == BE_EVALUACION_COMPETENCIA_PUESTO.PERSONAL_CODIGO.SE.ToString())
+                        {
+                            BE_EVALUACION_COMPETENCIA_PUESTO oEvaluacion_Competencia = new BE_EVALUACION_COMPETENCIA_PUESTO();
+                            oEvaluacion_Competencia.PUESTO_ID = item.PUESTO_ID;
+                            oEvaluacion_Competencia.PUESTO_DESCRIPCION = item.oBE_PUESTO.DESCRIPCION;
+                            oEvaluacion_Competencia.PERSONAL_ID = item.ID;
+                            oEvaluacion_Competencia.PERSONAL_DESCRIPCION = item.NOMBRES_COMPLETOS;
+                            oEvaluacion_Competencia.CODIGO = item.CODIGO_TRABAJO;
+                            oEvaluacion_Competencia.AREA = item.oBE_AREA.DESCRIPCION;
+                            if (DA_COMPETENCIA_PUESTO.SeleccionarEvaluacionEstadoPorPersonal(oEvaluacion_Competencia.PERSONAL_ID) == (Int32)BE_EVALUACION_COMPETENCIA_PUESTO.ESTADO_EVALUACION.Pendiente)
+                                oEvaluacion_Competencia.ESTADO_DESCRIPCION = BE_EVALUACION_COMPETENCIA_PUESTO.ESTADO_EVALUACION.Pendiente.ToString();
+                            if (DA_COMPETENCIA_PUESTO.SeleccionarEvaluacionEstadoPorPersonal(oEvaluacion_Competencia.PERSONAL_ID) == (Int32)BE_EVALUACION_COMPETENCIA_PUESTO.ESTADO_EVALUACION.En_Evaluacion)
+                                oEvaluacion_Competencia.ESTADO_DESCRIPCION = BE_EVALUACION_COMPETENCIA_PUESTO.ESTADO_EVALUACION.En_Evaluacion.ToString();
+                            if (DA_COMPETENCIA_PUESTO.SeleccionarEvaluacionEstadoPorPersonal(oEvaluacion_Competencia.PERSONAL_ID) == (Int32)BE_EVALUACION_COMPETENCIA_PUESTO.ESTADO_EVALUACION.Evaluado)
+                                oEvaluacion_Competencia.ESTADO_DESCRIPCION = BE_EVALUACION_COMPETENCIA_PUESTO.ESTADO_EVALUACION.Evaluado.ToString();
+
+                            oListaEvaluacionesEstado.Add(oEvaluacion_Competencia);
+                        }
+                    }
+                    else
+                    {
+                        if (item.oBE_PUESTO.CODIGO == BE_EVALUACION_COMPETENCIA_PUESTO.PERSONAL_CODIGO.SE.ToString())
                         {
                             BE_EVALUACION_COMPETENCIA_PUESTO oEvaluacion_Competencia = new BE_EVALUACION_COMPETENCIA_PUESTO();
                             oEvaluacion_Competencia.PUESTO_ID = item.PUESTO_ID;
@@ -124,33 +154,54 @@ namespace BusinessLogicLayer
                     }
 
                 }
-                    }
+              }
 
 
             if (oListaPorArea != null)
             {
                 foreach (var item in oListaPorArea)
                 {
-                    if (item.oBE_GRUPO_ORGANIZACIONAL != null)
+                    if (oListaCoordinaciones != null)
                     {
-                        if (item.oBE_GRUPO_ORGANIZACIONAL.CODIGO == BE_EVALUACION_COMPETENCIA_PUESTO.PERSONAL_CODIGO.CO.ToString())
+                        if (item.oBE_GRUPO_ORGANIZACIONAL != null)
                         {
-                            BE_EVALUACION_COMPETENCIA_PUESTO oEvaluacion_Competencia = new BE_EVALUACION_COMPETENCIA_PUESTO();
-                            oEvaluacion_Competencia.PUESTO_ID = item.PUESTO_ID;
-                            oEvaluacion_Competencia.PUESTO_DESCRIPCION = item.oBE_PUESTO.DESCRIPCION;
-                            oEvaluacion_Competencia.PERSONAL_ID = item.ID;
-                            oEvaluacion_Competencia.PERSONAL_DESCRIPCION = item.NOMBRES_COMPLETOS;
-                            oEvaluacion_Competencia.CODIGO = item.CODIGO_TRABAJO;
-                            oEvaluacion_Competencia.AREA = item.oBE_AREA.DESCRIPCION;
-                            if (DA_COMPETENCIA_PUESTO.SeleccionarEvaluacionEstadoPorPersonal(oEvaluacion_Competencia.PERSONAL_ID) == (Int32)BE_EVALUACION_COMPETENCIA_PUESTO.ESTADO_EVALUACION.Pendiente)
-                                oEvaluacion_Competencia.ESTADO_DESCRIPCION = BE_EVALUACION_COMPETENCIA_PUESTO.ESTADO_EVALUACION.Pendiente.ToString();
-                            if (DA_COMPETENCIA_PUESTO.SeleccionarEvaluacionEstadoPorPersonal(oEvaluacion_Competencia.PERSONAL_ID) == (Int32)BE_EVALUACION_COMPETENCIA_PUESTO.ESTADO_EVALUACION.En_Evaluacion)
-                                oEvaluacion_Competencia.ESTADO_DESCRIPCION = BE_EVALUACION_COMPETENCIA_PUESTO.ESTADO_EVALUACION.En_Evaluacion.ToString();
-                            if (DA_COMPETENCIA_PUESTO.SeleccionarEvaluacionEstadoPorPersonal(oEvaluacion_Competencia.PERSONAL_ID) == (Int32)BE_EVALUACION_COMPETENCIA_PUESTO.ESTADO_EVALUACION.Evaluado)
-                                oEvaluacion_Competencia.ESTADO_DESCRIPCION = BE_EVALUACION_COMPETENCIA_PUESTO.ESTADO_EVALUACION.Evaluado.ToString();
+                            if (item.oBE_GRUPO_ORGANIZACIONAL.CODIGO == BE_EVALUACION_COMPETENCIA_PUESTO.PERSONAL_CODIGO.CO.ToString())
+                            {
+                                BE_EVALUACION_COMPETENCIA_PUESTO oEvaluacion_Competencia = new BE_EVALUACION_COMPETENCIA_PUESTO();
+                                oEvaluacion_Competencia.PUESTO_ID = item.PUESTO_ID;
+                                oEvaluacion_Competencia.PUESTO_DESCRIPCION = item.oBE_PUESTO.DESCRIPCION;
+                                oEvaluacion_Competencia.PERSONAL_ID = item.ID;
+                                oEvaluacion_Competencia.PERSONAL_DESCRIPCION = item.NOMBRES_COMPLETOS;
+                                oEvaluacion_Competencia.CODIGO = item.CODIGO_TRABAJO;
+                                oEvaluacion_Competencia.AREA = item.oBE_AREA.DESCRIPCION;
+                                if (DA_COMPETENCIA_PUESTO.SeleccionarEvaluacionEstadoPorPersonal(oEvaluacion_Competencia.PERSONAL_ID) == (Int32)BE_EVALUACION_COMPETENCIA_PUESTO.ESTADO_EVALUACION.Pendiente)
+                                    oEvaluacion_Competencia.ESTADO_DESCRIPCION = BE_EVALUACION_COMPETENCIA_PUESTO.ESTADO_EVALUACION.Pendiente.ToString();
+                                if (DA_COMPETENCIA_PUESTO.SeleccionarEvaluacionEstadoPorPersonal(oEvaluacion_Competencia.PERSONAL_ID) == (Int32)BE_EVALUACION_COMPETENCIA_PUESTO.ESTADO_EVALUACION.En_Evaluacion)
+                                    oEvaluacion_Competencia.ESTADO_DESCRIPCION = BE_EVALUACION_COMPETENCIA_PUESTO.ESTADO_EVALUACION.En_Evaluacion.ToString();
+                                if (DA_COMPETENCIA_PUESTO.SeleccionarEvaluacionEstadoPorPersonal(oEvaluacion_Competencia.PERSONAL_ID) == (Int32)BE_EVALUACION_COMPETENCIA_PUESTO.ESTADO_EVALUACION.Evaluado)
+                                    oEvaluacion_Competencia.ESTADO_DESCRIPCION = BE_EVALUACION_COMPETENCIA_PUESTO.ESTADO_EVALUACION.Evaluado.ToString();
 
-                            oListaEvaluacionesEstado.Add(oEvaluacion_Competencia);
+                                oListaEvaluacionesEstado.Add(oEvaluacion_Competencia);
+                            }
                         }
+                    }
+                    else
+                    {
+                        BE_EVALUACION_COMPETENCIA_PUESTO oEvaluacion_Competencia = new BE_EVALUACION_COMPETENCIA_PUESTO();
+                        oEvaluacion_Competencia.PUESTO_ID = item.PUESTO_ID;
+                        oEvaluacion_Competencia.PUESTO_DESCRIPCION = item.oBE_PUESTO.DESCRIPCION;
+                        oEvaluacion_Competencia.PERSONAL_ID = item.ID;
+                        oEvaluacion_Competencia.PERSONAL_DESCRIPCION = item.NOMBRES_COMPLETOS;
+                        oEvaluacion_Competencia.CODIGO = item.CODIGO_TRABAJO;
+                        oEvaluacion_Competencia.AREA = item.oBE_AREA.DESCRIPCION;
+                        if (DA_COMPETENCIA_PUESTO.SeleccionarEvaluacionEstadoPorPersonal(oEvaluacion_Competencia.PERSONAL_ID) == (Int32)BE_EVALUACION_COMPETENCIA_PUESTO.ESTADO_EVALUACION.Pendiente)
+                            oEvaluacion_Competencia.ESTADO_DESCRIPCION = BE_EVALUACION_COMPETENCIA_PUESTO.ESTADO_EVALUACION.Pendiente.ToString();
+                        if (DA_COMPETENCIA_PUESTO.SeleccionarEvaluacionEstadoPorPersonal(oEvaluacion_Competencia.PERSONAL_ID) == (Int32)BE_EVALUACION_COMPETENCIA_PUESTO.ESTADO_EVALUACION.En_Evaluacion)
+                            oEvaluacion_Competencia.ESTADO_DESCRIPCION = BE_EVALUACION_COMPETENCIA_PUESTO.ESTADO_EVALUACION.En_Evaluacion.ToString();
+                        if (DA_COMPETENCIA_PUESTO.SeleccionarEvaluacionEstadoPorPersonal(oEvaluacion_Competencia.PERSONAL_ID) == (Int32)BE_EVALUACION_COMPETENCIA_PUESTO.ESTADO_EVALUACION.Evaluado)
+                            oEvaluacion_Competencia.ESTADO_DESCRIPCION = BE_EVALUACION_COMPETENCIA_PUESTO.ESTADO_EVALUACION.Evaluado.ToString();
+
+                        oListaEvaluacionesEstado.Add(oEvaluacion_Competencia);
                     }
 
                 }
@@ -162,7 +213,7 @@ namespace BusinessLogicLayer
                 {
                     if (item.oBE_GRUPO_ORGANIZACIONAL != null)
                     {
-                        if (item.oBE_GRUPO_ORGANIZACIONAL.CODIGO == BE_EVALUACION_COMPETENCIA_PUESTO.PERSONAL_CODIGO.CO.ToString())
+                        if (item.oBE_GRUPO_ORGANIZACIONAL.CODIGO != BE_EVALUACION_COMPETENCIA_PUESTO.PERSONAL_CODIGO.CO.ToString())
                         {
                             BE_EVALUACION_COMPETENCIA_PUESTO oEvaluacion_Competencia = new BE_EVALUACION_COMPETENCIA_PUESTO();
                             oEvaluacion_Competencia.PUESTO_ID = item.PUESTO_ID;
@@ -180,6 +231,25 @@ namespace BusinessLogicLayer
 
                             oListaEvaluacionesEstado.Add(oEvaluacion_Competencia);
                         }
+                    }
+                    else
+                    {
+                        BE_EVALUACION_COMPETENCIA_PUESTO oEvaluacion_Competencia = new BE_EVALUACION_COMPETENCIA_PUESTO();
+                        oEvaluacion_Competencia.PUESTO_ID = item.PUESTO_ID;
+                        oEvaluacion_Competencia.PUESTO_DESCRIPCION = item.oBE_PUESTO.DESCRIPCION;
+                        oEvaluacion_Competencia.PERSONAL_ID = item.ID;
+                        oEvaluacion_Competencia.PERSONAL_DESCRIPCION = item.NOMBRES_COMPLETOS;
+                        oEvaluacion_Competencia.CODIGO = item.CODIGO_TRABAJO;
+                        oEvaluacion_Competencia.AREA = item.oBE_AREA.DESCRIPCION;
+                        if (DA_COMPETENCIA_PUESTO.SeleccionarEvaluacionEstadoPorPersonal(oEvaluacion_Competencia.PERSONAL_ID) == (Int32)BE_EVALUACION_COMPETENCIA_PUESTO.ESTADO_EVALUACION.Pendiente)
+                            oEvaluacion_Competencia.ESTADO_DESCRIPCION = BE_EVALUACION_COMPETENCIA_PUESTO.ESTADO_EVALUACION.Pendiente.ToString();
+                        if (DA_COMPETENCIA_PUESTO.SeleccionarEvaluacionEstadoPorPersonal(oEvaluacion_Competencia.PERSONAL_ID) == (Int32)BE_EVALUACION_COMPETENCIA_PUESTO.ESTADO_EVALUACION.En_Evaluacion)
+                            oEvaluacion_Competencia.ESTADO_DESCRIPCION = BE_EVALUACION_COMPETENCIA_PUESTO.ESTADO_EVALUACION.En_Evaluacion.ToString();
+                        if (DA_COMPETENCIA_PUESTO.SeleccionarEvaluacionEstadoPorPersonal(oEvaluacion_Competencia.PERSONAL_ID) == (Int32)BE_EVALUACION_COMPETENCIA_PUESTO.ESTADO_EVALUACION.Evaluado)
+                            oEvaluacion_Competencia.ESTADO_DESCRIPCION = BE_EVALUACION_COMPETENCIA_PUESTO.ESTADO_EVALUACION.Evaluado.ToString();
+
+                        oListaEvaluacionesEstado.Add(oEvaluacion_Competencia);
+
                     }
 
                 }

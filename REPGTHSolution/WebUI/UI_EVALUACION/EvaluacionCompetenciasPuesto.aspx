@@ -56,8 +56,8 @@
             <div class="derecha">
                   <table width="100%" border="0" cellspacing="0" cellpadding="0">
                 <tr>
-                      <td><telerik:RadTextBox ID="txtBuscar" runat="server" AutoPostBack="true" OnTextChanged="txtBuscar_TextChanged"
-                 Skin="Silk"></telerik:RadTextBox></td>
+                      <td><telerik:RadTextBox CssClass="frmTxtBuscar"  ID="txtBuscar" runat="server" AutoPostBack="true" OnTextChanged="txtBuscar_TextChanged" EnableEmbeddedSkins="false"
+                 Skin="MySilk"></telerik:RadTextBox></td>
                       <td><a class="frm_boton ">Ir</a></td>
                     </tr>
               </table>

@@ -15,6 +15,7 @@ namespace WebUI.UI_EVALUACION
 {
     public partial class AsignarEvaluacionesPorPuesto : PageBaseClass
     {
+        
         Guid USUARIO;
         BE_EVALUACION_COMPETENCIA_PUESTO BE_EVALUACION_COMPETENCIA_PUESTO = new BE_EVALUACION_COMPETENCIA_PUESTO();
 
@@ -93,17 +94,6 @@ namespace WebUI.UI_EVALUACION
         }
 
         
-
-
-
-
-
-
-
-
-
-
-
         protected void rgAsignarCompetencias_UpdateCommand(object sender, GridCommandEventArgs e)
         {
             GrabarActualizar(sender, e);
@@ -127,8 +117,9 @@ namespace WebUI.UI_EVALUACION
                 COMPETENCIA_ID = Guid.Empty;
             else
                 COMPETENCIA_ID = Guid.Parse(editableItem.GetDataKeyValue("COMPETENCIA_ID").ToString());
-            
+           
             oentidad.COMPETENCIA_ID = (Guid)COMPETENCIA_ID;
+            hf_CompetenciaId.Value = oentidad.COMPETENCIA_ID.ToString();
             oentidad.PERSONAL_ID = Guid.Parse(hf_PersonalId.Value);
             oentidad.PUESTO_ID = Guid.Parse(hf_PuestoId.Value);
             oentidad.REAL = Convert.ToInt16(values["REAL"]);
@@ -137,7 +128,8 @@ namespace WebUI.UI_EVALUACION
             oentidad.COMENTARIO = values["COMENTARIO"].ToString();
             oentidad.USUARIO_CREACION = USUARIO;            
             oentidad.ANIO_EVALUACION = DateTime.Now.Year;
-
+            if (oentidad.BRECHA < 0)
+                oentidad.BRECHA = 0;
             
             if (oentidad.ESTADO_EVALUACION == (int)BE_EVALUACION_COMPETENCIA_PUESTO.ESTADO_EVALUACION.Pendiente)
             {
@@ -150,6 +142,36 @@ namespace WebUI.UI_EVALUACION
             }
 
         }
+
+
+        protected void btnGuardarEvaluacionFinal_Click(object sender, EventArgs e)
+        {
+            int competencias_por_evaluar = 0;
+            Guid idPuesto =Guid.Parse(hf_PuestoId.Value);
+
+            competencias_por_evaluar = BL_COMPETENCIAS_POR_PUESTO.EvaluacionFinalGrabar(idPuesto);
+
+            if (competencias_por_evaluar == 0)
+            {
+                BL_EVALUACIONES_COMPETENCIAS_PUESTOS_PERSONAL BL_EVALUACIONES_COMPETENCIAS_PUESTOS_PERSONAL = new BL_EVALUACIONES_COMPETENCIAS_PUESTOS_PERSONAL();
+
+
+                BE_EVALUACIONES_COMPETENCIAS_PUESTOS_PERSONAL oentidadeValua = new BE_EVALUACIONES_COMPETENCIAS_PUESTOS_PERSONAL();
+
+
+                oentidadeValua.COMPETENCIA_ID = Guid.Parse(hf_PersonalId.Value);
+                oentidadeValua.PUESTO_ID = Guid.Parse(hf_PuestoId.Value);
+                BL_EVALUACIONES_COMPETENCIAS_PUESTOS_PERSONAL.ActualizarEvaluacionFinal(oentidadeValua);
+            }
+
+            else
+                lblMensaje.Text = "Existen competencias sin Evaluar. Debe evaluar todas las competencias.";
+
+        }
+
+
+
+
 
        
     }
