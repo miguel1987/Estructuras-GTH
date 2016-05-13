@@ -292,9 +292,9 @@ namespace WebSv
 
         //Seleccionar todos los gerentes de una empresa
         [WebMethod]
-        public List<BE_PERSONAL> SeleccionarPersonalPorPresidencia(Guid empresa_id)
+        public List<BE_PERSONAL> SeleccionarPersonalPorPresidencia(Guid presidencia_id)
         {
-            return BL_PERSONAL.SeleccionarPersonalPorPresidencia(empresa_id);
+            return BL_PERSONAL.SeleccionarPersonalPorPresidencia(presidencia_id);
         }
 
         //Seleccionar todos los colaboradores de una gerencia

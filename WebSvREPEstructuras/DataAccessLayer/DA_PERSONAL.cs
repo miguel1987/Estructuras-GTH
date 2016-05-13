@@ -166,8 +166,8 @@ namespace DataAccessLayer
                             oBE_PERSONAL.NOMBRES_COMPLETOS = String.Format("{0} {1}, {2}", oBE_PERSONAL.APELLIDO_PATERNO, oBE_PERSONAL.APELLIDO_MATERNO, oBE_PERSONAL.NOMBRES);
                             oBE_PERSONAL.SEDE_ID = DBNull.Value == Valores.GetValue(PERSONAL_SEDE_ID) ? Guid.Empty : (Guid)Valores.GetValue(PERSONAL_SEDE_ID);
                             oBE_PERSONAL.EMPRESA_ID = DBNull.Value == Valores.GetValue(PERSONAL_EMPRESA_ID) ? Guid.Empty : (Guid)Valores.GetValue(PERSONAL_EMPRESA_ID);
-                            oBE_PERSONAL.GERENCIA_ID = (Guid)Valores.GetValue(PERSONAL_GERENCIA_ID);
-                            oBE_PERSONAL.AREA_ID = (Guid)Valores.GetValue(PERSONAL_AREA_ID);
+                            oBE_PERSONAL.GERENCIA_ID = (Guid)Valores.GetValue(PERSONAL_GERENCIA_ID);                           
+                            oBE_PERSONAL.AREA_ID = DBNull.Value == Valores.GetValue(PERSONAL_AREA_ID) ? Guid.Empty : (Guid)Valores.GetValue(PERSONAL_AREA_ID);
                             oBE_PERSONAL.COORDINACION_ID = DBNull.Value == Valores.GetValue(PERSONAL_COORDINACION_ID) ? Guid.Empty : (Guid)Valores.GetValue(PERSONAL_COORDINACION_ID);
                             oBE_PERSONAL.PUESTO_ID = (Guid)Valores.GetValue(PERSONAL_PUESTO_ID);
                             oBE_PERSONAL.GRUPO_ORGANIZACIONAL_ID = DBNull.Value == Valores.GetValue(PERSONAL_GRUPO_ORGANIZACIONAL_ID) ? Guid.Empty : (Guid)Valores.GetValue(PERSONAL_GRUPO_ORGANIZACIONAL_ID);                            
@@ -194,9 +194,9 @@ namespace DataAccessLayer
         /// <summary>
         /// Devuelve los datos de todos los gerentes
         /// </summary>
-        /// <param name="empresa_id">Empresa Id al cual se desea consultar</param>
+        /// <param name="presidencia_id">Empresa Id al cual se desea consultar</param>
         /// <returns>List de BE_PERSONAL con los objetos de la entidad, que a su vez representan la tabla PERSONAL de la base de datos. En caso no haiga datos devuelve nothing.</returns>
-        public List<BE_PERSONAL> SeleccionarPersonalPorPresidencia(Guid empresa_id)
+        public List<BE_PERSONAL> SeleccionarPersonalPorPresidencia(Guid presidencia_id)
         {
             SqlConnection cnx = new SqlConnection();
             DbDataReader dr;
@@ -208,10 +208,10 @@ namespace DataAccessLayer
                 {
                     Connection = cnx,
                     CommandType = CommandType.StoredProcedure,
-                    CommandText = "USP_PERSONAL_SELECCIONAR_GERENTES_POR_EMPRESA"
+                    CommandText = "USP_PERSONAL_SELECCIONAR_GERENTES_POR_PRESIDENCIA"
                 })
                 {
-                    objCmd.Parameters.Add("@EMPRESA_ID", SqlDbType.UniqueIdentifier).Value = empresa_id;
+                    objCmd.Parameters.Add("@PRESIDENCIA_ID", SqlDbType.UniqueIdentifier).Value = presidencia_id;
 
                     cnx.Open();
                     dr = objCmd.ExecuteReader();
@@ -255,7 +255,7 @@ namespace DataAccessLayer
                             oBE_PERSONAL.SEDE_ID = DBNull.Value == Valores.GetValue(PERSONAL_SEDE_ID) ? Guid.Empty : (Guid)Valores.GetValue(PERSONAL_SEDE_ID);
                             oBE_PERSONAL.EMPRESA_ID = DBNull.Value == Valores.GetValue(PERSONAL_EMPRESA_ID) ? Guid.Empty : (Guid)Valores.GetValue(PERSONAL_EMPRESA_ID);
                             oBE_PERSONAL.GERENCIA_ID = (Guid)Valores.GetValue(PERSONAL_GERENCIA_ID);
-                            oBE_PERSONAL.AREA_ID = (Guid)Valores.GetValue(PERSONAL_AREA_ID);
+                            oBE_PERSONAL.AREA_ID = DBNull.Value == Valores.GetValue(PERSONAL_AREA_ID) ? Guid.Empty : (Guid)Valores.GetValue(PERSONAL_AREA_ID);
                             oBE_PERSONAL.COORDINACION_ID = DBNull.Value == Valores.GetValue(PERSONAL_COORDINACION_ID) ? Guid.Empty : (Guid)Valores.GetValue(PERSONAL_COORDINACION_ID);
                             oBE_PERSONAL.PUESTO_ID = (Guid)Valores.GetValue(PERSONAL_PUESTO_ID);
                             oBE_PERSONAL.GRUPO_ORGANIZACIONAL_ID = DBNull.Value == Valores.GetValue(PERSONAL_GRUPO_ORGANIZACIONAL_ID) ? Guid.Empty : (Guid)Valores.GetValue(PERSONAL_GRUPO_ORGANIZACIONAL_ID);                            
@@ -345,7 +345,7 @@ namespace DataAccessLayer
                             oBE_PERSONAL.SEDE_ID = DBNull.Value == Valores.GetValue(PERSONAL_SEDE_ID) ? Guid.Empty : (Guid)Valores.GetValue(PERSONAL_SEDE_ID);
                             oBE_PERSONAL.EMPRESA_ID = DBNull.Value == Valores.GetValue(PERSONAL_EMPRESA_ID) ? Guid.Empty : (Guid)Valores.GetValue(PERSONAL_EMPRESA_ID);
                             oBE_PERSONAL.GERENCIA_ID = (Guid)Valores.GetValue(PERSONAL_GERENCIA_ID);
-                            oBE_PERSONAL.AREA_ID = (Guid)Valores.GetValue(PERSONAL_AREA_ID);
+                            oBE_PERSONAL.AREA_ID = DBNull.Value == Valores.GetValue(PERSONAL_AREA_ID) ? Guid.Empty : (Guid)Valores.GetValue(PERSONAL_AREA_ID);
                             oBE_PERSONAL.COORDINACION_ID = DBNull.Value == Valores.GetValue(PERSONAL_COORDINACION_ID) ? Guid.Empty : (Guid)Valores.GetValue(PERSONAL_COORDINACION_ID);
                             oBE_PERSONAL.PUESTO_ID = (Guid)Valores.GetValue(PERSONAL_PUESTO_ID);
                             oBE_PERSONAL.GRUPO_ORGANIZACIONAL_ID = DBNull.Value == Valores.GetValue(PERSONAL_GRUPO_ORGANIZACIONAL_ID) ? Guid.Empty : (Guid)Valores.GetValue(PERSONAL_GRUPO_ORGANIZACIONAL_ID);                            
@@ -436,7 +436,7 @@ namespace DataAccessLayer
                             oBE_PERSONAL.SEDE_ID = DBNull.Value == Valores.GetValue(PERSONAL_SEDE_ID) ? Guid.Empty : (Guid)Valores.GetValue(PERSONAL_SEDE_ID);
                             oBE_PERSONAL.EMPRESA_ID = DBNull.Value == Valores.GetValue(PERSONAL_EMPRESA_ID) ? Guid.Empty : (Guid)Valores.GetValue(PERSONAL_EMPRESA_ID);
                             oBE_PERSONAL.GERENCIA_ID = (Guid)Valores.GetValue(PERSONAL_GERENCIA_ID);
-                            oBE_PERSONAL.AREA_ID = (Guid)Valores.GetValue(PERSONAL_AREA_ID);
+                            oBE_PERSONAL.AREA_ID = DBNull.Value == Valores.GetValue(PERSONAL_AREA_ID) ? Guid.Empty : (Guid)Valores.GetValue(PERSONAL_AREA_ID);
                             oBE_PERSONAL.COORDINACION_ID = DBNull.Value == Valores.GetValue(PERSONAL_COORDINACION_ID) ? Guid.Empty : (Guid)Valores.GetValue(PERSONAL_COORDINACION_ID);
                             oBE_PERSONAL.PUESTO_ID = (Guid)Valores.GetValue(PERSONAL_PUESTO_ID);
                             oBE_PERSONAL.GRUPO_ORGANIZACIONAL_ID = DBNull.Value == Valores.GetValue(PERSONAL_GRUPO_ORGANIZACIONAL_ID) ? Guid.Empty : (Guid)Valores.GetValue(PERSONAL_GRUPO_ORGANIZACIONAL_ID);                            
@@ -526,7 +526,7 @@ namespace DataAccessLayer
                             oBE_PERSONAL.SEDE_ID = DBNull.Value == Valores.GetValue(PERSONAL_SEDE_ID) ? Guid.Empty : (Guid)Valores.GetValue(PERSONAL_SEDE_ID);
                             oBE_PERSONAL.EMPRESA_ID = DBNull.Value == Valores.GetValue(PERSONAL_EMPRESA_ID) ? Guid.Empty : (Guid)Valores.GetValue(PERSONAL_EMPRESA_ID);
                             oBE_PERSONAL.GERENCIA_ID = (Guid)Valores.GetValue(PERSONAL_GERENCIA_ID);
-                            oBE_PERSONAL.AREA_ID = (Guid)Valores.GetValue(PERSONAL_AREA_ID);
+                            oBE_PERSONAL.AREA_ID = DBNull.Value == Valores.GetValue(PERSONAL_AREA_ID) ? Guid.Empty : (Guid)Valores.GetValue(PERSONAL_AREA_ID);
                             oBE_PERSONAL.COORDINACION_ID = DBNull.Value == Valores.GetValue(PERSONAL_COORDINACION_ID) ? Guid.Empty : (Guid)Valores.GetValue(PERSONAL_COORDINACION_ID);
                             oBE_PERSONAL.PUESTO_ID = (Guid)Valores.GetValue(PERSONAL_PUESTO_ID);
                             oBE_PERSONAL.GRUPO_ORGANIZACIONAL_ID = DBNull.Value == Valores.GetValue(PERSONAL_GRUPO_ORGANIZACIONAL_ID) ? Guid.Empty : (Guid)Valores.GetValue(PERSONAL_GRUPO_ORGANIZACIONAL_ID);                            

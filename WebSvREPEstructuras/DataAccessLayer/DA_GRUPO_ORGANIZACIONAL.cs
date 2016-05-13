@@ -148,7 +148,7 @@ namespace DataAccessLayer
                             dr.GetValues(Valores);
                             BE_GRUPO_ORGANIZACIONAL oBE_GRUPO_ORGANIZACIONAL = new BE_GRUPO_ORGANIZACIONAL();
                             oBE_GRUPO_ORGANIZACIONAL.ID = (Guid)Valores.GetValue(GRUPO_ORGANIZACIONAL_ID);
-                            oBE_GRUPO_ORGANIZACIONAL.CODIGO = Valores.GetValue(GRUPO_ORGANIZACIONAL_CODIGO).ToString();
+                            oBE_GRUPO_ORGANIZACIONAL.CODIGO = DBNull.Value == Valores.GetValue(GRUPO_ORGANIZACIONAL_CODIGO) ? String.Empty : Valores.GetValue(GRUPO_ORGANIZACIONAL_CODIGO).ToString();  
                             oBE_GRUPO_ORGANIZACIONAL.DESCRIPCION = Valores.GetValue(GRUPO_ORGANIZACIONAL_DESCRIPCION).ToString();
                             oBE_GRUPO_ORGANIZACIONAL.USUARIO_CREACION = (Guid)Valores.GetValue(USUARIO_CREACION);
                             oBE_GRUPO_ORGANIZACIONAL.FECHA_CREACION = Convert.ToDateTime(Valores.GetValue(FECHA_CREACION));

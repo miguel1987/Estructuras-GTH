@@ -159,9 +159,9 @@ namespace BussinesLogicLayer
         /// <summary>
         /// Devuelve los datos de todos los gerentes de una empresa
         /// </summary>       
-        /// <param name="empresa_id">Empresa Id a la cual se desea consultar</param>
+        /// <param name="presidencia_id">Empresa Id a la cual se desea consultar</param>
         /// <returns>List de BE_PERSONAL con los objetos de la entidad, que a su vez representan la tabla BE_PERSONAL de la base de datos. En caso no haiga datos devuelve nothing.</returns>
-        public static List<BE_PERSONAL> SeleccionarPersonalPorPresidencia(Guid empresa_id)
+        public static List<BE_PERSONAL> SeleccionarPersonalPorPresidencia(Guid presidencia_id)
         {
             List<BE_PERSONAL> oPERSONAL = null;
 
@@ -171,9 +171,9 @@ namespace BussinesLogicLayer
             List<BE_EMPRESA> oEMPRESA = null;
             BE_PUESTO oPUESTO = null;
             List<BE_SEDE> oSEDE = null;
-            List<BE_GRUPO_ORGANIZACIONAL> oGRUPO_ORGANIZACIONAL = null;     
+            List<BE_GRUPO_ORGANIZACIONAL> oGRUPO_ORGANIZACIONAL = null;
 
-            oPERSONAL = new DA_PERSONAL().SeleccionarPersonalPorPresidencia(empresa_id);
+            oPERSONAL = new DA_PERSONAL().SeleccionarPersonalPorPresidencia(presidencia_id);
 
             if (oPERSONAL != null)
             {
