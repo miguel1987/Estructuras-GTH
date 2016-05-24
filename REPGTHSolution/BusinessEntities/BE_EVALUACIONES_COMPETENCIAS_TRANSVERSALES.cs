@@ -11,13 +11,14 @@ namespace BusinessEntities
         public Guid PERSONAL_ID { get; set; }
         public string PERSONAL_DESCRIPCION { get; set; }
         public Guid COMPETENCIA_TRANSVERSAL_ID { get; set; }
+        public String COMPETENCIA_TRANSVERSAL_DESCRIPCION { get; set; }
         public decimal PORCENTAJE { get; set; }
         public Guid PUESTO_ID { get; set; }
         public string PUESTO_DESCRIPCION { get; set; }
         public int ANIO { get; set; }
         public string CODIGO { get; set; }
         
-        public BE_PERSONAL oBE_PERSONAL { get; set; }
+        //public BE_PERSONAL oBE_PERSONAL { get; set; }
 
         public enum TIPO_COMPETENCIA
         {
@@ -29,6 +30,21 @@ namespace BusinessEntities
 
         }
 
+        public enum ESTADO_EVALUACION
+        {
+            Pendiente = 0,
+            En_Evaluacion = 1,
+            Evaluado = 2
+        }
+
+        public enum PERSONAL_CODIGO
+        {
+            GE = 1,
+            SE = 2,
+            JD = 3,
+            CO = 4
+
+        }
         public decimal PORCENTAJE_INSPIRAR { get; set; }
         public decimal PORCENTAJE_ESTRATEGICA { get; set; }
         public decimal PORCENTAJE_CONSTRUCCION { get; set; }
@@ -36,6 +52,7 @@ namespace BusinessEntities
         public decimal PORCENTAJE_RESULTADOS { get; set; }
 
         public int CONTADOR_INDICADOR { get; set; }
+        public int Total { get; set; }
 
     }
 }
