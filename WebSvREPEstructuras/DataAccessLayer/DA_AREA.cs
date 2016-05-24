@@ -290,7 +290,7 @@ namespace DataAccessLayer
                 {
                     //Se crea el objeto Parameters por cada parametro
                     objCmd.Parameters.Add("@GERENCIA_ID", SqlDbType.UniqueIdentifier ).Value = oBE_AREA.GERENCIA_ID;
-                    objCmd.Parameters.Add("@GERENCIA_CODIGO", SqlDbType.VarChar).Value = oBE_AREA.CODIGO;
+                    objCmd.Parameters.Add("@AREA_CODIGO", SqlDbType.VarChar).Value = oBE_AREA.CODIGO;
                     objCmd.Parameters.Add("@AREA_DESCRIPCION", SqlDbType.VarChar).Value = oBE_AREA.DESCRIPCION ;
                     objCmd.Parameters.Add("@USUARIO", SqlDbType.UniqueIdentifier).Value = oBE_AREA.USUARIO_CREACION;
                     objCmd.Parameters.Add("@AREA_ESTADO", SqlDbType.Int ).Value = oBE_AREA.ESTADO;

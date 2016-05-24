@@ -45,7 +45,8 @@ namespace DataAccessLayer
                     int FECHA_CREACION = dr.GetOrdinal("FECHA_CREACION");
                     int USUARIO_ACTUALIZACION = dr.GetOrdinal("USUARIO_ACTUALIZACION");
                     int FECHA_ACTUALIZACION = dr.GetOrdinal("FECHA_ACTUALIZACION");
-                    int GERENCIA_ESTADO = dr.GetOrdinal("GERENCIA_ESTADO");                   
+                    int GERENCIA_ESTADO = dr.GetOrdinal("GERENCIA_ESTADO");
+                    int EMPRESA_ID = dr.GetOrdinal("EMPRESA_ID");
 
 
                     // creamos un objeto del tamaño de la tupla en el array de objeto Valores
@@ -70,6 +71,7 @@ namespace DataAccessLayer
                             oBE_GERENCIA.USUARIO_ACTUALIZACION = (Guid)Valores.GetValue(USUARIO_ACTUALIZACION);
                             oBE_GERENCIA.FECHA_ACTUALIZACION = Convert.ToDateTime(Valores.GetValue(FECHA_ACTUALIZACION));
                             oBE_GERENCIA.ESTADO = Convert.ToInt32(Valores.GetValue(GERENCIA_ESTADO));
+                            oBE_GERENCIA.EMPRESA_ID = (Guid)Valores.GetValue(EMPRESA_ID);
                             oGERENCIA.Add(oBE_GERENCIA);
                         }
                     }
@@ -129,6 +131,7 @@ namespace DataAccessLayer
                     int USUARIO_ACTUALIZACION = dr.GetOrdinal("USUARIO_ACTUALIZACION");
                     int FECHA_ACTUALIZACION = dr.GetOrdinal("FECHA_ACTUALIZACION");
                     int GERENCIA_ESTADO = dr.GetOrdinal("GERENCIA_ESTADO");
+                    int EMPRESA_ID = dr.GetOrdinal("EMPRESA_ID");
 
 
                     // creamos un objeto del tamaño de la tupla en el array de objeto Valores
@@ -153,6 +156,7 @@ namespace DataAccessLayer
                             oBE_GERENCIA.USUARIO_ACTUALIZACION = (Guid)Valores.GetValue(USUARIO_ACTUALIZACION);
                             oBE_GERENCIA.FECHA_ACTUALIZACION = Convert.ToDateTime(Valores.GetValue(FECHA_ACTUALIZACION));
                             oBE_GERENCIA.ESTADO = Convert.ToInt32(Valores.GetValue(GERENCIA_ESTADO));
+                            oBE_GERENCIA.EMPRESA_ID = (Guid)Valores.GetValue(EMPRESA_ID);
                             oGERENCIA.Add(oBE_GERENCIA);
                         }
                     }
@@ -210,6 +214,7 @@ namespace DataAccessLayer
                     int USUARIO_ACTUALIZACION = dr.GetOrdinal("USUARIO_ACTUALIZACION");
                     int FECHA_ACTUALIZACION = dr.GetOrdinal("FECHA_ACTUALIZACION");
                     int GERENCIA_ESTADO = dr.GetOrdinal("GERENCIA_ESTADO");
+
 
 
                     // creamos un objeto del tamaño de la tupla en el array de objeto Valores
