@@ -31,7 +31,7 @@
                   <!--Arbol -->
                   <telerik:RadToolTipManager ID="RadToolTipManager1" runat="server" OnAjaxUpdate="RadToolTipManager1_AjaxUpdate">
                   </telerik:RadToolTipManager>
-                    <telerik:RadTreeView   EnableDragAndDrop="false" EnableDragAndDropBetweenNodes="false"  ID="rtvEstructuras" runat="server"  
+                    <telerik:RadTreeView style="overflow-x:hidden"  EnableDragAndDrop="false" EnableDragAndDropBetweenNodes="false"  ID="rtvEstructuras" runat="server"  
                       OnNodeClick="rtvEstructuras_NodeClick" EnableEmbeddedSkins="False" 
                           Skin="Default" ImagesPath="../Styles/TreeView/"   >
                         <collapseanimation type="Linear" />
@@ -49,7 +49,10 @@
               
               
               
-              <div class="izquierda frm_titulo02"> Area: Gerencia de Administración </div>
+              <%--<div class="izquierda frm_titulo02"> Area: Gerencia de Administración </div>--%>
+              <div class="izquierda frm_titulo02">  
+              <asp:Label ID="lblArea" runat="server"> </asp:Label>
+              </div>
             
             
             

@@ -237,6 +237,7 @@
     <Content Include="UI_ARCHIVO\SolicitudesAprobacion.aspx" />
     <Content Include="UI_ARCHIVO\SolicitudesBusqueda.aspx" />
     <Content Include="UI_EVALUACION\AsignarEvaluacionesPorPuesto.aspx" />
+    <Content Include="UI_EVALUACION\EvaluacionesCompetenciasPorPuesto.aspx" />
     <Content Include="UI_EVALUACION\EvaluacionesTransversalesLiderazgo.aspx" />
     <Content Include="UI_EVALUACION\EvaluacionCompetenciasPuesto.aspx" />
     <Content Include="UI_EVALUACION\pruebaM.aspx" />
@@ -398,6 +399,13 @@
     </Compile>
     <Compile Include="UI_EVALUACION\AsignarEvaluacionesPorPuesto.aspx.designer.cs">
       <DependentUpon>AsignarEvaluacionesPorPuesto.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI_EVALUACION\EvaluacionesCompetenciasPorPuesto.aspx.cs">
+      <DependentUpon>EvaluacionesCompetenciasPorPuesto.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI_EVALUACION\EvaluacionesCompetenciasPorPuesto.aspx.designer.cs">
+      <DependentUpon>EvaluacionesCompetenciasPorPuesto.aspx</DependentUpon>
     </Compile>
     <Compile Include="UI_EVALUACION\EvaluacionesTransversalesLiderazgo.aspx.cs">
       <DependentUpon>EvaluacionesTransversalesLiderazgo.aspx</DependentUpon>

@@ -54,7 +54,7 @@
     <Compile Include="BE_EMPRESA.cs" />
     <Compile Include="BE_EVALUACIONES_COMPETENCIAS_PERSONAL.cs" />
     <Compile Include="BE_EVALUACIONES_COMPETENCIAS_PUESTOS_PERSONAL.cs" />
-    <Compile Include="BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES.cs.cs" />
+    <Compile Include="BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES.cs" />
     <Compile Include="BE_EVALUACION_COMPETENCIA_PUESTO.cs" />
     <Compile Include="BE_GENERICO.cs" />
     <Compile Include="BE_GERENCIA.cs" />

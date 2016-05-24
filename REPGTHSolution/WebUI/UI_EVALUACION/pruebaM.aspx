@@ -7,38 +7,41 @@
             width: 100%;
             height: 255px;
         }
+        .grid_header
+        {}
         </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
 
     
+    
+
+
     <telerik:RadPivotGrid CssClass="grid_header" ShowFilterHeaderZone="false" 
-        AllowFilteringByColumn="false"  ID="RadPivotGrid1" runat="server" Culture="es-PE" 
+        AllowFilteringByColumn="false"  ID="RadPivotGrid2" runat="server" Culture="es-PE" 
         ColumnGrandTotalCellStyle-CssClass="HideCell" TotalsSettings-GrandTotalsVisibility="None"
-         Width="100%" 
+         Width="98%" 
         Skin="BlackMetroTouch" AllowFiltering="False">
         <PagerStyle ChangePageSizeButtonToolTip="Change Page Size" PageSizeControlType="RadComboBox">
         </PagerStyle>
-        <Fields>
-            <telerik:PivotGridRowField DataField="PROYECTO_ID" UniqueName="PROYECTO_ID" ZoneIndex="0"
-                CellStyle-CssClass="HideCell">
+        <Fields>          
+            <telerik:PivotGridRowField DataField="CODIGO" UniqueName="CODIGO"
+                ZoneIndex="1">                
             </telerik:PivotGridRowField>
-            <telerik:PivotGridRowField DataField="PROYECTO_NOMBRE" UniqueName="PROYECTO_NOMBRE"
-                ZoneIndex="1">
-                <CellTemplate>
-                    <asp:LinkButton ID="hplNombreProyecto" runat="server"></asp:LinkButton>
-                </CellTemplate>
+            <telerik:PivotGridRowField DataField="PERSONAL_DESCRIPCION" UniqueName="PERSONAL_DESCRIPCION"
+                ZoneIndex="1">                
             </telerik:PivotGridRowField>
-            <telerik:PivotGridColumnField DataField="INDICADOR_ID" UniqueName="INDICADOR_ID" IsHidden="True" 
-                ZoneIndex="0" CellStyle-CssClass="HideCell">
+            <telerik:PivotGridRowField DataField="PUESTO_DESCRIPCION" UniqueName="PUESTO_DESCRIPCION"
+                ZoneIndex="1">                
+            </telerik:PivotGridRowField>
+            <telerik:PivotGridColumnField DataField="COMPETENCIA_TRANSVERSAL_DESCRIPCION" UniqueName="COMPETENCIA_TRANSVERSAL_DESCRIPCION" 
+                ZoneIndex="1" CellStyle-CssClass="HideCell">
             </telerik:PivotGridColumnField>
-            <telerik:PivotGridColumnField DataField="INDICADOR_NOMBRE" UniqueName="INDICADOR_NOMBRE" 
-                ZoneIndex="1">
-                <CellTemplate>
-                    <asp:LinkButton ID="hplindicador" runat="server"></asp:LinkButton>
-                </CellTemplate>
+            <telerik:PivotGridColumnField DataField="EVALUACION_COMPETENCIA_TRANSVERSAL_PORCENTAJE" UniqueName="EVALUACION_COMPETENCIA_TRANSVERSAL_PORCENTAJE" 
+                ZoneIndex="1">               
             </telerik:PivotGridColumnField>
-            <telerik:PivotGridAggregateField DataField="PLAN_GESTION_ESCALA_IMPACTO" CellStyle-CssClass="centrado">
+           
+            <telerik:PivotGridAggregateField DataField="PORCENTAJE" CellStyle-CssClass="centrado">
                 <CellTemplate>
                     <asp:TextBox ID="txtScala" runat="server" Width="30px"></asp:TextBox>
                 </CellTemplate>
@@ -47,5 +50,7 @@
         
         <ConfigurationPanelSettings EnableOlapTreeViewLoadOnDemand="True"></ConfigurationPanelSettings>
     </telerik:RadPivotGrid>
+
+
 </asp:Content>
 

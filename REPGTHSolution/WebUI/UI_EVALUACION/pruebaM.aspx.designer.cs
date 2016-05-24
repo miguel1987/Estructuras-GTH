@@ -13,12 +13,12 @@ namespace WebUI.UI_EVALUACION {
     public partial class pruebaM {
         
         /// <summary>
-        /// RadPivotGrid1 control.
+        /// RadPivotGrid2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Telerik.Web.UI.RadPivotGrid RadPivotGrid1;
+        protected global::Telerik.Web.UI.RadPivotGrid RadPivotGrid2;
     }
 }

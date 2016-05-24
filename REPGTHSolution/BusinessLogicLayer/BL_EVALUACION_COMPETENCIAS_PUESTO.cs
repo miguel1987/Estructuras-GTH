@@ -50,7 +50,7 @@ namespace BusinessLogicLayer
 
             }
 
-            //List<BE_EVALUACION_COMPETENCIA_PUESTO> oListaEvaluacionesEstado = new List<BE_EVALUACION_COMPETENCIA_PUESTO>();
+            
             if (oListaPorEmpresa != null)
             {
                 foreach (var item in oListaPorEmpresa)

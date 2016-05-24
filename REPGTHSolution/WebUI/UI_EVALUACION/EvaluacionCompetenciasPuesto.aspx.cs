@@ -68,6 +68,8 @@ namespace WebUI.UI_ARCHIVO
             {
                 RadTreeNode nodeEmpresa = new RadTreeNode(oEmpresa.DESCRIPCION.ToString(), oEmpresa.ID.ToString());
                 nodeEmpresa.Expanded = true;
+                
+               lblArea .Text = nodeEmpresa.Text;
                 //Añadir nodo Presidencia - CEO                
                 
                 BL_PRESIDENCIA BL_PRESIDENCIA = new BL_PRESIDENCIA();
@@ -144,12 +146,8 @@ namespace WebUI.UI_ARCHIVO
             string idNodo = e.Node.Value.ToString();
 
             string nivel = rtvEstructuras.SelectedNode.Level.ToString();
-            
-            //Presidencia
-            //if (nivel == "1")
-            //    idNodo = e.Node.Parent;
-            
-            
+
+            lblArea.Text = e.Node.Text;                
             ActualizarGrilla(idNodo, nivel);
         }
 
@@ -209,7 +207,7 @@ namespace WebUI.UI_ARCHIVO
                 else
                     hplEvaluarPersonal1.NavigateUrl = UrlEvaluar;
 
-            }
+            }            
 
         }
 

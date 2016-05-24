@@ -31,13 +31,13 @@ namespace WebUI.UI_ARCHIVO {
         protected global::Telerik.Web.UI.RadTreeView rtvTransversales;
         
         /// <summary>
-        /// rgEvaluacionesTransversales control.
+        /// rgEvaluacionesTransversalesporPersonal control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Telerik.Web.UI.RadGrid rgEvaluacionesTransversales;
+        protected global::Telerik.Web.UI.RadPivotGrid rgEvaluacionesTransversalesporPersonal;
         
         /// <summary>
         /// odsEvaluacionesTransversales control.
@@ -56,5 +56,14 @@ namespace WebUI.UI_ARCHIVO {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblMensaje;
+        
+        /// <summary>
+        /// hf_Contador control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hf_Contador;
     }
 }

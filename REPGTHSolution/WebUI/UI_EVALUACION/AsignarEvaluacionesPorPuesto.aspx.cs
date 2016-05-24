@@ -123,7 +123,7 @@ namespace WebUI.UI_EVALUACION
             oentidad.PERSONAL_ID = Guid.Parse(hf_PersonalId.Value);
             oentidad.PUESTO_ID = Guid.Parse(hf_PuestoId.Value);
             oentidad.REAL = Convert.ToInt16(values["REAL"]);
-            oentidad.BRECHA = oentidad.REAL -Convert.ToInt32(values["COMPETENCIA_PUESTO_VALOR_REQUERIDO"]);
+            oentidad.BRECHA = Convert.ToInt32(values["COMPETENCIA_PUESTO_VALOR_REQUERIDO"]) - oentidad.REAL;
             oentidad.ESTADO_EVALUACION = Convert.ToInt16(values["ESTADO_EVALUACION"]);
             oentidad.COMENTARIO = values["COMENTARIO"].ToString();
             oentidad.USUARIO_CREACION = USUARIO;            

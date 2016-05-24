@@ -31,6 +31,15 @@ namespace WebUI.UI_ARCHIVO {
         protected global::Telerik.Web.UI.RadTreeView rtvEstructuras;
         
         /// <summary>
+        /// lblArea control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblArea;
+        
+        /// <summary>
         /// txtBuscar control.
         /// </summary>
         /// <remarks>

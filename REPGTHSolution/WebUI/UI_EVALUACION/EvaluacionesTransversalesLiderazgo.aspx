@@ -27,14 +27,48 @@
                   
                   <!--Arbol -->
                   
-                 <telerik:RadTreeView ID="rtvTransversales" runat="server" OnNodeClick="rtvTransversales_NodeClick"></telerik:RadTreeView>
+                 <telerik:RadTreeView style="overflow-x:hidden" ID="rtvTransversales" runat="server" OnNodeClick="rtvTransversales_NodeClick"></telerik:RadTreeView>
                   
                   <!--Arbol --> 
                   
                 </div></td>
               <td width="10">&nbsp;</td>
               <td valign="top">
-                  <telerik:RadGrid ID="rgEvaluacionesTransversales" HorizontalAlign="Center" runat="server"  
+              <telerik:RadPivotGrid ID="rgEvaluacionesTransversalesporPersonal" runat="server" OnCellDataBound ="rgEvaluacionesTransversalesporPersonal_CellDataBound" ShowFilterHeaderZone="false"   TotalsSettings-GrandTotalsVisibility="None" AllowSorting="true" 
+        AllowFilteringByColumn="false"  
+                       Culture="es-PE" DataSourceID="odsEvaluacionesTransversales"
+        Height="370px" AllowPaging="True" AllowFiltering="false" >
+        <ClientSettings Scrolling-AllowVerticalScroll="true">
+            </ClientSettings>
+            <DataCellStyle Width="100px" />  
+            <TotalsSettings RowsSubTotalsPosition="None" RowGrandTotalsPosition="None"
+ColumnsSubTotalsPosition="None" ColumnGrandTotalsPosition="None"  />       
+        
+        <PagerStyle ChangePageSizeButtonToolTip="Change Page Size" PageSizeControlType="RadComboBox">
+        </PagerStyle>
+        <Fields>          
+            <telerik:PivotGridRowField DataField="CODIGO" UniqueName="CODIGO"
+               >                
+            </telerik:PivotGridRowField>
+            <telerik:PivotGridRowField DataField="PERSONAL_DESCRIPCION" UniqueName="PERSONAL_DESCRIPCION"
+                >                
+            </telerik:PivotGridRowField>
+            <telerik:PivotGridRowField DataField="PUESTO_DESCRIPCION" UniqueName="PUESTO_DESCRIPCION"
+                >                
+            </telerik:PivotGridRowField>
+            <telerik:PivotGridColumnField DataField="COMPETENCIA_TRANSVERSAL_DESCRIPCION" UniqueName="COMPETENCIA_TRANSVERSAL_DESCRIPCION" 
+                ZoneIndex="1">
+            </telerik:PivotGridColumnField>
+        
+           
+            <telerik:PivotGridAggregateField DataField="PORCENTAJE" Aggregate="Sum">
+               
+            </telerik:PivotGridAggregateField>
+        </Fields>
+        
+        <ConfigurationPanelSettings EnableOlapTreeViewLoadOnDemand="True"></ConfigurationPanelSettings>
+    </telerik:RadPivotGrid>
+                 <%-- <telerik:RadGrid ID="rgEvaluacionesTransversales" HorizontalAlign="Center" runat="server"  
         CellSpacing="0" Culture="es-ES" DataSourceID="odsEvaluacionesTransversales" GridLines="None" 
                       AllowPaging="True" Width="103%" AllowSorting="True"   AllowFilteringByColumn="false"
        EnableEmbeddedSkins="False" Skin="MySilk" ImagesPath="../Styles/Grid/" EnableLinqExpressions="false">
@@ -87,7 +121,7 @@
         </FilterMenu>
         <HeaderStyle Width="200px" />
             <PagerStyle Mode="NextPrevAndNumeric" />
-    </telerik:RadGrid>
+    </telerik:RadGrid>--%>
                 
                 
            
@@ -97,13 +131,18 @@
           <div class="margen"></div>
           <div class="texto izquierda"> Indicador general de colaboradores con competencias desarolladas: <span class="anotacion1"> 62%</span> </div>
           <div class="margen"></div>
-          <asp:ObjectDataSource ID="odsEvaluacionesTransversales" runat="server" SelectMethod="SeleccionarEvaluacionesTransversalesPorJerarquia"         
-        TypeName="BusinessLogicLayer.BL__EVALUACIONES_COMPETENCIAS_TRANSVERSALES" DataObjectTypeName="BusinessEntities.BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES">
+          <asp:ObjectDataSource  ID="odsEvaluacionesTransversales" runat="server" SelectMethod="SeleccionarEvaluacionesTransversalesPorJerarquia"         
+        TypeName="BusinessLogicLayer.BL_EVALUACIONES_COMPETENCIAS_TRANSVERSALES" DataObjectTypeName="BusinessEntities.BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES">
+        
     </asp:ObjectDataSource>
+
+     
+
     <p class="mensaje">
          <asp:Label ID="lblMensaje" runat="server" Font-Bold="true" Font-Size="Medium" ForeColor="Red"></asp:Label>
        </p>
           <!--Area de Contenido -->
+<asp:HiddenField ID="hf_Contador" runat="server" /> 
   
    
 </asp:Content>

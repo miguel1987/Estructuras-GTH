@@ -15,8 +15,8 @@ namespace WebUI.UI_ARCHIVO
 {
     public partial class EvaluacionesTransversalesLiderazgo : PageBaseClass
     {
-        Guid USUARIO = Guid.Empty;        
-        
+        Guid USUARIO = Guid.Empty;
+
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -29,10 +29,11 @@ namespace WebUI.UI_ARCHIVO
                     validarUsuarioEnDominio();
                     ValidarPerfilUsuario();
                     LoadEstructura();
-                   
                     LoadGrilla(Session["EMPRESA_ID"].ToString(), "0");
-                   
-                    
+
+
+
+
                 }
                 catch (Exception ex)
                 {
@@ -49,7 +50,7 @@ namespace WebUI.UI_ARCHIVO
         {
             //Recuperamos el perfil del usuario para validar sus accesos
             //Validar Accesos por Perfil
-            
+
         }
 
 
@@ -66,7 +67,7 @@ namespace WebUI.UI_ARCHIVO
             foreach (BE_EMPRESA oEmpresa in lstEmpresas)
             {
                 RadTreeNode nodeEmpresa = new RadTreeNode(oEmpresa.DESCRIPCION.ToString(), oEmpresa.ID.ToString());
-
+                nodeEmpresa.Expanded = true;
                 //Añadir nodo Presidencia - CEO
 
                 BL_PRESIDENCIA BL_PRESIDENCIA = new BL_PRESIDENCIA();
@@ -75,7 +76,7 @@ namespace WebUI.UI_ARCHIVO
                 {
                     RadTreeNode nodePresidencia = new RadTreeNode(oPresidencia.DESCRIPCION.ToString(), oPresidencia.ID.ToString());
                     nodeEmpresa.Nodes.Add(nodePresidencia);
-
+                    nodePresidencia.Expanded = true;
                     BL_GERENCIA BL_GERENCIA = new BL_GERENCIA();
                     List<BE_GERENCIA> lstGerencias = BL_GERENCIA.SeleccionarGerenciaPorEmpresa(oEmpresa.ID);
 
@@ -100,8 +101,6 @@ namespace WebUI.UI_ARCHIVO
 
                             }
 
-                            // FOR EACH ASIGNAS EL NODECOORDINADION
-                            // ADD NODE COORDINACION AL NODE AREA
 
                             nodeGerencia.Nodes.Add(nodeAreas);
                         }
@@ -118,54 +117,21 @@ namespace WebUI.UI_ARCHIVO
             }
 
 
-            //3. Por cada Empresa Cargar una lista de objetos de tipo Presidencias               
-            //4. Recorrer la lista con un foreach y añadir a cada nodo de empresa un nodo por presidencia
-            //5. Por cada Empresa Cargar una lista de objetos de tipo gerencias
-            //6. Recorrer la lista con un forech y añadir a cada nodo empresa un nodo por cada gerencia.
-            //7. Por cada Empresa Cargar una lista de objetos de tipo areas
-            //8. Recorrer la lista con un forech y añadir a cada nodo empresa un nodo por cada areas.
-            //9. Por cada Empresa Cargar una lista de objetos de tipo coordinacion
-            //10. Recorrer la lista con un forech y añadir a cada nodo empresa un nodo por cada coordinacion.
-            //this.rtvEstructuras
-
         }
 
-        
-        /////
 
         protected void rtvTransversales_NodeClick(object sender, RadTreeNodeEventArgs e)
         {
-           
-            //poner codigo del radgrid
 
-            string idNodo= e.Node.Value.ToString();
+            string idNodo = e.Node.Value.ToString();
 
             string nivel = rtvTransversales.SelectedNode.Level.ToString();
-            ActualizarGrilla(idNodo, nivel);
+            LoadGrilla(idNodo, nivel);
         }
 
-        protected void ActualizarGrilla(string idNodo, string nivel)
-        {
-         rgEvaluacionesTransversales.MasterTableView.CommandItemSettings.ShowAddNewRecordButton = false;
-
-         rgEvaluacionesTransversales.MasterTableView.NoMasterRecordsText = "No existen evaluaciones registrados para esos parámetros de consulta.";
-
-         odsEvaluacionesTransversales.SelectParameters.Clear();
-
-         odsEvaluacionesTransversales.SelectParameters.Add("jerarquia_id", System.Data.DbType.Guid, idNodo);
-
-         odsEvaluacionesTransversales.SelectParameters.Add("nivel", System.Data.DbType.Int16, nivel);
-
-         rgEvaluacionesTransversales.DataBind();
-
-         
-        }
 
         protected void LoadGrilla(string idNodo, string nivel)
         {
-            rgEvaluacionesTransversales.MasterTableView.CommandItemSettings.ShowAddNewRecordButton = false;
-
-            rgEvaluacionesTransversales.MasterTableView.NoMasterRecordsText = "No existen evaluaciones registrados para esos parámetros de consulta.";
 
             odsEvaluacionesTransversales.SelectParameters.Clear();
 
@@ -173,36 +139,79 @@ namespace WebUI.UI_ARCHIVO
 
             odsEvaluacionesTransversales.SelectParameters.Add("nivel", System.Data.DbType.Int16, nivel);
 
-            rgEvaluacionesTransversales.DataBind();
+            rgEvaluacionesTransversalesporPersonal.DataBind();
+
+            CalcularIndicador();
         }
 
 
 
         protected void txtBuscar_TextChanged(object sender, EventArgs e)
         {
-
-
-            rgEvaluacionesTransversales.MasterTableView.FilterExpression = "([PERSONAL_DESCRIPCION] LIKE \'%" + txtBuscar.Text.Trim() + "%\' OR [PUESTO_DESCRIPCION]LIKE \'%" + txtBuscar.Text.Trim() + "%\')";
-
-            //GridColumn column = rgEvaluaciones.MasterTableView.GetColumn("PERSONAL_DESCRIPCION");
-            //column.CurrentFilterFunction = GridKnownFunction.Contains;
-            //column.CurrentFilterValue = txtBuscar.Text.Trim();
-            // GridColumn masterColumn = (GridColumn)rgEvaluaciones.MasterTableView.GetColumnSafe("PERSONAL_DESCRIPCION","PUESTO_DESCRIPCION");
-            //masterColumn.CurrentFilterFunction = GridKnownFunction.Contains;
-            //masterColumn.CurrentFilterValue = txtBuscar.Text.Trim();
-            rgEvaluacionesTransversales.Rebind();
+            rgEvaluacionesTransversalesporPersonal.RowHeaderZoneText = "([PERSONAL_DESCRIPCION] LIKE \'%" + txtBuscar.Text.Trim() + "%\' OR [PUESTO_DESCRIPCION]LIKE \'%" + txtBuscar.Text.Trim() + "%\')";
+            rgEvaluacionesTransversalesporPersonal.Rebind();
+            
 
         }
 
-        protected void CalcularIndicador(string idNodo, string nivel)
+        protected void CalcularIndicador()
         {
-            BL__EVALUACIONES_COMPETENCIAS_TRANSVERSALES BL__EVALUACIONES_COMPETENCIAS_TRANSVERSALES = new BL__EVALUACIONES_COMPETENCIAS_TRANSVERSALES();
-            List<BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES> oListaEvaluacionesTransversales = new List<BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES>();
-            oListaEvaluacionesTransversales = BL__EVALUACIONES_COMPETENCIAS_TRANSVERSALES.SeleccionarEvaluacionesTransversalesPorJerarquia(Guid.Parse(idNodo), Int32.Parse(nivel));
 
+            //rgEvaluacionesTransversalesporPersonal.Items.Count
 
+           
 
         }
-       
+
+
+        protected void rgEvaluacionesTransversalesporPersonal_CellDataBound(object sender, PivotGridCellDataBoundEventArgs e)
+        {
+            
+            
+            
+            int porcentaje;
+            int contador = 0;
+            
+            if (e.Cell is PivotGridDataCell)
+                
+            {
+                
+                PivotGridDataCell cell = e.Cell as PivotGridDataCell;
+                
+
+                if (cell.CellType == PivotGridDataCellType.DataCell)
+                {
+
+                    if (cell != null)
+                    {
+                        switch ((cell.Field as PivotGridAggregateField).DataField)
+                        {
+                                
+                            //color the cells showing totals for TotalPrice based on their value
+                            case "PORCENTAJE":
+                                if (cell.DataItem != null && cell.DataItem.ToString().Length > 0)
+                                {
+                                    contador++;
+                                    hf_Contador.Value = contador.ToString();
+                                    decimal price = Convert.ToDecimal(cell.DataItem);
+                                    porcentaje = Convert.ToInt32(price * 100);
+                                    if (porcentaje >80)
+                                    {
+
+                                    }
+
+                                    //if ((cell.Field as PivotGridAggregateField).DataField>80 )
+                                    //{ }
+                                }
+                                break;
+                        }
+                    }
+                }
+
+
+            }
+
+            
+        }
     }
 }

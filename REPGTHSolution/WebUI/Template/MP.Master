@@ -65,8 +65,8 @@ AsyncPostBackTimeout="360000">
             </li>
         <li><a href="#"> Consulta de Evaluaciones </a>
               <ul>
-            <li><a href="../UI_EVALUACION/EvaluacionesTransversalesLiderazgo.aspx">Trasnversales y Liderazgo</a></li>
-            <li><a href="#">Competencias por Puesto</a></li>
+            <li><a href="../UI_EVALUACION/EvaluacionesTransversalesLiderazgo.aspx">Transversales y Liderazgo</a></li>
+            <li><a href="../UI_EVALUACION/EvaluacionesCompetenciasPorPuesto.aspx">Competencias por Puesto</a></li>
           </ul>
             </li>
         <li><a href="#"> Reportes </a>
