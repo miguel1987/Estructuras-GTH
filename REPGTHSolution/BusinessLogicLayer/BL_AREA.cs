@@ -31,6 +31,7 @@ namespace BusinessLogicLayer
                 {
                     BE_AREA oArea = new BE_AREA();
                     oArea.ID = item.ID;
+                    oArea.CODIGO = item.CODIGO;
                     oArea.DESCRIPCION = item.DESCRIPCION;
                     oArea.GERENCIA_ID = item.GERENCIA_ID;
                     oArea.USUARIO_CREACION = item.USUARIO_CREACION;
@@ -49,6 +50,7 @@ namespace BusinessLogicLayer
                             if (oArea.GERENCIA_ID == itemGerencia.ID)
                             {
                                 oBE_GERENCIA.ID = itemGerencia.ID;
+                                oBE_GERENCIA.CODIGO = itemGerencia.CODIGO;
                                 oBE_GERENCIA.DESCRIPCION = itemGerencia.DESCRIPCION;
                                 oArea.oBE_GERENCIA = oBE_GERENCIA;
                                 oArea.EMPRESA_ID = itemGerencia.EMPRESA_ID;
@@ -64,6 +66,7 @@ namespace BusinessLogicLayer
                                         if (oArea.EMPRESA_ID == itemEmpresa.ID)
                                         {
                                             oBE_EMPRESA.ID = itemEmpresa.ID;
+                                            oBE_EMPRESA.CODIGO = itemEmpresa.CODIGO;
                                             oBE_EMPRESA.DESCRIPCION = itemEmpresa.DESCRIPCION;
                                             oArea.oBE_EMPRESA = oBE_EMPRESA;
                                         }
@@ -101,6 +104,7 @@ namespace BusinessLogicLayer
             {
                 BE_AREA oArea = new BE_AREA();
                 oArea.ID = item.ID;
+                oArea.CODIGO = item.CODIGO;
                 oArea.DESCRIPCION = item.DESCRIPCION;
                 oArea.GERENCIA_ID = item.GERENCIA_ID;
                 oArea.USUARIO_CREACION = item.USUARIO_CREACION;
@@ -135,6 +139,7 @@ namespace BusinessLogicLayer
                 {
                     BE_AREA oArea = new BE_AREA();
                     oArea.ID = item.ID;
+                    oArea.CODIGO = item.CODIGO;
                     oArea.DESCRIPCION = item.DESCRIPCION;
                     oArea.GERENCIA_ID = item.GERENCIA_ID;
                     oArea.USUARIO_CREACION = item.USUARIO_CREACION;
@@ -163,6 +168,7 @@ namespace BusinessLogicLayer
         {
             wsMaestros.BE_AREA oArea = new wsMaestros.BE_AREA();
             oArea.ID = oBE_AREA.ID;
+            oArea.CODIGO = oBE_AREA.CODIGO;
             oArea.DESCRIPCION = oBE_AREA.DESCRIPCION;
             oArea.USUARIO_CREACION = oBE_AREA.USUARIO_CREACION;
             oArea.ESTADO = oBE_AREA.ESTADO;
@@ -181,6 +187,7 @@ namespace BusinessLogicLayer
         {
             wsMaestros.BE_AREA oArea = new wsMaestros.BE_AREA();
             oArea.ID = oBE_AREA.ID;
+            oArea.CODIGO = oBE_AREA.CODIGO;
             oArea.DESCRIPCION = oBE_AREA.DESCRIPCION;
             oArea.USUARIO_CREACION = oBE_AREA.USUARIO_CREACION;
             oArea.ESTADO = oBE_AREA.ESTADO;

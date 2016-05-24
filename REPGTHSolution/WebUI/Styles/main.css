@@ -40,7 +40,7 @@ ul {
 	background-color: #fff;
 }
 .logo-intranet {
-	background: #fff url(../images/logo-intranet.png) left no-repeat;
+	background: #fff url(../Images/logo-intranet.png) left no-repeat;
 	width: 274px;
 	height: 40px;
 	float: left;
@@ -66,7 +66,7 @@ ul {
 	font-size: 12px;
 	color: #9b9b9b;
 	float: right;
-	background: url(../imagenes/ico-user.png) no-repeat center center;
+	background: url(../Images/ico-user.png) no-repeat center center;
 	height: 30px;
 	width: 33px;
 	border-left: solid #efefef 1px;
@@ -83,7 +83,7 @@ ul {
 	line-height: 20px;
 }
 #menu .closed {
-	background-image: url(../imagenes/ha-down.gif);
+	background-image: url(../Images/ha-down.gif);
 }
 #menu .closed, #menu .opened {
 	padding-right: 10px;
@@ -98,7 +98,7 @@ ul {
 	color: #9b9b9b;
 }
 #menu .opened {
-	background-image: url(../imagenes/ha-up.gif);
+	background-image: url(../Images/ha-up.gif);
 	background-color: #ffffff;
 	color: #5bc6e8;
 }
@@ -275,10 +275,10 @@ ul#conf-menu li ul.sub-menu li a.separador {
 	background-repeat: no-repeat;
 }
 .tree-menu .closed > a {
-	background-image: url(../imagenes/icon-expand.gif);
+	background-image: url(../Images/icon-expand.gif);
 }
 .tree-menu .opened > a {
-	background-image: url(../imagenes/icon-collapse.gif);
+	background-image: url(../Images/icon-collapse.gif);
 }
 /* :::::: FOTMULARIOS :::::: */
 
@@ -384,10 +384,10 @@ ul#conf-menu li ul.sub-menu li a.separador {
 	-webkit-border-radius: 10px;
 	-moz-border-radius: 10px;
 	border-radius: 10px;
-	behavior: url(../pie/PIE.htc);
+	behavior: url(../Scripts/PIE.htc);
 }
 .btn-anadir {
-	background: url(../imagenes/ico-add.png) no-repeat center left;
+	background: url(../Images/ico-add.png) no-repeat center left;
 	padding: 2px 6px 2px 22px;
 	margin-top: 16px;
 	margin-right: 20px;
@@ -398,7 +398,7 @@ ul#conf-menu li ul.sub-menu li a.separador {
 	font-weight: bold;
 }
 .btn-eliminar {
-	background: url(../imagenes/ico-delete.png) no-repeat center left;
+	background: url(../Images/ico-delete.png) no-repeat center left;
 	padding: 2px 6px 2px 22px;
 	margin-top: 16px;
 	margin-right: 20px;

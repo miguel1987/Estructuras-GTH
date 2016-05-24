@@ -35,14 +35,18 @@ AsyncPostBackTimeout="360000">
         <li>
               <ul class="sub-menu">
             <li><a href="#" class="separador">Configuración del Sistema</a></li>
-            <li><a href="#">Gerencias</a></li>
-            <li><a href="#">Áreas</a></li>
+            <li><a href="../UI_ADMINISTRACION/Empresa.aspx">Empresas</a></li>
+            <li><a href="../UI_ADMINISTRACION/Gerencia.aspx">Gerencias</a></li>
+            <li><a href="../UI_ADMINISTRACION/Area.aspx">Áreas</a></li>
             <li><a href="#">Coordinaciones</a></li>
+            <li><a href="#">Sedes</a></li>
+            <li><a href="#">Grupos Organizacionales</a></li>
+            <li><a href="#">Personal</a></li>
             <li><a href="#" class="separador">Puestos</a></li>
             <li><a href="#">Usuarios</a></li>
             <li><a href="#" class="separador">Perfiles</a></li>
-            <li><a href="#">Matriz de Evaluación Transversal</a></li>
-            <li><a href="#">Catálogo de Competencias</a></li>
+            <li><a href="#">Competencias Transversales</a></li>
+            <li><a href="#">Competencias por Puesto</a></li>
             <li><a href="#" class="separador">Matriz de Competencias por Puesto</a></li>
             <li><a href="#">Parametros del Sistema</a></li>
           </ul>

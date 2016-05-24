@@ -31,6 +31,7 @@ namespace BusinessLogicLayer
                 {
                     BE_GERENCIA oGerencia = new BE_GERENCIA();                    
                     oGerencia.ID = item.ID;
+                    oGerencia.CODIGO = item.CODIGO;
                     oGerencia.DESCRIPCION = item.DESCRIPCION;
                     oGerencia.USUARIO_CREACION = item.USUARIO_CREACION;
                     oGerencia.FECHA_CREACION = item.FECHA_CREACION;
@@ -39,7 +40,7 @@ namespace BusinessLogicLayer
                     oGerencia.EMPRESA_ID = item.EMPRESA_ID;
 
                     wsMaestros.BE_EMPRESA[] oEmpresa = wsMantenimientoEstructuras.SeleccionarEmpresa();
-                   // List<BE_EMPRESA> oListaEmpresa = new List<BE_EMPRESA>();
+                   
                     if (oEmpresa != null)
                     {
                         foreach (var itemEmpresa in oEmpresa)
@@ -49,6 +50,7 @@ namespace BusinessLogicLayer
                             if (oGerencia.EMPRESA_ID == itemEmpresa.ID)
                             {
                                 oBE_EMPRESA.ID = itemEmpresa.ID;
+                                oBE_EMPRESA.CODIGO = itemEmpresa.CODIGO;
                                 oBE_EMPRESA.DESCRIPCION = itemEmpresa.DESCRIPCION;
                                 oGerencia.oBE_EMPRESA = oBE_EMPRESA;
                             }                           
@@ -80,6 +82,7 @@ namespace BusinessLogicLayer
                 {
                     BE_GERENCIA oGerencia = new BE_GERENCIA();
                     oGerencia.ID = item.ID;
+                    oGerencia.CODIGO = item.CODIGO;
                     oGerencia.DESCRIPCION = item.DESCRIPCION;
                     oGerencia.USUARIO_CREACION = item.USUARIO_CREACION;
                     oGerencia.FECHA_CREACION = item.FECHA_CREACION;
@@ -111,6 +114,7 @@ namespace BusinessLogicLayer
                 {
                     BE_GERENCIA oGerencia = new BE_GERENCIA();
                     oGerencia.ID = item.ID;
+                    oGerencia.CODIGO = item.CODIGO;
                     oGerencia.DESCRIPCION = item.DESCRIPCION;
                     oGerencia.USUARIO_CREACION = item.USUARIO_CREACION;
                     oGerencia.FECHA_CREACION = item.FECHA_CREACION;
@@ -135,6 +139,7 @@ namespace BusinessLogicLayer
         {
             wsMaestros.BE_GERENCIA oGerencia = new wsMaestros.BE_GERENCIA();
             oGerencia.ID = oBE_GERENCIA.ID;
+            oGerencia.CODIGO = oBE_GERENCIA.CODIGO;
             oGerencia.DESCRIPCION = oBE_GERENCIA.DESCRIPCION;
             oGerencia.USUARIO_CREACION = oBE_GERENCIA.USUARIO_CREACION;                  
             oGerencia.ESTADO = oBE_GERENCIA.ESTADO;
@@ -153,6 +158,7 @@ namespace BusinessLogicLayer
         {
             wsMaestros.BE_GERENCIA oGerencia = new wsMaestros.BE_GERENCIA();
             oGerencia.ID = oBE_GERENCIA.ID;
+            oGerencia.CODIGO = oBE_GERENCIA.CODIGO;
             oGerencia.DESCRIPCION = oBE_GERENCIA.DESCRIPCION;
             oGerencia.USUARIO_CREACION = oBE_GERENCIA.USUARIO_CREACION;
             oGerencia.ESTADO = oBE_GERENCIA.ESTADO;

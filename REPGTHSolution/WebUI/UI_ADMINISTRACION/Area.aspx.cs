@@ -91,19 +91,12 @@ namespace WebUI.UI_ADMINISTRACION
                 ID = Guid.Parse(editableItem.GetDataKeyValue("ID").ToString());
             else
                 ID = Guid.Empty;
-            
+
+            validarEliminar = 1;
             //Validar que el área a eliminar no esté asociada a ningún CECO, CEGE u Orden activa.            
-            List<BE_CENTRO_COSTO> lstCentroCosto = BL_CENTRO_COSTO.SeleccionarCentroCostoArea((Guid)ID);
-            if (lstCentroCosto == null || lstCentroCosto.Count == 0)           
-                validarEliminar += 1;            
-
-            List<BE_ORDEN> lstOrden = BL_ORDEN.SeleccionarOrdenesPorArea((Guid)ID);
-            if (lstOrden == null || lstOrden.Count == 0)
-                validarEliminar += 1;
-
-            List<BE_CENTRO_GESTOR> lstCentroGestor = BL_CENTRO_GESTOR.SeleccionarCentrosGestoresPorArea((Guid)ID);
-            if (lstCentroGestor == null || lstCentroGestor.Count == 0)
-                validarEliminar += 1;
+            //List<BE_PERSONAL> lstPersonal = BL_PERSONAL.SeleccionarPersonalArea((Guid)ID);
+            //if (lstPersonal == null || lstPersonal.Count == 0)           
+            //    validarEliminar += 1;                        
 
             if (validarEliminar > 0)
             {
@@ -113,7 +106,7 @@ namespace WebUI.UI_ADMINISTRACION
             }
             else
             {
-               string message = "'No puede eliminar un Área asociada a un Centro de Costo, Órden o Centro Gestor'";
+               string message = "'No puede eliminar un Área asociada a un Personal'";
                string javaScriptCode = "Sys.Application.add_load(function() {showRadConfirm(" + message + ");});";
                ScriptManager.RegisterStartupScript(this, this.GetType(), "RadConfirmStart", javaScriptCode, true);
             }
@@ -144,6 +137,7 @@ namespace WebUI.UI_ADMINISTRACION
                 
 
             oentidad.ID = (Guid)ID;
+            oentidad.CODIGO = values["CODIGO"].ToString();
             oentidad.DESCRIPCION = values["DESCRIPCION"].ToString();
             if (!String.IsNullOrEmpty(oRadComboBox2.SelectedValue)){
                 oentidad.GERENCIA_ID = Guid.Parse(oRadComboBox2.SelectedValue);

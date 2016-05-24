@@ -1,46 +1,58 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Template/MP.Master" CodeBehind="Empresa.aspx.cs" Inherits="WebUI.UI_ADMINISTRACION.Empresa" %>
-<%--<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-</asp:Content>--%>
 <asp:Content ID="Content2" ContentPlaceHolderID="cph_contenedor" runat="server">
- <h1 class="tit_01">MANTENIMIENTO DE EMPRESA</h1>
- <script type="text/javascript">
-     function showRadConfirm(text) {
-         radalert(text, null, null, "Elimnar Empresa");
-     }
-    </script>
- <telerik:RadGrid ID="rgEmpresa" HorizontalAlign="Center" runat="server"  
+           
+  <link href="../Styles/Grid.MySilk.css" rel="stylesheet" type="text/css" /> 
+  <script type="text/javascript">
+        function showRadConfirm(text) {
+            radalert(text, null, null, "Eliminar Empresa");
+        }
+  </script>        
+          <div class="frm_titulo01">Administrar Empresas</div>          
+       
+          <div class="margen"></div>
+          <div class="izquierda">        
+      </div>
+          <div class="derecha">
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+            <td><input type="text"  class="frmTxtBuscar " value="Buscar" /></td>
+            <td><a class="frm_boton ">Ir</a></td>
+          </tr>
+            </table>
+      </div>
+          <div class="margen"></div>
+          <table border="0" cellpadding="0" cellspacing="0" class="grid">
+   
+      </table>      
+
+        <telerik:RadGrid ID="rgEmpresa" HorizontalAlign="Center" runat="server"  
         CellSpacing="0" Culture="es-ES" DataSourceID="odsEmpresa"
         OnInsertCommand="rgEmpresa_InsertCommand" OnDeleteCommand="rgEmpresa_DeleteCommand"
         OnUpdateCommand="rgEmpresa_UpdateCommand" PageSize="10"
-        GridLines="None" AllowPaging="True" Width="50%" 
-        OnItemDataBound="rgEmpresa_ItemDataBound" AllowSorting="true" AllowFilteringByColumn="True" 
+        GridLines="None" AllowPaging="True" Width="100%" 
+        OnItemDataBound="rgEmpresa_ItemDataBound" AllowSorting="true" AllowFilteringByColumn="False" 
         EnableEmbeddedSkins="False" Skin="MySilk" ImagesPath="../Styles/Grid/" style="margin: auto">
         <ExportSettings>
             <Pdf PageWidth="" />
         </ExportSettings>
-        <MasterTableView DataSourceID="odsEmpresa"
-        CommandItemDisplay="Top" DataKeyNames="ID" AllowFilteringByColumn="True"
-            HorizontalAlign="NotSet" AutoGenerateColumns="False" EditMode="EditForms" OverrideDataSourceControlSorting="true">
+        <MasterTableView DataSourceID="odsEmpresa" CommandItemDisplay="Top" DataKeyNames="ID" HorizontalAlign="NotSet" 
+        AutoGenerateColumns="False" EditMode="EditForms" OverrideDataSourceControlSorting="true">
             <NoRecordsTemplate>
                 No existen empresas registradas.
             </NoRecordsTemplate>
-            <CommandItemSettings AddNewRecordText="Añadir Nuevo Registro" RefreshText="Actualizar"></CommandItemSettings>
-            <RowIndicatorColumn Visible="True" FilterControlAltText="Filter RowIndicator column">
-                <HeaderStyle Width="20px"></HeaderStyle>
-            </RowIndicatorColumn>
-            <ExpandCollapseColumn Visible="True" FilterControlAltText="Filter ExpandColumn column">
-                <HeaderStyle Width="20px"></HeaderStyle>
-            </ExpandCollapseColumn>
-            <Columns>
-                <%--<telerik:GridBoundColumn DataField="ID" FilterControlAltText="Filter ID column"
-                    HeaderText="ID" SortExpression="ID" UniqueName="ID" HeaderStyle-Width="90%" Display="false">                    
-                </telerik:GridBoundColumn>    
-                <telerik:GridBoundColumn DataField="ESTADO" FilterControlAltText="Filter ESTADO column"
-                    HeaderText="ESTADO" SortExpression="ESTADO" UniqueName="ESTADO" HeaderStyle-Width="90%" Display="false">                    
-                </telerik:GridBoundColumn>--%>
+            <CommandItemSettings AddNewRecordText="Añadir Empresa" RefreshText="Actualizar"></CommandItemSettings>   
+            <Columns>     
+                <telerik:GridBoundColumn DataField="CODIGO" FilterControlAltText="Filter CODIGO column"
+                    HeaderText="CODIGO" SortExpression="CODIGO" UniqueName="CODIGO" HeaderStyle-Width="50%" 
+                    AutoPostBackOnFilter="true">
+                    <ColumnValidationSettings EnableRequiredFieldValidation="true">
+                        <RequiredFieldValidator ForeColor="Red" Text="*">
+                        </RequiredFieldValidator>
+                    </ColumnValidationSettings>
+                </telerik:GridBoundColumn>              
                 <telerik:GridBoundColumn DataField="DESCRIPCION" FilterControlAltText="Filter DESCRIPCION column"
-                    HeaderText="EMPRESA" SortExpression="DESCRIPCION" UniqueName="DESCRIPCION" HeaderStyle-Width="90%" 
-                    AutoPostBackOnFilter="true" FilterControlWidth="120px" CurrentFilterFunction="Contains" ShowFilterIcon="false">
+                    HeaderText="EMPRESA" SortExpression="DESCRIPCION" UniqueName="DESCRIPCION" HeaderStyle-Width="50%" 
+                    AutoPostBackOnFilter="true">
                     <ColumnValidationSettings EnableRequiredFieldValidation="true">
                         <RequiredFieldValidator ForeColor="Red" Text="*">
                         </RequiredFieldValidator>

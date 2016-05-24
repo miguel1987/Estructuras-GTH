@@ -2,43 +2,54 @@
 
 <%@ Register assembly="Telerik.Web.UI" namespace="Telerik.Web.UI" tagprefix="telerik" %>
 
-<%--<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-</asp:Content>--%>
-
 <asp:Content ID="Content2" ContentPlaceHolderID="cph_contenedor" runat="server">
- <h1 class="tit_01">MANTENIMIENTO DE AREA</h1>
- <script type="text/javascript">
-     function showRadConfirm(text) 
-     {
-         radalert(text, null, null, "Elimnar Área");
-     }
-    </script>
-    
-    <link href="../Styles/Grid.MySilk.css" rel="stylesheet" type="text/css" />
- <telerik:RadGrid ID="rgArea" HorizontalAlign="Center" runat="server" EditMode="InPlace" 
+  <link href="../Styles/Grid.MySilk.css" rel="stylesheet" type="text/css" /> 
+  <script type="text/javascript">
+      function showRadConfirm(text) {
+          radalert(text, null, null, "Eliminar Empresa");
+      }
+  </script>        
+          <div class="frm_titulo01">Administrar Áreas</div>          
+       
+          <div class="margen"></div>
+          <div class="izquierda">        
+      </div>
+          <div class="derecha">
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+            <td><input type="text"  class="frmTxtBuscar " value="Buscar" /></td>
+            <td><a class="frm_boton ">Ir</a></td>
+          </tr>
+            </table>
+      </div>
+          <div class="margen"></div>
+      <table border="0" cellpadding="0" cellspacing="0" class="grid">   
+      </table>    
+ <telerik:RadGrid ID="rgArea" HorizontalAlign="Center" runat="server" EditMode="EditForms" 
         CellSpacing="0" Culture="es-ES" DataSourceID="odsArea"
         OnInsertCommand="rgArea_InsertCommand" OnDeleteCommand="rgArea_DeleteCommand"
         OnUpdateCommand="rgArea_UpdateCommand" PageSize="10"
-        GridLines="None" AllowPaging="True" Width="50%" 
-        OnItemDataBound="rgArea_ItemDataBound" AllowSorting="true" AllowFilteringByColumn="True"
+        GridLines="None" AllowPaging="True" Width="100%" 
+        OnItemDataBound="rgArea_ItemDataBound" AllowSorting="true" AllowFilteringByColumn="False"
         EnableEmbeddedSkins="False" Skin="MySilk" ImagesPath="../Styles/Grid/" style="margin: auto">
         <ExportSettings>
             <Pdf PageWidth="" />
         </ExportSettings>
         <MasterTableView DataSourceID="odsArea"
-        CommandItemDisplay="Top" DataKeyNames="ID" AllowFilteringByColumn="True"
-            HorizontalAlign="NotSet" AutoGenerateColumns="False" EditMode="EditForms" OverrideDataSourceControlSorting="true">
+        CommandItemDisplay="Top" DataKeyNames="ID" HorizontalAlign="NotSet" AutoGenerateColumns="False" EditMode="EditForms" OverrideDataSourceControlSorting="true">
             <NoRecordsTemplate>
                 No existen áreas registradas.
             </NoRecordsTemplate>
-            <CommandItemSettings AddNewRecordText="Añadir Nuevo Registro" RefreshText="Actualizar"></CommandItemSettings>
-            <RowIndicatorColumn Visible="True" FilterControlAltText="Filter RowIndicator column">
-                <HeaderStyle Width="20px"></HeaderStyle>
-            </RowIndicatorColumn>
-            <ExpandCollapseColumn Visible="True" FilterControlAltText="Filter ExpandColumn column">
-                <HeaderStyle Width="20px"></HeaderStyle>
-            </ExpandCollapseColumn>
-            <Columns>                
+            <CommandItemSettings AddNewRecordText="Añadir Área" RefreshText="Actualizar"></CommandItemSettings>   
+            <Columns>   
+                <telerik:GridBoundColumn DataField="CODIGO" FilterControlAltText="Filter CODIGO column"
+                    HeaderText="CODIGO" SortExpression="CODIGO" UniqueName="CODIGO" HeaderStyle-Width="350px" 
+                    AutoPostBackOnFilter="true">
+                    <ColumnValidationSettings EnableRequiredFieldValidation="true">
+                        <RequiredFieldValidator ForeColor="Red" Text="*">
+                        </RequiredFieldValidator>
+                    </ColumnValidationSettings>
+                </telerik:GridBoundColumn>                 
                 <telerik:GridBoundColumn DataField="DESCRIPCION" FilterControlAltText="Filter DESCRIPCION column"
                     HeaderText="AREA" SortExpression="DESCRIPCION" UniqueName="DESCRIPCION" HeaderStyle-Width="350px" 
                     AutoPostBackOnFilter="true" FilterControlWidth="120px" CurrentFilterFunction="Contains" ShowFilterIcon="false">
@@ -48,7 +59,7 @@
                     </ColumnValidationSettings>
                 </telerik:GridBoundColumn>       
                 <telerik:GridTemplateColumn  HeaderText="EMPRESA" HeaderStyle-Width="250px" SortExpression="oBE_EMPRESA.DESCRIPCION" UniqueName="oBE_EMPRESA.DESCRIPCION" DataField="oBE_EMPRESA.DESCRIPCION"
-                AutoPostBackOnFilter="true" FilterControlWidth="120px" CurrentFilterFunction="Contains" ShowFilterIcon="false">
+                AutoPostBackOnFilter="true">
                         <ItemTemplate>
                             <%# Eval("oBE_EMPRESA.DESCRIPCION")%>
                         </ItemTemplate>
@@ -63,7 +74,7 @@
                         </EditItemTemplate>
                     </telerik:GridTemplateColumn>    
                     <telerik:GridTemplateColumn HeaderText="GERENCIA" HeaderStyle-Width="250px" SortExpression="oBE_GERENCIA.DESCRIPCION" DataField="oBE_GERENCIA.DESCRIPCION" UniqueName="oBE_GERENCIA.DESCRIPCION"
-                    AutoPostBackOnFilter="true" FilterControlWidth="120px" CurrentFilterFunction="Contains" ShowFilterIcon="false">
+                    AutoPostBackOnFilter="true">
                         <ItemTemplate>
                             <%# Eval("oBE_GERENCIA.DESCRIPCION")%>
                         </ItemTemplate>
@@ -71,10 +82,7 @@
                         <telerik:RadComboBox
                             runat="server" ID="rcbGerencia" DataValueField="ID" MarkFirstMatch="true" Filter="None" EnableTextSelection="true"
                                 DataTextField="DESCRIPCION" AllowCustomText="true" DataSourceID="odsGerencia" LoadingMessage="Cargando..." Width="50%">
-                            </telerik:RadComboBox>
-                           <%-- <asp:RequiredFieldValidator ID="rfvGerencia" runat="server" ControlToValidate="rcbGerencia" 
-                                ForeColor="Red" Text="*">
-                            </asp:RequiredFieldValidator>     --%>
+                            </telerik:RadComboBox>                          
                         </EditItemTemplate>
                     </telerik:GridTemplateColumn>                  
                     <telerik:GridEditCommandColumn ButtonType="ImageButton" EditText="Actualizar"
@@ -94,9 +102,7 @@
             </EditFormSettings>
             <PagerStyle PageSizeControlType="RadComboBox"></PagerStyle>
         </MasterTableView>
-        <PagerStyle PageSizeControlType="RadComboBox"></PagerStyle>
-        <FilterMenu EnableImageSprites="False">
-        </FilterMenu>
+        <PagerStyle PageSizeControlType="RadComboBox"></PagerStyle>        
     </telerik:RadGrid>
     <br />
     <div>

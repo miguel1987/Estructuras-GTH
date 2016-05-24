@@ -223,16 +223,9 @@
     <Content Include="Styles\TreeView\TriState.png" />
     <Content Include="Styles\TreeView\WebResource.png" />
     <Content Include="UI_ADMINISTRACION\Area.aspx" />
-    <Content Include="UI_ADMINISTRACION\CentroCosto.aspx" />
-    <Content Include="UI_ADMINISTRACION\CentroGestor.aspx" />
-    <Content Include="UI_ADMINISTRACION\DireccionAtencion.aspx" />
-    <Content Include="UI_ADMINISTRACION\CuentaMayor.aspx" />
-    <Content Include="UI_ADMINISTRACION\Direccion.aspx" />
     <Content Include="UI_ADMINISTRACION\Empresa.aspx" />
     <Content Include="UI_ADMINISTRACION\Gerencia.aspx" />
-    <Content Include="UI_ADMINISTRACION\Orden.aspx" />
     <Content Include="UI_ADMINISTRACION\Personal.aspx" />
-    <Content Include="UI_ADMINISTRACION\Proveedor.aspx" />
     <Content Include="UI_ARCHIVO\Solicitud.aspx" />
     <Content Include="UI_ARCHIVO\SolicitudesAprobacion.aspx" />
     <Content Include="UI_ARCHIVO\SolicitudesBusqueda.aspx" />
@@ -302,41 +295,6 @@
     <Compile Include="UI_ADMINISTRACION\Area.aspx.designer.cs">
       <DependentUpon>Area.aspx</DependentUpon>
     </Compile>
-    <Compile Include="UI_ADMINISTRACION\CentroCosto.aspx.cs">
-      <DependentUpon>CentroCosto.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="UI_ADMINISTRACION\CentroCosto.aspx.designer.cs">
-      <DependentUpon>CentroCosto.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="UI_ADMINISTRACION\CentroGestor.aspx.cs">
-      <DependentUpon>CentroGestor.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="UI_ADMINISTRACION\CentroGestor.aspx.designer.cs">
-      <DependentUpon>CentroGestor.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="UI_ADMINISTRACION\DireccionAtencion.aspx.cs">
-      <DependentUpon>DireccionAtencion.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="UI_ADMINISTRACION\DireccionAtencion.aspx.designer.cs">
-      <DependentUpon>DireccionAtencion.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="UI_ADMINISTRACION\CuentaMayor.aspx.cs">
-      <DependentUpon>CuentaMayor.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="UI_ADMINISTRACION\CuentaMayor.aspx.designer.cs">
-      <DependentUpon>CuentaMayor.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="UI_ADMINISTRACION\Direccion.aspx.cs">
-      <DependentUpon>Direccion.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="UI_ADMINISTRACION\Direccion.aspx.designer.cs">
-      <DependentUpon>Direccion.aspx</DependentUpon>
-    </Compile>
     <Compile Include="UI_ADMINISTRACION\Empresa.aspx.cs">
       <DependentUpon>Empresa.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -351,26 +309,12 @@
     <Compile Include="UI_ADMINISTRACION\Gerencia.aspx.designer.cs">
       <DependentUpon>Gerencia.aspx</DependentUpon>
     </Compile>
-    <Compile Include="UI_ADMINISTRACION\Orden.aspx.cs">
-      <DependentUpon>Orden.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="UI_ADMINISTRACION\Orden.aspx.designer.cs">
-      <DependentUpon>Orden.aspx</DependentUpon>
-    </Compile>
     <Compile Include="UI_ADMINISTRACION\Personal.aspx.cs">
       <DependentUpon>Personal.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="UI_ADMINISTRACION\Personal.aspx.designer.cs">
       <DependentUpon>Personal.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="UI_ADMINISTRACION\Proveedor.aspx.cs">
-      <DependentUpon>Proveedor.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="UI_ADMINISTRACION\Proveedor.aspx.designer.cs">
-      <DependentUpon>Proveedor.aspx</DependentUpon>
     </Compile>
     <Compile Include="UI_ARCHIVO\Solicitud.aspx.cs">
       <DependentUpon>Solicitud.aspx</DependentUpon>

@@ -30,6 +30,7 @@ namespace BusinessLogicLayer
                 {
                     BE_EMPRESA oEmpresa = new BE_EMPRESA();
                     oEmpresa.ID = item.ID;
+                    oEmpresa.CODIGO = item.CODIGO;
                     oEmpresa.DESCRIPCION = item.DESCRIPCION;
                     oEmpresa.USUARIO_CREACION = item.USUARIO_CREACION;
                     oEmpresa.FECHA_CREACION = item.FECHA_CREACION;
@@ -52,6 +53,7 @@ namespace BusinessLogicLayer
         {
             wsMaestros.BE_EMPRESA oEmpresa = new wsMaestros.BE_EMPRESA();
             oEmpresa.ID = oBE_EMPRESA.ID;
+            oEmpresa.CODIGO = oBE_EMPRESA.CODIGO;
             oEmpresa.DESCRIPCION = oBE_EMPRESA.DESCRIPCION;
             oEmpresa.USUARIO_CREACION = oBE_EMPRESA.USUARIO_CREACION;
             oEmpresa.ESTADO = oBE_EMPRESA.ESTADO;
@@ -69,6 +71,7 @@ namespace BusinessLogicLayer
         {
             wsMaestros.BE_EMPRESA oEmpresa = new wsMaestros.BE_EMPRESA();
             oEmpresa.ID = oBE_EMPRESA.ID;
+            oEmpresa.CODIGO = oBE_EMPRESA.CODIGO;
             oEmpresa.DESCRIPCION = oBE_EMPRESA.DESCRIPCION;
             oEmpresa.USUARIO_CREACION = oBE_EMPRESA.USUARIO_CREACION;
             oEmpresa.ESTADO = oBE_EMPRESA.ESTADO;

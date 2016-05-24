@@ -107,6 +107,7 @@ namespace WebUI.UI_ADMINISTRACION
 
 
             oentidad.ID = (Guid)ID;
+            oentidad.CODIGO = values["CODIGO"].ToString();
             oentidad.DESCRIPCION = values["DESCRIPCION"].ToString();
             if (!String.IsNullOrEmpty(oRadComboBox2.SelectedValue))
             {
