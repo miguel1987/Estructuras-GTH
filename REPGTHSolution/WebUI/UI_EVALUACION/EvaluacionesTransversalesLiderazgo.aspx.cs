@@ -30,6 +30,8 @@ namespace WebUI.UI_ARCHIVO
                     ValidarPerfilUsuario();
                     LoadEstructura();
                     LoadGrilla(Session["EMPRESA_ID"].ToString(), "0");
+                    lblMensaje.Text = hf_Contador.Value;
+                    
 
 
 
@@ -141,7 +143,7 @@ namespace WebUI.UI_ARCHIVO
 
             rgEvaluacionesTransversalesporPersonal.DataBind();
 
-            CalcularIndicador();
+            CalcularIndicador(idNodo, nivel);
         }
 
 
@@ -154,64 +156,105 @@ namespace WebUI.UI_ARCHIVO
 
         }
 
-        protected void CalcularIndicador()
+        protected void CalcularIndicador(string idNodo, string nivel)
         {
 
-            //rgEvaluacionesTransversalesporPersonal.Items.Count
+            List<BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES> oListaEvaluacionesTransversales = new List<BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES>();
+            BL_EVALUACIONES_COMPETENCIAS_TRANSVERSALES BL_EVALUACIONES_COMPETENCIAS_TRANSVERSALES = new BL_EVALUACIONES_COMPETENCIAS_TRANSVERSALES();
 
-           
+            oListaEvaluacionesTransversales = BL_EVALUACIONES_COMPETENCIAS_TRANSVERSALES.SeleccionarEvaluacionesTransversalesPorJerarquia(Guid.Parse(idNodo), Int32.Parse(nivel));
 
-        }
+            decimal contadorCompetenciasDesarrolladas = 0;
+            decimal contadorTotalRegistros = 0;
+            //TODO: Traer de BD
+            int parametroCompetenciasDesarrolladas = 80;
+            decimal indicador = 0;
 
+            contadorTotalRegistros = oListaEvaluacionesTransversales.Count;
 
-        protected void rgEvaluacionesTransversalesporPersonal_CellDataBound(object sender, PivotGridCellDataBoundEventArgs e)
-        {
-            
-            
-            
-            int porcentaje;
-            int contador = 0;
-            
-            if (e.Cell is PivotGridDataCell)
-                
+            foreach (var itemevaluaciones in oListaEvaluacionesTransversales)
             {
-                
-                PivotGridDataCell cell = e.Cell as PivotGridDataCell;
-                
-
-                if (cell.CellType == PivotGridDataCellType.DataCell)
-                {
-
-                    if (cell != null)
-                    {
-                        switch ((cell.Field as PivotGridAggregateField).DataField)
-                        {
-                                
-                            //color the cells showing totals for TotalPrice based on their value
-                            case "PORCENTAJE":
-                                if (cell.DataItem != null && cell.DataItem.ToString().Length > 0)
-                                {
-                                    contador++;
-                                    hf_Contador.Value = contador.ToString();
-                                    decimal price = Convert.ToDecimal(cell.DataItem);
-                                    porcentaje = Convert.ToInt32(price * 100);
-                                    if (porcentaje >80)
-                                    {
-
-                                    }
-
-                                    //if ((cell.Field as PivotGridAggregateField).DataField>80 )
-                                    //{ }
-                                }
-                                break;
-                        }
-                    }
-                }
-
-
+                BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES oEvaluacion_Competencia_Transversales = new BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES();
+                oEvaluacion_Competencia_Transversales.PORCENTAJE = itemevaluaciones.PORCENTAJE*100;
+                if (oEvaluacion_Competencia_Transversales.PORCENTAJE >= parametroCompetenciasDesarrolladas)
+                    contadorCompetenciasDesarrolladas++;
             }
 
-            
+            indicador = (contadorCompetenciasDesarrolladas / contadorTotalRegistros) * 100;
+
+            this.lblIndicador.Text = Decimal.Round(indicador, 0).ToString();
+
         }
+
+
+        //protected void rgEvaluacionesTransversalesporPersonal_CellDataBound(object sender, PivotGridCellDataBoundEventArgs e)
+        //{
+        //    int porcentaje;
+            
+
+                
+        //        int contador = 0;
+
+
+        //        if (e.Cell is PivotGridHeaderCell)
+        //        {
+        //        contador = Convert.ToInt32(hf_Contador.Value);
+        //            contador++;
+        //            hf_Contador.Value = contador.ToString();
+        //        }
+          
+            
+                        
+                
+                    
+                
+            
+        //    if (e.Cell is PivotGridDataCell)
+        //    {
+
+
+        //        PivotGridDataCell cell = e.Cell as PivotGridDataCell;
+
+               
+                    
+            
+
+
+        //        if (cell.CellType == PivotGridDataCellType.DataCell)
+        //        {
+
+        //            if (cell != null)
+        //            {
+                        
+                            
+                        
+        //                switch ((cell.Field as PivotGridAggregateField).DataField)
+        //                {
+
+        //                    //color the cells showing totals for TotalPrice based on their value
+        //                    case "PORCENTAJE":
+        //                        if (cell.DataItem != null && cell.DataItem.ToString().Length > 0)
+        //                        {
+
+        //                            decimal price = Convert.ToDecimal(cell.DataItem);
+        //                            porcentaje = Convert.ToInt32(price * 100);
+        //                            if (porcentaje > 80)
+        //                            {
+
+        //                            }
+
+        //                            //if ((cell.Field as PivotGridAggregateField).DataField>80 )
+        //                            //{ }
+        //                        }
+        //                        break;
+        //                }
+        //            }
+        //        }
+
+
+        //    }
+
+
+        //} //termina aca
     }
 }

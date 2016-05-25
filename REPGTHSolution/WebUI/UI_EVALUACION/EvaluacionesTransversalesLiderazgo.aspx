@@ -34,7 +34,7 @@
                 </div></td>
               <td width="10">&nbsp;</td>
               <td valign="top">
-              <telerik:RadPivotGrid ID="rgEvaluacionesTransversalesporPersonal" runat="server" OnCellDataBound ="rgEvaluacionesTransversalesporPersonal_CellDataBound" ShowFilterHeaderZone="false"   TotalsSettings-GrandTotalsVisibility="None" AllowSorting="true" 
+              <telerik:RadPivotGrid ID="rgEvaluacionesTransversalesporPersonal" runat="server" ShowFilterHeaderZone="false"   TotalsSettings-GrandTotalsVisibility="None" AllowSorting="true" 
         AllowFilteringByColumn="false"  
                        Culture="es-PE" DataSourceID="odsEvaluacionesTransversales"
         Height="370px" AllowPaging="True" AllowFiltering="false" >
@@ -64,6 +64,10 @@ ColumnsSubTotalsPosition="None" ColumnGrandTotalsPosition="None"  />
             <telerik:PivotGridAggregateField DataField="PORCENTAJE" Aggregate="Sum">
                
             </telerik:PivotGridAggregateField>
+            <telerik:PivotGridAggregateField DataField="Count" DataFormatString="{0:G}">
+            </telerik:PivotGridAggregateField>
+        
+
         </Fields>
         
         <ConfigurationPanelSettings EnableOlapTreeViewLoadOnDemand="True"></ConfigurationPanelSettings>
@@ -129,7 +133,7 @@ ColumnsSubTotalsPosition="None" ColumnGrandTotalsPosition="None"  />
            
       </table>
           <div class="margen"></div>
-          <div class="texto izquierda"> Indicador general de colaboradores con competencias desarolladas: <span class="anotacion1"> 62%</span> </div>
+          <div class="texto izquierda"> Indicador general de colaboradores con competencias desarolladas: <span class="anotacion1"> <asp:Label ID="lblIndicador" runat="server"></asp:Label>%</span> </div>
           <div class="margen"></div>
           <asp:ObjectDataSource  ID="odsEvaluacionesTransversales" runat="server" SelectMethod="SeleccionarEvaluacionesTransversalesPorJerarquia"         
         TypeName="BusinessLogicLayer.BL_EVALUACIONES_COMPETENCIAS_TRANSVERSALES" DataObjectTypeName="BusinessEntities.BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES">

@@ -32,6 +32,7 @@ namespace WebUI.UI_ARCHIVO
                     addTooltips();
 
                     LoadGrilla(Session["EMPRESA_ID"].ToString(), "0");
+                    
 
 
                 }
