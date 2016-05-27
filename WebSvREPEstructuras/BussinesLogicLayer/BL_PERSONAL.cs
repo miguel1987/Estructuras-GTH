@@ -453,6 +453,77 @@ namespace BussinesLogicLayer
         {
             return new DA_PERSONAL().SeleccionarPersonalPorUsuario(NombreUsuario);
         }
+
+        /// <summary>
+        /// Devuelve los datos de todas las personas que pertenecen a un puesto
+        /// </summary>        
+        /// <param name="puesto_id">Puesto Id a la cual se desea consultar</param>
+        /// <returns>List de BE_PERSONAL con los objetos de la entidad, que a su vez representan la tabla BE_PERSONAL de la base de datos. En caso no haiga datos devuelve nothing.</returns>
+        public static List<BE_PERSONAL> SeleccionarPersonalPorPuesto(Guid puesto_id)
+        {
+            List<BE_PERSONAL> oPERSONAL = null;
+            BE_AREA oAREA = null;
+            BE_COORDINACION oCOORDINACION = null;
+            List<BE_GERENCIA> oGERENCIA = null;
+            List<BE_EMPRESA> oEMPRESA = null;
+            BE_PUESTO oPUESTO = null;
+            List<BE_SEDE> oSEDE = null;
+            List<BE_GRUPO_ORGANIZACIONAL> oGRUPO_ORGANIZACIONAL = null;
+
+            oPERSONAL = new DA_PERSONAL().SeleccionarPersonalPorPuesto(puesto_id);
+
+            if (oPERSONAL != null)
+            {
+                foreach (var oBE_PERSONAL_TMP in oPERSONAL)
+                {
+                    oEMPRESA = new DA_EMPRESA().SeleccionarEmpresaPorId(oBE_PERSONAL_TMP.EMPRESA_ID);
+
+                    if (oEMPRESA != null)
+                    {
+                        oBE_PERSONAL_TMP.oBE_EMPRESA = oEMPRESA[0];
+                    }
+
+                    oGERENCIA = new DA_GERENCIA().SeleccionarGerenciaPorId(oBE_PERSONAL_TMP.GERENCIA_ID);
+
+                    if (oGERENCIA != null)
+                    {
+                        oBE_PERSONAL_TMP.oBE_GERENCIA = oGERENCIA[0];
+                    }
+                    oAREA = new DA_AREA().SeleccionarAreaPorId(oBE_PERSONAL_TMP.AREA_ID);
+
+                    if (oAREA != null)
+                    {
+                        oBE_PERSONAL_TMP.oBE_AREA = oAREA;
+                    }
+
+                    oCOORDINACION = new DA_COORDINACION().SeleccionarCoordinacionPorId(oBE_PERSONAL_TMP.COORDINACION_ID);
+                    if (oCOORDINACION != null)
+                    {
+                        oBE_PERSONAL_TMP.oBE_COORDINACION = oCOORDINACION;
+                    }
+
+                    oPUESTO = new DA_PUESTO().SeleccionarPuestoPorId(oBE_PERSONAL_TMP.PUESTO_ID);
+                    if (oPUESTO != null)
+                    {
+                        oBE_PERSONAL_TMP.oBE_PUESTO = oPUESTO;
+                    }
+
+                    oGRUPO_ORGANIZACIONAL = new DA_GRUPO_ORGANIZACIONAL().SeleccionarGrupoOrganizacionalPorId(oBE_PERSONAL_TMP.GRUPO_ORGANIZACIONAL_ID);
+                    if (oGRUPO_ORGANIZACIONAL != null)
+                    {
+                        oBE_PERSONAL_TMP.oBE_GRUPO_ORGANIZACIONAL = oGRUPO_ORGANIZACIONAL[0];
+                    }
+
+                    oSEDE = new DA_SEDE().SeleccionarSedePorId(oBE_PERSONAL_TMP.SEDE_ID);
+                    if (oSEDE != null)
+                    {
+                        oBE_PERSONAL_TMP.oBE_SEDE = oSEDE[0];
+                    }
+                }
+
+            }
+            return oPERSONAL;
+        }
         
 
 

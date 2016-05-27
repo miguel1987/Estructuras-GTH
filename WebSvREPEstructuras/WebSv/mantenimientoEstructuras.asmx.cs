@@ -325,6 +325,13 @@ namespace WebSv
             return BL_PERSONAL.SeleccionarPersonalPorUsuario(NombreUsuario);
         }
 
+        //Seleccionar todos los colaboradores de que pertenecen a un puesto
+        [WebMethod]
+        public List<BE_PERSONAL> SeleccionarPersonalPorPuesto(Guid puesto_id)
+        {
+            return BL_PERSONAL.SeleccionarPersonalPorPuesto(puesto_id);
+        }
+
 
         //Insertar
         [WebMethod]

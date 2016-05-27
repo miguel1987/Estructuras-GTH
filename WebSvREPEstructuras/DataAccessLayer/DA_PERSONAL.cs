@@ -635,9 +635,94 @@ namespace DataAccessLayer
             {
                 cnx.Close();
             }
-        }       
+        }
 
-       
+        /// <summary>
+        /// Devuelve los datos de todo el Personal que pertenece a un puesto
+        /// </summary>
+        /// <param name="puesto_id">Puesto Id al cual se desea consultar</param>
+        /// <returns>List de BE_PERSONAL con los objetos de la entidad, que a su vez representan la tabla PERSONAL de la base de datos. En caso no haiga datos devuelve nothing.</returns>
+        public List<BE_PERSONAL> SeleccionarPersonalPorPuesto(Guid puesto_id)
+        {
+            SqlConnection cnx = new SqlConnection();
+            DbDataReader dr;
+            cnx = DC_Connection.getConnection();
+            List<BE_PERSONAL> oPERSONAL = null;
+            try
+            {
+                using (SqlCommand objCmd = new SqlCommand()
+                {
+                    Connection = cnx,
+                    CommandType = CommandType.StoredProcedure,
+                    CommandText = "USP_PERSONAL_SELECCIONAR_POR_PUESTO"
+                })
+                {
+
+                    objCmd.Parameters.Add("@PUESTO_ID", SqlDbType.UniqueIdentifier).Value = puesto_id;
+
+                    cnx.Open();
+                    dr = objCmd.ExecuteReader();
+
+                    // Se crea una variable tipo int por cada posicion de cada campo
+                    int PERSONAL_ID = dr.GetOrdinal("PERSONAL_ID");
+                    int PERSONAL_CODIGO_TRABAJO = dr.GetOrdinal("PERSONAL_CODIGO_TRABAJO");
+                    int PERSONAL_APELLIDO_PATERNO = dr.GetOrdinal("PERSONAL_APELLIDO_PATERNO");
+                    int PERSONAL_APELLIDO_MATERNO = dr.GetOrdinal("PERSONAL_APELLIDO_MATERNO");
+                    int PERSONAL_NOMBRES = dr.GetOrdinal("PERSONAL_NOMBRES");
+                    int PERSONAL_SEDE_ID = dr.GetOrdinal("PERSONAL_SEDE");
+                    int PERSONAL_EMPRESA_ID = dr.GetOrdinal("PERSONAL_EMPRESA");
+                    int PERSONAL_GERENCIA_ID = dr.GetOrdinal("PERSONAL_GERENCIA");
+                    int PERSONAL_AREA_ID = dr.GetOrdinal("PERSONAL_AREA");
+                    int PERSONAL_COORDINACION_ID = dr.GetOrdinal("PERSONAL_COORDINACION");
+                    int PERSONAL_PUESTO_ID = dr.GetOrdinal("PERSONAL_PUESTO");
+                    int PERSONAL_GRUPO_ORGANIZACIONAL_ID = dr.GetOrdinal("PERSONAL_GRUPO_ORGANIZACIONAL");
+                    int PERSONAL_CORREO = dr.GetOrdinal("PERSONAL_CORREO");
+
+                    // creamos un objeto del tamaño de la tupla en el array de objeto Valores
+                    object[] Valores = new object[dr.FieldCount];
+
+                    // Preguntamos si el DbDataReader tiene registros
+                    if (dr.HasRows)
+                    {
+
+                        // Instancionamos la lista para empezar a setearla
+                        oPERSONAL = new List<BE_PERSONAL>();
+                        while (dr.Read())
+                        {
+                            // Obetemos los valores para la tupla
+                            dr.GetValues(Valores);
+                            BE_PERSONAL oBE_PERSONAL = new BE_PERSONAL();
+                            oBE_PERSONAL.ID = (Guid)Valores.GetValue(PERSONAL_ID);
+                            oBE_PERSONAL.CODIGO_TRABAJO = Valores.GetValue(PERSONAL_CODIGO_TRABAJO).ToString();
+                            oBE_PERSONAL.APELLIDO_PATERNO = Valores.GetValue(PERSONAL_APELLIDO_PATERNO).ToString();
+                            oBE_PERSONAL.APELLIDO_MATERNO = Valores.GetValue(PERSONAL_APELLIDO_MATERNO).ToString();
+                            oBE_PERSONAL.NOMBRES = Valores.GetValue(PERSONAL_NOMBRES).ToString();
+                            oBE_PERSONAL.NOMBRES_COMPLETOS = String.Format("{0} {1}, {2}", oBE_PERSONAL.APELLIDO_PATERNO, oBE_PERSONAL.APELLIDO_MATERNO, oBE_PERSONAL.NOMBRES);
+                            oBE_PERSONAL.SEDE_ID = DBNull.Value == Valores.GetValue(PERSONAL_SEDE_ID) ? Guid.Empty : (Guid)Valores.GetValue(PERSONAL_SEDE_ID);
+                            oBE_PERSONAL.EMPRESA_ID = DBNull.Value == Valores.GetValue(PERSONAL_EMPRESA_ID) ? Guid.Empty : (Guid)Valores.GetValue(PERSONAL_EMPRESA_ID);
+                            oBE_PERSONAL.GERENCIA_ID = (Guid)Valores.GetValue(PERSONAL_GERENCIA_ID);
+                            oBE_PERSONAL.AREA_ID = DBNull.Value == Valores.GetValue(PERSONAL_AREA_ID) ? Guid.Empty : (Guid)Valores.GetValue(PERSONAL_AREA_ID);
+                            oBE_PERSONAL.COORDINACION_ID = DBNull.Value == Valores.GetValue(PERSONAL_COORDINACION_ID) ? Guid.Empty : (Guid)Valores.GetValue(PERSONAL_COORDINACION_ID);
+                            oBE_PERSONAL.PUESTO_ID = (Guid)Valores.GetValue(PERSONAL_PUESTO_ID);
+                            oBE_PERSONAL.GRUPO_ORGANIZACIONAL_ID = DBNull.Value == Valores.GetValue(PERSONAL_GRUPO_ORGANIZACIONAL_ID) ? Guid.Empty : (Guid)Valores.GetValue(PERSONAL_GRUPO_ORGANIZACIONAL_ID);
+                            oBE_PERSONAL.CORREO = Valores.GetValue(PERSONAL_CORREO).ToString();
+
+                            oPERSONAL.Add(oBE_PERSONAL);
+                        }
+                    }
+                }
+
+                return oPERSONAL;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                cnx.Close();
+            }
+        }
 
         /// <summary>
         /// Ingresa un nuevo Personal
