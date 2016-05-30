@@ -10,12 +10,14 @@ using BusinessLogicLayer;
 using Telerik.Web.UI;
 using System.Collections;
 using System.Text;
+using System.Drawing;
 
 namespace WebUI.UI_ARCHIVO
 {
     public partial class EvaluacionesTransversalesLiderazgo : PageBaseClass
     {
         Guid USUARIO = Guid.Empty;
+        BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES = new BusinessEntities.BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES();
 
 
         protected void Page_Load(object sender, EventArgs e)
@@ -31,7 +33,7 @@ namespace WebUI.UI_ARCHIVO
                     LoadEstructura();
                     LoadGrilla(Session["EMPRESA_ID"].ToString(), "0");
                     lblMensaje.Text = hf_Contador.Value;
-                    
+
 
 
 
@@ -146,16 +148,6 @@ namespace WebUI.UI_ARCHIVO
             CalcularIndicador(idNodo, nivel);
         }
 
-
-
-        protected void txtBuscar_TextChanged(object sender, EventArgs e)
-        {
-            rgEvaluacionesTransversalesporPersonal.RowHeaderZoneText = "([PERSONAL_DESCRIPCION] LIKE \'%" + txtBuscar.Text.Trim() + "%\' OR [PUESTO_DESCRIPCION]LIKE \'%" + txtBuscar.Text.Trim() + "%\')";
-            rgEvaluacionesTransversalesporPersonal.Rebind();
-            
-
-        }
-
         protected void CalcularIndicador(string idNodo, string nivel)
         {
 
@@ -166,8 +158,11 @@ namespace WebUI.UI_ARCHIVO
 
             decimal contadorCompetenciasDesarrolladas = 0;
             decimal contadorTotalRegistros = 0;
+            string valor = string.Empty;
             //TODO: Traer de BD
-            int parametroCompetenciasDesarrolladas = 80;
+            obtenervalor(valor);
+            int parametroCompetenciasDesarrolladas = BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES.VALOR;
+
             decimal indicador = 0;
 
             contadorTotalRegistros = oListaEvaluacionesTransversales.Count;
@@ -175,86 +170,107 @@ namespace WebUI.UI_ARCHIVO
             foreach (var itemevaluaciones in oListaEvaluacionesTransversales)
             {
                 BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES oEvaluacion_Competencia_Transversales = new BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES();
-                oEvaluacion_Competencia_Transversales.PORCENTAJE = itemevaluaciones.PORCENTAJE*100;
+                oEvaluacion_Competencia_Transversales.PORCENTAJE = itemevaluaciones.PORCENTAJE * 100;
                 if (oEvaluacion_Competencia_Transversales.PORCENTAJE >= parametroCompetenciasDesarrolladas)
                     contadorCompetenciasDesarrolladas++;
             }
+            if (contadorCompetenciasDesarrolladas > 0 && contadorTotalRegistros > 0)
 
-            indicador = (contadorCompetenciasDesarrolladas / contadorTotalRegistros) * 100;
+                indicador = (contadorCompetenciasDesarrolladas / contadorTotalRegistros) * 100;
 
             this.lblIndicador.Text = Decimal.Round(indicador, 0).ToString();
 
+
+        }
+
+        protected void obtenervalor(string valor)
+        {
+            int prueba;
+
+
+            valor = BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES.PARAMETRO_SISTEMA.DESARROLLADAS.ToString();
+            prueba = BL_EVALUACIONES_COMPETENCIAS_TRANSVERSALES.ParametroSistemaporValor(valor);
+            BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES.VALOR = prueba;
+
+
+        }
+
+        protected void rgEvaluacionesTransversalesporPersonal_CellDataBound(object sender, PivotGridCellDataBoundEventArgs e)
+        {
+
+
+
+            int porcentaje;
+
+            if (e.Cell is PivotGridDataCell)
+            {
+                PivotGridDataCell cell = e.Cell as PivotGridDataCell;
+
+
+                if (cell.CellType == PivotGridDataCellType.DataCell)
+                {
+
+                    if (cell != null)
+                    {
+
+                        switch ((cell.Field as PivotGridAggregateField).DataField)
+                        {
+
+                            //color the cells showing totals for TotalPrice based on their value
+                            case "PORCENTAJE":
+                                if (cell.DataItem != null && cell.DataItem.ToString().Length > 0)
+                                {
+                                    
+                                    decimal price = Convert.ToDecimal(cell.DataItem);
+                                    porcentaje = Convert.ToInt32(price * 100);
+                                    if (porcentaje > 80)
+                                    {
+
+                                        //cell.CssClass = "format_pivotgrid_desarrolladas";
+
+                                        int color = 0xF30F1A;
+
+                                        cell.BackColor = Color.FromArgb(color);
+                                        
+                                    }
+                                    else if (porcentaje < 80)
+                                        cell.CssClass = "format_pivotgrid_no_desarrolladas";
+                                    
+
+                                    //if ((cell.Field as PivotGridAggregateField).DataField>80 )
+                                    //{ }
+                                }
+                                break;
+                        }
+                    }
+                }
+
+
+            }
+
+
+            
         }
 
 
-        //protected void rgEvaluacionesTransversalesporPersonal_CellDataBound(object sender, PivotGridCellDataBoundEventArgs e)
-        //{
-        //    int porcentaje;
-            
 
-                
-        //        int contador = 0;
+        
 
 
-        //        if (e.Cell is PivotGridHeaderCell)
-        //        {
-        //        contador = Convert.ToInt32(hf_Contador.Value);
-        //            contador++;
-        //            hf_Contador.Value = contador.ToString();
-        //        }
-          
-            
-                        
-                
-                    
-                
-            
-        //    if (e.Cell is PivotGridDataCell)
-        //    {
 
 
-        //        PivotGridDataCell cell = e.Cell as PivotGridDataCell;
-
-               
-                    
-            
 
 
-        //        if (cell.CellType == PivotGridDataCellType.DataCell)
-        //        {
-
-        //            if (cell != null)
-        //            {
-                        
-                            
-                        
-        //                switch ((cell.Field as PivotGridAggregateField).DataField)
-        //                {
-
-        //                    //color the cells showing totals for TotalPrice based on their value
-        //                    case "PORCENTAJE":
-        //                        if (cell.DataItem != null && cell.DataItem.ToString().Length > 0)
-        //                        {
-
-        //                            decimal price = Convert.ToDecimal(cell.DataItem);
-        //                            porcentaje = Convert.ToInt32(price * 100);
-        //                            if (porcentaje > 80)
-        //                            {
-
-        //                            }
-
-        //                            //if ((cell.Field as PivotGridAggregateField).DataField>80 )
-        //                            //{ }
-        //                        }
-        //                        break;
-        //                }
-        //            }
-        //        }
 
 
-        //    }
 
 
-        //} //termina aca
+
+
+
+
+
+
+
     }
 }

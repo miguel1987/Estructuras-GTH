@@ -63,6 +63,7 @@
     <Compile Include="BE_PERSONAL.cs" />
     <Compile Include="BE_PRESIDENCIA.cs" />
     <Compile Include="BE_PROVEEDOR.cs" />
+    <Compile Include="BE_PUESTO.cs" />
     <Compile Include="BE_SOLICITUD.cs" />
     <Compile Include="BE_TIPO_DIRECCION.cs" />
     <Compile Include="BE_TIPO_JEFE.cs" />

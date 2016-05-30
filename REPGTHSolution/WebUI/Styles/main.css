@@ -366,6 +366,7 @@ ul#conf-menu li ul.sub-menu li a.separador {
 }
 .derecha {
 	float: right;
+    height: 56px;
 }
 .izquierda {
 	float: left;
@@ -530,3 +531,16 @@ ul#conf-menu li ul.sub-menu li a.separador {
     text-align: left;
     line-height: 16px!important;
 }
+
+.format_pivotgrid_desarrolladas
+{
+    background-color: Green
+    
+    
+    }
+    
+.format_pivotgrid_no_desarrolladas
+{
+    background-color:Yellow
+    
+    }    

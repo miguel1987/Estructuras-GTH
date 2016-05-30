@@ -28,8 +28,10 @@ namespace WebUI.UI_ARCHIVO
                 {
                     validarUsuarioEnDominio();
                     ValidarPerfilUsuario();
-                    LoadEstructura();                   
+                    LoadEstructura();
+                    LoadCombo(Session["EMPRESA_ID"].ToString(), "0");
                     LoadGrilla(Session["EMPRESA_ID"].ToString(), "0");
+                    
                     
                     
                    
@@ -126,34 +128,34 @@ namespace WebUI.UI_ARCHIVO
             string idNodo= e.Node.Value.ToString();
 
             string nivel = rtvTransversales.SelectedNode.Level.ToString();
-            LoadGrilla(idNodo, nivel);
+            
+            LoadCombo(idNodo, nivel);
             
         }
         
 
+        protected void LoadCombo(string idNodo, string nivel)
+        {
+
+
+            odsPuesto.SelectParameters.Clear();
+            odsPuesto.SelectParameters.Add("jerarquia_id", System.Data.DbType.Guid, idNodo);
+            odsPuesto.SelectParameters.Add("nivel", System.Data.DbType.Int16, nivel);
+            rcbPuesto.DataBind();            
+        }
+
         protected void LoadGrilla(string idNodo, string nivel)
         {
-      
-            odsEvaluacionesTransversales.SelectParameters.Clear();
 
-            odsEvaluacionesTransversales.SelectParameters.Add("jerarquia_id", System.Data.DbType.Guid, idNodo);
 
-            odsEvaluacionesTransversales.SelectParameters.Add("nivel", System.Data.DbType.Int16, nivel);
-
-            rgEvaluacionesTransversalesporPersonal.DataBind();
-
-            CalcularIndicador();
+            odsPuesto.SelectParameters.Clear();
+            odsPuesto.SelectParameters.Add("jerarquia_id", System.Data.DbType.Guid, idNodo);
+            odsPuesto.SelectParameters.Add("nivel", System.Data.DbType.Int16, nivel);
+            rcbPuesto.DataBind();
         }
+        
 
-
-
-        protected void txtBuscar_TextChanged(object sender, EventArgs e)
-        {
-            rgEvaluacionesTransversalesporPersonal.RowHeaderZoneText = "([PERSONAL_DESCRIPCION] LIKE \'%" + txtBuscar.Text.Trim() + "%\' OR [PUESTO_DESCRIPCION]LIKE \'%" + txtBuscar.Text.Trim() + "%\')";
-            rgEvaluacionesTransversalesporPersonal.Rebind();
-            rgEvaluacionesTransversalesporPersonal.Items.Count();
-
-        }
+        
 
         protected void CalcularIndicador()
         {

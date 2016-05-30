@@ -17,6 +17,7 @@ namespace BusinessEntities
         public string PUESTO_DESCRIPCION { get; set; }
         public int ANIO { get; set; }
         public string CODIGO { get; set; }
+        public int VALOR { get; set; }
         
         //public BE_PERSONAL oBE_PERSONAL { get; set; }
 
@@ -44,6 +45,13 @@ namespace BusinessEntities
             JD = 3,
             CO = 4
 
+        }
+
+        public enum PARAMETRO_SISTEMA
+        {
+            
+        DESARROLLADAS,
+        
         }
         public decimal PORCENTAJE_INSPIRAR { get; set; }
         public decimal PORCENTAJE_ESTRATEGICA { get; set; }

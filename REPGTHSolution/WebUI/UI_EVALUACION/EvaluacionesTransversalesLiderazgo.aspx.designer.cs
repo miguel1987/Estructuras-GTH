@@ -13,15 +13,6 @@ namespace WebUI.UI_ARCHIVO {
     public partial class EvaluacionesTransversalesLiderazgo {
         
         /// <summary>
-        /// txtBuscar control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::Telerik.Web.UI.RadTextBox txtBuscar;
-        
-        /// <summary>
         /// rtvTransversales control.
         /// </summary>
         /// <remarks>

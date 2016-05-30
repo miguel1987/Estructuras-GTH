@@ -689,6 +689,20 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="SeleccionarPersonalPorPuesto">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="puesto_id" type="s1:guid" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SeleccionarPersonalPorPuestoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SeleccionarPersonalPorPuestoResult" type="tns:ArrayOfBE_PERSONAL" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="InsertarPersonal">
         <s:complexType>
           <s:sequence>
@@ -956,6 +970,12 @@
   <wsdl:message name="SeleccionarPersonalPorUsuarioSoapOut">
     <wsdl:part name="parameters" element="tns:SeleccionarPersonalPorUsuarioResponse" />
   </wsdl:message>
+  <wsdl:message name="SeleccionarPersonalPorPuestoSoapIn">
+    <wsdl:part name="parameters" element="tns:SeleccionarPersonalPorPuesto" />
+  </wsdl:message>
+  <wsdl:message name="SeleccionarPersonalPorPuestoSoapOut">
+    <wsdl:part name="parameters" element="tns:SeleccionarPersonalPorPuestoResponse" />
+  </wsdl:message>
   <wsdl:message name="InsertarPersonalSoapIn">
     <wsdl:part name="parameters" element="tns:InsertarPersonal" />
   </wsdl:message>
@@ -1118,6 +1138,10 @@
     <wsdl:operation name="SeleccionarPersonalPorUsuario">
       <wsdl:input message="tns:SeleccionarPersonalPorUsuarioSoapIn" />
       <wsdl:output message="tns:SeleccionarPersonalPorUsuarioSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SeleccionarPersonalPorPuesto">
+      <wsdl:input message="tns:SeleccionarPersonalPorPuestoSoapIn" />
+      <wsdl:output message="tns:SeleccionarPersonalPorPuestoSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="InsertarPersonal">
       <wsdl:input message="tns:InsertarPersonalSoapIn" />
@@ -1451,6 +1475,15 @@
     </wsdl:operation>
     <wsdl:operation name="SeleccionarPersonalPorUsuario">
       <soap:operation soapAction="http://tempuri.org/SeleccionarPersonalPorUsuario" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SeleccionarPersonalPorPuesto">
+      <soap:operation soapAction="http://tempuri.org/SeleccionarPersonalPorPuesto" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -1805,6 +1838,15 @@
     </wsdl:operation>
     <wsdl:operation name="SeleccionarPersonalPorUsuario">
       <soap12:operation soapAction="http://tempuri.org/SeleccionarPersonalPorUsuario" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SeleccionarPersonalPorPuesto">
+      <soap12:operation soapAction="http://tempuri.org/SeleccionarPersonalPorPuesto" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

@@ -55,6 +55,7 @@
     <Compile Include="BL_DIRECCION.cs" />
     <Compile Include="BL_DOCUMENTO.cs" />
     <Compile Include="BL_EMPRESA.cs" />
+    <Compile Include="BL_EVALUACIONES_COMPETENCIAS_POR_PUESTO.cs" />
     <Compile Include="BL_EVALUACIONES_COMPETENCIAS_PUESTOS_PERSONAL.cs" />
     <Compile Include="BL_EVALUACION_COMPETENCIAS_PUESTO.cs" />
     <Compile Include="BL_GERENCIA.cs" />

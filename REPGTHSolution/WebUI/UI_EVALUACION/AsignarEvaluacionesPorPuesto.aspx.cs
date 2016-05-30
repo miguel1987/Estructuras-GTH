@@ -77,7 +77,9 @@ namespace WebUI.UI_EVALUACION
 
             odsCompetenciasPuesto.SelectParameters.Clear();
             odsCompetenciasPuesto.SelectParameters.Add("idPuesto", hf_PuestoId.Value);
-            odsCompetenciasPuesto.SelectParameters.Add("idTipoCompetencia", ddlTipoCompetencias.SelectedValue);           
+            odsCompetenciasPuesto.SelectParameters.Add("idTipoCompetencia", ddlTipoCompetencias.SelectedValue);
+            odsCompetenciasPuesto.SelectParameters.Add("idPersonal", hf_PersonalId.Value);
+            rgAsignarCompetencias.Rebind();
 
         }
 

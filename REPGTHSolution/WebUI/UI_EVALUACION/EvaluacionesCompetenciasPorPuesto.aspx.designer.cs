@@ -22,13 +22,13 @@ namespace WebUI.UI_ARCHIVO {
         protected global::System.Web.UI.WebControls.Label lblPuesto;
         
         /// <summary>
-        /// ddlPuesto control.
+        /// rcbPuesto control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlPuesto;
+        protected global::Telerik.Web.UI.RadComboBox rcbPuesto;
         
         /// <summary>
         /// lblTipoCompetencias control.
@@ -40,22 +40,13 @@ namespace WebUI.UI_ARCHIVO {
         protected global::System.Web.UI.WebControls.Label lblTipoCompetencias;
         
         /// <summary>
-        /// ddlTipoCompetencias control.
+        /// rcbCompetenciasPuesto control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlTipoCompetencias;
-        
-        /// <summary>
-        /// txtBuscar control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::Telerik.Web.UI.RadTextBox txtBuscar;
+        protected global::Telerik.Web.UI.RadComboBox rcbCompetenciasPuesto;
         
         /// <summary>
         /// rtvTransversales control.
@@ -76,13 +67,40 @@ namespace WebUI.UI_ARCHIVO {
         protected global::Telerik.Web.UI.RadPivotGrid rgEvaluacionesTransversalesporPersonal;
         
         /// <summary>
-        /// odsEvaluacionesTransversales control.
+        /// odsCompetenciasPuesto control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ObjectDataSource odsEvaluacionesTransversales;
+        protected global::System.Web.UI.WebControls.ObjectDataSource odsCompetenciasPuesto;
+        
+        /// <summary>
+        /// odsPuesto control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ObjectDataSource odsPuesto;
+        
+        /// <summary>
+        /// odsCompetenciasTipos1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ObjectDataSource odsCompetenciasTipos1;
+        
+        /// <summary>
+        /// hf_PuestoId control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hf_PuestoId;
         
         /// <summary>
         /// lblMensaje control.

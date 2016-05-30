@@ -14,7 +14,9 @@ namespace BusinessEntities
       public string PUESTO_DESCRIPCION { get; set; }
       public string CODIGO { get; set; }
       public Guid COMPETENCIA_ID { get; set; }
+      public string COMPETENCIA_DESCRIPCION { get; set; }
       public int VALOR_REAL { get; set; }
+      public int VALOR_REQUERIDO { get; set; }
       public string COMENTARIO { get; set; }
       public int BRECHA { get; set; }
       public Nullable<Int32> ESTADO { get; set; }

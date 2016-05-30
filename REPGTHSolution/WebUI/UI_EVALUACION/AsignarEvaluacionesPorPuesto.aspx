@@ -138,6 +138,7 @@
     <SelectParameters>
         <asp:Parameter Name="idPuesto" Type="String" DefaultValue="00000000-0000-0000-0000-000000000000" />           
         <asp:Parameter Name="idTipoCompetencia" Type="String" DefaultValue="00000000-0000-0000-0000-000000000000" />
+        <asp:Parameter Name="idPersonal" Type="String" DefaultValue="00000000-0000-0000-0000-000000000000" />
     </SelectParameters>
   </asp:ObjectDataSource>
   <asp:HiddenField ID="hf_PersonalId" runat="server" />

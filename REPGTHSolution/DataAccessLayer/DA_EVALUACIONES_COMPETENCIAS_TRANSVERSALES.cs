@@ -120,7 +120,40 @@ namespace DataAccessLayer
       }
 
 
+       public static int ParametroSistemaporValor(String PARAMETRO_DESCRIPCION)
+       {
 
+           SqlConnection cnx = new SqlConnection();
+
+           cnx = DC_Connection.getConnection();
+
+           try
+           {
+               using (SqlCommand objCmd = new SqlCommand()
+               {
+                   Connection = cnx,
+                   CommandType = CommandType.StoredProcedure,
+                   CommandText = "USP_PARAMETROS_SISTEMA_POR_VALOR"
+               })
+               {
+                   objCmd.Parameters.Add("@CODIGO ", SqlDbType.VarChar).Value = PARAMETRO_DESCRIPCION;
+
+                   cnx.Open();
+                   Int32 valor = Convert.ToInt32(objCmd.ExecuteScalar());
+
+                   return valor;
+
+               }
+           }
+           catch (Exception ex)
+           {
+               throw ex;
+           }
+           finally
+           {
+               cnx.Close();
+           }
+       }
 
 
 
