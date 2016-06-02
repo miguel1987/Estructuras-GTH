@@ -58,13 +58,13 @@ namespace WebUI.UI_ARCHIVO {
         protected global::Telerik.Web.UI.RadTreeView rtvTransversales;
         
         /// <summary>
-        /// rgEvaluacionesTransversalesporPersonal control.
+        /// rgEvaluacionesporPuesto control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Telerik.Web.UI.RadPivotGrid rgEvaluacionesTransversalesporPersonal;
+        protected global::Telerik.Web.UI.RadPivotGrid rgEvaluacionesporPuesto;
         
         /// <summary>
         /// odsCompetenciasPuesto control.
@@ -92,15 +92,6 @@ namespace WebUI.UI_ARCHIVO {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ObjectDataSource odsCompetenciasTipos1;
-        
-        /// <summary>
-        /// hf_PuestoId control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField hf_PuestoId;
         
         /// <summary>
         /// lblMensaje control.

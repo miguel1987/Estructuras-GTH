@@ -21,8 +21,8 @@
                  <asp:Label ID="lblTipoCompetencias" runat="server" Text="Tipo Competencias"></asp:Label>
                  <telerik:RadComboBox ID="rcbCompetenciasPuesto" runat="server" 
                      DataValueField="ID" DataTextField="COMPETENCIA_TIPO_DESCRIPCION" 
-                     CssClass="frmTxtBuscar" DataSourceID="odsCompetenciasTipos1" EnableLoadOnDemand="true"
-                 EnableEmbeddedSkins="True" style="margin-left: 18px" >
+                      DataSourceID="odsCompetenciasTipos1" 
+                  OnSelectedIndexChanged="rcbCompetenciasPuesto_SelectedIndexChanged">
                  </telerik:RadComboBox>
              
              </td>
@@ -48,7 +48,7 @@
               <td width="10">&nbsp;</td>
               <td valign="top">
               <telerik:RadPivotGrid     ShowFilterHeaderZone="false"   TotalsSettings-GrandTotalsVisibility="None" AllowSorting="true" 
-        AllowFilteringByColumn="false"  ID="rgEvaluacionesTransversalesporPersonal" 
+        AllowFilteringByColumn="false"  ID="rgEvaluacionesporPuesto" DataSourceID="odsCompetenciasPuesto"
                       runat="server" Culture="es-PE" 
         Height="370px" AllowPaging="True" AllowFiltering="false" >
         <ClientSettings Scrolling-AllowVerticalScroll="true">
@@ -66,12 +66,12 @@ ColumnsSubTotalsPosition="None" ColumnGrandTotalsPosition="None"  />
             </telerik:PivotGridRowField>
             <telerik:PivotGridRowField DataField="REQUERIDO" UniqueName="REQUERIDO">                
             </telerik:PivotGridRowField>
-            <telerik:PivotGridColumnField DataField="COLABORARDOR" UniqueName="COLABORADOR" 
+            <telerik:PivotGridColumnField DataField="COLABORADOR" UniqueName="COLABORADOR" 
                 ZoneIndex="1">
-            </telerik:PivotGridColumnField>
-        
-           
-            <telerik:PivotGridAggregateField DataField="PORCENTAJE" Aggregate="Sum">
+            </telerik:PivotGridColumnField>                   
+            <telerik:PivotGridAggregateField DataField="REAL" Aggregate="Sum">
+            </telerik:PivotGridAggregateField>
+            <telerik:PivotGridAggregateField DataField="BRECHA" Aggregate="Sum">
                
             </telerik:PivotGridAggregateField>
         </Fields>
@@ -82,7 +82,7 @@ ColumnsSubTotalsPosition="None" ColumnGrandTotalsPosition="None"  />
           <div class="margen"></div>
           <div class="texto izquierda"> Indicador general de colaboradores con competencias desarolladas: <span class="anotacion1"> 62%</span> </div>
           <div class="margen"></div>
-          <asp:ObjectDataSource ID="odsCompetenciasPuesto" runat="server" SelectMethod="SeleccionarEvaluacionesPorPuesto" TypeName="BusinessLogicLayer.BL_EVALUACIONES_COMPETENCIAS_POR_PUESTO"
+          <asp:ObjectDataSource ID="odsCompetenciasPuesto" runat="server" SelectMethod="SeleccionarEvaluaciones" TypeName="BusinessLogicLayer.BL_EVALUACIONES_COMPETENCIAS_POR_PUESTO"
             DataObjectTypeName="BusinessEntities.BE_EVALUACION_COMPETENCIA_PUESTO">    
           </asp:ObjectDataSource>
 
@@ -91,8 +91,8 @@ ColumnsSubTotalsPosition="None" ColumnGrandTotalsPosition="None"  />
       </asp:ObjectDataSource>
 
     <asp:ObjectDataSource ID="odsCompetenciasTipos1" runat="server" SelectMethod="SeleccionarCompetenciasTipos"
-        TypeName="BusinessLogicLayer.BL_COMPETENCIAS_TIPOS"></asp:ObjectDataSource>
-        <asp:HiddenField ID="hf_PuestoId" runat="server" />
+        TypeName="BusinessLogicLayer.BL_COMPETENCIAS_TIPOS" DataObjectTypeName="BusinessEntities.BE_COMPETENCIAS_TIPOS"></asp:ObjectDataSource>
+        
      
 
     <p class="mensaje">

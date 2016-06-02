@@ -30,7 +30,9 @@ namespace WebUI.UI_ARCHIVO
                     ValidarPerfilUsuario();
                     LoadEstructura();
                     LoadCombo(Session["EMPRESA_ID"].ToString(), "0");
-                    LoadGrilla(Session["EMPRESA_ID"].ToString(), "0");
+
+                    LoadGrilla(rcbPuesto.SelectedValue, rcbCompetenciasPuesto.SelectedValue);
+                   
                     
                     
                     
@@ -137,23 +139,31 @@ namespace WebUI.UI_ARCHIVO
         protected void LoadCombo(string idNodo, string nivel)
         {
 
-
-            odsPuesto.SelectParameters.Clear();
-            odsPuesto.SelectParameters.Add("jerarquia_id", System.Data.DbType.Guid, idNodo);
-            odsPuesto.SelectParameters.Add("nivel", System.Data.DbType.Int16, nivel);
-            rcbPuesto.DataBind();            
-        }
-
-        protected void LoadGrilla(string idNodo, string nivel)
-        {
-
-
             odsPuesto.SelectParameters.Clear();
             odsPuesto.SelectParameters.Add("jerarquia_id", System.Data.DbType.Guid, idNodo);
             odsPuesto.SelectParameters.Add("nivel", System.Data.DbType.Int16, nivel);
             rcbPuesto.DataBind();
+            rcbCompetenciasPuesto.DataBind();
+            
         }
-        
+
+        protected void LoadGrilla(string puesto_id, string competencia_tipo_id)
+        {
+
+            odsCompetenciasPuesto.SelectParameters.Clear();
+            odsCompetenciasPuesto.SelectParameters.Add("puesto_id", System.Data.DbType.Guid, puesto_id);
+            odsCompetenciasPuesto.SelectParameters.Add("competencia_tipo_id", System.Data.DbType.Guid, competencia_tipo_id);
+            odsCompetenciasPuesto.DataBind();
+        }
+
+        protected void rcbCompetenciasPuesto_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            LoadGrilla(rcbPuesto.SelectedValue, rcbCompetenciasPuesto.ClientID);
+            rgEvaluacionesporPuesto.Rebind();
+            
+
+        }
 
         
 
@@ -164,6 +174,9 @@ namespace WebUI.UI_ARCHIVO
 
 
         }
+
+       
+    
        
     }
 }
