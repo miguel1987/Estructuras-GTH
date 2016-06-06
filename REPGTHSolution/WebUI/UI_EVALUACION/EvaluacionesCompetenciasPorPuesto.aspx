@@ -60,16 +60,16 @@ ColumnsSubTotalsPosition="None" ColumnGrandTotalsPosition="None"  />
         <PagerStyle ChangePageSizeButtonToolTip="Change Page Size" PageSizeControlType="RadComboBox">
         </PagerStyle>
         <Fields>          
-            <telerik:PivotGridRowField DataField="COMPETENCIAS" UniqueName="COMPETENCIAS">                
+            <telerik:PivotGridRowField DataField="COMPETENCIA_DESCRIPCION" UniqueName="COMPETENCIA_DESCRIPCION">                
             </telerik:PivotGridRowField>
             <telerik:PivotGridRowField DataField="TECNICAS" UniqueName="TECNICAS">                
             </telerik:PivotGridRowField>
             <telerik:PivotGridRowField DataField="REQUERIDO" UniqueName="REQUERIDO">                
             </telerik:PivotGridRowField>
-            <telerik:PivotGridColumnField DataField="COLABORADOR" UniqueName="COLABORADOR" 
+            <telerik:PivotGridColumnField DataField="PERSONAL_DESCRIPCION" UniqueName="PERSONAL_DESCRIPCION" 
                 ZoneIndex="1">
             </telerik:PivotGridColumnField>                   
-            <telerik:PivotGridAggregateField DataField="REAL" Aggregate="Sum">
+            <telerik:PivotGridAggregateField DataField="VALOR_REAL" Aggregate="Sum">
             </telerik:PivotGridAggregateField>
             <telerik:PivotGridAggregateField DataField="BRECHA" Aggregate="Sum">
                

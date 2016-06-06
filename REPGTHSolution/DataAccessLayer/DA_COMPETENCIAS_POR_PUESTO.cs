@@ -33,7 +33,7 @@ namespace DataAccessLayer
 
                   objCmd.Parameters.Add("@PUESTO_ID", SqlDbType.UniqueIdentifier).Value =PUESTO_ID;
                   objCmd.Parameters.Add("@COMPETENCIA_TIPO_ID", SqlDbType.UniqueIdentifier).Value =COMPETENCIA_TIPO_ID;
-                  objCmd.Parameters.Add("@PERSONAL_ID|", SqlDbType.UniqueIdentifier).Value = PERSONAL_ID;
+                  objCmd.Parameters.Add("@PERSONAL_ID", SqlDbType.UniqueIdentifier).Value = PERSONAL_ID;
 
 
                   cnx.Open();

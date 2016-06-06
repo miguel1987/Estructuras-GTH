@@ -157,6 +157,44 @@ namespace DataAccessLayer
 
 
 
+       public static string ParametroSistemaporValorColor(String PARAMETRO_COLOR)
+       {
+
+           SqlConnection cnx = new SqlConnection();
+
+           cnx = DC_Connection.getConnection();
+
+           try
+           {
+               using (SqlCommand objCmd = new SqlCommand()
+               {
+                   Connection = cnx,
+                   CommandType = CommandType.StoredProcedure,
+                   CommandText = "USP_PARAMETROS_SISTEMA_POR_VALOR_COLOR"
+               })
+               {
+                   objCmd.Parameters.Add("@CODIGO ", SqlDbType.VarChar).Value = PARAMETRO_COLOR;
+
+                   cnx.Open();
+                   string valor = Convert.ToString(objCmd.ExecuteScalar());
+
+                   return valor;
+
+               }
+           }
+           catch (Exception ex)
+           {
+               throw ex;
+           }
+           finally
+           {
+               cnx.Close();
+           }
+       }
+
+
+
+
 
     }
 }

@@ -195,6 +195,19 @@ namespace WebUI.UI_ARCHIVO
 
         }
 
+
+        protected void obtenerColor(string valor)
+        {
+            int color;
+
+
+            valor = BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES.PARAMETRO_SISTEMA.VERDE.ToString();
+            color = BL_EVALUACIONES_COMPETENCIAS_TRANSVERSALES.ParametroSistemaporValor(valor);
+            BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES.VALOR = color;
+
+
+        }
+
         protected void rgEvaluacionesTransversalesporPersonal_CellDataBound(object sender, PivotGridCellDataBoundEventArgs e)
         {
 
