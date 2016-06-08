@@ -42,7 +42,7 @@ namespace WebUI.UI_ARCHIVO
                 catch (Exception ex)
                 {
 
-                    lblMensaje.Text = "Error al Cargar Solicitudes:" + ex.ToString();
+                    lblMensaje.Text = "Error al Cargar Evaluaciones:" + ex.ToString();
 
                 }
 
