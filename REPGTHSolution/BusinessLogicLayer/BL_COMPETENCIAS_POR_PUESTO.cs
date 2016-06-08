@@ -23,6 +23,17 @@ namespace BusinessLogicLayer
             return new DA_COMPETENCIAS_POR_PUESTO().SeleccionarCompetenciasPorPuestoyTipo(idPuesto, idTipoCompetencia,idPersonal);
         }
 
+       /// <summary>
+       ///  Devuelve los datos de las Competencias de un Puesto por Puesto, Tipo de Competencia y Personal
+       /// </summary>
+       /// <param name="puestoId">puesto id de la cual se desea consultar sus competencias</param>
+       /// <param name="tipoCompetenciaId">tipo de competencia que se desea consultar</param>
+       /// <returns> List de BE_COMPETENCIAS_POR_PUESTO con los objetos de la entidad, que a su vez representan la tabla COMPETENCIAS_PUESTOS de la base de datos.En caso no existan datos devuelve nothing </returns>
+       public static List<BE_COMPETENCIAS_POR_PUESTO> SeleccionarCompetenciasPorPuestoyTipo(Guid idPuesto, Guid idTipoCompetencia)
+       {
+           return new DA_COMPETENCIAS_POR_PUESTO().SeleccionarCompetenciasPorPuestoyTipo(idPuesto, idTipoCompetencia);
+       }
+
 
        public static int EvaluacionFinalGrabar(Guid idPuesto)
        {
