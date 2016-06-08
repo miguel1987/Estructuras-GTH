@@ -29,6 +29,7 @@ namespace WebUI.UI_ARCHIVO
                     validarUsuarioEnDominio();
                     ValidarPerfilUsuario();
                     LoadEstructura();
+                    addTooltips();
                     LoadCombo(Session["EMPRESA_ID"].ToString(), "0");
 
                     LoadGrilla(rcbPuesto.SelectedValue, rcbCompetenciasPuesto.SelectedValue);
@@ -174,7 +175,45 @@ namespace WebUI.UI_ARCHIVO
 
         }
 
-        
+
+        protected void addTooltips()
+        {
+            RadToolTipManager1.TargetControls.Clear();
+
+            foreach (RadTreeNode node in rtvTransversales.Nodes)
+            {
+                node.Attributes.Add("ID", node.Text);
+                RadToolTipManager1.TargetControls.Add(node.Attributes["ID"], true);
+                NodesInNode(node);
+            }
+        }
+
+        protected void NodesInNode(RadTreeNode startNode)
+        {
+            if (startNode.Nodes.Count > 0)
+            {
+                foreach (RadTreeNode node in startNode.Nodes)
+                {
+
+                    node.Attributes.Add("ID", node.Text);
+                    RadToolTipManager1.TargetControls.Add(node.Attributes["ID"], true);
+                    NodesInNode(node);
+                }
+            }
+        }
+
+
+
+        protected void RadToolTipManager1_AjaxUpdate(object sender, ToolTipUpdateEventArgs e)
+        {
+            Label text = new Label();
+            text.Text = e.TargetControlID;
+            e.UpdatePanel.ContentTemplateContainer.Controls.Add(text);
+        }       
+
+
+
+
 
 
         protected void rgEvaluacionesporPuesto_CellDataBound(object sender, PivotGridCellDataBoundEventArgs e)
