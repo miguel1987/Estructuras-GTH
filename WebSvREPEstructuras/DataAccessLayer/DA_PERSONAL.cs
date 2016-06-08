@@ -76,10 +76,10 @@ namespace DataAccessLayer
                             oBE_PERSONAL.NOMBRES_COMPLETOS = String.Format("{0} {1}, {2}", oBE_PERSONAL.APELLIDO_PATERNO, oBE_PERSONAL.APELLIDO_MATERNO, oBE_PERSONAL.NOMBRES);
                             oBE_PERSONAL.SEDE_ID = DBNull.Value == Valores.GetValue(PERSONAL_SEDE_ID) ? Guid.Empty : (Guid)Valores.GetValue(PERSONAL_SEDE_ID);
                             oBE_PERSONAL.EMPRESA_ID = DBNull.Value == Valores.GetValue(PERSONAL_EMPRESA_ID) ? Guid.Empty : (Guid)Valores.GetValue(PERSONAL_EMPRESA_ID);
-                            oBE_PERSONAL.GERENCIA_ID = (Guid)Valores.GetValue(PERSONAL_GERENCIA_ID);
-                            oBE_PERSONAL.AREA_ID = (Guid)Valores.GetValue(PERSONAL_AREA_ID);
+                            oBE_PERSONAL.GERENCIA_ID = DBNull.Value == Valores.GetValue(PERSONAL_GERENCIA_ID) ? Guid.Empty : (Guid)Valores.GetValue(PERSONAL_GERENCIA_ID);
+                            oBE_PERSONAL.AREA_ID = DBNull.Value == Valores.GetValue(PERSONAL_AREA_ID) ? Guid.Empty : (Guid)Valores.GetValue(PERSONAL_AREA_ID);
                             oBE_PERSONAL.COORDINACION_ID = DBNull.Value == Valores.GetValue(PERSONAL_COORDINACION_ID) ? Guid.Empty : (Guid)Valores.GetValue(PERSONAL_COORDINACION_ID);
-                            oBE_PERSONAL.PUESTO_ID = (Guid)Valores.GetValue(PERSONAL_PUESTO_ID);
+                            oBE_PERSONAL.PUESTO_ID = DBNull.Value == Valores.GetValue(PERSONAL_PUESTO_ID) ? Guid.Empty : (Guid)Valores.GetValue(PERSONAL_PUESTO_ID);
                             oBE_PERSONAL.GRUPO_ORGANIZACIONAL_ID = DBNull.Value == Valores.GetValue(PERSONAL_GRUPO_ORGANIZACIONAL_ID) ? Guid.Empty : (Guid)Valores.GetValue(PERSONAL_GRUPO_ORGANIZACIONAL_ID);                            
                             oBE_PERSONAL.CORREO = Valores.GetValue(PERSONAL_CORREO).ToString();
                             oBE_PERSONAL.NOMBRE_USUARIO = Valores.GetValue(NOMBRE_USUARIO).ToString();
@@ -794,10 +794,11 @@ namespace DataAccessLayer
                             oBE_PERSONAL.NOMBRES = Valores.GetValue(PERSONAL_NOMBRES).ToString();
                             oBE_PERSONAL.NOMBRES_COMPLETOS = String.Format("{0} {1}, {2}", oBE_PERSONAL.APELLIDO_PATERNO, oBE_PERSONAL.APELLIDO_MATERNO, oBE_PERSONAL.NOMBRES);
                             oBE_PERSONAL.SEDE_ID = DBNull.Value == Valores.GetValue(PERSONAL_SEDE_ID) ? Guid.Empty : (Guid)Valores.GetValue(PERSONAL_SEDE_ID);
-                            oBE_PERSONAL.EMPRESA_ID = (Guid)Valores.GetValue(PERSONAL_EMPRESA_ID);
-                            oBE_PERSONAL.GERENCIA_ID = (Guid)Valores.GetValue(PERSONAL_GERENCIA_ID);
-                            oBE_PERSONAL.AREA_ID = (Guid)Valores.GetValue(PERSONAL_AREA_ID); oBE_PERSONAL.COORDINACION_ID = DBNull.Value == Valores.GetValue(PERSONAL_COORDINACION_ID) ? Guid.Empty : (Guid)Valores.GetValue(PERSONAL_COORDINACION_ID);
-                            oBE_PERSONAL.PUESTO_ID = (Guid)Valores.GetValue(PERSONAL_PUESTO_ID);
+                            oBE_PERSONAL.EMPRESA_ID = DBNull.Value == Valores.GetValue(PERSONAL_EMPRESA_ID) ? Guid.Empty : (Guid)Valores.GetValue(PERSONAL_EMPRESA_ID);
+                            oBE_PERSONAL.GERENCIA_ID = DBNull.Value == Valores.GetValue(PERSONAL_GERENCIA_ID) ? Guid.Empty : (Guid)Valores.GetValue(PERSONAL_GERENCIA_ID);
+                            oBE_PERSONAL.AREA_ID = DBNull.Value == Valores.GetValue(PERSONAL_AREA_ID) ? Guid.Empty : (Guid)Valores.GetValue(PERSONAL_AREA_ID); 
+                            oBE_PERSONAL.COORDINACION_ID = DBNull.Value == Valores.GetValue(PERSONAL_COORDINACION_ID) ? Guid.Empty : (Guid)Valores.GetValue(PERSONAL_COORDINACION_ID);
+                            oBE_PERSONAL.PUESTO_ID = DBNull.Value == Valores.GetValue(PERSONAL_PUESTO_ID) ? Guid.Empty :  (Guid)Valores.GetValue(PERSONAL_PUESTO_ID);
                             oBE_PERSONAL.GRUPO_ORGANIZACIONAL_ID = DBNull.Value == Valores.GetValue(PERSONAL_GRUPO_ORGANIZACIONAL_ID) ? Guid.Empty : (Guid)Valores.GetValue(PERSONAL_GRUPO_ORGANIZACIONAL_ID);                            
                             oBE_PERSONAL.CORREO = Valores.GetValue(PERSONAL_CORREO).ToString();
                            
