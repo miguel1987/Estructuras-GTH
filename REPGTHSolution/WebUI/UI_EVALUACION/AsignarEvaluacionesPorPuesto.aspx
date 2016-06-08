@@ -135,11 +135,11 @@
         TypeName="BusinessLogicLayer.BL_COMPETENCIAS_TIPOS"></asp:ObjectDataSource>
   <asp:ObjectDataSource ID="odsCompetenciasPuesto" runat="server" SelectMethod="SeleccionarCompetenciasPorPuestoyTipo" TypeName="BusinessLogicLayer.BL_COMPETENCIAS_POR_PUESTO"
     DataObjectTypeName="BusinessEntities.BE_COMPETENCIAS_POR_PUESTO">
-    <SelectParameters>
+   <%-- <SelectParameters>
         <asp:Parameter Name="idPuesto" Type="String" DefaultValue="00000000-0000-0000-0000-000000000000" />           
         <asp:Parameter Name="idTipoCompetencia" Type="String" DefaultValue="00000000-0000-0000-0000-000000000000" />
         <asp:Parameter Name="idPersonal" Type="String" DefaultValue="00000000-0000-0000-0000-000000000000" />
-    </SelectParameters>
+    </SelectParameters>--%>
   </asp:ObjectDataSource>
   <asp:HiddenField ID="hf_PersonalId" runat="server" />
   <asp:HiddenField ID="hf_Personal" runat="server" />

@@ -145,8 +145,12 @@ namespace WebUI.UI_ADMINISTRACION
                 
             
             oentidad.ID = (Guid)ID;
-            oentidad.COMPETENCIA_PUESTO_VALOR_REQUERIDO = Int32.Parse(values["COMPETENCIA_PUESTO_VALOR_REQUERIDO"].ToString());
-            
+
+            if (values["COMPETENCIA_PUESTO_VALOR_REQUERIDO"] == null)
+                oentidad.COMPETENCIA_PUESTO_VALOR_REQUERIDO = 0;
+            else
+                oentidad.COMPETENCIA_PUESTO_VALOR_REQUERIDO = Int32.Parse(values["COMPETENCIA_PUESTO_VALOR_REQUERIDO"].ToString());
+                        
             if (!String.IsNullOrEmpty(oRadComboBox_Puesto.SelectedValue))
             {
                 oentidad.PUESTO_ID= Guid.Parse(oRadComboBox_Puesto.SelectedValue);

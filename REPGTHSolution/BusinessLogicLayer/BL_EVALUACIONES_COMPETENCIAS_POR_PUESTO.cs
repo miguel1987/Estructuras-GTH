@@ -69,7 +69,7 @@ namespace BusinessLogicLayer
             wsMaestros.BE_PERSONAL[] oListaPersonalPorPuesto = null;
             List<BE_COMPETENCIAS_POR_PUESTO> oListaCompPorPuesto = new List<BE_COMPETENCIAS_POR_PUESTO>();
             List<BE_EVALUACION_COMPETENCIA_PUESTO> oListaEvaluacionesPorPuesto = new List<BE_EVALUACION_COMPETENCIA_PUESTO>();
-            puesto_id=Guid.Parse("06762B1D-4C71-4A85-8461-1AFDF176A31F");
+            //puesto_id=Guid.Parse("06762B1D-4C71-4A85-8461-1AFDF176A31F");
             oListaPersonalPorPuesto = wsMantenimientoEstructuras.SeleccionarPersonalPorPuesto(puesto_id);
 
             if (oListaPersonalPorPuesto != null)

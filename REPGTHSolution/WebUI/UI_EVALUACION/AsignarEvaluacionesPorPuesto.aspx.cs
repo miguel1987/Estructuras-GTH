@@ -47,9 +47,11 @@ namespace WebUI.UI_EVALUACION
                 //Cargar Tipos Competencias
                 LoadTipoCompetencia();  
                                 
-                //Competencias por Puesto
-                this.odsCompetenciasPuesto.SelectParameters[0].DefaultValue = hf_PuestoId.Value;
-                this.odsCompetenciasPuesto.SelectParameters[1].DefaultValue = ddlTipoCompetencias.SelectedValue;
+                //Competencias por Puesto          
+                odsCompetenciasPuesto.SelectParameters.Clear();
+                odsCompetenciasPuesto.SelectParameters.Add("idPuesto", hf_PuestoId.Value);
+                odsCompetenciasPuesto.SelectParameters.Add("idTipoCompetencia", ddlTipoCompetencias.SelectedValue);
+                odsCompetenciasPuesto.SelectParameters.Add("idPersonal", hf_PersonalId.Value);
             }
 
 
