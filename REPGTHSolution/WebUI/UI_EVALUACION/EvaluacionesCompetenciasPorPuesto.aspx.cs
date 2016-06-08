@@ -159,23 +159,51 @@ namespace WebUI.UI_ARCHIVO
         protected void rcbCompetenciasPuesto_SelectedIndexChanged(object sender, EventArgs e)
         {
 
-            LoadGrilla(rcbPuesto.SelectedValue, rcbCompetenciasPuesto.ClientID);
+            LoadGrilla(rcbPuesto.SelectedValue, rcbCompetenciasPuesto.SelectedValue);
             rgEvaluacionesporPuesto.Rebind();
             
 
         }
 
-        
-
-        protected void CalcularIndicador()
+        protected void rcbPuesto_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
-            //rgEvaluacionesTransversalesporPersonal.Items.Count
+
+            LoadGrilla(rcbPuesto.SelectedValue, rcbCompetenciasPuesto.SelectedValue);
+            rgEvaluacionesporPuesto.Rebind();
 
 
         }
 
-       
+        
+
+
+        protected void rgEvaluacionesporPuesto_CellDataBound(object sender, PivotGridCellDataBoundEventArgs e)
+        {
+            if (e.Cell is PivotGridRowHeaderCell)
+            {
+                if (e.Cell.Text.IndexOf("Grand Total") >= 0)
+                {
+                    e.Cell.Text = "Gesamtsumme:";
+                }
+            }
+            else if (e.Cell is PivotGridColumnHeaderCell)
+            {
+                int index = e.Cell.Text.IndexOf("Sum of VALOR_REAL");
+                if (index >= 0)
+                {
+                    e.Cell.Text = e.Cell.Text.Replace("Sum of VALOR_REAL", "VALOR_REAL");
+                }
+                else
+                {
+                    index = e.Cell.Text.IndexOf("Sum of BRECHA");
+                    if (index >= 0)
+                    {
+                        e.Cell.Text = e.Cell.Text.Replace("Sum of BRECHA", "BRECHA");
+                    }
+                }
+
+            }
+        }
     
        
     }

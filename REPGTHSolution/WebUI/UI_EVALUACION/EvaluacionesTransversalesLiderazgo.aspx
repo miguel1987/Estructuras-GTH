@@ -12,10 +12,14 @@
           <div class="derecha">
         <table width="100%" border="0" cellspacing="0" cellpadding="0">
               <tr>
+              <td>
+                  <telerik:RadTextBox CssClass="frmTxtBuscar"  ID="txtBuscar" runat="server" AutoPostBack="true" OnTextChanged="txtBuscar_TextChanged" EnableEmbeddedSkins="false"
+                 Skin="MySilk"></telerik:RadTextBox></td>
+                  <td><a class="frm_boton ">Ir</a></td>
             <td><a class="frm_boton ">Generar Reporte</a></td>
             <td width="20">&nbsp;</td>
-            <td></td>
-            <td></td>
+            
+           
           </tr>
             </table>
       </div>
@@ -33,7 +37,7 @@
                 </div></td>
               <td width="10">&nbsp;</td>
               <td valign="top">
-              <telerik:RadPivotGrid ID="rgEvaluacionesTransversalesporPersonal" runat="server" ShowFilterHeaderZone="false"   TotalsSettings-GrandTotalsVisibility="None" AllowSorting="true" 
+              <telerik:RadPivotGrid ID="rgEvaluacionesTransversalesporPersonal" runat="server" ShowColumnHeaderZone="false" ShowRowHeaderZone="false" ShowDataHeaderZone="false" EnableZoneContextMenu="false"  ShowFilterHeaderZone="false"   TotalsSettings-GrandTotalsVisibility="None" AllowSorting="true"  
         AllowFilteringByColumn="false"  Culture="es-PE" DataSourceID="odsEvaluacionesTransversales" OnCellDataBound="rgEvaluacionesTransversalesporPersonal_CellDataBound" 
         Height="370px" AllowPaging="True" AllowFiltering="true" >
         
@@ -49,7 +53,7 @@ ColumnsSubTotalsPosition="None" ColumnGrandTotalsPosition="None"  />
         
         <PagerStyle ChangePageSizeButtonToolTip="Change Page Size" PageSizeControlType="RadComboBox">
         </PagerStyle>
-
+        <RowHeaderCellStyle Height="15px" />
 <%--<OlapSettings>
 <XmlaConnectionSettings Encoding="utf-8"></XmlaConnectionSettings>
 </OlapSettings>--%>
@@ -57,7 +61,7 @@ ColumnsSubTotalsPosition="None" ColumnGrandTotalsPosition="None"  />
             <telerik:PivotGridRowField DataField="CODIGO" UniqueName="CODIGO"
                >                
             </telerik:PivotGridRowField>
-            <telerik:PivotGridRowField DataField="PERSONAL_DESCRIPCION" UniqueName="PERSONAL_DESCRIPCION"
+            <telerik:PivotGridRowField DataField="PERSONAL_DESCRIPCION" UniqueName="PERSONAL_DESCRIPCION" CellStyle-Width="150px"
                 >                
             </telerik:PivotGridRowField>
             <telerik:PivotGridRowField DataField="PUESTO_DESCRIPCION" UniqueName="PUESTO_DESCRIPCION"
@@ -66,7 +70,8 @@ ColumnsSubTotalsPosition="None" ColumnGrandTotalsPosition="None"  />
             <telerik:PivotGridColumnField DataField="COMPETENCIA_TRANSVERSAL_DESCRIPCION" UniqueName="COMPETENCIA_TRANSVERSAL_DESCRIPCION" 
                 ZoneIndex="1">
             </telerik:PivotGridColumnField>
-            <telerik:PivotGridAggregateField DataField="PORCENTAJE" Aggregate="Sum">
+            <telerik:PivotGridAggregateField DataField="PORCENTAJE" Aggregate="Sum" >
+            
                </telerik:PivotGridAggregateField>
             </Fields>
 

@@ -18,12 +18,12 @@ namespace WebUI.UI_ARCHIVO
     {
         Guid USUARIO = Guid.Empty;
         BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES = new BusinessEntities.BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES();
-
+        
 
         protected void Page_Load(object sender, EventArgs e)
         {
             USUARIO = Guid.Parse(Session["PERSONAL_ID"].ToString());
-
+            
             if (!Page.IsPostBack)
             {
                 try
@@ -34,7 +34,7 @@ namespace WebUI.UI_ARCHIVO
                     LoadGrilla(Session["EMPRESA_ID"].ToString(), "0");
                     lblMensaje.Text = hf_Contador.Value;
 
-
+                    
 
 
 
@@ -196,14 +196,34 @@ namespace WebUI.UI_ARCHIVO
         }
 
 
-        protected void obtenerColor(string valor)
+        protected void obtenerColorVerde(string valor)
         {
-            int color;
+            string color;
 
 
             valor = BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES.PARAMETRO_SISTEMA.VERDE.ToString();
-            color = BL_EVALUACIONES_COMPETENCIAS_TRANSVERSALES.ParametroSistemaporValor(valor);
-            BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES.VALOR = color;
+            color = BL_EVALUACIONES_COMPETENCIAS_TRANSVERSALES.ParametroSistemaporValorColor(valor);
+            BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES.VALOR_COLOR =color;
+
+
+        }
+
+        protected void obtenerColorAmarillo(string valor)
+        {
+            string color;
+
+
+            valor = BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES.PARAMETRO_SISTEMA.AMARILLO.ToString();
+            color = BL_EVALUACIONES_COMPETENCIAS_TRANSVERSALES.ParametroSistemaporValorColor(valor);
+            BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES.VALOR_COLOR = color;
+
+
+        }
+
+        protected void txtBuscar_TextChanged(object sender, EventArgs e)
+        {
+
+            rgEvaluacionesTransversalesporPersonal.FilterByLabel(PivotGridFilterFunction.Contains, rgEvaluacionesTransversalesporPersonal.Fields["PERSONAL_DESCRIPCION"],txtBuscar.Text);
 
 
         }
@@ -211,8 +231,8 @@ namespace WebUI.UI_ARCHIVO
         protected void rgEvaluacionesTransversalesporPersonal_CellDataBound(object sender, PivotGridCellDataBoundEventArgs e)
         {
 
-
-
+            
+            
             int porcentaje;
 
             if (e.Cell is PivotGridDataCell)
@@ -239,19 +259,29 @@ namespace WebUI.UI_ARCHIVO
                                     if (porcentaje > 80)
                                     {
 
-                                        //cell.CssClass = "format_pivotgrid_desarrolladas";
+                                        
+                                        string valor = string.Empty;
+                                       
+                                        obtenerColorVerde(valor);
 
-                                        int color = 0xF30F1A;
-
-                                        cell.BackColor = Color.FromArgb(color);
+                                        string color =BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES.VALOR_COLOR;
+                                        
+                                        cell.BackColor = ColorTranslator.FromHtml(color);
+                                        
                                         
                                     }
                                     else if (porcentaje < 80)
-                                        cell.CssClass = "format_pivotgrid_no_desarrolladas";
-                                    
+                                    {
+                                        string valor = string.Empty;
 
-                                    //if ((cell.Field as PivotGridAggregateField).DataField>80 )
-                                    //{ }
+                                        obtenerColorAmarillo(valor);
+
+                                        string color = BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES.VALOR_COLOR;
+
+                                        cell.BackColor = ColorTranslator.FromHtml(color);
+                                    }
+
+                                   
                                 }
                                 break;
                         }

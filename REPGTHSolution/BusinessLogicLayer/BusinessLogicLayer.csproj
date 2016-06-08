@@ -45,26 +45,22 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BL_AREA.cs" />
-    <Compile Include="BL_CENTRO_COSTO.cs" />
-    <Compile Include="BL_CENTRO_GESTOR.cs" />
+    <Compile Include="BL_COMPETENCIA.cs" />
     <Compile Include="BL_COMPETENCIAS_POR_PUESTO.cs" />
     <Compile Include="BL_COMPETENCIAS_TIPOS.cs" />
+    <Compile Include="BL_COMPETENCIA_TRANSVERSAL.cs" />
     <Compile Include="BL_COORDINACION.cs" />
-    <Compile Include="BL_CUENTA_MAYOR.cs" />
-    <Compile Include="BL_DESTINATARIO.cs" />
-    <Compile Include="BL_DIRECCION.cs" />
-    <Compile Include="BL_DOCUMENTO.cs" />
     <Compile Include="BL_EMPRESA.cs" />
     <Compile Include="BL_EVALUACIONES_COMPETENCIAS_POR_PUESTO.cs" />
     <Compile Include="BL_EVALUACIONES_COMPETENCIAS_PUESTOS_PERSONAL.cs" />
     <Compile Include="BL_EVALUACION_COMPETENCIAS_PUESTO.cs" />
     <Compile Include="BL_GERENCIA.cs" />
-    <Compile Include="BL_ORDEN.cs" />
+    <Compile Include="BL_GRUPO_ORGANIZACIONAL.cs" />
     <Compile Include="BL_PERFILES.cs" />
     <Compile Include="BL_PERSONAL.cs" />
     <Compile Include="BL_PRESIDENCIA.cs" />
-    <Compile Include="BL_PROVEEDOR.cs" />
-    <Compile Include="BL_SOLICITUD.cs" />
+    <Compile Include="BL_PUESTO.cs" />
+    <Compile Include="BL_SEDE.cs" />
     <Compile Include="BL_USUARIO.cs" />
     <Compile Include="BL_EVALUACIONES_COMPETENCIAS_TRANSVERSALES.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -112,6 +108,9 @@
     <None Include="Web References\wsMaestros\BE_GERENCIA.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </None>
+    <None Include="Web References\wsMaestros\BE_GRUPO_ORGANIZACIONAL.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
     <None Include="Web References\wsMaestros\BE_PERSONAL.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </None>
@@ -119,6 +118,9 @@
       <DependentUpon>Reference.map</DependentUpon>
     </None>
     <None Include="Web References\wsMaestros\BE_PUESTO.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\wsMaestros\BE_SEDE.datasource">
       <DependentUpon>Reference.map</DependentUpon>
     </None>
     <None Include="Web References\wsMaestros\mantenimientoEstructuras.wsdl" />

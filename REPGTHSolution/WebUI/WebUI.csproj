@@ -223,17 +223,20 @@
     <Content Include="Styles\TreeView\TriState.png" />
     <Content Include="Styles\TreeView\WebResource.png" />
     <Content Include="UI_ADMINISTRACION\Area.aspx" />
+    <Content Include="UI_ADMINISTRACION\Competencias.aspx" />
+    <Content Include="UI_ADMINISTRACION\CompetenciasPorPuesto.aspx" />
+    <Content Include="UI_ADMINISTRACION\CompetenciasTransversales.aspx" />
+    <Content Include="UI_ADMINISTRACION\Coordinacion.aspx" />
     <Content Include="UI_ADMINISTRACION\Empresa.aspx" />
     <Content Include="UI_ADMINISTRACION\Gerencia.aspx" />
+    <Content Include="UI_ADMINISTRACION\GrupoOrganizacional.aspx" />
     <Content Include="UI_ADMINISTRACION\Personal.aspx" />
-    <Content Include="UI_ARCHIVO\Solicitud.aspx" />
-    <Content Include="UI_ARCHIVO\SolicitudesAprobacion.aspx" />
-    <Content Include="UI_ARCHIVO\SolicitudesBusqueda.aspx" />
+    <Content Include="UI_ADMINISTRACION\Puesto.aspx" />
+    <Content Include="UI_ADMINISTRACION\Sede.aspx" />
     <Content Include="UI_EVALUACION\AsignarEvaluacionesPorPuesto.aspx" />
     <Content Include="UI_EVALUACION\EvaluacionesCompetenciasPorPuesto.aspx" />
     <Content Include="UI_EVALUACION\EvaluacionesTransversalesLiderazgo.aspx" />
     <Content Include="UI_EVALUACION\EvaluacionCompetenciasPuesto.aspx" />
-    <Content Include="UI_EVALUACION\pruebaM.aspx" />
     <Content Include="UI_REPORTES\ReporteSolicitudPeriodo.aspx" />
     <Content Include="UI_REPORTES\Etiqueta.aspx" />
     <Content Include="UI_REPORTES\ReporteSolicitud.aspx" />
@@ -295,6 +298,34 @@
     <Compile Include="UI_ADMINISTRACION\Area.aspx.designer.cs">
       <DependentUpon>Area.aspx</DependentUpon>
     </Compile>
+    <Compile Include="UI_ADMINISTRACION\Competencias.aspx.cs">
+      <DependentUpon>Competencias.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI_ADMINISTRACION\Competencias.aspx.designer.cs">
+      <DependentUpon>Competencias.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI_ADMINISTRACION\CompetenciasPorPuesto.aspx.cs">
+      <DependentUpon>CompetenciasPorPuesto.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI_ADMINISTRACION\CompetenciasPorPuesto.aspx.designer.cs">
+      <DependentUpon>CompetenciasPorPuesto.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI_ADMINISTRACION\CompetenciasTransversales.aspx.cs">
+      <DependentUpon>CompetenciasTransversales.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI_ADMINISTRACION\CompetenciasTransversales.aspx.designer.cs">
+      <DependentUpon>CompetenciasTransversales.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI_ADMINISTRACION\Coordinacion.aspx.cs">
+      <DependentUpon>Coordinacion.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI_ADMINISTRACION\Coordinacion.aspx.designer.cs">
+      <DependentUpon>Coordinacion.aspx</DependentUpon>
+    </Compile>
     <Compile Include="UI_ADMINISTRACION\Empresa.aspx.cs">
       <DependentUpon>Empresa.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -309,6 +340,13 @@
     <Compile Include="UI_ADMINISTRACION\Gerencia.aspx.designer.cs">
       <DependentUpon>Gerencia.aspx</DependentUpon>
     </Compile>
+    <Compile Include="UI_ADMINISTRACION\GrupoOrganizacional.aspx.cs">
+      <DependentUpon>GrupoOrganizacional.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI_ADMINISTRACION\GrupoOrganizacional.aspx.designer.cs">
+      <DependentUpon>GrupoOrganizacional.aspx</DependentUpon>
+    </Compile>
     <Compile Include="UI_ADMINISTRACION\Personal.aspx.cs">
       <DependentUpon>Personal.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -316,26 +354,19 @@
     <Compile Include="UI_ADMINISTRACION\Personal.aspx.designer.cs">
       <DependentUpon>Personal.aspx</DependentUpon>
     </Compile>
-    <Compile Include="UI_ARCHIVO\Solicitud.aspx.cs">
-      <DependentUpon>Solicitud.aspx</DependentUpon>
+    <Compile Include="UI_ADMINISTRACION\Puesto.aspx.cs">
+      <DependentUpon>Puesto.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="UI_ARCHIVO\Solicitud.aspx.designer.cs">
-      <DependentUpon>Solicitud.aspx</DependentUpon>
+    <Compile Include="UI_ADMINISTRACION\Puesto.aspx.designer.cs">
+      <DependentUpon>Puesto.aspx</DependentUpon>
     </Compile>
-    <Compile Include="UI_ARCHIVO\SolicitudesAprobacion.aspx.cs">
-      <DependentUpon>SolicitudesAprobacion.aspx</DependentUpon>
+    <Compile Include="UI_ADMINISTRACION\Sede.aspx.cs">
+      <DependentUpon>Sede.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="UI_ARCHIVO\SolicitudesAprobacion.aspx.designer.cs">
-      <DependentUpon>SolicitudesAprobacion.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="UI_ARCHIVO\SolicitudesBusqueda.aspx.cs">
-      <DependentUpon>SolicitudesBusqueda.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="UI_ARCHIVO\SolicitudesBusqueda.aspx.designer.cs">
-      <DependentUpon>SolicitudesBusqueda.aspx</DependentUpon>
+    <Compile Include="UI_ADMINISTRACION\Sede.aspx.designer.cs">
+      <DependentUpon>Sede.aspx</DependentUpon>
     </Compile>
     <Compile Include="UI_EVALUACION\AsignarEvaluacionesPorPuesto.aspx.cs">
       <DependentUpon>AsignarEvaluacionesPorPuesto.aspx</DependentUpon>
@@ -364,13 +395,6 @@
     </Compile>
     <Compile Include="UI_EVALUACION\EvaluacionCompetenciasPuesto.aspx.designer.cs">
       <DependentUpon>EvaluacionCompetenciasPuesto.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="UI_EVALUACION\pruebaM.aspx.cs">
-      <DependentUpon>pruebaM.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="UI_EVALUACION\pruebaM.aspx.designer.cs">
-      <DependentUpon>pruebaM.aspx</DependentUpon>
     </Compile>
     <Compile Include="UI_REPORTES\ReporteSolicitudPeriodo.aspx.cs">
       <DependentUpon>ReporteSolicitudPeriodo.aspx</DependentUpon>

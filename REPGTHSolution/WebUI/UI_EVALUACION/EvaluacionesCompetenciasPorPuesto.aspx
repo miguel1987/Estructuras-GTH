@@ -14,15 +14,14 @@
               <tr>
               <td style="height: 50px">
                   <asp:Label ID="lblPuesto" runat="server" Text="Puesto:"></asp:Label>
-                  <telerik:RadComboBox ID="rcbPuesto" runat="server" DataValueField="ID" DataTextField="DESCRIPCION" DataSourceID="odsPuesto" >
+                  <telerik:RadComboBox ID="rcbPuesto" runat="server" DataValueField="ID" DataTextField="DESCRIPCION" DataSourceID="odsPuesto" AutoPostBack="true" OnSelectedIndexChanged="rcbPuesto_SelectedIndexChanged" >
                   </telerik:RadComboBox>
                      </td>
              <td style="height: 50px">
                  <asp:Label ID="lblTipoCompetencias" runat="server" Text="Tipo Competencias"></asp:Label>
                  <telerik:RadComboBox ID="rcbCompetenciasPuesto" runat="server" 
                      DataValueField="ID" DataTextField="COMPETENCIA_TIPO_DESCRIPCION" 
-                      DataSourceID="odsCompetenciasTipos1" 
-                  OnSelectedIndexChanged="rcbCompetenciasPuesto_SelectedIndexChanged">
+                      DataSourceID="odsCompetenciasTipos1" AutoPostBack="true" OnSelectedIndexChanged="rcbCompetenciasPuesto_SelectedIndexChanged" >
                  </telerik:RadComboBox>
              
              </td>
@@ -47,10 +46,10 @@
                 </div></td>
               <td width="10">&nbsp;</td>
               <td valign="top">
-              <telerik:RadPivotGrid     ShowFilterHeaderZone="false"   TotalsSettings-GrandTotalsVisibility="None" AllowSorting="true" 
-        AllowFilteringByColumn="false"  ID="rgEvaluacionesporPuesto" DataSourceID="odsCompetenciasPuesto"
-                      runat="server" Culture="es-PE" 
-        Height="370px" AllowPaging="True" AllowFiltering="false" >
+              <telerik:RadPivotGrid ID="rgEvaluacionesporPuesto" runat="server" ShowColumnHeaderZone="false" ShowRowHeaderZone="false" ShowDataHeaderZone="false" EnableZoneContextMenu="false"  ShowFilterHeaderZone="false"   TotalsSettings-GrandTotalsVisibility="None" AllowSorting="true" 
+        AllowFilteringByColumn="false"   DataSourceID="odsCompetenciasPuesto" OnCellDataBound="rgEvaluacionesporPuesto_CellDataBound" 
+                       Culture="es-PE" 
+        Height="370px" AllowPaging="True" AllowFiltering="true" >
         <ClientSettings Scrolling-AllowVerticalScroll="true">
             </ClientSettings>
             <DataCellStyle Width="100px" />  
@@ -60,21 +59,27 @@ ColumnsSubTotalsPosition="None" ColumnGrandTotalsPosition="None"  />
         <PagerStyle ChangePageSizeButtonToolTip="Change Page Size" PageSizeControlType="RadComboBox">
         </PagerStyle>
         <Fields>          
-            <telerik:PivotGridRowField DataField="COMPETENCIA_DESCRIPCION" UniqueName="COMPETENCIA_DESCRIPCION">                
+            <telerik:PivotGridRowField DataField="COMPETENCIA_DESCRIPCION" UniqueName="COMPETENCIA_DESCRIPCION" ZoneIndex="0" CellStyle-Width="60px">                
             </telerik:PivotGridRowField>
-            <telerik:PivotGridRowField DataField="TECNICAS" UniqueName="TECNICAS">                
+            <telerik:PivotGridRowField DataField="TECNICAS" UniqueName="TECNICAS" ZoneIndex="1">                
             </telerik:PivotGridRowField>
-            <telerik:PivotGridRowField DataField="REQUERIDO" UniqueName="REQUERIDO">                
+            <telerik:PivotGridRowField DataField="REQUERIDO" UniqueName="REQUERIDO" ZoneIndex="2">                
             </telerik:PivotGridRowField>
             <telerik:PivotGridColumnField DataField="PERSONAL_DESCRIPCION" UniqueName="PERSONAL_DESCRIPCION" 
                 ZoneIndex="1">
             </telerik:PivotGridColumnField>                   
-            <telerik:PivotGridAggregateField DataField="VALOR_REAL" Aggregate="Sum">
+            <telerik:PivotGridAggregateField DataField="VALOR_REAL" UniqueName="VALOR_REAL"  Caption="VALOR_REAL" >
             </telerik:PivotGridAggregateField>
-            <telerik:PivotGridAggregateField DataField="BRECHA" Aggregate="Sum">
+            <telerik:PivotGridAggregateField DataField="BRECHA" UniqueName="BRECHA" Caption="BRECHA" >
                
             </telerik:PivotGridAggregateField>
         </Fields>
+
+        <TotalsSettings GrandTotalsVisibility="None" RowsSubTotalsPosition="None" 
+                      RowGrandTotalsPosition="None" ColumnsSubTotalsPosition="None" 
+                      ColumnGrandTotalsPosition="None"></TotalsSettings>
+
+        
         
         <ConfigurationPanelSettings EnableOlapTreeViewLoadOnDemand="True"></ConfigurationPanelSettings>
     </telerik:RadPivotGrid>                                                                              

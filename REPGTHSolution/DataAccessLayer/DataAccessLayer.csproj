@@ -40,23 +40,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DA_CENTRO_COSTO.cs" />
-    <Compile Include="DA_CENTRO_GESTOR.cs" />
+    <Compile Include="DA_COMPETENCIA.cs" />
     <Compile Include="DA_COMPETENCIAS_POR_PUESTO.cs" />
     <Compile Include="DA_COMPETENCIAS_TIPOS.cs" />
-    <Compile Include="DA_CORRESPONDENCIA.cs" />
-    <Compile Include="DA_CUENTA_MAYOR.cs" />
-    <Compile Include="DA_DESTINATARIO.cs" />
-    <Compile Include="DA_DIRECCION.cs" />
-    <Compile Include="DA_DOCUMENTO.cs" />
+    <Compile Include="DA_COMPETENCIA_TRANSVERSAL.cs" />
     <Compile Include="DA_EVALUACIONES_COMPETENCIAS_PERSONAL.cs" />
     <Compile Include="DA_EVALUACIONES_COMPETENCIAS_PUESTOS_PERSONAL.cs" />
     <Compile Include="DA_EVALUACIONES_COMPETENCIAS_TRANSVERSALES.cs" />
     <Compile Include="DA_EVALUACION_COMPETENCIA_PUESTO.cs" />
-    <Compile Include="DA_ORDEN.cs" />
     <Compile Include="DA_PERFILES.cs" />
-    <Compile Include="DA_PROVEEDOR.cs" />
-    <Compile Include="DA_SOLICITUD.cs" />
     <Compile Include="DA_USUARIO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

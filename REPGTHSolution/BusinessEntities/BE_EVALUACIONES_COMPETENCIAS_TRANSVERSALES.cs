@@ -18,7 +18,7 @@ namespace BusinessEntities
         public int ANIO { get; set; }
         public string CODIGO { get; set; }
         public int VALOR { get; set; }
-        public int VALOR_COLOR { get; set; }
+        public string VALOR_COLOR { get; set; }
         
         //public BE_PERSONAL oBE_PERSONAL { get; set; }
 
@@ -52,7 +52,9 @@ namespace BusinessEntities
         {
             
         DESARROLLADAS,
-        VERDE
+        VERDE,
+        AMARILLO
+
         
         }
         public decimal PORCENTAJE_INSPIRAR { get; set; }
