@@ -93,6 +93,7 @@ namespace BusinessLogicLayer
                             oBE_EVALUACION_COMPETENCIA_POR_PUESTO.VALOR_REAL = competencia.REAL;
                             oBE_EVALUACION_COMPETENCIA_POR_PUESTO.BRECHA = competencia.BRECHA;
                             oBE_EVALUACION_COMPETENCIA_POR_PUESTO.PERSONAL_DESCRIPCION = item.NOMBRES_COMPLETOS;
+                            oBE_EVALUACION_COMPETENCIA_POR_PUESTO.VALOR_REQUERIDO = competencia.COMPETENCIA_PUESTO_VALOR_REQUERIDO;
 
                             oListaEvaluacionesPorPuesto.Add(oBE_EVALUACION_COMPETENCIA_POR_PUESTO);
 

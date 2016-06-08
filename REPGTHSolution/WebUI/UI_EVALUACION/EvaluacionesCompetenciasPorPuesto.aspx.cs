@@ -191,7 +191,7 @@ namespace WebUI.UI_ARCHIVO
                 int index = e.Cell.Text.IndexOf("Sum of VALOR_REAL");
                 if (index >= 0)
                 {
-                    e.Cell.Text = e.Cell.Text.Replace("Sum of VALOR_REAL", "VALOR_REAL");
+                    e.Cell.Text = e.Cell.Text.Replace("Sum of VALOR_REAL", "REAL");
                 }
                 else
                 {
