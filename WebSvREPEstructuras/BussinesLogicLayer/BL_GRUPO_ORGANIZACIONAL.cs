@@ -16,7 +16,7 @@ namespace BussinesLogicLayer
         ///  Devuelve los datos de todas los GRUPOS_ORGANIZACIONALES.
         /// </summary>
         /// <returns> List de BE_GRUPO_ORGANIZACIONAL con los objetos de la entidad, que a su vez representan la tabla GRUPOS_ORGANIZACIONALES de la base de datos.En caso no existan datos devuelve nothing </returns>
-        public static List<BE_GRUPO_ORGANIZACIONAL> SeleccionarGruposOrganizacional()
+        public static List<BE_GRUPO_ORGANIZACIONAL> SeleccionarGrupoOrganizacional()
         {
             return new DA_GRUPO_ORGANIZACIONAL().SeleccionarGrupoOrganizacional();
         }

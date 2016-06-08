@@ -47,7 +47,8 @@ namespace DataAccessLayer
                     int USUARIO_CREACION = dr.GetOrdinal("USUARIO_CREACION");
                     int FECHA_CREACION = dr.GetOrdinal("FECHA_CREACION");
                     int USUARIO_ACTUALIZACION = dr.GetOrdinal("USUARIO_ACTUALIZACION");
-                    int FECHA_ACTUALIZACION = dr.GetOrdinal("FECHA_ACTUALIZACION");                   
+                    int FECHA_ACTUALIZACION = dr.GetOrdinal("FECHA_ACTUALIZACION");
+                    int EMPRESA_ID = dr.GetOrdinal("EMPRESA_ID");
 
 
                     // creamos un objeto del tamaño de la tupla en el array de objeto Valores
@@ -74,6 +75,7 @@ namespace DataAccessLayer
                             oBE_PUESTO.FECHA_CREACION = Convert.ToDateTime(Valores.GetValue(FECHA_CREACION));
                             oBE_PUESTO.USUARIO_ACTUALIZACION = (Guid)Valores.GetValue(USUARIO_ACTUALIZACION);
                             oBE_PUESTO.FECHA_ACTUALIZACION = Convert.ToDateTime(Valores.GetValue(FECHA_ACTUALIZACION));
+                            oBE_PUESTO.EMPRESA_ID = (Guid)Valores.GetValue(EMPRESA_ID);
 
                             oPUESTO.Add(oBE_PUESTO);
                         }
@@ -130,6 +132,7 @@ namespace DataAccessLayer
                     int FECHA_CREACION = dr.GetOrdinal("FECHA_CREACION");
                     int USUARIO_ACTUALIZACION = dr.GetOrdinal("USUARIO_ACTUALIZACION");
                     int FECHA_ACTUALIZACION = dr.GetOrdinal("FECHA_ACTUALIZACION");
+                    int EMPRESA_ID = dr.GetOrdinal("EMPRESA_ID");
 
 
                     // creamos un objeto del tamaño de la tupla en el array de objeto Valores
@@ -155,7 +158,7 @@ namespace DataAccessLayer
                             oBE_PUESTO.FECHA_CREACION = Convert.ToDateTime(Valores.GetValue(FECHA_CREACION));
                             oBE_PUESTO.USUARIO_ACTUALIZACION = (Guid)Valores.GetValue(USUARIO_ACTUALIZACION);
                             oBE_PUESTO.FECHA_ACTUALIZACION = Convert.ToDateTime(Valores.GetValue(FECHA_ACTUALIZACION));
-                            
+                            oBE_PUESTO.EMPRESA_ID = (Guid)Valores.GetValue(EMPRESA_ID);                            
 
                         }
                     }
@@ -216,6 +219,7 @@ namespace DataAccessLayer
                     int FECHA_CREACION = dr.GetOrdinal("FECHA_CREACION");
                     int USUARIO_ACTUALIZACION = dr.GetOrdinal("USUARIO_ACTUALIZACION");
                     int FECHA_ACTUALIZACION = dr.GetOrdinal("FECHA_ACTUALIZACION");
+                    int EMPRESA_ID = dr.GetOrdinal("EMPRESA_ID");
 
                     // creamos un objeto del tamaño de la tupla en el array de objeto Valores
                     object[] Valores = new object[dr.FieldCount];
@@ -244,6 +248,7 @@ namespace DataAccessLayer
                             oBE_PUESTO.FECHA_CREACION = Convert.ToDateTime(Valores.GetValue(FECHA_CREACION));
                             oBE_PUESTO.USUARIO_ACTUALIZACION = (Guid)Valores.GetValue(USUARIO_ACTUALIZACION);
                             oBE_PUESTO.FECHA_ACTUALIZACION = Convert.ToDateTime(Valores.GetValue(FECHA_ACTUALIZACION));
+                            oBE_PUESTO.EMPRESA_ID = (Guid)Valores.GetValue(EMPRESA_ID);
 
                             oPUESTO.Add(oBE_PUESTO);
                         }
@@ -305,6 +310,7 @@ namespace DataAccessLayer
                     int FECHA_CREACION = dr.GetOrdinal("FECHA_CREACION");
                     int USUARIO_ACTUALIZACION = dr.GetOrdinal("USUARIO_ACTUALIZACION");
                     int FECHA_ACTUALIZACION = dr.GetOrdinal("FECHA_ACTUALIZACION");
+                    int EMPRESA_ID = dr.GetOrdinal("EMPRESA_ID");
 
                     // creamos un objeto del tamaño de la tupla en el array de objeto Valores
                     object[] Valores = new object[dr.FieldCount];
@@ -333,6 +339,7 @@ namespace DataAccessLayer
                             oBE_PUESTO.FECHA_CREACION = Convert.ToDateTime(Valores.GetValue(FECHA_CREACION));
                             oBE_PUESTO.USUARIO_ACTUALIZACION = (Guid)Valores.GetValue(USUARIO_ACTUALIZACION);
                             oBE_PUESTO.FECHA_ACTUALIZACION = Convert.ToDateTime(Valores.GetValue(FECHA_ACTUALIZACION));
+                            oBE_PUESTO.EMPRESA_ID = (Guid)Valores.GetValue(EMPRESA_ID);
 
                             oPUESTO.Add(oBE_PUESTO);
                         }
@@ -394,7 +401,8 @@ namespace DataAccessLayer
                     int FECHA_CREACION = dr.GetOrdinal("FECHA_CREACION");
                     int USUARIO_ACTUALIZACION = dr.GetOrdinal("USUARIO_ACTUALIZACION");
                     int FECHA_ACTUALIZACION = dr.GetOrdinal("FECHA_ACTUALIZACION");
-                    
+                    int EMPRESA_ID = dr.GetOrdinal("EMPRESA_ID");
+
                     // creamos un objeto del tamaño de la tupla en el array de objeto Valores
                     object[] Valores = new object[dr.FieldCount];
 
@@ -422,6 +430,7 @@ namespace DataAccessLayer
                             oBE_PUESTO.FECHA_CREACION = Convert.ToDateTime(Valores.GetValue(FECHA_CREACION));
                             oBE_PUESTO.USUARIO_ACTUALIZACION = (Guid)Valores.GetValue(USUARIO_ACTUALIZACION);
                             oBE_PUESTO.FECHA_ACTUALIZACION = Convert.ToDateTime(Valores.GetValue(FECHA_ACTUALIZACION));
+                            oBE_PUESTO.EMPRESA_ID = (Guid)Valores.GetValue(EMPRESA_ID);
 
                             oPUESTO.Add(oBE_PUESTO);
                         }
@@ -483,7 +492,7 @@ namespace DataAccessLayer
                     int FECHA_CREACION = dr.GetOrdinal("FECHA_CREACION");
                     int USUARIO_ACTUALIZACION = dr.GetOrdinal("USUARIO_ACTUALIZACION");
                     int FECHA_ACTUALIZACION = dr.GetOrdinal("FECHA_ACTUALIZACION");
-
+                    int EMPRESA_ID = dr.GetOrdinal("EMPRESA_ID");
                     // creamos un objeto del tamaño de la tupla en el array de objeto Valores
                     object[] Valores = new object[dr.FieldCount];
 
@@ -511,6 +520,7 @@ namespace DataAccessLayer
                             oBE_PUESTO.FECHA_CREACION = Convert.ToDateTime(Valores.GetValue(FECHA_CREACION));
                             oBE_PUESTO.USUARIO_ACTUALIZACION = (Guid)Valores.GetValue(USUARIO_ACTUALIZACION);
                             oBE_PUESTO.FECHA_ACTUALIZACION = Convert.ToDateTime(Valores.GetValue(FECHA_ACTUALIZACION));
+                            oBE_PUESTO.EMPRESA_ID = (Guid)Valores.GetValue(EMPRESA_ID);
 
                             oPUESTO.Add(oBE_PUESTO);
                         }
@@ -572,7 +582,7 @@ namespace DataAccessLayer
                     int FECHA_CREACION = dr.GetOrdinal("FECHA_CREACION");
                     int USUARIO_ACTUALIZACION = dr.GetOrdinal("USUARIO_ACTUALIZACION");
                     int FECHA_ACTUALIZACION = dr.GetOrdinal("FECHA_ACTUALIZACION");
-
+                    int EMPRESA_ID = dr.GetOrdinal("EMPRESA_ID");
                     // creamos un objeto del tamaño de la tupla en el array de objeto Valores
                     object[] Valores = new object[dr.FieldCount];
 
@@ -600,6 +610,7 @@ namespace DataAccessLayer
                             oBE_PUESTO.FECHA_CREACION = Convert.ToDateTime(Valores.GetValue(FECHA_CREACION));
                             oBE_PUESTO.USUARIO_ACTUALIZACION = (Guid)Valores.GetValue(USUARIO_ACTUALIZACION);
                             oBE_PUESTO.FECHA_ACTUALIZACION = Convert.ToDateTime(Valores.GetValue(FECHA_ACTUALIZACION));
+                            oBE_PUESTO.EMPRESA_ID = (Guid)Valores.GetValue(EMPRESA_ID);
 
                             oPUESTO.Add(oBE_PUESTO);
                         }
@@ -620,5 +631,151 @@ namespace DataAccessLayer
             }
 
         }
+
+        /// <summary>
+        /// Inserta los datos de una Sede
+        /// </summary>
+        /// <param name="oBE_PUESTO">Entidad BE_PUESTO, que representa la tabla PUESTOS, con todos sus atributos </param>
+        /// <returns>True o False. True, si se ingreso con exito. False, si hubo un error al ingresar</returns>
+        public Boolean InsertarPuesto(BE_PUESTO oBE_PUESTO)
+        {
+            SqlConnection cnx = new SqlConnection();
+            bool bIndicador = false;
+
+            cnx = DC_Connection.getConnection();
+
+            try
+            {
+
+                using (
+                    SqlCommand objCmd = new SqlCommand()
+                    {
+                        Connection = cnx,
+                        CommandType = CommandType.StoredProcedure,
+                        CommandText = "USP_PUESTO_INSERTAR"
+                    }
+                    )
+                {
+                    //Se crea el objeto Parameters por cada parametro
+                    objCmd.Parameters.Add("@PUESTO_CODIGO", SqlDbType.VarChar).Value = oBE_PUESTO.CODIGO;
+                    objCmd.Parameters.Add("@PUESTO_DESCRIPCION", SqlDbType.VarChar).Value = oBE_PUESTO.DESCRIPCION;
+                    objCmd.Parameters.Add("@PUESTO_NIVEL", SqlDbType.Int).Value = oBE_PUESTO.NIVEL;
+                    objCmd.Parameters.Add("@PUESTO_ESTADO", SqlDbType.Int).Value = oBE_PUESTO.ESTADO;
+                    objCmd.Parameters.Add("@USUARIO", SqlDbType.UniqueIdentifier).Value = oBE_PUESTO.USUARIO_CREACION;
+                    objCmd.Parameters.Add("@EMPRESA_ID", SqlDbType.UniqueIdentifier).Value = oBE_PUESTO.EMPRESA_ID;
+
+                    cnx.Open();
+
+                    bIndicador = objCmd.ExecuteNonQuery() > 0;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error: " + ex.Message);
+
+            }
+            finally
+            {
+                cnx.Close();
+            }
+            return bIndicador;
+        }
+        /// <summary>
+        /// Actualiza los datos de un Puesto
+        /// </summary>
+        /// <param name="oBE_PUESTO">Entidad BE_PUESTO, que representa la tabla PUESTOS, con todos sus atributos </param>
+        /// <returns>True o False. True, si se ingreso con exito. False, si hubo un error al ingresar</returns>
+        public Boolean ActualizarPuesto(BE_PUESTO oBE_PUESTO)
+        {
+            SqlConnection cnx = new SqlConnection();
+            bool bIndicador = false;
+
+            cnx = DC_Connection.getConnection();
+
+            try
+            {
+
+                using (
+                    SqlCommand objCmd = new SqlCommand()
+                    {
+                        Connection = cnx,
+                        CommandType = CommandType.StoredProcedure,
+                        CommandText = "USP_PUESTO_ACTUALIZAR"
+                    }
+                    )
+                {
+                    //Se crea el objeto Parameters por cada parametro
+
+                    objCmd.Parameters.Add("@PUESTO_ID", SqlDbType.UniqueIdentifier).Value = oBE_PUESTO.ID;
+                    objCmd.Parameters.Add("@PUESTO_CODIGO", SqlDbType.VarChar).Value = oBE_PUESTO.CODIGO;
+                    objCmd.Parameters.Add("@PUESTO_DESCRIPCION", SqlDbType.VarChar).Value = oBE_PUESTO.DESCRIPCION;
+                    objCmd.Parameters.Add("@PUESTO_NIVEL", SqlDbType.Int).Value = oBE_PUESTO.NIVEL;
+                    objCmd.Parameters.Add("@PUESTO_ESTADO", SqlDbType.Int).Value = oBE_PUESTO.ESTADO;
+                    objCmd.Parameters.Add("@USUARIO", SqlDbType.UniqueIdentifier).Value = oBE_PUESTO.USUARIO_CREACION;
+                    objCmd.Parameters.Add("@EMPRESA_ID", SqlDbType.UniqueIdentifier).Value = oBE_PUESTO.EMPRESA_ID;
+
+                    cnx.Open();
+
+                    bIndicador = objCmd.ExecuteNonQuery() > 0;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error: " + ex.Message);
+            }
+            finally
+            {
+                cnx.Close();
+            }
+            return bIndicador;
+        }
+        /// <summary>
+        /// Elimina los dato de un puesto
+        /// </summary>
+        /// <param name="puesto_id">Id del puesto que se desea eliminar</param>
+        /// <returns>True o False. True, si se ingreso con exito. False, si hubo un error al ingresar</returns>
+        public Boolean EliminarPuesto(Guid puesto_id)
+        {
+            SqlConnection cnx = new SqlConnection();
+            bool bIndicador = false;
+
+            cnx = DC_Connection.getConnection();
+
+            try
+            {
+
+                using (
+                    SqlCommand objCmd = new SqlCommand()
+                    {
+                        Connection = cnx,
+                        CommandType = CommandType.StoredProcedure,
+                        CommandText = "USP_PUESTO_ELIMINAR"
+                    }
+                    )
+                {
+                    //Se crea el objeto Parameters por cada parametro
+
+                    objCmd.Parameters.Add("@PUESTO_ID", SqlDbType.UniqueIdentifier).Value = puesto_id;
+
+
+                    cnx.Open();
+
+                    bIndicador = objCmd.ExecuteNonQuery() > 0;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error: " + ex.Message);
+            }
+            finally
+            {
+                cnx.Close();
+            }
+            return bIndicador;
+        }
+
     }
 }

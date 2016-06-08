@@ -191,25 +191,25 @@ namespace WebSv
         }
 
         //Insertar Coordinación
-        //[WebMethod]
-        //public Boolean InsertarCoordinacion(BE_COORDINACION oBE_COORDINACION)
-        //{
-        //    return BL_COORDINACION.InsertarCoordinacion(oBE_COORDINACION);
-        //}
+        [WebMethod]
+        public Boolean InsertarCoordinacion(BE_COORDINACION oBE_COORDINACION)
+        {
+            return BL_COORDINACION.InsertarCoordinacion(oBE_COORDINACION);
+        }
 
         //Actualizar Coordinación
-        //[WebMethod]
-        //public Boolean ActualizarCoordinacion(BE_COORDINACION oBE_COORDINACION)
-        //{
-        //    return BL_COORDINACION.ActualizarCoordinacion(oBE_COORDINACION);
-        //}
+        [WebMethod]
+        public Boolean ActualizarCoordinacion(BE_COORDINACION oBE_COORDINACION)
+        {
+            return BL_COORDINACION.ActualizarCoordinacion(oBE_COORDINACION);
+        }
 
         //Eliminar Coordinación
-        //[WebMethod]
-        //public Boolean EliminarCoordinacion(Guid coordinacion_id)
-        //{
-        //    return BL_COORDINACION.EliminarCoordinacion(coordinacion_id);
-        //}
+        [WebMethod]
+        public Boolean EliminarCoordinacion(Guid coordinacion_id)
+        {
+            return BL_COORDINACION.EliminarCoordinacion(coordinacion_id);
+        }
 
         //Métodos para mantenimiento y consultas a tabla: PUESTO
         
@@ -219,6 +219,14 @@ namespace WebSv
         {
             return BL_PUESTO.SeleccionarPuestos();
         }
+
+        //Seleccionar todos los puestos
+        [WebMethod]
+        public List<BE_PUESTO> SeleccionarPuestosPorEmpresa(Guid empresa_id)
+        {
+            return BL_PUESTO.SeleccionarPuestoPorEmpresa(empresa_id);
+        }
+
 
         //Seleccionar puesto por Id
         [WebMethod]
@@ -256,24 +264,108 @@ namespace WebSv
         }
 
         //Insertar
-        //[WebMethod]
-        //public Boolean InsertarPuesto(BE_PUESTO oBE_PUESTO)
-        //{
-        //    return BL_PUESTO.InsertarPuesto(oBE_PUESTO);
-        //}
+        [WebMethod]
+        public Boolean InsertarPuesto(BE_PUESTO oBE_PUESTO)
+        {
+            return BL_PUESTO.InsertarPuesto(oBE_PUESTO);
+        }
 
         ////Actualizar
-        //public Boolean ActualizarPuesto(BE_PUESTO oBE_PUESTO)
-        //{
-        //    return BL_PUESTO.ActualizarPuesto(oBE_PUESTO);
-        //}
+        [WebMethod]
+        public Boolean ActualizarPuesto(BE_PUESTO oBE_PUESTO)
+        {
+            return BL_PUESTO.ActualizarPuesto(oBE_PUESTO);
+        }
 
         ////Eliminar
-        //public Boolean EliminarPuesto(Guid puesto_id)
-        //{
-        //    return BL_PUESTO.EliminarPuesto(puesto_id);
-        //}
+        [WebMethod]
+        public Boolean EliminarPuesto(Guid puesto_id)
+        {
+            return BL_PUESTO.EliminarPuesto(puesto_id);
+        }
 
+        //Métodos para mantenimiento y consultas a tabla: SEDES
+
+        //Seleccionar todas las Sedes
+        [WebMethod]
+        public List<BE_SEDE> SeleccionarSede()
+        {
+            return BL_SEDE.SeleccionarSede();
+        }
+
+        //Seleccionar una Sede por Id
+        [WebMethod]
+        public List<BE_SEDE> SeleccionarSedePorId(Guid sede_id)
+        {
+            return BL_SEDE.SeleccionarSedePorId(sede_id);
+        }
+
+        //Seleccionar todas las Sedes de una Empresa
+        [WebMethod]
+        public List<BE_SEDE> SeleccionarSedePorEmpresa(Guid empresa_id)
+        {
+            return BL_SEDE.SeleccionarSedePorEmpresa(empresa_id);
+        }
+
+        //Insertar Sede
+        [WebMethod]
+        public Boolean InsertarSede(BE_SEDE oBE_SEDE)
+        {
+            return BL_SEDE.InsertarSede(oBE_SEDE);
+        }
+
+        //Actualizar Sede
+        [WebMethod]
+        public Boolean ActualizarSede(BE_SEDE oBE_SEDE)
+        {
+            return BL_SEDE.ActualizarSede(oBE_SEDE);
+        }
+
+        //Eliminar Sede
+        [WebMethod]
+        public Boolean EliminarSede(Guid sede_id)
+        {
+            return BL_SEDE.EliminarSede(sede_id);
+        }
+
+
+        //Métodos para mantenimiento y consultas a tabla: GRUPOS_ORGANIZACIONALES
+
+        //Seleccionar todos los Grupos Organizacionales
+        [WebMethod]
+        public List<BE_GRUPO_ORGANIZACIONAL> SeleccionarGrupoOrganizacional()
+        {
+            return BL_GRUPO_ORGANIZACIONAL.SeleccionarGrupoOrganizacional();
+        }
+
+        //Seleccionar una Grupo Organizacional por Id
+        [WebMethod]
+        public List<BE_GRUPO_ORGANIZACIONAL> SeleccionarGrupoOrganizacionalPorId(Guid grupo_organizacinal_id)
+        {
+            return BL_GRUPO_ORGANIZACIONAL.SeleccionarGrupoOrganizacionalPorId(grupo_organizacinal_id);
+        }     
+
+        //Insertar Grupo Organizacional
+        [WebMethod]
+        public Boolean InsertarGrupoOrganizacional(BE_GRUPO_ORGANIZACIONAL oBE_GRUPO_ORGANIZACIONAL)
+        {
+            return BL_GRUPO_ORGANIZACIONAL.InsertarGrupoOrganizacional(oBE_GRUPO_ORGANIZACIONAL);
+        }
+
+        //Actualizar Grupo OrganizacionaL
+        [WebMethod]
+        public Boolean ActualizarGrupoOrganizacional(BE_GRUPO_ORGANIZACIONAL oBE_GRUPO_ORGANIZACIONAL)
+        {
+            return BL_GRUPO_ORGANIZACIONAL.ActualizarGrupoOrganizacional(oBE_GRUPO_ORGANIZACIONAL);
+        }
+
+        //Eliminar Grupo OrganizacionaL
+        [WebMethod]
+        public Boolean EliminarGrupoOrganizacional(Guid grupo_organizacional_id)
+        {
+            return BL_GRUPO_ORGANIZACIONAL.EliminarGrupoOrganizacional(grupo_organizacional_id);
+        }
+        
         //Métodos para mantenimiento y consultas a tabla: PERSONAL
 
         //Seleccionar todos los colaboradores 
@@ -316,6 +408,20 @@ namespace WebSv
         public List<BE_PERSONAL> SeleccionarPersonalPorCoordinacion(Guid coordinacion_id)
         {
             return BL_PERSONAL.SeleccionarPersonalPorCoordinacion(coordinacion_id);
+        }
+
+        //Seleccionar todos los colaboradores de una sede
+        [WebMethod]
+        public List<BE_PERSONAL> SeleccionarPersonalPorSede(Guid sede_id)
+        {
+            return BL_PERSONAL.SeleccionarPersonalPorSede(sede_id);
+        }
+
+        //Seleccionar todos los colaboradores que perteneces a un grupo organizacional
+        [WebMethod]
+        public List<BE_PERSONAL> SeleccionarPersonalPorGrupoOrganizacional(Guid grupo_organizacional_id)
+        {
+            return BL_PERSONAL.SeleccionarPersonalPorGrupoOrganizacional(grupo_organizacional_id);
         }
 
         //Seleccionar datos de Personal por username

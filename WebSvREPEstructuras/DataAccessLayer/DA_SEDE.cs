@@ -72,6 +72,7 @@ namespace DataAccessLayer
                             oBE_SEDE.USUARIO_ACTUALIZACION = (Guid)Valores.GetValue(USUARIO_ACTUALIZACION);
                             oBE_SEDE.FECHA_ACTUALIZACION = Convert.ToDateTime(Valores.GetValue(FECHA_ACTUALIZACION));
                             oBE_SEDE.ESTADO = Convert.ToInt32(Valores.GetValue(SEDE_ESTADO));
+                            oBE_SEDE.EMPRESA_ID = (Guid)Valores.GetValue(EMPRESA_ID);
                             oSEDE.Add(oBE_SEDE);
                         }
                     }
@@ -261,7 +262,7 @@ namespace DataAccessLayer
         }
 
         /// <summary>
-        /// Inserta los datos de una Empresa
+        /// Inserta los datos de una Sede
         /// </summary>
         /// <param name="oBE_SEDE">Entidad BE_SEDE, que representa la tabla SEDES, con todos sus atributos </param>
         /// <returns>True o False. True, si se ingreso con exito. False, si hubo un error al ingresar</returns>
@@ -289,7 +290,7 @@ namespace DataAccessLayer
                     objCmd.Parameters.Add("@SEDE_DESCRIPCION", SqlDbType.VarChar).Value = oBE_SEDE.DESCRIPCION;
                     objCmd.Parameters.Add("@USUARIO", SqlDbType.UniqueIdentifier).Value = oBE_SEDE.USUARIO_CREACION;
                     objCmd.Parameters.Add("@SEDE_ESTADO", SqlDbType.Int).Value = oBE_SEDE.ESTADO;
-                    objCmd.Parameters.Add("@EMPRESA", SqlDbType.UniqueIdentifier).Value = oBE_SEDE.EMPRESA_ID;
+                    objCmd.Parameters.Add("@EMPRESA_ID", SqlDbType.UniqueIdentifier).Value = oBE_SEDE.EMPRESA_ID;
 
                     cnx.Open();
 
@@ -339,7 +340,7 @@ namespace DataAccessLayer
                     objCmd.Parameters.Add("@SEDE_DESCRIPCION", SqlDbType.VarChar).Value = oBE_SEDE.DESCRIPCION;
                     objCmd.Parameters.Add("@USUARIO", SqlDbType.UniqueIdentifier).Value = oBE_SEDE.USUARIO_CREACION;
                     objCmd.Parameters.Add("@SEDE_ESTADO", SqlDbType.Int).Value = oBE_SEDE.ESTADO;
-                    objCmd.Parameters.Add("@EMPRESA_ID", SqlDbType.Int).Value = oBE_SEDE.ESTADO;
+                    objCmd.Parameters.Add("@EMPRESA_ID", SqlDbType.UniqueIdentifier).Value = oBE_SEDE.EMPRESA_ID;
 
                     cnx.Open();
 

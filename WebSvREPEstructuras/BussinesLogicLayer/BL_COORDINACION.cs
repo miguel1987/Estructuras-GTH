@@ -78,5 +78,34 @@ namespace BussinesLogicLayer
             return oCOORDINACION;
 
         }
+
+        /// <summary>
+        /// Inserta los datos de una coordinación
+        /// </summary>
+        /// <param name="oBE_COORDINACION">Entidad BE_COORDINACION, que representa la tabla COORDINACION, con todos sus atributos </param>
+        /// <returns>True o False. True, si se ingreso con exito. False, si hubo un error al ingresar</returns>
+        public static Boolean InsertarCoordinacion(BE_COORDINACION oBE_COORDINACION)
+        {
+            return new DA_COORDINACION().InsertarCoordinacion(oBE_COORDINACION);
+        }
+        /// <summary>
+        /// Actualiza los datos de una Coordinación
+        /// </summary>
+        /// <param name="oBE_COORDINACION">Entidad BE_COORDINACION, que representa la tabla COORDINACION, con todos sus atributos</param>
+        /// <returns>True o False. True, si se ingreso con exito. False, si hubo un error al ingresar</returns>
+        public static Boolean ActualizarCoordinacion(BE_COORDINACION oBE_COORDINACION)
+        {
+            return new DA_COORDINACION().ActualizarCoordinacion(oBE_COORDINACION);
+        }
+
+        /// <summary>
+        /// Elimina un Coordinacion es especifica
+        /// </summary>
+        /// <param name="coordinacion_id">Codigo de la coordinacion al cual se desea Eliminar</param>
+        /// <returns>True o False. True, si se ingreso con exito. False, si hubo un error al ingresar</returns>
+        public static Boolean EliminarCoordinacion(Guid coordinacion_id)
+        {
+            return new DA_COORDINACION().EliminarCoordinacion(coordinacion_id);
+        }
     }
 }

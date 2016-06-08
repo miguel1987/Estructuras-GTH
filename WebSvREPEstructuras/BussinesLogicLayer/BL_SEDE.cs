@@ -21,10 +21,19 @@ namespace BussinesLogicLayer
             return new DA_SEDE().SeleccionarSede();
         }
         /// <summary>
+        /// Devuelve los datos de las sedes de una empresa
+        /// </summary>
+        /// <param name="empresa_id">Id de la empresa cuyas sedes se desea consultar</param>
+        /// <returns> BE_SEDE con todos sus atributos de la entidad, que a su vez representan la tabla SEDES de la base de datos.En caso no existan datos devuelve nothing </returns>
+        public static List<BE_SEDE> SeleccionarSedePorEmpresa(Guid empresa_id)
+        {
+            return new DA_SEDE().SeleccionarSedePorEmpresa(empresa_id);
+        }
+        /// <summary>
         /// Devuelve los datos de una sede específica
         /// </summary>
         /// <param name="sede_id">Id del la Sede al cual se desea consultar</param>
-        /// <returns> BE_SEDE con todos sus atributos de la entidad, que a su vez representan la tabla EMPRESAS de la base de datos.En caso no existan datos devuelve nothing </returns>
+        /// <returns> BE_SEDE con todos sus atributos de la entidad, que a su vez representan la tabla SEDES de la base de datos.En caso no existan datos devuelve nothing </returns>
         public static List<BE_SEDE> SeleccionarSedePorId(Guid sede_id)
         {
             return new DA_SEDE().SeleccionarSedePorId(sede_id);

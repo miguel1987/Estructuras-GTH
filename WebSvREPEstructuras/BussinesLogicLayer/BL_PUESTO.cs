@@ -19,76 +19,7 @@ namespace BussinesLogicLayer
         /// <returns> List de BE_PUESTO con los objetos de la entidad, que a su vez representan la tabla PUESTOS de la base de datos.En caso no haiga datos devuelve nothing </returns>
         public static List<BE_PUESTO> SeleccionarPuestos()
         {
-            List<BE_PUESTO> oPUESTO = null;
-            List<BE_GERENCIA> oGERENCIA = null;
-            BE_AREA oAREA = null;
-            BE_COORDINACION oCOORDINACION = null;
-            List<BE_COORDINACION_PUESTO> oCOORDINACION_PUESTO = null;
-
-            oPUESTO = new DA_PUESTO().SeleccionarPuestos();
-
-            if (oPUESTO != null)
-            {
-                foreach (var oBE_PUESTO_TMP in oPUESTO)
-                {
-                    //Por cada puesto se recuperan las gerencias, áreas o coordinaciones a las que está asociado el puesto
-                    oCOORDINACION_PUESTO = new DA_COORDINACION_PUESTO().SeleccionarCoordinacionPuestoPorPuesto(oBE_PUESTO_TMP.ID);
-
-                    if (oCOORDINACION_PUESTO != null)
-                    {
-                        oBE_PUESTO_TMP.lstBE_COORDINACION_PUESTO = oCOORDINACION_PUESTO;
-
-                        foreach (var oBE_COORDINACION_PUESTO_TMP in oCOORDINACION_PUESTO)
-                        {
-                            //Si el puesto está a nivel de gerencia se llena la lista de gerencias a las que está asociado el puesto
-                            if (oBE_PUESTO_TMP.NIVEL == (Int32)BE_PUESTO.PUESTO_NIVEL.Gerencia)
-                            {
-                                oGERENCIA = new DA_GERENCIA().SeleccionarGerenciaPorId(oBE_COORDINACION_PUESTO_TMP.GERENCIA_ID);
-                                if (oGERENCIA != null)
-                                    oBE_PUESTO_TMP.lstBE_GERENCIA.Add(oGERENCIA[0]);
-                            }
-                                
-                            //Si el puesto está a nivel de área se llena la lista de áreas a las que está asociado el puesto
-                            if (oBE_PUESTO_TMP.NIVEL == (Int32)BE_PUESTO.PUESTO_NIVEL.Area)
-                            {
-                                oGERENCIA = new DA_GERENCIA().SeleccionarGerenciaPorId(oBE_COORDINACION_PUESTO_TMP.GERENCIA_ID);
-                                if (oGERENCIA != null)
-                                    oBE_PUESTO_TMP.lstBE_GERENCIA.Add(oGERENCIA[0]);
-
-                                oAREA = new DA_AREA().SeleccionarAreaPorId(oBE_COORDINACION_PUESTO_TMP.AREA_ID);
-                                if (oAREA != null)
-                                {
-                                    oBE_PUESTO_TMP.lstBE_AREA.Add(oAREA);
-                                }
-                            }
-
-                            //Si el puesto está a nivel de coordinación se llena la lista de coordinaciones a las que está asociado el puesto
-                            if (oBE_PUESTO_TMP.NIVEL == (Int32)BE_PUESTO.PUESTO_NIVEL.Coordinacion)
-                            {
-                                oGERENCIA = new DA_GERENCIA().SeleccionarGerenciaPorId(oBE_COORDINACION_PUESTO_TMP.GERENCIA_ID);
-                                if (oGERENCIA != null)
-                                    oBE_PUESTO_TMP.lstBE_GERENCIA.Add(oGERENCIA[0]);
-
-                                oAREA = new DA_AREA().SeleccionarAreaPorId(oBE_COORDINACION_PUESTO_TMP.AREA_ID);
-                                if (oAREA != null)
-                                {
-                                    oBE_PUESTO_TMP.lstBE_AREA.Add(oAREA);
-                                }
-                                oCOORDINACION = new DA_COORDINACION().SeleccionarCoordinacionPorId(oBE_COORDINACION_PUESTO_TMP.COORDINACION_ID);
-                                if (oCOORDINACION != null)
-                                {
-                                    oBE_PUESTO_TMP.lstBE_COORDINACION.Add(oCOORDINACION);
-                                }
-                            }
-                            
-                        }
-                        
-                    }
-                   
-                }
-            }
-            return oPUESTO;
-
+            return new DA_PUESTO().SeleccionarPuestos();            
         }
 
         /// <summary>
@@ -108,7 +39,7 @@ namespace BussinesLogicLayer
         /// <returns>BE_PUESTO, entidad que representa la tabla PUESTOS, con todas sus atributos. En caso no haiga datos devuelve nothing</returns>
         public static List<BE_PUESTO> SeleccionarPuestoPorEmpresa(Guid empresa_id)
         {
-            return new DA_PUESTO().SeleccionarPuestoPorPresidencia(empresa_id);
+            return new DA_PUESTO().SeleccionarPuestoPorEmpresa(empresa_id);
         }    
         
         /// <summary>
@@ -149,6 +80,34 @@ namespace BussinesLogicLayer
         public static List<BE_PUESTO> SeleccionarPuestoPorCoordinacion(Guid coordinacion_id)
         {
             return new DA_PUESTO().SeleccionarPuestoPorCoordinacion(coordinacion_id);
+        }
+
+        /// <summary>
+        /// Inserta los datos de un Puesto
+        /// </summary>
+        /// <param name="oBE_PUESTO">Entidad BE_PUESTO, que representa la tabla PUESTOS, con todos sus atributos </param>
+        /// <returns>True o False. True, si se ingreso con exito. False, si hubo un error al ingresar</returns>
+        public static Boolean InsertarPuesto(BE_PUESTO oBE_PUESTO)
+        {
+            return new DA_PUESTO().InsertarPuesto(oBE_PUESTO);
+        }
+        /// <summary>
+        /// Actualiza los datos de un Puesto
+        /// </summary>
+        /// <param name="oBE_PUESTO">Entidad BE_PUESTO, que representa la tabla EMPRESAS, con todos sus atributos </param>
+        /// <returns>True o False. True, si se ingreso con exito. False, si hubo un error al ingresar</returns>
+        public static Boolean ActualizarPuesto(BE_PUESTO oBE_PUESTO)
+        {
+            return new DA_PUESTO().ActualizarPuesto(oBE_PUESTO);
+        }
+        /// <summary>
+        /// Eliminar los dato de un puesto
+        /// </summary>
+        /// <param name="puesto_id">Id del puesto que se desea eliminar</param>
+        /// <returns>True o False. True, si se ingreso con exito. False, si hubo un error al ingresar</returns>
+        public static Boolean EliminarPuesto(Guid puesto_id)
+        {
+            return new DA_PUESTO().EliminarPuesto(puesto_id);
         }
     }
 }

@@ -260,6 +260,158 @@ namespace DataAccessLayer
             }
 
         }
+
+        /// <summary>
+        /// Inserta los datos de una coordinación
+        /// </summary>
+        /// <param name="oBE_COORDINACION">Entidad BE_COORDINACION, que representa la tabla COORDINACION, con todos sus atributos </param>
+        /// <returns>True o False. True, si se ingreso con exito. False, si hubo un error al ingresar</returns>
+        public Boolean InsertarCoordinacion(BE_COORDINACION oBE_COORDINACION)
+        {
+            SqlConnection cnx = new SqlConnection();
+            bool bIndicador = false;
+
+            cnx = DC_Connection.getConnection();
+
+            try
+            {
+
+                using (
+                    SqlCommand objCmd = new SqlCommand()
+                    {
+                        Connection = cnx,
+                        CommandType = CommandType.StoredProcedure,
+                        CommandText = "USP_COORDINACION_INSERTAR"
+                    }
+                    )
+                {
+                    //Se crea el objeto Parameters por cada parametro
+                    objCmd.Parameters.Add("@AREA_ID", SqlDbType.UniqueIdentifier).Value = oBE_COORDINACION.AREA_ID;
+                    objCmd.Parameters.Add("@COORDINACION_CODIGO", SqlDbType.VarChar).Value = oBE_COORDINACION.CODIGO;
+                    objCmd.Parameters.Add("@COORDINACION_DESCRIPCION", SqlDbType.VarChar).Value = oBE_COORDINACION.DESCRIPCION;
+                    objCmd.Parameters.Add("@USUARIO", SqlDbType.UniqueIdentifier).Value = oBE_COORDINACION.USUARIO_CREACION;
+                    objCmd.Parameters.Add("@COORDINACION_ESTADO", SqlDbType.Int).Value = oBE_COORDINACION.ESTADO;
+
+                    cnx.Open();
+
+                    bIndicador = objCmd.ExecuteNonQuery() > 0;
+                }
+
+                //AC_Transaction.Insert(1, "I", "DataAccessLayer", "DA_DOCUMENTO", "registrarSolicitudDocumento", "Registro de Solicitud Documento");
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error: " + ex.Message);
+                //AC_LogError.Insert(1, "I", "DataAccessLayer", "DA_DOCUMENTO", "registrarSolicitudDocumento", ex.Message);
+
+            }
+            finally
+            {
+                cnx.Close();
+            }
+            return bIndicador;
+        }
+        /// <summary>
+        /// Actualiza los datos de una Coordinación
+        /// </summary>
+        /// <param name="oBE_COORDINACION">Entidad BE_COORDINACION, que representa la tabla CCORDINACION, con todos sus atributos</param>
+        /// <returns>True o False. True, si se ingreso con exito. False, si hubo un error al ingresar</returns>
+        public Boolean ActualizarCoordinacion(BE_COORDINACION oBE_COORDINACION)
+        {
+            SqlConnection cnx = new SqlConnection();
+            bool bIndicador = false;
+
+            cnx = DC_Connection.getConnection();
+
+            try
+            {
+
+                using (
+                    SqlCommand objCmd = new SqlCommand()
+                    {
+                        Connection = cnx,
+                        CommandType = CommandType.StoredProcedure,
+                        CommandText = "USP_COORDINACION_ACTUALIZAR"
+                    }
+                    )
+                {
+                    //Se crea el objeto Parameters por cada parametro
+                    objCmd.Parameters.Add("@COORDINACION_ID", SqlDbType.UniqueIdentifier).Value = oBE_COORDINACION.ID;
+                    objCmd.Parameters.Add("@AREA_ID", SqlDbType.UniqueIdentifier).Value = oBE_COORDINACION.AREA_ID;
+                    objCmd.Parameters.Add("@COORDINACION_CODIGO", SqlDbType.VarChar).Value = oBE_COORDINACION.CODIGO;
+                    objCmd.Parameters.Add("@COORDINACION_DESCRIPCION", SqlDbType.VarChar).Value = oBE_COORDINACION.DESCRIPCION;
+                    objCmd.Parameters.Add("@USUARIO", SqlDbType.UniqueIdentifier).Value = oBE_COORDINACION.USUARIO_CREACION;
+                    objCmd.Parameters.Add("@COORDINACION_ESTADO", SqlDbType.Int).Value = oBE_COORDINACION.ESTADO;
+
+                    cnx.Open();
+
+                    bIndicador = objCmd.ExecuteNonQuery() > 0;
+                }
+
+                //AC_Transaction.Insert(1, "I", "DataAccessLayer", "DA_DOCUMENTO", "registrarSolicitudDocumento", "Registro de Solicitud Documento");
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error: " + ex.Message);
+                //AC_LogError.Insert(1, "I", "DataAccessLayer", "DA_DOCUMENTO", "registrarSolicitudDocumento", ex.Message);
+
+            }
+            finally
+            {
+                cnx.Close();
+            }
+            return bIndicador;
+        }
+        /// <summary>
+        /// Elimina una Coordinación es especifica
+        /// </summary>
+        /// <param name="coordinacion_id">Codigo de la coordinación al cual se desea Eliminar</param>
+        /// <returns>True o False. True, si se ingreso con exito. False, si hubo un error al ingresar</returns>
+        public Boolean EliminarCoordinacion(Guid coordinacion_id)
+        {
+            SqlConnection cnx = new SqlConnection();
+            bool bIndicador = false;
+
+            cnx = DC_Connection.getConnection();
+
+            try
+            {
+
+                using (
+                    SqlCommand objCmd = new SqlCommand()
+                    {
+                        Connection = cnx,
+                        CommandType = CommandType.StoredProcedure,
+                        CommandText = "USP_COORDINACION_ELIMINAR"
+                    }
+                    )
+                {
+                    //Se crea el objeto Parameters por cada parametro
+                    objCmd.Parameters.Add("@COORDINACION_ID", SqlDbType.UniqueIdentifier).Value = coordinacion_id;
+
+
+                    cnx.Open();
+
+                    bIndicador = objCmd.ExecuteNonQuery() > 0;
+                }
+
+                //AC_Transaction.Insert(1, "I", "DataAccessLayer", "DA_DOCUMENTO", "registrarSolicitudDocumento", "Registro de Solicitud Documento");
+
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Error: " + ex.Message);
+                //AC_LogError.Insert(1, "I", "DataAccessLayer", "DA_DOCUMENTO", "registrarSolicitudDocumento", ex.Message);
+
+            }
+            finally
+            {
+                cnx.Close();
+            }
+            return bIndicador;
+        }
        
     }
 }
