@@ -61,7 +61,7 @@
                 <tr>
                       <td><telerik:RadTextBox CssClass="frmTxtBuscar"  ID="txtBuscar" runat="server" AutoPostBack="true" OnTextChanged="txtBuscar_TextChanged" EnableEmbeddedSkins="false"
                  Skin="MySilk"></telerik:RadTextBox></td>
-                      <td><a class="frm_boton ">Ir</a></td>
+                      <td><a class="frm_boton ">Ir</a></td>                    
                     </tr>
               </table>
                 </div>

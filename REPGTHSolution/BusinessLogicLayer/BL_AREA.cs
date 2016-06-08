@@ -90,35 +90,35 @@ namespace BusinessLogicLayer
         }
 
         /// <summary>
-        ///  Devuelve los datos de todas las AREAS.
+        ///  Devuelve los datos de todas las AREAS de una Gerencia.
         /// </summary>
         /// <param name="gerencia_id">Id de la gerencia cuyas áreas se desean listar </param>
         /// <returns> List de BE_AREA con los objetos de la entidad, que a su vez representan la tabla AREAS de la base de datos.En caso no haiga datos devuelve nothing </returns>
         public List<BE_AREA> SeleccionarArea(Guid gerencia_id)
         {
 
-            wsMaestros.BE_AREA[] oLista = wsMantenimientoEstructuras.SeleccionarAreas();
-            
+            wsMaestros.BE_AREA[] oLista = wsMantenimientoEstructuras.SeleccionarAreaPorGerencia(gerencia_id);
             List<BE_AREA> oListaAreas = new List<BE_AREA>();
-            foreach (var item in oLista)
+
+            if (oLista != null)
             {
-                BE_AREA oArea = new BE_AREA();
-                oArea.ID = item.ID;
-                oArea.CODIGO = item.CODIGO;
-                oArea.DESCRIPCION = item.DESCRIPCION;
-                oArea.GERENCIA_ID = item.GERENCIA_ID;
-                oArea.USUARIO_CREACION = item.USUARIO_CREACION;
-                oArea.FECHA_CREACION = item.FECHA_CREACION;
-                oArea.USUARIO_ACTUALIZACION = item.USUARIO_ACTUALIZACION;
-                oArea.ESTADO = item.ESTADO;
-
-                if (oArea.GERENCIA_ID == gerencia_id)
+                
+                foreach (var item in oLista)
                 {
+                    BE_AREA oArea = new BE_AREA();
+                    oArea.ID = item.ID;
+                    oArea.CODIGO = item.CODIGO;
+                    oArea.DESCRIPCION = item.DESCRIPCION;
+                    oArea.GERENCIA_ID = item.GERENCIA_ID;
+                    oArea.USUARIO_CREACION = item.USUARIO_CREACION;
+                    oArea.FECHA_CREACION = item.FECHA_CREACION;
+                    oArea.USUARIO_ACTUALIZACION = item.USUARIO_ACTUALIZACION;
+                    oArea.ESTADO = item.ESTADO;
+
                     oListaAreas.Add(oArea);
-                }
 
+                }                
             }
-
             return oListaAreas;
 
         }

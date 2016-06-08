@@ -13,6 +13,24 @@ namespace WebUI.UI_ADMINISTRACION {
     public partial class Personal {
         
         /// <summary>
+        /// Control txtBuscar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadTextBox txtBuscar;
+        
+        /// <summary>
+        /// Control linkBuscar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink linkBuscar;
+        
+        /// <summary>
         /// Control rgPersonal.
         /// </summary>
         /// <remarks>
@@ -67,6 +85,15 @@ namespace WebUI.UI_ADMINISTRACION {
         protected global::System.Web.UI.WebControls.ObjectDataSource odsArea;
         
         /// <summary>
+        /// Control odsCoordinacion.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ObjectDataSource odsCoordinacion;
+        
+        /// <summary>
         /// Control odsPerfiles.
         /// </summary>
         /// <remarks>
@@ -76,12 +103,39 @@ namespace WebUI.UI_ADMINISTRACION {
         protected global::System.Web.UI.WebControls.ObjectDataSource odsPerfiles;
         
         /// <summary>
-        /// Control odsTipoJefe.
+        /// Control odsSede.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ObjectDataSource odsTipoJefe;
+        protected global::System.Web.UI.WebControls.ObjectDataSource odsSede;
+        
+        /// <summary>
+        /// Control odsGrupoOrganizacional.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ObjectDataSource odsGrupoOrganizacional;
+        
+        /// <summary>
+        /// Control odsPuesto.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ObjectDataSource odsPuesto;
+        
+        /// <summary>
+        /// Control RadWindowManager1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadWindowManager RadWindowManager1;
     }
 }

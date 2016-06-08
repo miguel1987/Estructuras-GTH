@@ -85,6 +85,25 @@ namespace WebUI.UI_ADMINISTRACION
             }
         }
 
+        protected void txtBuscar_TextChanged(object sender, EventArgs e)
+        {
+
+            rgGerencia.MasterTableView.FilterExpression = "([DESCRIPCION] LIKE \'%" + txtBuscar.Text.Trim() + "%\' OR [CODIGO]LIKE \'%" + txtBuscar.Text.Trim() + "%\' OR [oBE_EMPRESA.DESCRIPCION]LIKE \'%" + txtBuscar.Text.Trim() + "%\')";
+
+            rgGerencia.Rebind();
+
+        }
+
+        protected void linkBuscar_Click(object sender, EventArgs e)
+        {
+
+
+            rgGerencia.MasterTableView.FilterExpression = "([DESCRIPCION] LIKE \'%" + txtBuscar.Text.Trim() + "%\' OR [CODIGO]LIKE \'%" + txtBuscar.Text.Trim() + "%\' OR [oBE_EMPRESA.DESCRIPCION]LIKE \'%" + txtBuscar.Text.Trim() + "%\')";
+
+            rgGerencia.Rebind();
+
+        }
+
         protected void GrabarActualizar(object sender, GridCommandEventArgs e, String action)
         {
             var editableItem = ((GridEditableItem)e.Item);

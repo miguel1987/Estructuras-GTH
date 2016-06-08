@@ -404,6 +404,48 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="InsertarCoordinacion">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="oBE_COORDINACION" type="tns:BE_COORDINACION" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertarCoordinacionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="InsertarCoordinacionResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ActualizarCoordinacion">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="oBE_COORDINACION" type="tns:BE_COORDINACION" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ActualizarCoordinacionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ActualizarCoordinacionResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EliminarCoordinacion">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="coordinacion_id" type="s1:guid" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EliminarCoordinacionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="EliminarCoordinacionResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="SeleccionarPuestos">
         <s:complexType />
       </s:element>
@@ -428,6 +470,7 @@
               <s:element minOccurs="0" maxOccurs="1" name="DESCRIPCION" type="s:string" />
               <s:element minOccurs="1" maxOccurs="1" name="NIVEL" type="s:int" />
               <s:element minOccurs="1" maxOccurs="1" name="ESTADO" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="EMPRESA_ID" type="s1:guid" />
               <s:element minOccurs="0" maxOccurs="1" name="lstBE_COORDINACION_PUESTO" type="tns:ArrayOfBE_COORDINACION_PUESTO" />
               <s:element minOccurs="0" maxOccurs="1" name="lstBE_GERENCIA" type="tns:ArrayOfBE_GERENCIA" />
               <s:element minOccurs="0" maxOccurs="1" name="lstBE_AREA" type="tns:ArrayOfBE_AREA" />
@@ -456,6 +499,20 @@
           </s:extension>
         </s:complexContent>
       </s:complexType>
+      <s:element name="SeleccionarPuestosPorEmpresa">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="empresa_id" type="s1:guid" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SeleccionarPuestosPorEmpresaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SeleccionarPuestosPorEmpresaResult" type="tns:ArrayOfBE_PUESTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="SeleccionarPuestoPorId">
         <s:complexType>
           <s:sequence>
@@ -526,6 +583,229 @@
           </s:sequence>
         </s:complexType>
       </s:element>
+      <s:element name="InsertarPuesto">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="oBE_PUESTO" type="tns:BE_PUESTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertarPuestoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="InsertarPuestoResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ActualizarPuesto">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="oBE_PUESTO" type="tns:BE_PUESTO" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ActualizarPuestoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ActualizarPuestoResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EliminarPuesto">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="puesto_id" type="s1:guid" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EliminarPuestoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="EliminarPuestoResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SeleccionarSede">
+        <s:complexType />
+      </s:element>
+      <s:element name="SeleccionarSedeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SeleccionarSedeResult" type="tns:ArrayOfBE_SEDE" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfBE_SEDE">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="BE_SEDE" nillable="true" type="tns:BE_SEDE" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="BE_SEDE">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:BE_GENERICO">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="ID" type="s1:guid" />
+              <s:element minOccurs="0" maxOccurs="1" name="CODIGO" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="DESCRIPCION" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="ESTADO" nillable="true" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="EMPRESA_ID" type="s1:guid" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="SeleccionarSedePorId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="sede_id" type="s1:guid" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SeleccionarSedePorIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SeleccionarSedePorIdResult" type="tns:ArrayOfBE_SEDE" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SeleccionarSedePorEmpresa">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="empresa_id" type="s1:guid" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SeleccionarSedePorEmpresaResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SeleccionarSedePorEmpresaResult" type="tns:ArrayOfBE_SEDE" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertarSede">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="oBE_SEDE" type="tns:BE_SEDE" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertarSedeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="InsertarSedeResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ActualizarSede">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="oBE_SEDE" type="tns:BE_SEDE" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ActualizarSedeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ActualizarSedeResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EliminarSede">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="sede_id" type="s1:guid" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EliminarSedeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="EliminarSedeResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SeleccionarGrupoOrganizacional">
+        <s:complexType />
+      </s:element>
+      <s:element name="SeleccionarGrupoOrganizacionalResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SeleccionarGrupoOrganizacionalResult" type="tns:ArrayOfBE_GRUPO_ORGANIZACIONAL" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfBE_GRUPO_ORGANIZACIONAL">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="BE_GRUPO_ORGANIZACIONAL" nillable="true" type="tns:BE_GRUPO_ORGANIZACIONAL" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="BE_GRUPO_ORGANIZACIONAL">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:BE_GENERICO">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="ID" type="s1:guid" />
+              <s:element minOccurs="0" maxOccurs="1" name="CODIGO" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="DESCRIPCION" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="ESTADO" nillable="true" type="s:int" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="SeleccionarGrupoOrganizacionalPorId">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="grupo_organizacinal_id" type="s1:guid" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SeleccionarGrupoOrganizacionalPorIdResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SeleccionarGrupoOrganizacionalPorIdResult" type="tns:ArrayOfBE_GRUPO_ORGANIZACIONAL" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertarGrupoOrganizacional">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="oBE_GRUPO_ORGANIZACIONAL" type="tns:BE_GRUPO_ORGANIZACIONAL" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="InsertarGrupoOrganizacionalResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="InsertarGrupoOrganizacionalResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ActualizarGrupoOrganizacional">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="oBE_GRUPO_ORGANIZACIONAL" type="tns:BE_GRUPO_ORGANIZACIONAL" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ActualizarGrupoOrganizacionalResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="ActualizarGrupoOrganizacionalResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EliminarGrupoOrganizacional">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="grupo_organizacional_id" type="s1:guid" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="EliminarGrupoOrganizacionalResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="EliminarGrupoOrganizacionalResult" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
       <s:element name="SeleccionarPersonal">
         <s:complexType />
       </s:element>
@@ -576,31 +856,6 @@
               <s:element minOccurs="1" maxOccurs="1" name="GRUPO_ORGANIZACIONAL_ID" type="s1:guid" />
               <s:element minOccurs="0" maxOccurs="1" name="oBE_GRUPO_ORGANIZACIONAL" type="tns:BE_GRUPO_ORGANIZACIONAL" />
               <s:element minOccurs="0" maxOccurs="1" name="NOMBRE_USUARIO" type="s:string" />
-            </s:sequence>
-          </s:extension>
-        </s:complexContent>
-      </s:complexType>
-      <s:complexType name="BE_SEDE">
-        <s:complexContent mixed="false">
-          <s:extension base="tns:BE_GENERICO">
-            <s:sequence>
-              <s:element minOccurs="1" maxOccurs="1" name="ID" type="s1:guid" />
-              <s:element minOccurs="0" maxOccurs="1" name="CODIGO" type="s:string" />
-              <s:element minOccurs="0" maxOccurs="1" name="DESCRIPCION" type="s:string" />
-              <s:element minOccurs="1" maxOccurs="1" name="ESTADO" nillable="true" type="s:int" />
-              <s:element minOccurs="1" maxOccurs="1" name="EMPRESA_ID" type="s1:guid" />
-            </s:sequence>
-          </s:extension>
-        </s:complexContent>
-      </s:complexType>
-      <s:complexType name="BE_GRUPO_ORGANIZACIONAL">
-        <s:complexContent mixed="false">
-          <s:extension base="tns:BE_GENERICO">
-            <s:sequence>
-              <s:element minOccurs="1" maxOccurs="1" name="ID" type="s1:guid" />
-              <s:element minOccurs="0" maxOccurs="1" name="CODIGO" type="s:string" />
-              <s:element minOccurs="0" maxOccurs="1" name="DESCRIPCION" type="s:string" />
-              <s:element minOccurs="1" maxOccurs="1" name="ESTADO" nillable="true" type="s:int" />
             </s:sequence>
           </s:extension>
         </s:complexContent>
@@ -672,6 +927,34 @@
         <s:complexType>
           <s:sequence>
             <s:element minOccurs="0" maxOccurs="1" name="SeleccionarPersonalPorCoordinacionResult" type="tns:ArrayOfBE_PERSONAL" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SeleccionarPersonalPorSede">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="sede_id" type="s1:guid" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SeleccionarPersonalPorSedeResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SeleccionarPersonalPorSedeResult" type="tns:ArrayOfBE_PERSONAL" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SeleccionarPersonalPorGrupoOrganizacional">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="grupo_organizacional_id" type="s1:guid" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SeleccionarPersonalPorGrupoOrganizacionalResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SeleccionarPersonalPorGrupoOrganizacionalResult" type="tns:ArrayOfBE_PERSONAL" />
           </s:sequence>
         </s:complexType>
       </s:element>
@@ -892,11 +1175,35 @@
   <wsdl:message name="SeleccionarCoordinacionPorIdSoapOut">
     <wsdl:part name="parameters" element="tns:SeleccionarCoordinacionPorIdResponse" />
   </wsdl:message>
+  <wsdl:message name="InsertarCoordinacionSoapIn">
+    <wsdl:part name="parameters" element="tns:InsertarCoordinacion" />
+  </wsdl:message>
+  <wsdl:message name="InsertarCoordinacionSoapOut">
+    <wsdl:part name="parameters" element="tns:InsertarCoordinacionResponse" />
+  </wsdl:message>
+  <wsdl:message name="ActualizarCoordinacionSoapIn">
+    <wsdl:part name="parameters" element="tns:ActualizarCoordinacion" />
+  </wsdl:message>
+  <wsdl:message name="ActualizarCoordinacionSoapOut">
+    <wsdl:part name="parameters" element="tns:ActualizarCoordinacionResponse" />
+  </wsdl:message>
+  <wsdl:message name="EliminarCoordinacionSoapIn">
+    <wsdl:part name="parameters" element="tns:EliminarCoordinacion" />
+  </wsdl:message>
+  <wsdl:message name="EliminarCoordinacionSoapOut">
+    <wsdl:part name="parameters" element="tns:EliminarCoordinacionResponse" />
+  </wsdl:message>
   <wsdl:message name="SeleccionarPuestosSoapIn">
     <wsdl:part name="parameters" element="tns:SeleccionarPuestos" />
   </wsdl:message>
   <wsdl:message name="SeleccionarPuestosSoapOut">
     <wsdl:part name="parameters" element="tns:SeleccionarPuestosResponse" />
+  </wsdl:message>
+  <wsdl:message name="SeleccionarPuestosPorEmpresaSoapIn">
+    <wsdl:part name="parameters" element="tns:SeleccionarPuestosPorEmpresa" />
+  </wsdl:message>
+  <wsdl:message name="SeleccionarPuestosPorEmpresaSoapOut">
+    <wsdl:part name="parameters" element="tns:SeleccionarPuestosPorEmpresaResponse" />
   </wsdl:message>
   <wsdl:message name="SeleccionarPuestoPorIdSoapIn">
     <wsdl:part name="parameters" element="tns:SeleccionarPuestoPorId" />
@@ -927,6 +1234,90 @@
   </wsdl:message>
   <wsdl:message name="SeleccionarPuestoPorCoordinacionSoapOut">
     <wsdl:part name="parameters" element="tns:SeleccionarPuestoPorCoordinacionResponse" />
+  </wsdl:message>
+  <wsdl:message name="InsertarPuestoSoapIn">
+    <wsdl:part name="parameters" element="tns:InsertarPuesto" />
+  </wsdl:message>
+  <wsdl:message name="InsertarPuestoSoapOut">
+    <wsdl:part name="parameters" element="tns:InsertarPuestoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ActualizarPuestoSoapIn">
+    <wsdl:part name="parameters" element="tns:ActualizarPuesto" />
+  </wsdl:message>
+  <wsdl:message name="ActualizarPuestoSoapOut">
+    <wsdl:part name="parameters" element="tns:ActualizarPuestoResponse" />
+  </wsdl:message>
+  <wsdl:message name="EliminarPuestoSoapIn">
+    <wsdl:part name="parameters" element="tns:EliminarPuesto" />
+  </wsdl:message>
+  <wsdl:message name="EliminarPuestoSoapOut">
+    <wsdl:part name="parameters" element="tns:EliminarPuestoResponse" />
+  </wsdl:message>
+  <wsdl:message name="SeleccionarSedeSoapIn">
+    <wsdl:part name="parameters" element="tns:SeleccionarSede" />
+  </wsdl:message>
+  <wsdl:message name="SeleccionarSedeSoapOut">
+    <wsdl:part name="parameters" element="tns:SeleccionarSedeResponse" />
+  </wsdl:message>
+  <wsdl:message name="SeleccionarSedePorIdSoapIn">
+    <wsdl:part name="parameters" element="tns:SeleccionarSedePorId" />
+  </wsdl:message>
+  <wsdl:message name="SeleccionarSedePorIdSoapOut">
+    <wsdl:part name="parameters" element="tns:SeleccionarSedePorIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="SeleccionarSedePorEmpresaSoapIn">
+    <wsdl:part name="parameters" element="tns:SeleccionarSedePorEmpresa" />
+  </wsdl:message>
+  <wsdl:message name="SeleccionarSedePorEmpresaSoapOut">
+    <wsdl:part name="parameters" element="tns:SeleccionarSedePorEmpresaResponse" />
+  </wsdl:message>
+  <wsdl:message name="InsertarSedeSoapIn">
+    <wsdl:part name="parameters" element="tns:InsertarSede" />
+  </wsdl:message>
+  <wsdl:message name="InsertarSedeSoapOut">
+    <wsdl:part name="parameters" element="tns:InsertarSedeResponse" />
+  </wsdl:message>
+  <wsdl:message name="ActualizarSedeSoapIn">
+    <wsdl:part name="parameters" element="tns:ActualizarSede" />
+  </wsdl:message>
+  <wsdl:message name="ActualizarSedeSoapOut">
+    <wsdl:part name="parameters" element="tns:ActualizarSedeResponse" />
+  </wsdl:message>
+  <wsdl:message name="EliminarSedeSoapIn">
+    <wsdl:part name="parameters" element="tns:EliminarSede" />
+  </wsdl:message>
+  <wsdl:message name="EliminarSedeSoapOut">
+    <wsdl:part name="parameters" element="tns:EliminarSedeResponse" />
+  </wsdl:message>
+  <wsdl:message name="SeleccionarGrupoOrganizacionalSoapIn">
+    <wsdl:part name="parameters" element="tns:SeleccionarGrupoOrganizacional" />
+  </wsdl:message>
+  <wsdl:message name="SeleccionarGrupoOrganizacionalSoapOut">
+    <wsdl:part name="parameters" element="tns:SeleccionarGrupoOrganizacionalResponse" />
+  </wsdl:message>
+  <wsdl:message name="SeleccionarGrupoOrganizacionalPorIdSoapIn">
+    <wsdl:part name="parameters" element="tns:SeleccionarGrupoOrganizacionalPorId" />
+  </wsdl:message>
+  <wsdl:message name="SeleccionarGrupoOrganizacionalPorIdSoapOut">
+    <wsdl:part name="parameters" element="tns:SeleccionarGrupoOrganizacionalPorIdResponse" />
+  </wsdl:message>
+  <wsdl:message name="InsertarGrupoOrganizacionalSoapIn">
+    <wsdl:part name="parameters" element="tns:InsertarGrupoOrganizacional" />
+  </wsdl:message>
+  <wsdl:message name="InsertarGrupoOrganizacionalSoapOut">
+    <wsdl:part name="parameters" element="tns:InsertarGrupoOrganizacionalResponse" />
+  </wsdl:message>
+  <wsdl:message name="ActualizarGrupoOrganizacionalSoapIn">
+    <wsdl:part name="parameters" element="tns:ActualizarGrupoOrganizacional" />
+  </wsdl:message>
+  <wsdl:message name="ActualizarGrupoOrganizacionalSoapOut">
+    <wsdl:part name="parameters" element="tns:ActualizarGrupoOrganizacionalResponse" />
+  </wsdl:message>
+  <wsdl:message name="EliminarGrupoOrganizacionalSoapIn">
+    <wsdl:part name="parameters" element="tns:EliminarGrupoOrganizacional" />
+  </wsdl:message>
+  <wsdl:message name="EliminarGrupoOrganizacionalSoapOut">
+    <wsdl:part name="parameters" element="tns:EliminarGrupoOrganizacionalResponse" />
   </wsdl:message>
   <wsdl:message name="SeleccionarPersonalSoapIn">
     <wsdl:part name="parameters" element="tns:SeleccionarPersonal" />
@@ -963,6 +1354,18 @@
   </wsdl:message>
   <wsdl:message name="SeleccionarPersonalPorCoordinacionSoapOut">
     <wsdl:part name="parameters" element="tns:SeleccionarPersonalPorCoordinacionResponse" />
+  </wsdl:message>
+  <wsdl:message name="SeleccionarPersonalPorSedeSoapIn">
+    <wsdl:part name="parameters" element="tns:SeleccionarPersonalPorSede" />
+  </wsdl:message>
+  <wsdl:message name="SeleccionarPersonalPorSedeSoapOut">
+    <wsdl:part name="parameters" element="tns:SeleccionarPersonalPorSedeResponse" />
+  </wsdl:message>
+  <wsdl:message name="SeleccionarPersonalPorGrupoOrganizacionalSoapIn">
+    <wsdl:part name="parameters" element="tns:SeleccionarPersonalPorGrupoOrganizacional" />
+  </wsdl:message>
+  <wsdl:message name="SeleccionarPersonalPorGrupoOrganizacionalSoapOut">
+    <wsdl:part name="parameters" element="tns:SeleccionarPersonalPorGrupoOrganizacionalResponse" />
   </wsdl:message>
   <wsdl:message name="SeleccionarPersonalPorUsuarioSoapIn">
     <wsdl:part name="parameters" element="tns:SeleccionarPersonalPorUsuario" />
@@ -1087,9 +1490,25 @@
       <wsdl:input message="tns:SeleccionarCoordinacionPorIdSoapIn" />
       <wsdl:output message="tns:SeleccionarCoordinacionPorIdSoapOut" />
     </wsdl:operation>
+    <wsdl:operation name="InsertarCoordinacion">
+      <wsdl:input message="tns:InsertarCoordinacionSoapIn" />
+      <wsdl:output message="tns:InsertarCoordinacionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ActualizarCoordinacion">
+      <wsdl:input message="tns:ActualizarCoordinacionSoapIn" />
+      <wsdl:output message="tns:ActualizarCoordinacionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EliminarCoordinacion">
+      <wsdl:input message="tns:EliminarCoordinacionSoapIn" />
+      <wsdl:output message="tns:EliminarCoordinacionSoapOut" />
+    </wsdl:operation>
     <wsdl:operation name="SeleccionarPuestos">
       <wsdl:input message="tns:SeleccionarPuestosSoapIn" />
       <wsdl:output message="tns:SeleccionarPuestosSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SeleccionarPuestosPorEmpresa">
+      <wsdl:input message="tns:SeleccionarPuestosPorEmpresaSoapIn" />
+      <wsdl:output message="tns:SeleccionarPuestosPorEmpresaSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="SeleccionarPuestoPorId">
       <wsdl:input message="tns:SeleccionarPuestoPorIdSoapIn" />
@@ -1110,6 +1529,62 @@
     <wsdl:operation name="SeleccionarPuestoPorCoordinacion">
       <wsdl:input message="tns:SeleccionarPuestoPorCoordinacionSoapIn" />
       <wsdl:output message="tns:SeleccionarPuestoPorCoordinacionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertarPuesto">
+      <wsdl:input message="tns:InsertarPuestoSoapIn" />
+      <wsdl:output message="tns:InsertarPuestoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ActualizarPuesto">
+      <wsdl:input message="tns:ActualizarPuestoSoapIn" />
+      <wsdl:output message="tns:ActualizarPuestoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EliminarPuesto">
+      <wsdl:input message="tns:EliminarPuestoSoapIn" />
+      <wsdl:output message="tns:EliminarPuestoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SeleccionarSede">
+      <wsdl:input message="tns:SeleccionarSedeSoapIn" />
+      <wsdl:output message="tns:SeleccionarSedeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SeleccionarSedePorId">
+      <wsdl:input message="tns:SeleccionarSedePorIdSoapIn" />
+      <wsdl:output message="tns:SeleccionarSedePorIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SeleccionarSedePorEmpresa">
+      <wsdl:input message="tns:SeleccionarSedePorEmpresaSoapIn" />
+      <wsdl:output message="tns:SeleccionarSedePorEmpresaSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertarSede">
+      <wsdl:input message="tns:InsertarSedeSoapIn" />
+      <wsdl:output message="tns:InsertarSedeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ActualizarSede">
+      <wsdl:input message="tns:ActualizarSedeSoapIn" />
+      <wsdl:output message="tns:ActualizarSedeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EliminarSede">
+      <wsdl:input message="tns:EliminarSedeSoapIn" />
+      <wsdl:output message="tns:EliminarSedeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SeleccionarGrupoOrganizacional">
+      <wsdl:input message="tns:SeleccionarGrupoOrganizacionalSoapIn" />
+      <wsdl:output message="tns:SeleccionarGrupoOrganizacionalSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SeleccionarGrupoOrganizacionalPorId">
+      <wsdl:input message="tns:SeleccionarGrupoOrganizacionalPorIdSoapIn" />
+      <wsdl:output message="tns:SeleccionarGrupoOrganizacionalPorIdSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="InsertarGrupoOrganizacional">
+      <wsdl:input message="tns:InsertarGrupoOrganizacionalSoapIn" />
+      <wsdl:output message="tns:InsertarGrupoOrganizacionalSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="ActualizarGrupoOrganizacional">
+      <wsdl:input message="tns:ActualizarGrupoOrganizacionalSoapIn" />
+      <wsdl:output message="tns:ActualizarGrupoOrganizacionalSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="EliminarGrupoOrganizacional">
+      <wsdl:input message="tns:EliminarGrupoOrganizacionalSoapIn" />
+      <wsdl:output message="tns:EliminarGrupoOrganizacionalSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="SeleccionarPersonal">
       <wsdl:input message="tns:SeleccionarPersonalSoapIn" />
@@ -1134,6 +1609,14 @@
     <wsdl:operation name="SeleccionarPersonalPorCoordinacion">
       <wsdl:input message="tns:SeleccionarPersonalPorCoordinacionSoapIn" />
       <wsdl:output message="tns:SeleccionarPersonalPorCoordinacionSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SeleccionarPersonalPorSede">
+      <wsdl:input message="tns:SeleccionarPersonalPorSedeSoapIn" />
+      <wsdl:output message="tns:SeleccionarPersonalPorSedeSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SeleccionarPersonalPorGrupoOrganizacional">
+      <wsdl:input message="tns:SeleccionarPersonalPorGrupoOrganizacionalSoapIn" />
+      <wsdl:output message="tns:SeleccionarPersonalPorGrupoOrganizacionalSoapOut" />
     </wsdl:operation>
     <wsdl:operation name="SeleccionarPersonalPorUsuario">
       <wsdl:input message="tns:SeleccionarPersonalPorUsuarioSoapIn" />
@@ -1365,8 +1848,44 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="InsertarCoordinacion">
+      <soap:operation soapAction="http://tempuri.org/InsertarCoordinacion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ActualizarCoordinacion">
+      <soap:operation soapAction="http://tempuri.org/ActualizarCoordinacion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EliminarCoordinacion">
+      <soap:operation soapAction="http://tempuri.org/EliminarCoordinacion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="SeleccionarPuestos">
       <soap:operation soapAction="http://tempuri.org/SeleccionarPuestos" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SeleccionarPuestosPorEmpresa">
+      <soap:operation soapAction="http://tempuri.org/SeleccionarPuestosPorEmpresa" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -1412,6 +1931,132 @@
     </wsdl:operation>
     <wsdl:operation name="SeleccionarPuestoPorCoordinacion">
       <soap:operation soapAction="http://tempuri.org/SeleccionarPuestoPorCoordinacion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertarPuesto">
+      <soap:operation soapAction="http://tempuri.org/InsertarPuesto" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ActualizarPuesto">
+      <soap:operation soapAction="http://tempuri.org/ActualizarPuesto" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EliminarPuesto">
+      <soap:operation soapAction="http://tempuri.org/EliminarPuesto" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SeleccionarSede">
+      <soap:operation soapAction="http://tempuri.org/SeleccionarSede" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SeleccionarSedePorId">
+      <soap:operation soapAction="http://tempuri.org/SeleccionarSedePorId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SeleccionarSedePorEmpresa">
+      <soap:operation soapAction="http://tempuri.org/SeleccionarSedePorEmpresa" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertarSede">
+      <soap:operation soapAction="http://tempuri.org/InsertarSede" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ActualizarSede">
+      <soap:operation soapAction="http://tempuri.org/ActualizarSede" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EliminarSede">
+      <soap:operation soapAction="http://tempuri.org/EliminarSede" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SeleccionarGrupoOrganizacional">
+      <soap:operation soapAction="http://tempuri.org/SeleccionarGrupoOrganizacional" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SeleccionarGrupoOrganizacionalPorId">
+      <soap:operation soapAction="http://tempuri.org/SeleccionarGrupoOrganizacionalPorId" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertarGrupoOrganizacional">
+      <soap:operation soapAction="http://tempuri.org/InsertarGrupoOrganizacional" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ActualizarGrupoOrganizacional">
+      <soap:operation soapAction="http://tempuri.org/ActualizarGrupoOrganizacional" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EliminarGrupoOrganizacional">
+      <soap:operation soapAction="http://tempuri.org/EliminarGrupoOrganizacional" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -1466,6 +2111,24 @@
     </wsdl:operation>
     <wsdl:operation name="SeleccionarPersonalPorCoordinacion">
       <soap:operation soapAction="http://tempuri.org/SeleccionarPersonalPorCoordinacion" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SeleccionarPersonalPorSede">
+      <soap:operation soapAction="http://tempuri.org/SeleccionarPersonalPorSede" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SeleccionarPersonalPorGrupoOrganizacional">
+      <soap:operation soapAction="http://tempuri.org/SeleccionarPersonalPorGrupoOrganizacional" style="document" />
       <wsdl:input>
         <soap:body use="literal" />
       </wsdl:input>
@@ -1728,8 +2391,44 @@
         <soap12:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="InsertarCoordinacion">
+      <soap12:operation soapAction="http://tempuri.org/InsertarCoordinacion" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ActualizarCoordinacion">
+      <soap12:operation soapAction="http://tempuri.org/ActualizarCoordinacion" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EliminarCoordinacion">
+      <soap12:operation soapAction="http://tempuri.org/EliminarCoordinacion" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
     <wsdl:operation name="SeleccionarPuestos">
       <soap12:operation soapAction="http://tempuri.org/SeleccionarPuestos" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SeleccionarPuestosPorEmpresa">
+      <soap12:operation soapAction="http://tempuri.org/SeleccionarPuestosPorEmpresa" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -1775,6 +2474,132 @@
     </wsdl:operation>
     <wsdl:operation name="SeleccionarPuestoPorCoordinacion">
       <soap12:operation soapAction="http://tempuri.org/SeleccionarPuestoPorCoordinacion" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertarPuesto">
+      <soap12:operation soapAction="http://tempuri.org/InsertarPuesto" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ActualizarPuesto">
+      <soap12:operation soapAction="http://tempuri.org/ActualizarPuesto" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EliminarPuesto">
+      <soap12:operation soapAction="http://tempuri.org/EliminarPuesto" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SeleccionarSede">
+      <soap12:operation soapAction="http://tempuri.org/SeleccionarSede" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SeleccionarSedePorId">
+      <soap12:operation soapAction="http://tempuri.org/SeleccionarSedePorId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SeleccionarSedePorEmpresa">
+      <soap12:operation soapAction="http://tempuri.org/SeleccionarSedePorEmpresa" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertarSede">
+      <soap12:operation soapAction="http://tempuri.org/InsertarSede" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ActualizarSede">
+      <soap12:operation soapAction="http://tempuri.org/ActualizarSede" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EliminarSede">
+      <soap12:operation soapAction="http://tempuri.org/EliminarSede" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SeleccionarGrupoOrganizacional">
+      <soap12:operation soapAction="http://tempuri.org/SeleccionarGrupoOrganizacional" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SeleccionarGrupoOrganizacionalPorId">
+      <soap12:operation soapAction="http://tempuri.org/SeleccionarGrupoOrganizacionalPorId" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="InsertarGrupoOrganizacional">
+      <soap12:operation soapAction="http://tempuri.org/InsertarGrupoOrganizacional" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ActualizarGrupoOrganizacional">
+      <soap12:operation soapAction="http://tempuri.org/ActualizarGrupoOrganizacional" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="EliminarGrupoOrganizacional">
+      <soap12:operation soapAction="http://tempuri.org/EliminarGrupoOrganizacional" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>
@@ -1829,6 +2654,24 @@
     </wsdl:operation>
     <wsdl:operation name="SeleccionarPersonalPorCoordinacion">
       <soap12:operation soapAction="http://tempuri.org/SeleccionarPersonalPorCoordinacion" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SeleccionarPersonalPorSede">
+      <soap12:operation soapAction="http://tempuri.org/SeleccionarPersonalPorSede" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SeleccionarPersonalPorGrupoOrganizacional">
+      <soap12:operation soapAction="http://tempuri.org/SeleccionarPersonalPorGrupoOrganizacional" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

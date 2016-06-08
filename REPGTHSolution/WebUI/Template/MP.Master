@@ -38,16 +38,14 @@ AsyncPostBackTimeout="360000">
             <li><a href="../UI_ADMINISTRACION/Empresa.aspx">Empresas</a></li>
             <li><a href="../UI_ADMINISTRACION/Gerencia.aspx">Gerencias</a></li>
             <li><a href="../UI_ADMINISTRACION/Area.aspx">Áreas</a></li>
-            <li><a href="#">Coordinaciones</a></li>
-            <li><a href="#">Sedes</a></li>
-            <li><a href="#">Grupos Organizacionales</a></li>
-            <li><a href="#">Personal</a></li>
-            <li><a href="#" class="separador">Puestos</a></li>
-            <li><a href="#">Usuarios</a></li>
-            <li><a href="#" class="separador">Perfiles</a></li>
-            <li><a href="#">Competencias Transversales</a></li>
-            <li><a href="#">Competencias por Puesto</a></li>
-            <li><a href="#" class="separador">Matriz de Competencias por Puesto</a></li>
+            <li><a href="../UI_ADMINISTRACION/Coordinacion.aspx">Coordinaciones</a></li>
+            <li><a href="../UI_ADMINISTRACION/Sede.aspx">Sedes</a></li>
+            <li><a href="../UI_ADMINISTRACION/GrupoOrganizacional.aspx">Grupos Organizacionales</a></li>
+            <li><a href="../UI_ADMINISTRACION/Personal.aspx">Personal</a></li>
+            <li><a href="../UI_ADMINISTRACION/Puesto.aspx" class="separador">Puestos</a></li>            
+            <li><a href="../UI_ADMINISTRACION/CompetenciasTransversales.aspx">Competencias Transversales</a></li>
+            <li><a href="../UI_ADMINISTRACION/Competencias.aspx">Catálogo de Competencias</a></li>
+            <li><a href="../UI_ADMINISTRACION/CompetenciasPorPuesto.aspx" class="separador">Competencias por Puesto</a></li>
             <li><a href="#">Parametros del Sistema</a></li>
           </ul>
             </li>
@@ -73,18 +71,18 @@ AsyncPostBackTimeout="360000">
             <li><a href="../UI_EVALUACION/EvaluacionesCompetenciasPorPuesto.aspx">Competencias por Puesto</a></li>
           </ul>
             </li>
-        <li><a href="#"> Reportes </a>
-              <ul>
-            <li><a href="#">Evaluciones Transversales y de Indicador de Colaboradores</a></li>
+        <li><a href="#"> Reportes Competencias Transversales</a>
+          <ul>
+            <li><a href="#">Evaluciones Transversales y de Liderazgo</a></li>
+            <li><a href="#">Colaboradores con Competencias Desarrolladas</a></li>
           </ul>
             </li>
-        <li><a href="#"> Evaluaciones Competencias </a></li>
-        <li><a href="#"> Indicador de Brechas </a>
-              <ul>
+        <li><a href="#"> Reportes Competencias por Puesto </a>
+          <ul>
             <li><a href="#">Indicador de Brechas</a></li>
-            <li><a href="#">Brechas por Puesto</a></li>
+            <li><a href="#">Brechas por Puesto y Colaborador</a></li>
           </ul>
-            </li>
+        </li>
       </ul></td>
     <td align="center" valign="top" class="contenido">
     <!--Area de Contenido --> 

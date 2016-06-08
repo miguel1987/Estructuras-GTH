@@ -45,6 +45,31 @@ namespace BusinessLogicLayer
         }
 
         /// <summary>
+        ///  Devuelve los datos de una EMPRESA.
+        /// </summary>
+        /// <param name="empresa_id">Codigo del la Empresa que se desea consultar</param>
+        /// <returns> List de BE_EMPRESA con los objetos de la entidad, que a su vez representan la tabla GERENCIAS de la base de datos.En caso no haiga datos devuelve nothing </returns>
+        public BE_EMPRESA SeleccionarEmpresaPorId(Guid empresa_id)
+        {
+
+            wsMaestros.BE_EMPRESA[] oLista = wsMantenimientoEstructuras.SeleccionarEmpresaPorId(empresa_id);
+            BE_EMPRESA oEmpresa = new BE_EMPRESA();
+            if (oLista != null)
+            {
+                oEmpresa.ID = oLista[0].ID;
+                oEmpresa.CODIGO = oLista[0].CODIGO;
+                oEmpresa.DESCRIPCION = oLista[0].DESCRIPCION;
+                oEmpresa.USUARIO_CREACION = oLista[0].USUARIO_CREACION;
+                oEmpresa.FECHA_CREACION = oLista[0].FECHA_CREACION;
+                oEmpresa.USUARIO_ACTUALIZACION = oLista[0].USUARIO_ACTUALIZACION;
+                oEmpresa.ESTADO = oLista[0].ESTADO;            
+
+               
+            }
+            return oEmpresa;
+        }
+
+        /// <summary>
         /// Inserta los datos de una Empresa
         /// </summary>
         /// <param name="oBE_EMPRESA">Entidad BE_EMPRESA, que representa la tabla EMPRESAS, con todos sus atributos </param>

@@ -86,17 +86,17 @@ namespace WebUI.UI_ADMINISTRACION
             var editableItem = ((GridEditableItem)e.Item);
             Nullable<Guid> ID;
             int validarEliminar = 0;
+            BL_PERSONAL BL_PERSONAL = new BL_PERSONAL();
             
             if (editableItem.GetDataKeyValue("ID") != null)
                 ID = Guid.Parse(editableItem.GetDataKeyValue("ID").ToString());
             else
                 ID = Guid.Empty;
-
-            validarEliminar = 1;
-            //Validar que el área a eliminar no esté asociada a ningún CECO, CEGE u Orden activa.            
-            //List<BE_PERSONAL> lstPersonal = BL_PERSONAL.SeleccionarPersonalArea((Guid)ID);
-            //if (lstPersonal == null || lstPersonal.Count == 0)           
-            //    validarEliminar += 1;                        
+            
+            //Validar que el área a eliminar no esté asociada a ninguna personal      
+            List<BE_PERSONAL> lstPersonal = BL_PERSONAL.SeleccionarPersonalPorArea((Guid)ID);
+            if (lstPersonal == null || lstPersonal.Count == 0)           
+                validarEliminar += 1;                        
 
             if (validarEliminar > 0)
             {
@@ -110,6 +110,23 @@ namespace WebUI.UI_ADMINISTRACION
                string javaScriptCode = "Sys.Application.add_load(function() {showRadConfirm(" + message + ");});";
                ScriptManager.RegisterStartupScript(this, this.GetType(), "RadConfirmStart", javaScriptCode, true);
             }
+        }
+
+        protected void txtBuscar_TextChanged(object sender, EventArgs e)
+        {
+            rgArea.MasterTableView.FilterExpression = "([DESCRIPCION] LIKE \'%" + txtBuscar.Text.Trim() + "%\' OR [CODIGO]LIKE \'%" + txtBuscar.Text.Trim() + "%\' OR [oBE_EMPRESA.DESCRIPCION]LIKE \'%" + txtBuscar.Text.Trim() + "%\' OR [oBE_GERENCIA.DESCRIPCION]LIKE \'%" + txtBuscar.Text.Trim() + "%\')";
+
+            rgArea.Rebind();
+
+        }
+
+        protected void linkBuscar_Click(object sender, EventArgs e)
+        {
+
+            rgArea.MasterTableView.FilterExpression = "([DESCRIPCION] LIKE \'%" + txtBuscar.Text.Trim() + "%\' OR [CODIGO]LIKE \'%" + txtBuscar.Text.Trim() + "%\' OR [oBE_EMPRESA.DESCRIPCION]LIKE \'%" + txtBuscar.Text.Trim() + "%\' OR [oBE_GERENCIA.DESCRIPCION]LIKE \'%" + txtBuscar.Text.Trim() + "%\')";
+
+            rgArea.Rebind();
+
         }
 
         protected void GrabarActualizar(object sender, GridCommandEventArgs e, String action)

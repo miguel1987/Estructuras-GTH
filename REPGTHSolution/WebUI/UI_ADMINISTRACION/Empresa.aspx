@@ -15,8 +15,10 @@
           <div class="derecha">
         <table width="100%" border="0" cellspacing="0" cellpadding="0">
               <tr>
-            <td><input type="text"  class="frmTxtBuscar " value="Buscar" /></td>
-            <td><a class="frm_boton ">Ir</a></td>
+            <td><telerik:RadTextBox CssClass="frmTxtBuscar"  ID="txtBuscar" runat="server" AutoPostBack="true" OnTextChanged="txtBuscar_TextChanged" EnableEmbeddedSkins="false"
+                 Skin="MySilk"></telerik:RadTextBox></td>
+            <td><asp:HyperLink class="frm_boton" ID="linkBuscar" runat="server">Ir</asp:HyperLink>
+            </td>
           </tr>
             </table>
       </div>
@@ -31,7 +33,7 @@
         OnUpdateCommand="rgEmpresa_UpdateCommand" PageSize="10"
         GridLines="None" AllowPaging="True" Width="100%" 
         OnItemDataBound="rgEmpresa_ItemDataBound" AllowSorting="true" AllowFilteringByColumn="False" 
-        EnableEmbeddedSkins="False" Skin="MySilk" ImagesPath="../Styles/Grid/" style="margin: auto">
+        EnableEmbeddedSkins="False" Skin="MySilk" ImagesPath="../Styles/Grid/" style="margin: auto" EnableLinqExpressions="false">
         <ExportSettings>
             <Pdf PageWidth="" />
         </ExportSettings>
@@ -42,16 +44,14 @@
             </NoRecordsTemplate>
             <CommandItemSettings AddNewRecordText="Añadir Empresa" RefreshText="Actualizar"></CommandItemSettings>   
             <Columns>     
-                <telerik:GridBoundColumn DataField="CODIGO" FilterControlAltText="Filter CODIGO column"
-                    HeaderText="CODIGO" SortExpression="CODIGO" UniqueName="CODIGO" HeaderStyle-Width="50%" 
+                <telerik:GridBoundColumn DataField="CODIGO" HeaderText="CODIGO" SortExpression="CODIGO" UniqueName="CODIGO" HeaderStyle-Width="50%" 
                     AutoPostBackOnFilter="true">
                     <ColumnValidationSettings EnableRequiredFieldValidation="true">
                         <RequiredFieldValidator ForeColor="Red" Text="*">
                         </RequiredFieldValidator>
                     </ColumnValidationSettings>
                 </telerik:GridBoundColumn>              
-                <telerik:GridBoundColumn DataField="DESCRIPCION" FilterControlAltText="Filter DESCRIPCION column"
-                    HeaderText="EMPRESA" SortExpression="DESCRIPCION" UniqueName="DESCRIPCION" HeaderStyle-Width="50%" 
+                <telerik:GridBoundColumn DataField="DESCRIPCION" HeaderText="EMPRESA" SortExpression="DESCRIPCION" UniqueName="DESCRIPCION" HeaderStyle-Width="50%" 
                     AutoPostBackOnFilter="true">
                     <ColumnValidationSettings EnableRequiredFieldValidation="true">
                         <RequiredFieldValidator ForeColor="Red" Text="*">
@@ -74,10 +74,8 @@
                               InsertText="Insertar">
                             </EditColumn>
             </EditFormSettings>
-
-            <PagerStyle PageSizeControlType="RadComboBox"></PagerStyle>
+            <PagerStyle Mode="NextPrevAndNumeric" PageSizeLabelText="Nro. Items por Página:" PagerTextFormat="{4} Página {0} de {1}, Filas {2} a {3} de {5}" />
         </MasterTableView>
-        <PagerStyle PageSizeControlType="RadComboBox"></PagerStyle>
         <FilterMenu EnableImageSprites="False">
         </FilterMenu>
     </telerik:RadGrid>
