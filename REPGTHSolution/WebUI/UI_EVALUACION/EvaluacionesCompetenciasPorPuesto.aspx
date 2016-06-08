@@ -49,10 +49,10 @@
               <telerik:RadPivotGrid ID="rgEvaluacionesporPuesto" runat="server" ShowColumnHeaderZone="false" ShowRowHeaderZone="false" ShowDataHeaderZone="false" EnableZoneContextMenu="false"  ShowFilterHeaderZone="false"   TotalsSettings-GrandTotalsVisibility="None" AllowSorting="true" 
         AllowFilteringByColumn="false"   DataSourceID="odsCompetenciasPuesto" OnCellDataBound="rgEvaluacionesporPuesto_CellDataBound" 
                        Culture="es-PE" 
-        Height="370px" AllowPaging="True" AllowFiltering="true" >
+         AllowPaging="True" AllowFiltering="true" >
         <ClientSettings Scrolling-AllowVerticalScroll="true">
             </ClientSettings>
-            <DataCellStyle Width="100px" />  
+             
             <TotalsSettings RowsSubTotalsPosition="None" RowGrandTotalsPosition="None"
 ColumnsSubTotalsPosition="None" ColumnGrandTotalsPosition="None"  />       
         
@@ -68,9 +68,9 @@ ColumnsSubTotalsPosition="None" ColumnGrandTotalsPosition="None"  />
             <telerik:PivotGridColumnField DataField="PERSONAL_DESCRIPCION" UniqueName="PERSONAL_DESCRIPCION" 
                 ZoneIndex="1">
             </telerik:PivotGridColumnField>                   
-            <telerik:PivotGridAggregateField DataField="VALOR_REAL" UniqueName="VALOR_REAL"  Caption="VALOR_REAL" >
+            <telerik:PivotGridAggregateField DataField="VALOR_REAL" UniqueName="VALOR_REAL"  Caption="VALOR_REAL" CellStyle-Width="100%">
             </telerik:PivotGridAggregateField>
-            <telerik:PivotGridAggregateField DataField="BRECHA" UniqueName="BRECHA" Caption="BRECHA" >
+            <telerik:PivotGridAggregateField DataField="BRECHA" UniqueName="BRECHA" Caption="BRECHA" CellStyle-Width="100%">
                
             </telerik:PivotGridAggregateField>
         </Fields>
