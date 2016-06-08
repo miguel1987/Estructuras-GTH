@@ -48,33 +48,26 @@
               <td width="10">&nbsp;</td>
               <td valign="top">
               <telerik:RadPivotGrid ID="rgEvaluacionesporPuesto" runat="server" ShowColumnHeaderZone="false" ShowRowHeaderZone="false" ShowDataHeaderZone="false" EnableZoneContextMenu="false"  ShowFilterHeaderZone="false"   TotalsSettings-GrandTotalsVisibility="None" AllowSorting="true" 
-        AllowFilteringByColumn="false"   DataSourceID="odsCompetenciasPuesto" OnCellDataBound="rgEvaluacionesporPuesto_CellDataBound" 
-                       Culture="es-PE" 
+        AllowFilteringByColumn="false"   DataSourceID="odsCompetenciasPuesto" OnCellDataBound="rgEvaluacionesporPuesto_CellDataBound" Width="100%" Height="350px"
+                       Culture="es-PE" CellPadding="2" CellSpacing="2"
          AllowPaging="True" AllowFiltering="true" >
         <ClientSettings Scrolling-AllowVerticalScroll="true">
-            </ClientSettings>
-             <ColumnHeaderCellStyle Width="300px" />
-<RowHeaderCellStyle Width="300px" />
-<DataCellStyle Width="300px" />
+            </ClientSettings>             
             <TotalsSettings RowsSubTotalsPosition="None" RowGrandTotalsPosition="None"
 ColumnsSubTotalsPosition="None" ColumnGrandTotalsPosition="None"  />       
         
         <PagerStyle ChangePageSizeButtonToolTip="Change Page Size" PageSizeControlType="RadComboBox">
         </PagerStyle>
         <Fields>          
-            <telerik:PivotGridRowField DataField="COMPETENCIA_DESCRIPCION" UniqueName="COMPETENCIA_DESCRIPCION" >                
+            <telerik:PivotGridRowField DataField="COMPETENCIA_DESCRIPCION" UniqueName="COMPETENCIA_DESCRIPCION" CellStyle-Width="50px">                
+            </telerik:PivotGridRowField>            
+            <telerik:PivotGridRowField DataField="VALOR_REQUERIDO" UniqueName="VALOR_REQUERIDO" CellStyle-Width="80px">                
             </telerik:PivotGridRowField>
-            <telerik:PivotGridRowField DataField="TECNICAS" UniqueName="TECNICAS" ZoneIndex="1">                
-            </telerik:PivotGridRowField>
-            <telerik:PivotGridRowField DataField="REQUERIDO" UniqueName="REQUERIDO" ZoneIndex="2">                
-            </telerik:PivotGridRowField>
-            <telerik:PivotGridColumnField DataField="PERSONAL_DESCRIPCION" UniqueName="PERSONAL_DESCRIPCION" 
-                ZoneIndex="1">
+            <telerik:PivotGridColumnField DataField="PERSONAL_DESCRIPCION" UniqueName="PERSONAL_DESCRIPCION">
             </telerik:PivotGridColumnField>                   
-            <telerik:PivotGridAggregateField DataField="VALOR_REAL" UniqueName="VALOR_REAL"  Caption="VALOR_REAL" >
+            <telerik:PivotGridAggregateField DataField="VALOR_REAL" UniqueName="VALOR_REAL"  Caption="VALOR_REAL"  CellStyle-Width="30px">
             </telerik:PivotGridAggregateField>
-            <telerik:PivotGridAggregateField DataField="BRECHA" UniqueName="BRECHA" Caption="BRECHA" >
-               
+            <telerik:PivotGridAggregateField DataField="BRECHA" UniqueName="BRECHA" Caption="BRECHA"  CellStyle-Width="30px">               
             </telerik:PivotGridAggregateField>
         </Fields>
 
@@ -87,8 +80,7 @@ ColumnsSubTotalsPosition="None" ColumnGrandTotalsPosition="None"  />
         <ConfigurationPanelSettings EnableOlapTreeViewLoadOnDemand="True"></ConfigurationPanelSettings>
     </telerik:RadPivotGrid>                                                                              
       </table>
-          <div class="margen"></div>
-          <div class="texto izquierda"> Indicador general de colaboradores con competencias desarolladas: <span class="anotacion1"> 62%</span> </div>
+          <div class="margen"></div>          
           <div class="margen"></div>
           <asp:ObjectDataSource ID="odsCompetenciasPuesto" runat="server" SelectMethod="SeleccionarEvaluaciones" TypeName="BusinessLogicLayer.BL_EVALUACIONES_COMPETENCIAS_POR_PUESTO"
             DataObjectTypeName="BusinessEntities.BE_EVALUACION_COMPETENCIA_PUESTO">    
