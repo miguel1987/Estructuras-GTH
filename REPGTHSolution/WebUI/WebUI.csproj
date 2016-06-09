@@ -237,6 +237,8 @@
     <Content Include="UI_EVALUACION\EvaluacionesCompetenciasPorPuesto.aspx" />
     <Content Include="UI_EVALUACION\EvaluacionesTransversalesLiderazgo.aspx" />
     <Content Include="UI_EVALUACION\EvaluacionCompetenciasPuesto.aspx" />
+    <Content Include="UI_REPORTES\ReporteCompetenciasPuesto.aspx" />
+    <Content Include="UI_REPORTES\ReporteCompetenciasTransversales.aspx" />
     <Content Include="UI_REPORTES\ReporteSolicitudPeriodo.aspx" />
     <Content Include="UI_REPORTES\Etiqueta.aspx" />
     <Content Include="UI_REPORTES\ReporteSolicitud.aspx" />
@@ -395,6 +397,18 @@
     </Compile>
     <Compile Include="UI_EVALUACION\EvaluacionCompetenciasPuesto.aspx.designer.cs">
       <DependentUpon>EvaluacionCompetenciasPuesto.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI_REPORTES\ReporteCompetenciasPuesto.aspx.cs">
+      <DependentUpon>ReporteCompetenciasPuesto.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI_REPORTES\ReporteCompetenciasPuesto.aspx.designer.cs">
+      <DependentUpon>ReporteCompetenciasPuesto.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI_REPORTES\ReporteCompetenciasTransversales.aspx.cs">
+      <DependentUpon>ReporteCompetenciasTransversales.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI_REPORTES\ReporteCompetenciasTransversales.aspx.designer.cs">
+      <DependentUpon>ReporteCompetenciasTransversales.aspx</DependentUpon>
     </Compile>
     <Compile Include="UI_REPORTES\ReporteSolicitudPeriodo.aspx.cs">
       <DependentUpon>ReporteSolicitudPeriodo.aspx</DependentUpon>
