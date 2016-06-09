@@ -16,7 +16,7 @@
                   <telerik:RadTextBox CssClass="frmTxtBuscar"  ID="txtBuscar" runat="server" AutoPostBack="true" OnTextChanged="txtBuscar_TextChanged" EnableEmbeddedSkins="false"
                  Skin="MySilk"></telerik:RadTextBox></td>
                   <td><a class="frm_boton ">Ir</a></td>
-            <td><a class="frm_boton ">Generar Reporte</a></td>
+            <td><a class="frm_boton" href="../UI_REPORTES/ReporteCompetenciasTransversales.aspx" target="_blank">Generar Reporte</a></td>
             <td width="20">&nbsp;</td>
             
            

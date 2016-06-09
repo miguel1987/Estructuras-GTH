@@ -73,14 +73,14 @@ AsyncPostBackTimeout="360000">
             </li>
         <li><a href="#"> Reportes Competencias Transversales</a>
           <ul>
-            <li><a href="#">Evaluciones Transversales y de Liderazgo</a></li>
-            <li><a href="#">Colaboradores con Competencias Desarrolladas</a></li>
+            <li><a href="../UI_REPORTES/ReporteCompetenciasTransversales.aspx">Evaluciones Transversales y de Liderazgo</a></li>            
           </ul>
             </li>
         <li><a href="#"> Reportes Competencias por Puesto </a>
           <ul>
-            <li><a href="#">Indicador de Brechas</a></li>
-            <li><a href="#">Brechas por Puesto y Colaborador</a></li>
+            <li><a href="../UI_REPORTES/ReporteCompetenciasPuesto.aspx">Indicador de Brechas por Puesto y Colaborador</a></li>
+            <li><a href="#">Evaluación de Competencias por Jerarquía</a></li>    
+            <li><a href="#">Evaluación de Colaboradores Por Competencia</a></li>         
           </ul>
         </li>
       </ul></td>

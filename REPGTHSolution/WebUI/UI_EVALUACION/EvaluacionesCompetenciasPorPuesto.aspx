@@ -25,7 +25,7 @@
                  </telerik:RadComboBox>
              
              </td>
-            <td style="height: 50px"><a class="frm_boton ">Generar Reporte</a></td>
+            <td style="height: 50px"><a class="frm_boton"  href="../UI_REPORTES/ReporteCompetenciasPuesto.aspx" target="_blank">Generar Reporte</a></td>
             <td width="20" style="height: 50px"></td>
             <td style="height: 50px"></td>
             <td style="height: 50px"></td>
