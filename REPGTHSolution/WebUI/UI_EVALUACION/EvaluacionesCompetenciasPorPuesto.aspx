@@ -7,6 +7,7 @@
 <div class="frm_titulo01">Evaluaciones Competencias por Puestos</div>
 <link href="../Styles/Grid.MySilk.css" rel="stylesheet" type="text/css" />
  <link href="../Styles/TreeView.MySilk.css" rel="stylesheet" type="text/css" />
+    <link href="../Styles/Pivot.css" rel="stylesheet" type="text/css" />
           <div class="margen"></div>
           <div class="margen"></div>
           <div class="derecha">
@@ -38,7 +39,7 @@
               <td valign="top" width="292"><div class="cont_frm area-tree"> 
                   
                   <!--Arbol -->
-                  <telerik:RadToolTipManager  ID="RadToolTipManager1" runat="server" OnAjaxUpdate="RadToolTipManager1_AjaxUpdate" RenderInPageRoot="true" Animation="Fade">
+                  <telerik:RadToolTipManager  ID="RadToolTipManager1" runat="server" OnAjaxUpdate="RadToolTipManager1_AjaxUpdate" RenderInPageRoot="true" Animation="Fade" AnimationDuration="300">
                   </telerik:RadToolTipManager>
                  <telerik:RadTreeView style="overflow-x:hidden" ID="rtvTransversales" runat="server" OnNodeClick="rtvTransversales_NodeClick"></telerik:RadTreeView>
                   
@@ -47,7 +48,7 @@
                 </div></td>
               <td width="10">&nbsp;</td>
               <td valign="top">
-              <telerik:RadPivotGrid ID="rgEvaluacionesporPuesto" runat="server" ShowColumnHeaderZone="false" ShowRowHeaderZone="false" ShowDataHeaderZone="false" EnableZoneContextMenu="false"  ShowFilterHeaderZone="false"   TotalsSettings-GrandTotalsVisibility="None" AllowSorting="true" 
+              <telerik:RadPivotGrid ID="rgEvaluacionesporPuesto" CssClass="Pivot" runat="server" ShowColumnHeaderZone="false" ShowRowHeaderZone="false" ShowDataHeaderZone="false" EnableZoneContextMenu="false"  ShowFilterHeaderZone="false"   TotalsSettings-GrandTotalsVisibility="None" AllowSorting="true" 
         AllowFilteringByColumn="false"   DataSourceID="odsCompetenciasPuesto" OnCellDataBound="rgEvaluacionesporPuesto_CellDataBound" Width="100%" Height="350px"
                        Culture="es-PE" CellPadding="2" CellSpacing="2"
          AllowPaging="True" AllowFiltering="true" >

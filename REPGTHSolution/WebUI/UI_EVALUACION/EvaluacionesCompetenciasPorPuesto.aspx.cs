@@ -21,6 +21,8 @@ namespace WebUI.UI_ARCHIVO
         protected void Page_Load(object sender, EventArgs e)
         {
             USUARIO = Guid.Parse(Session["PERSONAL_ID"].ToString());
+            Context.Request.Browser.Adapters.Clear();
+        
 
             if (!Page.IsPostBack)
             {

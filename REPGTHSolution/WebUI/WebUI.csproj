@@ -200,6 +200,7 @@
     <Content Include="Styles\ListBox\rlbHeaderFooter.png" />
     <Content Include="Styles\ListBox\rlbSprite.png" />
     <Content Include="Styles\PanelBar.css" />
+    <Content Include="Styles\Pivot.css" />
     <Content Include="Styles\PivotGrid.MyDefault.css" />
     <Content Include="Styles\PivotGrid\Default.gif" />
     <Content Include="Styles\PivotGrid\sprite.png" />
