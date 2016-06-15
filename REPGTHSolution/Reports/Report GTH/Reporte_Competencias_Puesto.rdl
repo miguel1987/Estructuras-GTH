@@ -949,6 +949,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
+                              <Label>BRECHA_CONTEO</Label>
                               <Value>=Sum(IIF(Fields!EVALUACION_COMPETENCIA_BRECHA.Value = "0",0,1))</Value>
                               <Style />
                             </TextRun>
@@ -979,7 +980,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Avg(Fields!EVALUACION_COMPETENCIA_BRECHA.Value)</Value>
+                              <Value>=Sum(IIF(Fields!EVALUACION_COMPETENCIA_BRECHA.Value = "0",0,1))/count(Fields!EVALUACION_COMPETENCIA_BRECHA.Value)</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
@@ -1975,8 +1976,8 @@
         <DataSetName>dsEvaluacionesTransversales</DataSetName>
         <Top>3.08716cm</Top>
         <Left>1.83092cm</Left>
-        <Height>4.75093cm</Height>
-        <Width>26.14821cm</Width>
+        <Height>4.75094cm</Height>
+        <Width>26.14823cm</Width>
         <ZIndex>2</ZIndex>
         <Style>
           <Border>
