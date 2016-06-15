@@ -7,6 +7,7 @@
 <div class="frm_titulo01">Evaluaciones transversales y de liderazgo</div>
 <link href="../Styles/Grid.MySilk.css" rel="stylesheet" type="text/css" />
  <link href="../Styles/TreeView.MySilk.css" rel="stylesheet" type="text/css" />
+    <link href="../Styles/Pivot.css" rel="stylesheet" type="text/css" />
           <div class="margen"></div>
           <div class="margen"></div>
           <div class="derecha">
@@ -29,6 +30,8 @@
               <td valign="top" width="292"><div class="cont_frm area-tree"> 
                   
                   <!--Arbol -->
+                  <telerik:RadToolTipManager  ID="RadToolTipManager1" runat="server" OnAjaxUpdate="RadToolTipManager1_AjaxUpdate" RenderInPageRoot="true" Animation="Fade" AnimationDuration="300">
+                  </telerik:RadToolTipManager>
                   
                  <telerik:RadTreeView style="overflow-x:hidden" ID="rtvTransversales" runat="server" OnNodeClick="rtvTransversales_NodeClick"></telerik:RadTreeView>
                   
@@ -37,40 +40,35 @@
                 </div></td>
               <td width="10">&nbsp;</td>
               <td valign="top">
-              <telerik:RadPivotGrid ID="rgEvaluacionesTransversalesporPersonal" runat="server" ShowColumnHeaderZone="false" ShowRowHeaderZone="false" ShowDataHeaderZone="false" EnableZoneContextMenu="false"  ShowFilterHeaderZone="false"   TotalsSettings-GrandTotalsVisibility="None" AllowSorting="true"  
-        AllowFilteringByColumn="false"  Culture="es-PE" DataSourceID="odsEvaluacionesTransversales" OnCellDataBound="rgEvaluacionesTransversalesporPersonal_CellDataBound" 
-        Height="370px" AllowPaging="True" AllowFiltering="true" >
+              <telerik:RadPivotGrid  ID="rgEvaluacionesTransversalesporPersonal" CssClass="Pivot" runat="server" ShowColumnHeaderZone="false" ShowRowHeaderZone="false" ShowDataHeaderZone="false" EnableZoneContextMenu="false"  ShowFilterHeaderZone="false"   TotalsSettings-GrandTotalsVisibility="None" AllowSorting="true" 
+        AllowFilteringByColumn="false"   DataSourceID="odsEvaluacionesTransversales" OnCellDataBound="rgEvaluacionesTransversalesporPersonal_CellDataBound" Width="100%" Height="350px"
+                       Culture="es-PE" CellPadding="2" CellSpacing="2"
+                       AllowPaging="True" AllowFiltering="true" >
         
-        <ClientSettings>
-        
-          <Scrolling AllowVerticalScroll="true" SaveScrollPosition="true"></Scrolling>
-          
-            
+        <ClientSettings EnableFieldsDragDrop="true">  
+        <Scrolling AllowVerticalScroll="true"></Scrolling>      
             </ClientSettings>
-            <DataCellStyle Width="100px" />  
+
+            
+             
             <TotalsSettings RowsSubTotalsPosition="None" RowGrandTotalsPosition="None"
 ColumnsSubTotalsPosition="None" ColumnGrandTotalsPosition="None"  />       
         
-        <PagerStyle ChangePageSizeButtonToolTip="Change Page Size" PageSizeControlType="RadComboBox">
-        </PagerStyle>
-        <RowHeaderCellStyle Height="15px" />
-<%--<OlapSettings>
-<XmlaConnectionSettings Encoding="utf-8"></XmlaConnectionSettings>
-</OlapSettings>--%>
+        
         <Fields>          
-            <telerik:PivotGridRowField DataField="CODIGO" UniqueName="CODIGO"
+            <telerik:PivotGridRowField DataField="CODIGO" UniqueName="CODIGO" 
                >                
             </telerik:PivotGridRowField>
-            <telerik:PivotGridRowField DataField="PERSONAL_DESCRIPCION" UniqueName="PERSONAL_DESCRIPCION" CellStyle-Width="150px"
+            <telerik:PivotGridRowField DataField="PERSONAL_DESCRIPCION" UniqueName="PERSONAL_DESCRIPCION" 
                 >                
             </telerik:PivotGridRowField>
-            <telerik:PivotGridRowField DataField="PUESTO_DESCRIPCION" UniqueName="PUESTO_DESCRIPCION"
+            <telerik:PivotGridRowField DataField="PUESTO_DESCRIPCION" UniqueName="PUESTO_DESCRIPCION" 
                 >                
             </telerik:PivotGridRowField>
             <telerik:PivotGridColumnField DataField="COMPETENCIA_TRANSVERSAL_DESCRIPCION" UniqueName="COMPETENCIA_TRANSVERSAL_DESCRIPCION" 
-                ZoneIndex="1">
-            </telerik:PivotGridColumnField>
-            <telerik:PivotGridAggregateField DataField="PORCENTAJE" Aggregate="Sum" >
+                >
+            </telerik:PivotGridColumnField >
+            <telerik:PivotGridAggregateField DataField="PORCENTAJE" Aggregate="Sum" CellStyle-Width="40px">
             
                </telerik:PivotGridAggregateField>
             </Fields>
@@ -82,10 +80,21 @@ ColumnsSubTotalsPosition="None" ColumnGrandTotalsPosition="None"  />
         <ConfigurationPanelSettings EnableOlapTreeViewLoadOnDemand="True"></ConfigurationPanelSettings>
 
 <DataCellStyle Width="100px"></DataCellStyle>
-    </telerik:RadPivotGrid>         
+    </telerik:RadPivotGrid>  
+        <div style="clear:both;" class="texto derecha"> Indicador general de colaboradores con competencias desarolladas: <span class="anotacion1"> <asp:Label ID="lblIndicador" runat="server"></asp:Label>%</span> 
+              <br />
+          Indicador general de colaboradores por Gerencia/Departamento<span class="anotacion1"> <asp:Label ID="lblIndicadorGerencia" runat="server"></asp:Label>%</span>
+          
+          </div>   
       </table>
-          <div class="margen"></div>
-          <div class="texto derecha"> Indicador general de colaboradores con competencias desarolladas: <span class="anotacion1"> <asp:Label ID="lblIndicador" runat="server"></asp:Label>%</span> </div>
+      
+          <div class="margen">
+          </div>
+          
+          
+          
+    
+          
           <div class="margen"></div>
           <asp:ObjectDataSource  ID="odsEvaluacionesTransversales" runat="server" SelectMethod="SeleccionarEvaluacionesTransversalesPorJerarquia"         
         TypeName="BusinessLogicLayer.BL_EVALUACIONES_COMPETENCIAS_TRANSVERSALES" DataObjectTypeName="BusinessEntities.BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES">

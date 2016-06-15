@@ -31,6 +31,7 @@ namespace WebUI.UI_ARCHIVO
                     validarUsuarioEnDominio();
                     ValidarPerfilUsuario();
                     LoadEstructura();
+                    addTooltips();
                     LoadGrilla(Session["EMPRESA_ID"].ToString(), "0");
                     lblMensaje.Text = hf_Contador.Value;
 
@@ -146,6 +147,8 @@ namespace WebUI.UI_ARCHIVO
             rgEvaluacionesTransversalesporPersonal.DataBind();
 
             CalcularIndicador(idNodo, nivel);
+            CalcularIndicadorGerente(idNodo, nivel);
+            //CalcularIndicadorDepartamento(idNodo, nivel);
         }
 
         protected void CalcularIndicador(string idNodo, string nivel)
@@ -182,6 +185,95 @@ namespace WebUI.UI_ARCHIVO
 
 
         }
+
+
+        protected void CalcularIndicadorGerente(string idNodo, string nivel)
+        {
+
+            List<BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES> oListaEvaluacionesIndicador = new List<BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES>();
+            BL_EVALUACIONES_COMPETENCIAS_TRANSVERSALES BL_EVALUACIONES_COMPETENCIAS_TRANSVERSALES = new BL_EVALUACIONES_COMPETENCIAS_TRANSVERSALES();
+
+            oListaEvaluacionesIndicador = BL_EVALUACIONES_COMPETENCIAS_TRANSVERSALES.CalcularIndicadorporGerencia(Guid.Parse(idNodo), Int32.Parse(nivel));
+
+            decimal contadorGerencia = 0;
+            decimal contadorTotalRegistros = 0;
+            
+            string valor = string.Empty;
+            //TODO: Traer de BD
+            obtenervalor(valor);
+            int parametroCompetenciasDesarrolladas = BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES.VALOR;
+            
+
+            decimal indicador = 0;
+
+            contadorTotalRegistros = oListaEvaluacionesIndicador.Count;
+
+            foreach (var itemevaluaciones in oListaEvaluacionesIndicador)
+            {
+                BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES oEvaluacion_Competencia_Transversales = new BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES();
+                oEvaluacion_Competencia_Transversales.PORCENTAJE = itemevaluaciones.PORCENTAJE * 100;
+                if (oEvaluacion_Competencia_Transversales.PORCENTAJE >= parametroCompetenciasDesarrolladas)
+
+                contadorGerencia++;
+            }
+            if (contadorGerencia > 0 && contadorTotalRegistros > 0)
+
+                indicador = (contadorGerencia / contadorTotalRegistros) * 100;
+
+            this.lblIndicadorGerencia.Text = Decimal.Round(indicador, 0).ToString();
+
+
+        }
+
+
+
+        //protected void CalcularIndicadorDepartamento(string idNodo, string nivel)
+        //{
+
+        //    List<BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES> oListaEvaluacionesIndicador = new List<BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES>();
+        //    BL_EVALUACIONES_COMPETENCIAS_TRANSVERSALES BL_EVALUACIONES_COMPETENCIAS_TRANSVERSALES = new BL_EVALUACIONES_COMPETENCIAS_TRANSVERSALES();
+
+        //    oListaEvaluacionesIndicador = BL_EVALUACIONES_COMPETENCIAS_TRANSVERSALES.CalcularIndicadorporDepartamento(Guid.Parse(idNodo), Int32.Parse(nivel));
+
+        //    decimal contadorGerencia = 0;
+        //    decimal contadorTotalRegistros = 0;
+
+        //    string valor = string.Empty;
+        //    //TODO: Traer de BD
+        //    obtenervalor(valor);
+        //    int parametroCompetenciasDesarrolladas = BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES.VALOR;
+
+
+        //    decimal indicador = 0;
+
+        //    contadorTotalRegistros = oListaEvaluacionesIndicador.Count;
+
+        //    foreach (var itemevaluaciones in oListaEvaluacionesIndicador)
+        //    {
+        //        BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES oEvaluacion_Competencia_Transversales = new BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES();
+        //        oEvaluacion_Competencia_Transversales.PORCENTAJE = itemevaluaciones.PORCENTAJE * 100;
+        //        if (oEvaluacion_Competencia_Transversales.PORCENTAJE >= parametroCompetenciasDesarrolladas)
+
+        //            contadorGerencia++;
+        //    }
+        //    if (contadorGerencia > 0 && contadorTotalRegistros > 0)
+
+        //        indicador = (contadorGerencia / contadorTotalRegistros) * 100;
+
+        //    this.lblIndicadorDepartamento.Text = Decimal.Round(indicador, 0).ToString();
+
+
+        //}
+
+
+
+
+
+
+
+
+
+
 
         protected void obtenervalor(string valor)
         {
@@ -228,10 +320,45 @@ namespace WebUI.UI_ARCHIVO
 
         }
 
-        protected void rgEvaluacionesTransversalesporPersonal_CellDataBound(object sender, PivotGridCellDataBoundEventArgs e)
+        protected void addTooltips()
         {
-
+            RadToolTipManager1.TargetControls.Clear();
             
+
+            foreach (RadTreeNode node in rtvTransversales.Nodes)
+            {
+                node.Attributes.Add("ID", node.Text);
+                RadToolTipManager1.TargetControls.Add(node.Attributes["ID"], true);
+                NodesInNode(node);
+            }
+        }
+
+
+        protected void NodesInNode(RadTreeNode startNode)
+        {
+            if (startNode.Nodes.Count > 0)
+            {
+                foreach (RadTreeNode node in startNode.Nodes)
+                {
+
+                    node.Attributes.Add("ID", node.Text);
+                    RadToolTipManager1.TargetControls.Add(node.Attributes["ID"], true);
+                    NodesInNode(node);
+                }
+            }
+        }
+
+
+
+        protected void RadToolTipManager1_AjaxUpdate(object sender, ToolTipUpdateEventArgs e)
+        {
+            Label text = new Label();
+            text.Text = e.TargetControlID;
+            e.UpdatePanel.ContentTemplateContainer.Controls.Add(text);
+        }    
+
+        protected void rgEvaluacionesTransversalesporPersonal_CellDataBound(object sender, PivotGridCellDataBoundEventArgs e)
+        {       
             
             int porcentaje;
 
@@ -256,7 +383,7 @@ namespace WebUI.UI_ARCHIVO
                                     
                                     decimal price = Convert.ToDecimal(cell.DataItem);
                                     porcentaje = Convert.ToInt32(price * 100);
-                                    if (porcentaje > 80)
+                                    if (porcentaje >= 80)
                                     {
 
                                         

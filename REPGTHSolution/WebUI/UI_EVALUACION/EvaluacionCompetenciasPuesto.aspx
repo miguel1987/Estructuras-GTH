@@ -29,7 +29,7 @@
               
                   
                   <!--Arbol -->
-                  <telerik:RadToolTipManager ID="RadToolTipManager1" runat="server" OnAjaxUpdate="RadToolTipManager1_AjaxUpdate">
+                  <telerik:RadToolTipManager ID="RadToolTipManager1" runat="server" OnAjaxUpdate="RadToolTipManager1_AjaxUpdate" RenderInPageRoot="true" Animation="Fade" AnimationDuration="300">
                   </telerik:RadToolTipManager>
                     <telerik:RadTreeView style="overflow-x:hidden"  EnableDragAndDrop="false" EnableDragAndDropBetweenNodes="false"  ID="rtvEstructuras" runat="server"  
                       OnNodeClick="rtvEstructuras_NodeClick" EnableEmbeddedSkins="False" 

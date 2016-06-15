@@ -401,12 +401,14 @@
     </Compile>
     <Compile Include="UI_REPORTES\ReporteCompetenciasPuesto.aspx.cs">
       <DependentUpon>ReporteCompetenciasPuesto.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="UI_REPORTES\ReporteCompetenciasPuesto.aspx.designer.cs">
       <DependentUpon>ReporteCompetenciasPuesto.aspx</DependentUpon>
     </Compile>
     <Compile Include="UI_REPORTES\ReporteCompetenciasTransversales.aspx.cs">
       <DependentUpon>ReporteCompetenciasTransversales.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="UI_REPORTES\ReporteCompetenciasTransversales.aspx.designer.cs">
       <DependentUpon>ReporteCompetenciasTransversales.aspx</DependentUpon>

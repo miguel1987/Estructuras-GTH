@@ -38,6 +38,15 @@ namespace WebUI.UI_ARCHIVO {
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
+        protected global::Telerik.Web.UI.RadToolTipManager RadToolTipManager1;
+
+        /// <summary>
+        /// rtvTransversales control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
         protected global::Telerik.Web.UI.RadPivotGrid rgEvaluacionesTransversalesporPersonal;
         
         /// <summary>
@@ -49,6 +58,24 @@ namespace WebUI.UI_ARCHIVO {
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblIndicador;
         
+        /// <summary>
+        /// odsEvaluacionesTransversales control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblIndicadorGerencia;
+
+        /// <summary>
+        /// odsEvaluacionesTransversales control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblIndicadorDepartamento;
+
         /// <summary>
         /// odsEvaluacionesTransversales control.
         /// </summary>
