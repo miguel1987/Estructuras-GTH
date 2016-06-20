@@ -7,7 +7,7 @@
           radalert(text, null, null, "Eliminar Competencia");
       }
   </script>        
-          <div class="frm_titulo01">Administrar Compentencia</div>          
+          <div class="frm_titulo01">Administrar Catálogo Compentencia</div>          
        
           <div class="margen"></div>
           <div class="izquierda">        

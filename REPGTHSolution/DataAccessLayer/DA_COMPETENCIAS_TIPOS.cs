@@ -77,14 +77,14 @@ namespace DataAccessLayer
                }
                return oCOMPETENCIAS_TIPOS;
            }
-           catch (Exception)
+           catch (Exception ex)
            {
-
-               throw;
+               throw ex;
            }
-
-
-
+           finally
+           {
+               cnx.Close();
+           }      
 
 
        }
@@ -156,11 +156,14 @@ namespace DataAccessLayer
                }
                return oCOMPETENCIAS_TIPOS;
            }
-           catch (Exception)
+           catch (Exception ex)
            {
-
-               throw;
+               throw ex;
            }
+           finally
+           {
+               cnx.Close();
+           }     
 
        }
     }

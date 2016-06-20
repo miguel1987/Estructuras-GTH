@@ -127,6 +127,12 @@ namespace BusinessLogicLayer
                             
                         }
                     }
+                    else
+                    {
+                        List<BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES> oListaEvaluacionesTransversales_Temp = new List<BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES>();
+                        oListaEvaluacionesTransversales_Temp = CargarListaEvaluaciones(item);
+                        oListaEvaluacionesTransversales.AddRange(oListaEvaluacionesTransversales_Temp);
+                    }
                 }
             }
 
