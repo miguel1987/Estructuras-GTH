@@ -64,7 +64,8 @@
                     AutoPostBackOnFilter="true">  
                                    <ColumnValidationSettings EnableRequiredFieldValidation="true"  >
         <RequiredFieldValidator ForeColor="Red" ErrorMessage="(*)Ingresar Valor Real"></RequiredFieldValidator>     
-    </ColumnValidationSettings>  
+    </ColumnValidationSettings>
+      
 <HeaderStyle Font-Size="8pt"></HeaderStyle>
 
             </telerik:GridBoundColumn>  

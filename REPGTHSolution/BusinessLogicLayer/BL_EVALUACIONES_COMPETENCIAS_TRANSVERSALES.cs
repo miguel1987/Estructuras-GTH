@@ -116,15 +116,12 @@ namespace BusinessLogicLayer
                     {
                         if (item.oBE_GRUPO_ORGANIZACIONAL != null)
                         {
-                            if (item.oBE_GRUPO_ORGANIZACIONAL.CODIGO == BE_EVALUACION_COMPETENCIA_PUESTO.PERSONAL_CODIGO.JD.ToString() || item.oBE_GRUPO_ORGANIZACIONAL.CODIGO == BE_EVALUACION_COMPETENCIA_PUESTO.PERSONAL_CODIGO.CO.ToString())
+                            if (item.oBE_GRUPO_ORGANIZACIONAL.CODIGO == BE_EVALUACION_COMPETENCIA_PUESTO.PERSONAL_CODIGO.JD.ToString() || item.oBE_GRUPO_ORGANIZACIONAL.CODIGO == BE_EVALUACION_COMPETENCIA_PUESTO.PERSONAL_CODIGO.CO.ToString() || item.oBE_COORDINACION == null)
                             {
                                 List<BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES> oListaEvaluacionesTransversales_Temp = new List<BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES>();
                                 oListaEvaluacionesTransversales_Temp = CargarListaEvaluaciones(item);
                                 oListaEvaluacionesTransversales.AddRange(oListaEvaluacionesTransversales_Temp);
                             }
-
-
-                            
                         }
                     }
                     else
