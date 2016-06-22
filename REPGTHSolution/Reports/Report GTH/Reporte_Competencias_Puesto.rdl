@@ -288,9 +288,9 @@
         </Paragraphs>
         <rd:DefaultName>Textbox149</rd:DefaultName>
         <Top>0.60543cm</Top>
-        <Left>6.24884cm</Left>
+        <Left>6.31445cm</Left>
         <Height>0.70583cm</Height>
-        <Width>19.64008cm</Width>
+        <Width>18.05258cm</Width>
         <ZIndex>1</ZIndex>
         <Style>
           <Border>
@@ -712,14 +712,14 @@
             <TablixCornerRow>
               <TablixCornerCell>
                 <CellContents>
-                  <Textbox Name="Textbox79">
+                  <Textbox Name="Textbox80">
                     <CanGrow>true</CanGrow>
                     <KeepTogether>true</KeepTogether>
                     <Paragraphs>
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>COMPETENCIA</Value>
+                            <Value>TIPO</Value>
                             <Style>
                               <FontWeight>Bold</FontWeight>
                             </Style>
@@ -730,7 +730,7 @@
                         </Style>
                       </Paragraph>
                     </Paragraphs>
-                    <rd:DefaultName>Textbox79</rd:DefaultName>
+                    <rd:DefaultName>Textbox80</rd:DefaultName>
                     <Style>
                       <Border>
                         <Style>Solid</Style>
@@ -766,14 +766,14 @@
               </TablixCornerCell>
               <TablixCornerCell>
                 <CellContents>
-                  <Textbox Name="Textbox80">
+                  <Textbox Name="Textbox79">
                     <CanGrow>true</CanGrow>
                     <KeepTogether>true</KeepTogether>
                     <Paragraphs>
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>TIPO</Value>
+                            <Value>COMPETENCIA</Value>
                             <Style>
                               <FontWeight>Bold</FontWeight>
                             </Style>
@@ -784,7 +784,7 @@
                         </Style>
                       </Paragraph>
                     </Paragraphs>
-                    <rd:DefaultName>Textbox80</rd:DefaultName>
+                    <rd:DefaultName>Textbox79</rd:DefaultName>
                     <Style>
                       <Border>
                         <Style>Solid</Style>
@@ -1306,7 +1306,7 @@
                                       <Paragraph>
                                         <TextRuns>
                                           <TextRun>
-                                            <Value>BRECHAS</Value>
+                                            <Value>BRECHA</Value>
                                             <Style>
                                               <FontWeight>Bold</FontWeight>
                                             </Style>
@@ -1770,34 +1770,34 @@
         <TablixRowHierarchy>
           <TablixMembers>
             <TablixMember>
-              <Group Name="COMPETENCIA">
+              <Group Name="COMPETENCIA_TIPO">
                 <GroupExpressions>
-                  <GroupExpression>=Fields!COMPETENCIA.Value</GroupExpression>
+                  <GroupExpression>=Fields!COMPETENCIA_TIPO.Value</GroupExpression>
                 </GroupExpressions>
               </Group>
               <SortExpressions>
                 <SortExpression>
-                  <Value>=Fields!COMPETENCIA.Value</Value>
+                  <Value>=Fields!COMPETENCIA_TIPO.Value</Value>
                 </SortExpression>
               </SortExpressions>
               <TablixHeader>
                 <Size>2.47898in</Size>
                 <CellContents>
-                  <Textbox Name="COMPETENCIA">
+                  <Textbox Name="COMPETENCIA_TIPO">
                     <CanGrow>true</CanGrow>
                     <KeepTogether>true</KeepTogether>
                     <Paragraphs>
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>=Fields!COMPETENCIA.Value</Value>
+                            <Value>=Fields!COMPETENCIA_TIPO.Value</Value>
                             <Style />
                           </TextRun>
                         </TextRuns>
                         <Style />
                       </Paragraph>
                     </Paragraphs>
-                    <rd:DefaultName>COMPETENCIA</rd:DefaultName>
+                    <rd:DefaultName>COMPETENCIA_TIPO</rd:DefaultName>
                     <Style>
                       <Border>
                         <Style>Solid</Style>
@@ -1833,9 +1833,9 @@
               </TablixHeader>
               <TablixMembers>
                 <TablixMember>
-                  <Group Name="COMPETENCIA_TIPO">
+                  <Group Name="COMPETENCIA">
                     <GroupExpressions>
-                      <GroupExpression>=Fields!COMPETENCIA_TIPO.Value</GroupExpression>
+                      <GroupExpression>=Fields!COMPETENCIA.Value</GroupExpression>
                     </GroupExpressions>
                   </Group>
                   <SortExpressions>
@@ -1846,21 +1846,21 @@
                   <TablixHeader>
                     <Size>1.67712in</Size>
                     <CellContents>
-                      <Textbox Name="COMPETENCIA_TIPO">
+                      <Textbox Name="COMPETENCIA">
                         <CanGrow>true</CanGrow>
                         <KeepTogether>true</KeepTogether>
                         <Paragraphs>
                           <Paragraph>
                             <TextRuns>
                               <TextRun>
-                                <Value>=Fields!COMPETENCIA_TIPO.Value</Value>
+                                <Value>=Fields!COMPETENCIA.Value</Value>
                                 <Style />
                               </TextRun>
                             </TextRuns>
                             <Style />
                           </Paragraph>
                         </Paragraphs>
-                        <rd:DefaultName>COMPETENCIA_TIPO</rd:DefaultName>
+                        <rd:DefaultName>COMPETENCIA</rd:DefaultName>
                         <Style>
                           <Border>
                             <Style>Solid</Style>
@@ -2025,7 +2025,7 @@
         </Paragraphs>
         <rd:DefaultName>PERIODO</rd:DefaultName>
         <Top>0.60543cm</Top>
-        <Left>25.46559cm</Left>
+        <Left>23.97543cm</Left>
         <Height>0.70583cm</Height>
         <Width>3.4925cm</Width>
         <ZIndex>3</ZIndex>

@@ -7,52 +7,6 @@
     </DataSource>
   </DataSources>
   <DataSets>
-    <DataSet Name="dsEvaluacionesTransversales">
-      <Fields>
-        <Field Name="PERSONAL_CODIGO_TRABAJO">
-          <DataField>PERSONAL_CODIGO_TRABAJO</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="PERSONAL_NOMBRES">
-          <DataField>PERSONAL_NOMBRES</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="PERSONAL_PUESTO">
-          <DataField>PERSONAL_PUESTO</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="COMPETENCIA_TRANSVERSAL">
-          <DataField>COMPETENCIA_TRANSVERSAL</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="EVALUACION_COMPETENCIA_TRANSVERSAL_PORCENTAJE">
-          <DataField>EVALUACION_COMPETENCIA_TRANSVERSAL_PORCENTAJE</DataField>
-          <rd:TypeName>System.Decimal</rd:TypeName>
-        </Field>
-      </Fields>
-      <Query>
-        <DataSourceName>DSREPORTS</DataSourceName>
-        <CommandType>StoredProcedure</CommandType>
-        <CommandText>USP_RS_EVALUACION_COMPETENCIAS_TRANSVERSALES</CommandText>
-        <QueryParameters>
-          <QueryParameter Name="@PERIODO_ID">
-            <Value>=Parameters!PERIODO.Value</Value>
-          </QueryParameter>
-          <QueryParameter Name="@EMPRESA_ID">
-            <Value>=Parameters!EMPRESA_ID.Value</Value>
-          </QueryParameter>
-          <QueryParameter Name="@GERENCIA_ID">
-            <Value>=Parameters!GERENCIA_ID.Value</Value>
-          </QueryParameter>
-          <QueryParameter Name="@AREA_ID">
-            <Value>=Parameters!AREA_ID.Value</Value>
-          </QueryParameter>
-          <QueryParameter Name="@COORDINACION_ID">
-            <Value>=Parameters!COORDINACION_ID.Value</Value>
-          </QueryParameter>
-        </QueryParameters>
-      </Query>
-    </DataSet>
     <DataSet Name="dsGerencia">
       <Fields>
         <Field Name="GERENCIA_ID">
@@ -162,6 +116,53 @@
         <QueryParameters>
           <QueryParameter Name="@AREA_ID">
             <Value>=Parameters!AREA_ID.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+      </Query>
+    </DataSet>
+    <DataSet Name="dsEvaluacionesTransversales">
+      <Fields>
+        <Field Name="PERSONAL_CODIGO_TRABAJO">
+          <DataField>PERSONAL_CODIGO_TRABAJO</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="PERSONAL_NOMBRES">
+          <DataField>PERSONAL_NOMBRES</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="PERSONAL_PUESTO">
+          <DataField>PERSONAL_PUESTO</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="COMPETENCIA_TRANSVERSAL">
+          <DataField>COMPETENCIA_TRANSVERSAL</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="EVALUACION_COMPETENCIA_TRANSVERSAL_PORCENTAJE">
+          <DataField>EVALUACION_COMPETENCIA_TRANSVERSAL_PORCENTAJE</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DSREPORTS</DataSourceName>
+        <CommandType>StoredProcedure</CommandType>
+        <CommandText>USP_RS_EVALUACION_COMPETENCIAS_TRANSVERSALES</CommandText>
+        <QueryParameters>
+          <QueryParameter Name="@PERIODO_ID">
+            <Value>=Parameters!PERIODO.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@EMPRESA_ID">
+            <Value>=Parameters!EMPRESA_ID.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@GERENCIA_ID">
+            <Value>=Parameters!GERENCIA_ID.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@AREA_ID">
+            <Value>=Parameters!AREA_ID.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@COORDINACION_ID">
+            <Value>=Parameters!COORDINACION_ID.Value</Value>
           </QueryParameter>
         </QueryParameters>
         <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
@@ -315,7 +316,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Sum(Fields!EVALUACION_COMPETENCIA_TRANSVERSAL_PORCENTAJE.Value)</Value>
-                              <Style />
+                              <Style>
+                                <Format>0%</Format>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -326,26 +329,7 @@
                         <Border>
                           <Style>Solid</Style>
                         </Border>
-                        <TopBorder>
-                          <Color>Black</Color>
-                          <Style>Solid</Style>
-                          <Width>1pt</Width>
-                        </TopBorder>
-                        <BottomBorder>
-                          <Color>Black</Color>
-                          <Style>Solid</Style>
-                          <Width>1pt</Width>
-                        </BottomBorder>
-                        <LeftBorder>
-                          <Color>Black</Color>
-                          <Style>Solid</Style>
-                          <Width>1pt</Width>
-                        </LeftBorder>
-                        <RightBorder>
-                          <Color>Black</Color>
-                          <Style>Solid</Style>
-                          <Width>1pt</Width>
-                        </RightBorder>
+                        <BackgroundColor>=IIF(Fields!EVALUACION_COMPETENCIA_TRANSVERSAL_PORCENTAJE.Value  &gt;= 0.8, "LightGreen", IIF(Fields!EVALUACION_COMPETENCIA_TRANSVERSAL_PORCENTAJE.Value = 0, "White", "Yellow"))</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -353,6 +337,7 @@
                       </Style>
                     </Textbox>
                     <ColSpan>4</ColSpan>
+                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
                 <TablixCell />
@@ -573,7 +558,7 @@
               </Group>
               <SortExpressions>
                 <SortExpression>
-                  <Value>=Fields!PERSONAL_PUESTO.Value</Value>
+                  <Value>=Fields!PERSONAL_NOMBRES.Value</Value>
                 </SortExpression>
               </SortExpressions>
               <TablixHeader>
