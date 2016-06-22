@@ -188,11 +188,13 @@ namespace WebUI.UI_ARCHIVO
             //Se añadió código para llamada a pop-up de asignación de participantes
             if (e.Item.DataItem != null)
             {
+                string departamento=String.Empty;
                 String idPersonal = DataBinder.Eval(e.Item.DataItem, "PERSONAL_ID").ToString();
                 String idPuesto = DataBinder.Eval(e.Item.DataItem, "PUESTO_ID").ToString();
                 string puesto=DataBinder.Eval(e.Item.DataItem,"PUESTO_DESCRIPCION").ToString();
                 string personal = DataBinder.Eval(e.Item.DataItem, "PERSONAL_DESCRIPCION").ToString();
-                string departamento = DataBinder.Eval(e.Item.DataItem, "AREA").ToString();
+                if(DataBinder.Eval(e.Item.DataItem, "AREA")!=null)
+                     departamento = DataBinder.Eval(e.Item.DataItem, "AREA").ToString();
                 string estado = DataBinder.Eval(e.Item.DataItem, "ESTADO_DESCRIPCION").ToString();
 
                 HyperLink hplEvaluarPersonal1 = null;

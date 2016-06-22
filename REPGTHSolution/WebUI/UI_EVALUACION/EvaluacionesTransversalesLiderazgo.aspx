@@ -42,7 +42,7 @@
               <td valign="top">
               <telerik:RadPivotGrid  ID="rgEvaluacionesTransversalesporPersonal" CssClass="Pivot" runat="server" ShowColumnHeaderZone="false" ShowRowHeaderZone="false" ShowDataHeaderZone="false" EnableZoneContextMenu="false"  ShowFilterHeaderZone="false"   TotalsSettings-GrandTotalsVisibility="None" AllowSorting="true" 
         AllowFilteringByColumn="false"   DataSourceID="odsEvaluacionesTransversales" OnCellDataBound="rgEvaluacionesTransversalesporPersonal_CellDataBound" Width="100%" Height="350px"
-                       Culture="es-PE" CellPadding="2" CellSpacing="2"
+                       Culture="es-PE" CellPadding="2" CellSpacing="2" 
                        AllowPaging="True" AllowFiltering="true" >
         
         <ClientSettings EnableFieldsDragDrop="true">  
@@ -68,7 +68,7 @@ ColumnsSubTotalsPosition="None" ColumnGrandTotalsPosition="None"  />
             <telerik:PivotGridColumnField DataField="COMPETENCIA_TRANSVERSAL_DESCRIPCION" UniqueName="COMPETENCIA_TRANSVERSAL_DESCRIPCION" 
                 >
             </telerik:PivotGridColumnField >
-            <telerik:PivotGridAggregateField DataField="PORCENTAJE" Aggregate="Sum" CellStyle-Width="40px">
+            <telerik:PivotGridAggregateField DataField="PORCENTAJE" Aggregate="Sum" CellStyle-Width="40px" DataFormatString="{0:P0}"  >
             
                </telerik:PivotGridAggregateField>
             </Fields>

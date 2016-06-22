@@ -238,12 +238,9 @@
     <Content Include="UI_EVALUACION\EvaluacionesCompetenciasPorPuesto.aspx" />
     <Content Include="UI_EVALUACION\EvaluacionesTransversalesLiderazgo.aspx" />
     <Content Include="UI_EVALUACION\EvaluacionCompetenciasPuesto.aspx" />
+    <Content Include="UI_REPORTES\Reporte_Evaluacion_Colaboradores.aspx" />
     <Content Include="UI_REPORTES\ReporteCompetenciasPuesto.aspx" />
     <Content Include="UI_REPORTES\ReporteCompetenciasTransversales.aspx" />
-    <Content Include="UI_REPORTES\ReporteSolicitudPeriodo.aspx" />
-    <Content Include="UI_REPORTES\Etiqueta.aspx" />
-    <Content Include="UI_REPORTES\ReporteSolicitud.aspx" />
-    <Content Include="UI_REPORTES\Solicitud.aspx" />
     <Content Include="UI_SEGURIDAD\Acceso.aspx" />
     <Content Include="UI_SEGURIDAD\Index.aspx" />
     <Content Include="UI_SEGURIDAD\Login.aspx" />
@@ -399,6 +396,13 @@
     <Compile Include="UI_EVALUACION\EvaluacionCompetenciasPuesto.aspx.designer.cs">
       <DependentUpon>EvaluacionCompetenciasPuesto.aspx</DependentUpon>
     </Compile>
+    <Compile Include="UI_REPORTES\Reporte_Evaluacion_Colaboradores.aspx.cs">
+      <DependentUpon>Reporte_Evaluacion_Colaboradores.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI_REPORTES\Reporte_Evaluacion_Colaboradores.aspx.designer.cs">
+      <DependentUpon>Reporte_Evaluacion_Colaboradores.aspx</DependentUpon>
+    </Compile>
     <Compile Include="UI_REPORTES\ReporteCompetenciasPuesto.aspx.cs">
       <DependentUpon>ReporteCompetenciasPuesto.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -412,34 +416,6 @@
     </Compile>
     <Compile Include="UI_REPORTES\ReporteCompetenciasTransversales.aspx.designer.cs">
       <DependentUpon>ReporteCompetenciasTransversales.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="UI_REPORTES\ReporteSolicitudPeriodo.aspx.cs">
-      <DependentUpon>ReporteSolicitudPeriodo.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="UI_REPORTES\ReporteSolicitudPeriodo.aspx.designer.cs">
-      <DependentUpon>ReporteSolicitudPeriodo.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="UI_REPORTES\Etiqueta.aspx.cs">
-      <DependentUpon>Etiqueta.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="UI_REPORTES\Etiqueta.aspx.designer.cs">
-      <DependentUpon>Etiqueta.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="UI_REPORTES\ReporteSolicitud.aspx.cs">
-      <DependentUpon>ReporteSolicitud.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="UI_REPORTES\ReporteSolicitud.aspx.designer.cs">
-      <DependentUpon>ReporteSolicitud.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="UI_REPORTES\Solicitud.aspx.cs">
-      <DependentUpon>Solicitud.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="UI_REPORTES\Solicitud.aspx.designer.cs">
-      <DependentUpon>Solicitud.aspx</DependentUpon>
     </Compile>
     <Compile Include="UI_SEGURIDAD\Acceso.aspx.cs">
       <DependentUpon>Acceso.aspx</DependentUpon>

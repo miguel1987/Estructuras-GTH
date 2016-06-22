@@ -80,7 +80,7 @@ AsyncPostBackTimeout="360000">
           <ul>
             <li><a href="../UI_REPORTES/ReporteCompetenciasPuesto.aspx">Indicador de Brechas por Puesto y Colaborador</a></li>
             <li><a href="#">Evaluación de Competencias por Jerarquía</a></li>    
-            <li><a href="#">Evaluación de Colaboradores Por Competencia</a></li>         
+            <li><a href="../UI_REPORTES/Reporte_Evaluacion_Colaboradores.aspx">Evaluación de Colaboradores Por Competencia</a></li>         
           </ul>
         </li>
       </ul></td>

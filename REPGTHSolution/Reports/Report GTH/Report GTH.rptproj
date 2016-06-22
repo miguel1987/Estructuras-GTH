@@ -9,6 +9,10 @@
   </DataSources>
   <Reports>
     <ProjectItem>
+      <Name>Reporte_Evaluacion_Colaboradores.rdl</Name>
+      <FullPath>Reporte_Evaluacion_Colaboradores.rdl</FullPath>
+    </ProjectItem>
+    <ProjectItem>
       <Name>Reporte_Competencias_Puesto.rdl</Name>
       <FullPath>Reporte_Competencias_Puesto.rdl</FullPath>
     </ProjectItem>

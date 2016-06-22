@@ -4,7 +4,6 @@
     <DataSource Name="DSREPORTS">
       <DataSourceReference>DSREPORTS</DataSourceReference>
       <rd:DataSourceID>8cd57586-8d54-456f-9b2f-01731ecfae6a</rd:DataSourceID>
-      <rd:SecurityType>None</rd:SecurityType>
     </DataSource>
   </DataSources>
   <DataSets>
