@@ -4,6 +4,7 @@
     <DataSource Name="DSREPORTS">
       <DataSourceReference>DSREPORTS</DataSourceReference>
       <rd:DataSourceID>8cd57586-8d54-456f-9b2f-01731ecfae6a</rd:DataSourceID>
+      <rd:SecurityType>None</rd:SecurityType>
     </DataSource>
   </DataSources>
   <DataSets>
@@ -160,7 +161,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>REPORTE DE EVALUACION DE COLABORADORES FILTRADO POR COMPETENCIAS - </Value>
+                <Value>REPORTE DE EVALUACION DE COMPETENCIAS - </Value>
                 <Style>
                   <FontSize>16pt</FontSize>
                   <FontWeight>Bold</FontWeight>
@@ -177,9 +178,9 @@
         </Paragraphs>
         <rd:DefaultName>Textbox149</rd:DefaultName>
         <Top>0.60543cm</Top>
-        <Left>6.02086cm</Left>
+        <Left>6.12669cm</Left>
         <Height>0.70583cm</Height>
-        <Width>22.99897cm</Width>
+        <Width>18.55573cm</Width>
         <ZIndex>1</ZIndex>
         <Style>
           <Border>
@@ -211,9 +212,9 @@
         </Paragraphs>
         <rd:DefaultName>PERIODO</rd:DefaultName>
         <Top>0.60543cm</Top>
-        <Left>29.12566cm</Left>
+        <Left>24.49546cm</Left>
         <Height>0.70583cm</Height>
-        <Width>3.45722cm</Width>
+        <Width>3.94405cm</Width>
         <ZIndex>2</ZIndex>
         <Style>
           <Border>
@@ -1037,7 +1038,7 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>dsEvaluacion_Colaboradores_por_Competencias</DataSetName>
-        <Top>3.61633cm</Top>
+        <Top>4.80695cm</Top>
         <Left>0.70591cm</Left>
         <Height>2.12603cm</Height>
         <Width>34.85322cm</Width>
@@ -1078,7 +1079,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox149</rd:DefaultName>
-        <Top>2.43106cm</Top>
+        <Top>3.92474cm</Top>
         <Left>0.70591cm</Left>
         <Height>0.70583cm</Height>
         <Width>8.95472cm</Width>
@@ -1114,11 +1115,90 @@
             </Style>
           </Paragraph>
         </Paragraphs>
-        <Top>2.43106cm</Top>
+        <Top>3.92474cm</Top>
         <Left>9.37258cm</Left>
         <Height>0.70583cm</Height>
         <Width>2.5cm</Width>
         <ZIndex>5</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="PERIODO2">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=Parameters!COMPETENCIA_ID.Label</Value>
+                <Style>
+                  <FontSize>14pt</FontSize>
+                  <FontWeight>Bold</FontWeight>
+                  <Color>CornflowerBlue</Color>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>PERIODO</rd:DefaultName>
+        <Top>3.04781cm</Top>
+        <Left>3.76925cm</Left>
+        <Height>0.83812cm</Height>
+        <Width>5.89138cm</Width>
+        <ZIndex>6</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox151">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>Competencia:</Value>
+                <Style>
+                  <FontSize>12pt</FontSize>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
+              </TextRun>
+              <TextRun>
+                <Value xml:space="preserve"> </Value>
+                <Style>
+                  <FontSize>16pt</FontSize>
+                  <FontWeight>Bold</FontWeight>
+                  <Color>DarkBlue</Color>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <LeftIndent>0cm</LeftIndent>
+            <HangingIndent>0cm</HangingIndent>
+            <Style>
+              <TextAlign>Left</TextAlign>
+            </Style>
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox149</rd:DefaultName>
+        <Top>3.04252cm</Top>
+        <Left>0.70591cm</Left>
+        <Height>0.70583cm</Height>
+        <Width>3.1868cm</Width>
+        <ZIndex>7</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>

@@ -20,6 +20,10 @@
       <Name>Reporte_Competencias_Transversales.rdl</Name>
       <FullPath>Reporte_Competencias_Transversales.rdl</FullPath>
     </ProjectItem>
+    <ProjectItem>
+      <Name>Reporte_Competencias_Puesto_Por_Jerarquia.rdl</Name>
+      <FullPath>Reporte_Competencias_Puesto_Por_Jerarquia.rdl</FullPath>
+    </ProjectItem>
   </Reports>
   <Configurations>
     <Configuration>
