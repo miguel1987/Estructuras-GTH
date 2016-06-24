@@ -53,7 +53,7 @@ AsyncPostBackTimeout="360000">
       </ul>
         </div>
   </div>
-      <a class="soporte" href="#"> <asp:Label ID="lblLogin" runat="server" Text="Nombre Usuario"></asp:Label></a>
+      <a class="soporte" href="../UI_SEGURIDAD/Index.aspx"> <asp:Label ID="lblLogin" runat="server" Text="Nombre Usuario"></asp:Label></a>
   
       
       
