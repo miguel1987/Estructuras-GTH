@@ -129,18 +129,6 @@
         </FilterMenu>
        </telerik:RadGrid>
    </div>
-   
-   
-
-
-
-
-
-
-
-
-
-
    <div>
        <table class="tabla_pagina">
            <tr>

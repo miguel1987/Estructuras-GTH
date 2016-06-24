@@ -25,20 +25,18 @@ namespace WebUI.UI_EVALUACION
             validarUsuarioEnDominio();
             USUARIO = Guid.Parse(Session["PERSONAL_ID"].ToString());
 
-
-            if (!String.IsNullOrEmpty(Request.QueryString["pPersonalId"])) hf_PersonalId.Value = Request.QueryString["pPersonalId"];
-
-            if (!String.IsNullOrEmpty(Request.QueryString["pPuestoId"])) hf_PuestoId.Value = Request.QueryString["pPuestoId"];
-
-            if (!String.IsNullOrEmpty(Request.QueryString["pDescripcionPersonal"])) hf_Personal.Value = Request.QueryString["pDescripcionPersonal"];
-
-            if (!String.IsNullOrEmpty(Request.QueryString["pDescripcionPuesto"])) hf_Puesto.Value = Request.QueryString["pDescripcionPuesto"];
-            if (!string.IsNullOrEmpty(Request.QueryString["PDepartamento"])) hf_Departamento.Value = Request.QueryString["PDepartamento"];
-            if (!string.IsNullOrEmpty(Request.QueryString["PEstadoDescripcion"])) hf_Estado.Value = Request.QueryString["PEstadoDescripcion"];
-
-
             if (!Page.IsPostBack)
             {
+                if (!String.IsNullOrEmpty(Request.QueryString["pPersonalId"])) hf_PersonalId.Value = Request.QueryString["pPersonalId"];
+
+                if (!String.IsNullOrEmpty(Request.QueryString["pPuestoId"])) hf_PuestoId.Value = Request.QueryString["pPuestoId"];
+
+                if (!String.IsNullOrEmpty(Request.QueryString["pDescripcionPersonal"])) hf_Personal.Value = Request.QueryString["pDescripcionPersonal"];
+
+                if (!String.IsNullOrEmpty(Request.QueryString["pDescripcionPuesto"])) hf_Puesto.Value = Request.QueryString["pDescripcionPuesto"];
+                if (!string.IsNullOrEmpty(Request.QueryString["PDepartamento"])) hf_Departamento.Value = Request.QueryString["PDepartamento"];
+                if (!string.IsNullOrEmpty(Request.QueryString["PEstadoDescripcion"])) hf_Estado.Value = Request.QueryString["PEstadoDescripcion"];
+
                 //Asignar valores
                 lblArea.Text =hf_Departamento.Value;
                 lblPersonal.Text = hf_Personal.Value;
@@ -95,7 +93,7 @@ namespace WebUI.UI_EVALUACION
                 (e.Item as GridEditableItem)["ESTADO_EVALUACION"].Visible = false;
 
             }
-            if (hf_Estado.Value == "Evaluado")
+            if (hf_Estado.Value == BE_EVALUACION_COMPETENCIA_PUESTO.ESTADO_EVALUACION.Evaluado.ToString())
             {
                 if (e.Item is GridDataItem)
                 {
@@ -178,6 +176,10 @@ namespace WebUI.UI_EVALUACION
                 oentidadeValua.PERSONAL_ID = Guid.Parse(hf_PersonalId.Value);
                 oentidadeValua.PUESTO_ID = Guid.Parse(hf_PuestoId.Value);
                 BL_EVALUACIONES_COMPETENCIAS_PUESTOS_PERSONAL.ActualizarEvaluacionFinal(oentidadeValua);
+                hf_Estado.Value = BE_EVALUACION_COMPETENCIA_PUESTO.ESTADO_EVALUACION.Evaluado.ToString();
+                ActualizarGrilla();
+
+                lblMensaje.Text = "Se actualizó el Estado de las Competencias a Evaluado. Éstas ya no podrán ser editadas.";
                
                 
             }

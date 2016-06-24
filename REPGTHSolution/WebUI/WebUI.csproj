@@ -228,6 +228,7 @@
     <Content Include="UI_ADMINISTRACION\CompetenciasPorPuesto.aspx" />
     <Content Include="UI_ADMINISTRACION\CompetenciasTransversales.aspx" />
     <Content Include="UI_ADMINISTRACION\Coordinacion.aspx" />
+    <Content Include="UI_ADMINISTRACION\ParametrosSistema.aspx" />
     <Content Include="UI_ADMINISTRACION\Empresa.aspx" />
     <Content Include="UI_ADMINISTRACION\Gerencia.aspx" />
     <Content Include="UI_ADMINISTRACION\GrupoOrganizacional.aspx" />
@@ -238,6 +239,7 @@
     <Content Include="UI_EVALUACION\EvaluacionesCompetenciasPorPuesto.aspx" />
     <Content Include="UI_EVALUACION\EvaluacionesTransversalesLiderazgo.aspx" />
     <Content Include="UI_EVALUACION\EvaluacionCompetenciasPuesto.aspx" />
+    <Content Include="UI_REPORTES\ReporteCompetenciasPuestoJerarquia.aspx" />
     <Content Include="UI_REPORTES\Reporte_Evaluacion_Colaboradores.aspx" />
     <Content Include="UI_REPORTES\ReporteCompetenciasPuesto.aspx" />
     <Content Include="UI_REPORTES\ReporteCompetenciasTransversales.aspx" />
@@ -326,6 +328,13 @@
     <Compile Include="UI_ADMINISTRACION\Coordinacion.aspx.designer.cs">
       <DependentUpon>Coordinacion.aspx</DependentUpon>
     </Compile>
+    <Compile Include="UI_ADMINISTRACION\ParametrosSistema.aspx.cs">
+      <DependentUpon>ParametrosSistema.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI_ADMINISTRACION\ParametrosSistema.aspx.designer.cs">
+      <DependentUpon>ParametrosSistema.aspx</DependentUpon>
+    </Compile>
     <Compile Include="UI_ADMINISTRACION\Empresa.aspx.cs">
       <DependentUpon>Empresa.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -395,6 +404,13 @@
     </Compile>
     <Compile Include="UI_EVALUACION\EvaluacionCompetenciasPuesto.aspx.designer.cs">
       <DependentUpon>EvaluacionCompetenciasPuesto.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI_REPORTES\ReporteCompetenciasPuestoJerarquia.aspx.cs">
+      <DependentUpon>ReporteCompetenciasPuestoJerarquia.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI_REPORTES\ReporteCompetenciasPuestoJerarquia.aspx.designer.cs">
+      <DependentUpon>ReporteCompetenciasPuestoJerarquia.aspx</DependentUpon>
     </Compile>
     <Compile Include="UI_REPORTES\Reporte_Evaluacion_Colaboradores.aspx.cs">
       <DependentUpon>Reporte_Evaluacion_Colaboradores.aspx</DependentUpon>

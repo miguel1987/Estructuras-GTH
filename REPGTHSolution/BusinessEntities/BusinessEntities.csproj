@@ -61,6 +61,7 @@
     <Compile Include="BE_PUESTO.cs" />
     <Compile Include="BE_SEDE.cs" />
     <Compile Include="BE_USUARIO.cs" />
+    <Compile Include="BE_PARAMETRO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

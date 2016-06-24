@@ -93,7 +93,7 @@
                     <ItemStyle CssClass="MyImageButton"></ItemStyle>
                 </telerik:GridEditCommandColumn>
                 <telerik:GridButtonColumn ConfirmText="¿Deseas eliminar esta Área?" ConfirmDialogType="RadWindow"
-                    ConfirmTitle="Eliminar Área " ButtonType="ImageButton" CommandName="Delete" Text="Eliminar"
+                    ConfirmTitle="Eliminar Área" ButtonType="ImageButton" CommandName="Delete" Text="Eliminar"
                     UniqueName="EliminarArea">
                     <ItemStyle HorizontalAlign="Center" CssClass="MyImageButton"></ItemStyle>
                 </telerik:GridButtonColumn>
