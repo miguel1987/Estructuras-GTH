@@ -282,7 +282,7 @@ namespace BussinesLogicLayer
                     {
                         oBE_PERSONAL_TMP.oBE_PUESTO = oPUESTO;
                     }
-
+                 
                     oGRUPO_ORGANIZACIONAL = new DA_GRUPO_ORGANIZACIONAL().SeleccionarGrupoOrganizacionalPorId(oBE_PERSONAL_TMP.GRUPO_ORGANIZACIONAL_ID);
                     if (oGRUPO_ORGANIZACIONAL != null)
                     {

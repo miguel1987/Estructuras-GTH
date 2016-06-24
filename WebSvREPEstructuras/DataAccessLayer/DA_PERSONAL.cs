@@ -772,6 +772,7 @@ namespace DataAccessLayer
                     int PERSONAL_PUESTO_ID = dr.GetOrdinal("PERSONAL_PUESTO");                    
                     int PERSONAL_GRUPO_ORGANIZACIONAL_ID = dr.GetOrdinal("PERSONAL_GRUPO_ORGANIZACIONAL");
                     int PERSONAL_CORREO = dr.GetOrdinal("PERSONAL_CORREO");
+                    int PERSONAL_NOMBRE_USUARIO = dr.GetOrdinal("PERSONAL_NOMBRE_USUARIO");
 
                     // creamos un objeto del tamaño de la tupla en el array de objeto Valores
                     object[] Valores = new object[dr.FieldCount];
@@ -801,7 +802,7 @@ namespace DataAccessLayer
                             oBE_PERSONAL.PUESTO_ID = DBNull.Value == Valores.GetValue(PERSONAL_PUESTO_ID) ? Guid.Empty :  (Guid)Valores.GetValue(PERSONAL_PUESTO_ID);
                             oBE_PERSONAL.GRUPO_ORGANIZACIONAL_ID = DBNull.Value == Valores.GetValue(PERSONAL_GRUPO_ORGANIZACIONAL_ID) ? Guid.Empty : (Guid)Valores.GetValue(PERSONAL_GRUPO_ORGANIZACIONAL_ID);                            
                             oBE_PERSONAL.CORREO = Valores.GetValue(PERSONAL_CORREO).ToString();
-                           
+                            oBE_PERSONAL.NOMBRE_USUARIO = Valores.GetValue(PERSONAL_NOMBRE_USUARIO).ToString();
 
                         }
                     }
