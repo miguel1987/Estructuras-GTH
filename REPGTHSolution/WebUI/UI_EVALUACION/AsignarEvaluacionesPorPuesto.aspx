@@ -59,16 +59,30 @@
                 </telerik:GridBoundColumn> 
                 <telerik:GridBoundColumn EditFormHeaderTextFormat="" DataField="COMPETENCIA_PUESTO_VALOR_REQUERIDO" HeaderText="REQUERIDO" SortExpression="COMPETENCIA_PUESTO_VALOR_REQUERIDO" UniqueName="COMPETENCIA_PUESTO_VALOR_REQUERIDO"  HeaderStyle-Font-Size="8">                    
 <HeaderStyle Width="90%"></HeaderStyle>
-                </telerik:GridBoundColumn>     
-                <telerik:GridBoundColumn DataField="REAL" HeaderText="REAL" SortExpression="REAL" UniqueName="REAL" 
-                    AutoPostBackOnFilter="true">  
-                                   <ColumnValidationSettings EnableRequiredFieldValidation="true"  >
-        <RequiredFieldValidator ForeColor="Red" ErrorMessage="(*)Ingresar Valor Real"></RequiredFieldValidator>     
-    </ColumnValidationSettings>
-      
-<HeaderStyle Font-Size="8pt"></HeaderStyle>
+                </telerik:GridBoundColumn>
+                <telerik:GridTemplateColumn HeaderStyle-Font-Size="8pt" DataField="REAL" HeaderText="REAL"
+                    SortExpression="REAL" UniqueName="REAL" AutoPostBackOnFilter="true">
+                    <ItemTemplate>
+                    <%# Eval("REAL")%>
+                    
+                    </ItemTemplate>
+                    <EditItemTemplate>
+                    <asp:TextBox ID="txtValorReal" runat="server" Columns="3" Width="189px" value='<%# Eval("REAL")%>' >
+                        </asp:TextBox>
+                   <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ValidationExpression="\d+"
+                            ControlToValidate="txtValorReal" ForeColor="Red" ErrorMessage="[0-9]"
+                            Display="Dynamic"></asp:RegularExpressionValidator>
+                    
+                    </EditItemTemplate>
 
-            </telerik:GridBoundColumn>  
+                    <InsertItemTemplate>
+                        <asp:TextBox ID="txtValorRealIns" runat="server" Columns="3" Width="300px">
+                        </asp:TextBox>
+                        <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ValidationExpression="\d+"
+                            ControlToValidate="txtValorRealIns" ForeColor="Red" ErrorMessage="[0-9]"
+                            Display="Dynamic"></asp:RegularExpressionValidator>
+                    </InsertItemTemplate>
+                    </telerik:GridTemplateColumn>     
                 <telerik:GridBoundColumn DataField="COMENTARIO" HeaderText="COMENTARIO" SortExpression="COMENTARIO" UniqueName="COMENTARIO" 
                     AutoPostBackOnFilter="true" AllowFiltering="true">
                                     <ColumnValidationSettings EnableRequiredFieldValidation="true"  >
@@ -98,7 +112,7 @@
                     <HeaderStyle Width="8px"></HeaderStyle>
                     <ItemStyle Width="8px"></ItemStyle>
                 </telerik:GridTemplateColumn> --%>
-               <telerik:GridEditCommandColumn ButtonType="ImageButton" EditText="Actualizar"
+               <telerik:GridEditCommandColumn  ButtonType="ImageButton" EditText="Actualizar"
                     UniqueName="EditCommandColumn" CancelImageUrl="../images/ico-delete.png" 
                     InsertImageUrl="../images/ico-edit.png" UpdateImageUrl="../images/ico-edit.png">
                     <ItemStyle CssClass="MyImageButton"></ItemStyle>
@@ -115,6 +129,18 @@
         </FilterMenu>
        </telerik:RadGrid>
    </div>
+   
+   
+
+
+
+
+
+
+
+
+
+
    <div>
        <table class="tabla_pagina">
            <tr>

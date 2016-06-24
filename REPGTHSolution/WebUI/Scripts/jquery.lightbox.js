@@ -398,7 +398,9 @@
       
       addevents: function() {
         this.esqueleto.buttons.close.bind('click', $.proxy(function(ev) {
-          this.close();
+            this.close();
+            window.parent.location.href = "EvaluacionCompetenciasPuesto.aspx"
+
           ev.preventDefault();
         }, this));
 

@@ -95,6 +95,17 @@ namespace WebUI.UI_EVALUACION
                 (e.Item as GridEditableItem)["ESTADO_EVALUACION"].Visible = false;
 
             }
+            if (hf_Estado.Value == "Evaluado")
+            {
+                if (e.Item is GridDataItem)
+                {
+                    GridDataItem item = (GridDataItem)e.Item;
+
+                    ImageButton imageButton = (ImageButton)item["EditCommandColumn"].Controls[0];
+                    imageButton.Visible = false;
+                }
+
+            }
         }
 
         
@@ -111,6 +122,7 @@ namespace WebUI.UI_EVALUACION
             //populate its properties
             Hashtable values = new Hashtable();
             editableItem.ExtractValues(values);
+            TextBox tbTipo = null;
 
             BE_EVALUACIONES_COMPETENCIAS_PUESTOS_PERSONAL oentidad = new BE_EVALUACIONES_COMPETENCIAS_PUESTOS_PERSONAL();
 
@@ -121,12 +133,12 @@ namespace WebUI.UI_EVALUACION
                 COMPETENCIA_ID = Guid.Empty;
             else
                 COMPETENCIA_ID = Guid.Parse(editableItem.GetDataKeyValue("COMPETENCIA_ID").ToString());
-           
+            tbTipo = (TextBox)e.Item.FindControl("txtValorReal");
             oentidad.COMPETENCIA_ID = (Guid)COMPETENCIA_ID;
             hf_CompetenciaId.Value = oentidad.COMPETENCIA_ID.ToString();
             oentidad.PERSONAL_ID = Guid.Parse(hf_PersonalId.Value);
             oentidad.PUESTO_ID = Guid.Parse(hf_PuestoId.Value);
-            oentidad.REAL = Convert.ToInt16(values["REAL"]);
+            oentidad.REAL =Convert.ToInt32( tbTipo.Text);
             oentidad.BRECHA = Convert.ToInt32(values["COMPETENCIA_PUESTO_VALOR_REQUERIDO"]) - oentidad.REAL;
             oentidad.ESTADO_EVALUACION = Convert.ToInt16(values["ESTADO_EVALUACION"]);
             oentidad.COMENTARIO = values["COMENTARIO"].ToString();
@@ -163,9 +175,11 @@ namespace WebUI.UI_EVALUACION
                 BE_EVALUACIONES_COMPETENCIAS_PUESTOS_PERSONAL oentidadeValua = new BE_EVALUACIONES_COMPETENCIAS_PUESTOS_PERSONAL();
 
 
-                oentidadeValua.COMPETENCIA_ID = Guid.Parse(hf_PersonalId.Value);
+                oentidadeValua.PERSONAL_ID = Guid.Parse(hf_PersonalId.Value);
                 oentidadeValua.PUESTO_ID = Guid.Parse(hf_PuestoId.Value);
                 BL_EVALUACIONES_COMPETENCIAS_PUESTOS_PERSONAL.ActualizarEvaluacionFinal(oentidadeValua);
+               
+                
             }
 
             else
