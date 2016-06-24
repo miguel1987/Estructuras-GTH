@@ -24,10 +24,11 @@
     </head>
     <body>
     <form id="form" runat="server">
-<div class="configuracion"> <a class="user" href="#"> </a>
+<div class="configuracion"><asp:ImageButton CssClass="prueba"  runat="server" OnClick="link_Salir_Click"  ImageUrl="../Images/ico-user.png" ToolTip="Salir" />
  <cc1:ToolkitScriptManager ID="smMaster" runat="server" ScriptMode="Release" EnableScriptGlobalization="true"
 EnablePartialRendering="true" AsyncPostBackErrorMessage="Error de Conexión, intente otra vez."
 AsyncPostBackTimeout="360000">
+
 </cc1:ToolkitScriptManager>
       <div class="infobox"> <img alt="" src="../Images/ico-configuracion.png"></img>
     <div class="more">
@@ -46,16 +47,18 @@ AsyncPostBackTimeout="360000">
             <li><a href="../UI_ADMINISTRACION/CompetenciasTransversales.aspx">Competencias Transversales</a></li>
             <li><a href="../UI_ADMINISTRACION/Competencias.aspx">Catálogo de Competencias</a></li>
             <li><a href="../UI_ADMINISTRACION/CompetenciasPorPuesto.aspx" class="separador">Competencias por Puesto</a></li>
-            <li><a href="#">Parametros del Sistema</a></li>
+            <li><a href="../UI_ADMINISTRACION/ParametrosSistema.aspx">Parametros del Sistema</a></li>
           </ul>
             </li>
       </ul>
         </div>
   </div>
-      <a class="soporte" href="#"> Soporte administrador del Sistema</a> 
+      <a class="soporte" href="#"> <asp:Label ID="lblLogin" runat="server" Text="Nombre Usuario"></asp:Label></a>
+  
+      
       
       <!--<div class="soporte"> Soporte administrador del Sistema </div>--> 
-    </div>
+    
 <table class="master" width="100%" border="0" cellspacing="0" cellpadding="0">
       <tr>
     <td valign="top" class="menu"><div class="logo-isa-rep"></div>

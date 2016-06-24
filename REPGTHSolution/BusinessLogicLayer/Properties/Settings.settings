@@ -3,7 +3,7 @@
   <Profiles />
   <Settings>
     <Setting Name="BusinessLogicLayer_wsMaestros_mantenimientoMaestros" Type="(Web Service URL)" Scope="Application">
-      <Value Profile="(Default)">http://localhost:9771/mantenimientoEstructuras.asmx</Value>
+      <Value Profile="(Default)">http://localhost:50930/mantenimientoEstructuras.asmx</Value>
     </Setting>
   </Settings>
 </SettingsFile>

@@ -2727,10 +2727,10 @@
   </wsdl:binding>
   <wsdl:service name="mantenimientoEstructuras">
     <wsdl:port name="mantenimientoEstructurasSoap" binding="tns:mantenimientoEstructurasSoap">
-      <soap:address location="http://localhost:9771/mantenimientoEstructuras.asmx" />
+      <soap:address location="http://localhost:50930/mantenimientoEstructuras.asmx" />
     </wsdl:port>
     <wsdl:port name="mantenimientoEstructurasSoap12" binding="tns:mantenimientoEstructurasSoap12">
-      <soap12:address location="http://localhost:9771/mantenimientoEstructuras.asmx" />
+      <soap12:address location="http://localhost:50930/mantenimientoEstructuras.asmx" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

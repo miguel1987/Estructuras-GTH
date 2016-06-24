@@ -129,6 +129,7 @@ namespace WebUI
                 Session.Add("AREA_ID", oBE_USUARIO.oBE_PERSONAL.AREA_ID);
                 Session.Add("GERENCIA_ID", oBE_USUARIO.oBE_PERSONAL.GERENCIA_ID);
                 Session.Add("EMPRESA_ID", oBE_USUARIO.oBE_PERSONAL.EMPRESA_ID);
+                Session.Add("PERSONAL_NOMBRE_USUARIO", oBE_USUARIO.oBE_PERSONAL.NOMBRE_USUARIO);
                 Session.Add("PERFIL_ID", oBE_USUARIO.PERFIL_ID);
                 Session.Add("PERSONAL_NOMBRE_COMPLETO", oBE_USUARIO.oBE_PERSONAL.NOMBRES_COMPLETOS);
             }     

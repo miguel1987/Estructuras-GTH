@@ -14,18 +14,11 @@ namespace WebUI.Template
             if (Session["PERFIL_ID"] == null)
             {
                 Response.Redirect("~/UI_SEGURIDAD/Acceso.aspx");
-            }                
+            }
 
-            if (Session["PERFIL_ID"].ToString() != "1")
+            if (Session["PERSONAL_NOMBRE_USUARIO"] != null)
             {
-                //MenuItemCollection menuItems = MnuPeti.Items;
-                //MenuItem adminItem = new MenuItem();
-                //foreach (MenuItem menuItem in menuItems)
-                //{
-                //    if (menuItem.Text == "Administracion")
-                //        adminItem = menuItem;
-                //}
-                //menuItems.Remove(adminItem);
+                lblLogin.Text = Session["PERSONAL_NOMBRE_USUARIO"].ToString();
 
             }
             
@@ -37,5 +30,19 @@ namespace WebUI.Template
         {
             Response.Redirect("~/UI_SEGURIDAD/Acceso.aspx");
         }
+
+        protected void link_Salir_Click(object sender, EventArgs e)
+        {
+            Session.Abandon();
+            Session.Clear();
+
+            Response.Redirect("~/UI_SEGURIDAD/Acceso.aspx");
+        }
+        
+            
+
+
+
+
     }
 }
