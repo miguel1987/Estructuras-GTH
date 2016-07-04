@@ -9,3 +9,11 @@
 
 
 
+.RadPivotGrid_Default .rpgFilterZone, .RadPivotGrid_Default .rpgRowsZone, .RadPivotGrid_Default .rpgColumnsZone, .RadPivotGrid_Default .rpgDataZone, .RadPivotGrid_Default .rpgColumnHeader, .RadPivotGrid_Default .rpgColumnHeaderTotal, .RadPivotGrid_Default .rpgColumnHeaderGrandTotal, .RadPivotGrid_Default .rpgContentZoneDiv th
+{
+    background-color:#eaeaea;
+    background-position:0 -2000px;
+    background-repeat:repeat-x;
+    width:100px;
+    
+}
