@@ -563,6 +563,7 @@ namespace DataAccessLayer
             DbDataReader dr;
             cnx = DC_Connection.getConnection();
             List<BE_PERSONAL> oPERSONAL = null;
+            List<BE_GRUPO_ORGANIZACIONAL> oGRUPO_ORGANIZACIONAL = null;
             try
             {
                 using (SqlCommand objCmd = new SqlCommand()
@@ -602,6 +603,7 @@ namespace DataAccessLayer
 
                         // Instancionamos la lista para empezar a setearla
                         oPERSONAL = new List<BE_PERSONAL>();
+                        
                         while (dr.Read())
                         {
                             // Obetemos los valores para la tupla
@@ -622,8 +624,11 @@ namespace DataAccessLayer
                             oBE_PERSONAL.GRUPO_ORGANIZACIONAL_ID = DBNull.Value == Valores.GetValue(PERSONAL_GRUPO_ORGANIZACIONAL_ID) ? Guid.Empty : (Guid)Valores.GetValue(PERSONAL_GRUPO_ORGANIZACIONAL_ID);
                             oBE_PERSONAL.CORREO = Valores.GetValue(PERSONAL_CORREO).ToString();
 
-
-
+                            oGRUPO_ORGANIZACIONAL = new DA_GRUPO_ORGANIZACIONAL().SeleccionarGrupoOrganizacionalPorId(oBE_PERSONAL.GRUPO_ORGANIZACIONAL_ID);
+                            if (oGRUPO_ORGANIZACIONAL != null)
+                            {
+                                oBE_PERSONAL.oBE_GRUPO_ORGANIZACIONAL = oGRUPO_ORGANIZACIONAL[0];
+                            }
 
                             oPERSONAL.Add(oBE_PERSONAL);
                         }
