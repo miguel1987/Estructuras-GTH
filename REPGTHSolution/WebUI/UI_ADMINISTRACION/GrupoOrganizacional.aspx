@@ -51,7 +51,7 @@
                         </RequiredFieldValidator>
                     </ColumnValidationSettings>
                 </telerik:GridBoundColumn>              
-                <telerik:GridBoundColumn DataField="DESCRIPCION" HeaderText="EMPRESA" SortExpression="DESCRIPCION" UniqueName="DESCRIPCION" HeaderStyle-Width="50%" 
+                <telerik:GridBoundColumn DataField="DESCRIPCION" HeaderText="GRUPO ORGANIZACIONAL" SortExpression="DESCRIPCION" UniqueName="DESCRIPCION" HeaderStyle-Width="50%" 
                     AutoPostBackOnFilter="true">
                     <ColumnValidationSettings EnableRequiredFieldValidation="true">
                         <RequiredFieldValidator ForeColor="Red" Text="*">

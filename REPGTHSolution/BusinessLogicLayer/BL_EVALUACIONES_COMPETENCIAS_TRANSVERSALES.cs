@@ -15,6 +15,7 @@ namespace BusinessLogicLayer
         wsMaestros.mantenimientoEstructuras wsMantenimientoEstructuras = new wsMaestros.mantenimientoEstructuras();
         wsMaestros.BE_PERSONAL[] oListaPorEmpresa, oListaPorPresidencia, oListaPorGerencia, oListaPorArea, oListaPorCoordinacion = null;
         wsMaestros.BE_COORDINACION[] oListaCoordinaciones = null;
+        wsMaestros.BE_GERENCIA[] oListaGerencias = null;
         DA_EVALUACION_COMPETENCIA_PUESTO DA_COMPETENCIA_PUESTO = new DA_EVALUACION_COMPETENCIA_PUESTO();
 
        
@@ -36,7 +37,7 @@ namespace BusinessLogicLayer
 
                 case 2:
                     oListaPorGerencia = wsMantenimientoEstructuras.SeleccionarPersonalPorGerencia(jerarquia_id);
-
+                    oListaGerencias = wsMantenimientoEstructuras.SeleccionarGerenciaPorId(jerarquia_id);
                     break;
                 case 3:
                     oListaPorArea = wsMantenimientoEstructuras.SeleccionarPersonalPorArea(jerarquia_id);
@@ -48,7 +49,7 @@ namespace BusinessLogicLayer
 
             }
 
-            //List<BE_EVALUACION_COMPETENCIA_PUESTO> oListaEvaluacionesEstado = new List<BE_EVALUACION_COMPETENCIA_PUESTO>();
+            
             if (oListaPorEmpresa != null)
             {
                 foreach (var item in oListaPorEmpresa)
@@ -80,23 +81,30 @@ namespace BusinessLogicLayer
                  {
                      if (item.oBE_GRUPO_ORGANIZACIONAL != null)
                      {
-                         if (item.oBE_GRUPO_ORGANIZACIONAL.CODIGO == BE_EVALUACION_COMPETENCIA_PUESTO.PERSONAL_CODIGO.GE.ToString() || item.oBE_GRUPO_ORGANIZACIONAL.CODIGO == BE_EVALUACION_COMPETENCIA_PUESTO.PERSONAL_CODIGO.JD.ToString() || item.oBE_GRUPO_ORGANIZACIONAL.CODIGO == BE_EVALUACION_COMPETENCIA_PUESTO.PERSONAL_CODIGO.SE.ToString())
+                         if (oListaGerencias[0].CODIGO != BE_GERENCIA.CODIGO_GERENCIA.GN.ToString())
                          {
-                             List<BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES> oListaEvaluacionesTransversales_Temp = new List<BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES>();
-                             oListaEvaluacionesTransversales_Temp = CargarListaEvaluaciones(item);
-                             oListaEvaluacionesTransversales.AddRange(oListaEvaluacionesTransversales_Temp);
+
+                             if (item.oBE_GRUPO_ORGANIZACIONAL.CODIGO == BE_EVALUACION_COMPETENCIA_PUESTO.PERSONAL_CODIGO.GE.ToString() || item.oBE_GRUPO_ORGANIZACIONAL.CODIGO == BE_EVALUACION_COMPETENCIA_PUESTO.PERSONAL_CODIGO.JD.ToString() || item.oBE_GRUPO_ORGANIZACIONAL.CODIGO == BE_EVALUACION_COMPETENCIA_PUESTO.PERSONAL_CODIGO.SE.ToString())
+                             {
+                                 List<BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES> oListaEvaluacionesTransversales_Temp = new List<BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES>();
+                                 oListaEvaluacionesTransversales_Temp = CargarListaEvaluaciones(item);
+                                 oListaEvaluacionesTransversales.AddRange(oListaEvaluacionesTransversales_Temp);
+
+                             }
+                         }
+                         else
+                         {
+                             if (item.oBE_GRUPO_ORGANIZACIONAL.CODIGO == BE_EVALUACION_COMPETENCIA_PUESTO.PERSONAL_CODIGO.GE.ToString() || item.oBE_GRUPO_ORGANIZACIONAL.CODIGO == BE_EVALUACION_COMPETENCIA_PUESTO.PERSONAL_CODIGO.JD.ToString() || item.oBE_GRUPO_ORGANIZACIONAL.CODIGO == BE_EVALUACION_COMPETENCIA_PUESTO.PERSONAL_CODIGO.SE.ToString() || item.oBE_GRUPO_ORGANIZACIONAL.CODIGO == BE_EVALUACION_COMPETENCIA_PUESTO.PERSONAL_CODIGO.CO.ToString())
+                             {
+                                 List<BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES> oListaEvaluacionesTransversales_Temp = new List<BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES>();
+                                 oListaEvaluacionesTransversales_Temp = CargarListaEvaluaciones(item);
+                                 oListaEvaluacionesTransversales.AddRange(oListaEvaluacionesTransversales_Temp);
+
+                             }
 
                          }
 
-                         
-
-                         
-
                      }
-
-                    
-                     
-
                  }
              }
             

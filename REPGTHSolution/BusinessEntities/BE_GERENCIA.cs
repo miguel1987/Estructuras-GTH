@@ -16,5 +16,17 @@ namespace BusinessEntities
         public Nullable<Int32> ESTADO { get; set; }
         public Guid EMPRESA_ID { get; set; }
         public BE_EMPRESA oBE_EMPRESA { get; set; }
+
+        public enum CODIGO_GERENCIA
+        {
+            GN = 1,
+            GOM = 2,
+            GF = 3,
+            GA = 4,
+            C = 5,
+            GG = 6,
+            GP = 7
+
+        }
     }
 }
