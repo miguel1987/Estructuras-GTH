@@ -749,6 +749,7 @@ namespace DataAccessLayer
             DbDataReader dr;
             cnx = DC_Connection.getConnection();
             BE_PERSONAL oBE_PERSONAL = null;
+            List<BE_GRUPO_ORGANIZACIONAL> oGRUPO_ORGANIZACIONAL = null;
             try
             {
                 using (SqlCommand objCmd = new SqlCommand()
@@ -808,7 +809,13 @@ namespace DataAccessLayer
                             oBE_PERSONAL.GRUPO_ORGANIZACIONAL_ID = DBNull.Value == Valores.GetValue(PERSONAL_GRUPO_ORGANIZACIONAL_ID) ? Guid.Empty : (Guid)Valores.GetValue(PERSONAL_GRUPO_ORGANIZACIONAL_ID);                            
                             oBE_PERSONAL.CORREO = Valores.GetValue(PERSONAL_CORREO).ToString();
                             oBE_PERSONAL.NOMBRE_USUARIO = Valores.GetValue(PERSONAL_NOMBRE_USUARIO).ToString();
-
+                            
+                            oGRUPO_ORGANIZACIONAL = new DA_GRUPO_ORGANIZACIONAL().SeleccionarGrupoOrganizacionalPorId(oBE_PERSONAL.GRUPO_ORGANIZACIONAL_ID);
+                            if (oGRUPO_ORGANIZACIONAL != null)
+                            {
+                                oBE_PERSONAL.oBE_GRUPO_ORGANIZACIONAL = oGRUPO_ORGANIZACIONAL[0];
+                            }
+                            
                         }
                     }
                 }
