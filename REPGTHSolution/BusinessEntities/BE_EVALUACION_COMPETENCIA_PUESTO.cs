@@ -37,9 +37,11 @@ namespace BusinessEntities
               GE=1,
               SE=2,
               JD=3,
-              CO=4
+              CO=4,
+              GG =100809
       
       }
+
 
     }
 }
