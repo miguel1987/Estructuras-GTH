@@ -25,8 +25,10 @@ namespace BusinessEntities
             GA = 4,
             C = 5,
             GG = 6,
-            GP = 7
-
+            GP = 7,
+            AJ = 8,
+            AI = 9,
+            CC = 10
         }
     }
 }
