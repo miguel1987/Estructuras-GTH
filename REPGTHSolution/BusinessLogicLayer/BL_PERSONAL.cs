@@ -432,8 +432,9 @@ namespace BusinessLogicLayer
         {
             wsMaestros.BE_PERSONAL oPersonal = wsMantenimientoEstructuras.SeleccionarPersonalPorUsuario(NombreUsuario);
             
-            BE_PERSONAL oBE_PERSONAL = new BE_PERSONAL();                   
-
+            BE_PERSONAL oBE_PERSONAL = new BE_PERSONAL();
+            BE_GRUPO_ORGANIZACIONAL oGRUPO_ORGANIZACIONAL = new BE_GRUPO_ORGANIZACIONAL();
+            
             if (oPersonal != null)
             {
                 oBE_PERSONAL.ID = oPersonal.ID;
@@ -451,7 +452,14 @@ namespace BusinessLogicLayer
                 oBE_PERSONAL.EMPRESA_ID = oPersonal.EMPRESA_ID;
                 oBE_PERSONAL.COORDINACION_ID = oPersonal.COORDINACION_ID;
                 oBE_PERSONAL.SEDE_ID = oPersonal.SEDE_ID;
-                oBE_PERSONAL.GRUPO_ORGANIZACIONAL_ID = oPersonal.GRUPO_ORGANIZACIONAL_ID;
+                oBE_PERSONAL.GRUPO_ORGANIZACIONAL_ID = oPersonal.GRUPO_ORGANIZACIONAL_ID;               
+
+                if (oPersonal.oBE_GRUPO_ORGANIZACIONAL != null)
+                {
+                    oGRUPO_ORGANIZACIONAL.CODIGO = oPersonal.oBE_GRUPO_ORGANIZACIONAL.CODIGO;
+                    oGRUPO_ORGANIZACIONAL.DESCRIPCION = oPersonal.oBE_GRUPO_ORGANIZACIONAL.DESCRIPCION;
+                    oBE_PERSONAL.oBE_GRUPO_ORGANIZACIONAL = oGRUPO_ORGANIZACIONAL;
+                }
                 
             }
 

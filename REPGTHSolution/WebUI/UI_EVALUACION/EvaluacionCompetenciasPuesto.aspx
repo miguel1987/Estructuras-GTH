@@ -19,7 +19,7 @@
 
  </script>
 
-  <div class="frm_titulo01">Evaluar Competencias por Puesto</div>
+  <div class="frm_titulo01">Evaluar Competencias técnicas y habilidades por Puesto</div>
           <div class="margen"></div>
           <div class="margen"></div>
 

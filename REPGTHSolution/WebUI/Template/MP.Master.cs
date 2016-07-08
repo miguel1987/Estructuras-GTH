@@ -19,8 +19,10 @@ namespace WebUI.Template
             if (Session["PERSONAL_NOMBRE_USUARIO"] != null)
             {
                 lblLogin.Text = Session["PERSONAL_NOMBRE_USUARIO"].ToString();
+                
 
             }
+
             
                 
 

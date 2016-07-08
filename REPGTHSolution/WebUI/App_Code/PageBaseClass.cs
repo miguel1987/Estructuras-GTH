@@ -111,7 +111,9 @@ namespace WebUI
         public void validarUsuarioEnDominio()
         {
             //string userId = HttpContext.Current.User.Identity.Name.ToString();
-            string userId = "Pc\\soporte_ipd";           
+            
+            string userId = "Pc\\soporte_ipd";   
+            //string userId = "Pc\\avallejos"; 
             string[] useridNew = userId.Trim().Split(new[] { "\\" }, StringSplitOptions.None);
             
             BusinessEntities.BE_USUARIO oBE_USUARIO = BusinessLogicLayer.BL_USUARIO.SeleccionarPersonalPorUsuario(useridNew[1]);
@@ -126,12 +128,17 @@ namespace WebUI
             else
             {
                 Session.Add("PERSONAL_ID", oBE_USUARIO.PERSONAL_ID);
+                Session.Add("COORDINACION_ID", oBE_USUARIO.oBE_PERSONAL.COORDINACION_ID);
                 Session.Add("AREA_ID", oBE_USUARIO.oBE_PERSONAL.AREA_ID);
                 Session.Add("GERENCIA_ID", oBE_USUARIO.oBE_PERSONAL.GERENCIA_ID);
                 Session.Add("EMPRESA_ID", oBE_USUARIO.oBE_PERSONAL.EMPRESA_ID);
                 Session.Add("PERSONAL_NOMBRE_USUARIO", oBE_USUARIO.oBE_PERSONAL.NOMBRE_USUARIO);
                 Session.Add("PERFIL_ID", oBE_USUARIO.PERFIL_ID);
                 Session.Add("PERSONAL_NOMBRE_COMPLETO", oBE_USUARIO.oBE_PERSONAL.NOMBRES_COMPLETOS);
+                if (oBE_USUARIO.oBE_PERSONAL.oBE_GRUPO_ORGANIZACIONAL != null)
+                    Session.Add("CODIGO", oBE_USUARIO.oBE_PERSONAL.oBE_GRUPO_ORGANIZACIONAL.CODIGO);
+                else
+                    Session.Add("CODIGO", String.Empty);
             }     
             
         }

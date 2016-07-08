@@ -63,9 +63,9 @@ AsyncPostBackTimeout="360000">
       <tr>
     <td valign="top" class="menu"><div class="logo-isa-rep"></div>
           <ul id="menu">
-        <li><a href="#">Registro de Evaluaciones </a>
+        <li><a href="../UI_EVALUACION/EvaluacionCompetenciasPuesto.aspx">Registro de evaluación competencias técnicas y habilidades. </a>
               <ul>
-            <li><a href="../UI_EVALUACION/EvaluacionCompetenciasPuesto.aspx">Evaluar Competencias</a></li>
+            <%--<li id="prueba" runat="server"><a href="../UI_EVALUACION/EvaluacionCompetenciasPuesto.aspx">Evaluar Competencias</a></li>--%>
           </ul>
             </li>
         <li><a href="#"> Consulta de Evaluaciones </a>

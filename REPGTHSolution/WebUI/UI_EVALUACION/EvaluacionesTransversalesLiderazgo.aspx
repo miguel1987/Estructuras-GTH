@@ -8,6 +8,10 @@
 <link href="../Styles/Grid.MySilk.css" rel="stylesheet" type="text/css" />
  <link href="../Styles/TreeView.MySilk.css" rel="stylesheet" type="text/css" />
     <link href="../Styles/Pivot.css" rel="stylesheet" type="text/css" />
+    
+
+
+
           <div class="margen"></div>
           <div class="margen"></div>
           <div class="derecha">
@@ -33,21 +37,23 @@
                   <telerik:RadToolTipManager  ID="RadToolTipManager1" runat="server" OnAjaxUpdate="RadToolTipManager1_AjaxUpdate" RenderInPageRoot="true" Animation="Fade" AnimationDuration="300">
                   </telerik:RadToolTipManager>
                   
-                 <telerik:RadTreeView style="overflow-x:hidden" ID="rtvTransversales" runat="server" OnNodeClick="rtvTransversales_NodeClick"></telerik:RadTreeView>
+                 <telerik:RadTreeView style="overflow-x:hidden" ID="rtvTransversales" runat="server" OnNodeClick="rtvTransversales_NodeClick" ></telerik:RadTreeView>
                   
                   <!--Arbol --> 
                   
                 </div></td>
               <td width="10">&nbsp;</td>
               <td valign="top">
-              <telerik:RadPivotGrid  ID="rgEvaluacionesTransversalesporPersonal" CssClass="Pivot" runat="server" ShowColumnHeaderZone="false" ShowRowHeaderZone="false" ShowDataHeaderZone="false" EnableZoneContextMenu="false"  ShowFilterHeaderZone="false"   TotalsSettings-GrandTotalsVisibility="None" AllowSorting="true" 
-        AllowFilteringByColumn="false"   DataSourceID="odsEvaluacionesTransversales" OnCellDataBound="rgEvaluacionesTransversalesporPersonal_CellDataBound" Width="100%" Height="350px"
+              <telerik:RadPivotGrid     ID="rgEvaluacionesTransversalesporPersonal" CssClass="Pivot" runat="server" ShowColumnHeaderZone="false" ShowRowHeaderZone="false" ShowDataHeaderZone="false" EnableZoneContextMenu="false"  ShowFilterHeaderZone="false"   TotalsSettings-GrandTotalsVisibility="None" AllowSorting="true" 
+        AllowFilteringByColumn="false"   DataSourceID="odsEvaluacionesTransversales" OnCellDataBound="rgEvaluacionesTransversalesporPersonal_CellDataBound" whidth="900px"
                        Culture="es-PE" CellPadding="2" CellSpacing="2" 
                        AllowPaging="True" AllowFiltering="true" >
         
         <ClientSettings EnableFieldsDragDrop="true">  
-        <Scrolling AllowVerticalScroll="true"></Scrolling>      
+        
+        <Scrolling  AllowVerticalScroll="true" ></Scrolling>      
             </ClientSettings>
+            
 
             
              
@@ -59,16 +65,16 @@ ColumnsSubTotalsPosition="None" ColumnGrandTotalsPosition="None"  />
             <telerik:PivotGridRowField DataField="CODIGO" UniqueName="CODIGO" 
                >                
             </telerik:PivotGridRowField>
-            <telerik:PivotGridRowField DataField="PERSONAL_DESCRIPCION" UniqueName="PERSONAL_DESCRIPCION" 
+            <telerik:PivotGridRowField DataField="PERSONAL_DESCRIPCION" UniqueName="PERSONAL_DESCRIPCION" CellStyle-Width="50px"
                 >                
             </telerik:PivotGridRowField>
-            <telerik:PivotGridRowField DataField="PUESTO_DESCRIPCION" UniqueName="PUESTO_DESCRIPCION" 
+            <telerik:PivotGridRowField DataField="PUESTO_DESCRIPCION" UniqueName="PUESTO_DESCRIPCION" CellStyle-Width="50px"
                 >                
             </telerik:PivotGridRowField>
-            <telerik:PivotGridColumnField DataField="COMPETENCIA_TRANSVERSAL_DESCRIPCION" UniqueName="COMPETENCIA_TRANSVERSAL_DESCRIPCION" 
+            <telerik:PivotGridColumnField DataField="COMPETENCIA_TRANSVERSAL_DESCRIPCION" UniqueName="COMPETENCIA_TRANSVERSAL_DESCRIPCION" CellStyle-Width="80px"
                 >
             </telerik:PivotGridColumnField >
-            <telerik:PivotGridAggregateField DataField="PORCENTAJE" Aggregate="Sum" CellStyle-Width="40px" DataFormatString="{0:P0}"  >
+            <telerik:PivotGridAggregateField DataField="PORCENTAJE" Aggregate="Sum" CellStyle-Width="30px" DataFormatString="{0:P0}"  >
             
                </telerik:PivotGridAggregateField>
             </Fields>
