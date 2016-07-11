@@ -4,7 +4,7 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="cph_contenedor" runat="server">
 
-<div class="frm_titulo01">Evaluaciones Competencias por Puestos</div>
+<div class="frm_titulo01">Evaluaciones Competencias Técnicas y Habilidades</div>
 <link href="../Styles/Grid.MySilk.css" rel="stylesheet" type="text/css" />
  <link href="../Styles/TreeView.MySilk.css" rel="stylesheet" type="text/css" />
     <link href="../Styles/Pivot.css" rel="stylesheet" type="text/css" />

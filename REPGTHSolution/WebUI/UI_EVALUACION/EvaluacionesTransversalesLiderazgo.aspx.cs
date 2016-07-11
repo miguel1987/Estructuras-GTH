@@ -343,7 +343,11 @@ namespace WebUI.UI_ARCHIVO
 
             CalcularIndicador(idNodo, nivel);
             CalcularIndicadorGerente(idNodo, nivel);
-            //CalcularIndicadorDepartamento(idNodo, nivel);
+
+            if (Convert.ToInt16(lblIndicadorGerencia.Text) == 0)
+                this.lblIndicadorGerencia.Text = this.lblIndicador.Text;
+
+            
         }
 
         protected void CalcularIndicador(string idNodo, string nivel)
@@ -419,56 +423,6 @@ namespace WebUI.UI_ARCHIVO
 
 
         }
-
-
-
-        //protected void CalcularIndicadorDepartamento(string idNodo, string nivel)
-        //{
-
-        //    List<BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES> oListaEvaluacionesIndicador = new List<BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES>();
-        //    BL_EVALUACIONES_COMPETENCIAS_TRANSVERSALES BL_EVALUACIONES_COMPETENCIAS_TRANSVERSALES = new BL_EVALUACIONES_COMPETENCIAS_TRANSVERSALES();
-
-        //    oListaEvaluacionesIndicador = BL_EVALUACIONES_COMPETENCIAS_TRANSVERSALES.CalcularIndicadorporDepartamento(Guid.Parse(idNodo), Int32.Parse(nivel));
-
-        //    decimal contadorGerencia = 0;
-        //    decimal contadorTotalRegistros = 0;
-
-        //    string valor = string.Empty;
-        //    //TODO: Traer de BD
-        //    obtenervalor(valor);
-        //    int parametroCompetenciasDesarrolladas = BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES.VALOR;
-
-
-        //    decimal indicador = 0;
-
-        //    contadorTotalRegistros = oListaEvaluacionesIndicador.Count;
-
-        //    foreach (var itemevaluaciones in oListaEvaluacionesIndicador)
-        //    {
-        //        BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES oEvaluacion_Competencia_Transversales = new BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES();
-        //        oEvaluacion_Competencia_Transversales.PORCENTAJE = itemevaluaciones.PORCENTAJE * 100;
-        //        if (oEvaluacion_Competencia_Transversales.PORCENTAJE >= parametroCompetenciasDesarrolladas)
-
-        //            contadorGerencia++;
-        //    }
-        //    if (contadorGerencia > 0 && contadorTotalRegistros > 0)
-
-        //        indicador = (contadorGerencia / contadorTotalRegistros) * 100;
-
-        //    this.lblIndicadorDepartamento.Text = Decimal.Round(indicador, 0).ToString();
-
-
-        //}
-
-
-
-
-
-
-
-
-
-
 
         protected void obtenervalor(string valor)
         {

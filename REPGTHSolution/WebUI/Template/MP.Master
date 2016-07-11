@@ -63,15 +63,12 @@ AsyncPostBackTimeout="360000">
       <tr>
     <td valign="top" class="menu"><div class="logo-isa-rep"></div>
           <ul id="menu">
-        <li><a href="../UI_EVALUACION/EvaluacionCompetenciasPuesto.aspx">Registro de evaluación competencias técnicas y habilidades. </a>
-              <ul>
-            <%--<li id="prueba" runat="server"><a href="../UI_EVALUACION/EvaluacionCompetenciasPuesto.aspx">Evaluar Competencias</a></li>--%>
-          </ul>
-            </li>
+        <li><a href="../UI_EVALUACION/EvaluacionCompetenciasPuesto.aspx">Evaluar Competencias Técnicas y Habilidades. </a>           
+        </li>
         <li><a href="#"> Consulta de Evaluaciones </a>
               <ul>
             <li><a href="../UI_EVALUACION/EvaluacionesTransversalesLiderazgo.aspx">Transversales y Liderazgo</a></li>
-            <li><a href="../UI_EVALUACION/EvaluacionesCompetenciasPorPuesto.aspx">Competencias por Puesto</a></li>
+            <li><a href="../UI_EVALUACION/EvaluacionesCompetenciasPorPuesto.aspx">Competencias Técnicas y Habilidades</a></li>
           </ul>
             </li>
         <li><a href="#"> Reportes Competencias Transversales</a>

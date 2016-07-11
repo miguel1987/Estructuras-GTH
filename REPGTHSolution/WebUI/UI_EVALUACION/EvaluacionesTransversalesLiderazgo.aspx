@@ -4,7 +4,7 @@
 
 <asp:Content ID="Content2" ContentPlaceHolderID="cph_contenedor" runat="server">
 
-<div class="frm_titulo01">Evaluaciones transversales y de liderazgo</div>
+<div class="frm_titulo01">Evaluaciones Transversales y de Liderazgo</div>
 <link href="../Styles/Grid.MySilk.css" rel="stylesheet" type="text/css" />
  <link href="../Styles/TreeView.MySilk.css" rel="stylesheet" type="text/css" />
     <link href="../Styles/Pivot.css" rel="stylesheet" type="text/css" />
@@ -44,8 +44,8 @@
                 </div></td>
               <td width="10">&nbsp;</td>
               <td valign="top">
-              <telerik:RadPivotGrid     ID="rgEvaluacionesTransversalesporPersonal" CssClass="Pivot" runat="server" ShowColumnHeaderZone="false" ShowRowHeaderZone="false" ShowDataHeaderZone="false" EnableZoneContextMenu="false"  ShowFilterHeaderZone="false"   TotalsSettings-GrandTotalsVisibility="None" AllowSorting="true" 
-        AllowFilteringByColumn="false"   DataSourceID="odsEvaluacionesTransversales" OnCellDataBound="rgEvaluacionesTransversalesporPersonal_CellDataBound" whidth="900px"
+              <telerik:RadPivotGrid ID="rgEvaluacionesTransversalesporPersonal" CssClass="Pivot" runat="server" ShowColumnHeaderZone="false" ShowRowHeaderZone="false" ShowDataHeaderZone="false" EnableZoneContextMenu="false"  ShowFilterHeaderZone="false"   TotalsSettings-GrandTotalsVisibility="None" 
+               AllowSort="false" AllowFilteringByColumn="false" DataSourceID="odsEvaluacionesTransversales" OnCellDataBound="rgEvaluacionesTransversalesporPersonal_CellDataBound" whidth="900px"
                        Culture="es-PE" CellPadding="2" CellSpacing="2" 
                        AllowPaging="True" AllowFiltering="true" >
         
@@ -71,8 +71,7 @@ ColumnsSubTotalsPosition="None" ColumnGrandTotalsPosition="None"  />
             <telerik:PivotGridRowField DataField="PUESTO_DESCRIPCION" UniqueName="PUESTO_DESCRIPCION" CellStyle-Width="50px"
                 >                
             </telerik:PivotGridRowField>
-            <telerik:PivotGridColumnField DataField="COMPETENCIA_TRANSVERSAL_DESCRIPCION" UniqueName="COMPETENCIA_TRANSVERSAL_DESCRIPCION" CellStyle-Width="80px"
-                >
+            <telerik:PivotGridColumnField DataField="COMPETENCIA_TRANSVERSAL_DESCRIPCION" UniqueName="COMPETENCIA_TRANSVERSAL_DESCRIPCION" CellStyle-Width="80px">
             </telerik:PivotGridColumnField >
             <telerik:PivotGridAggregateField DataField="PORCENTAJE" Aggregate="Sum" CellStyle-Width="30px" DataFormatString="{0:P0}"  >
             
