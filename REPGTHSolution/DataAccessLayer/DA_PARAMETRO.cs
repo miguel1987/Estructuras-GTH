@@ -71,13 +71,10 @@ namespace DataAccessLayer
                             oBE_PARAMETRO.USUARIO_ACTUALIZACION = (Guid)Valores.GetValue(USUARIO_ACTUALIZACION);
                             oBE_PARAMETRO.FECHA_ACTUALIZACION = Convert.ToDateTime(Valores.GetValue(FECHA_ACTUALIZACION));
 
-
                             oPARAMETRO.Add(oBE_PARAMETRO);
 
                         }
                     }
-
-
                 }
 
                 return oPARAMETRO;
@@ -90,11 +87,7 @@ namespace DataAccessLayer
             {
                 cnx.Close();
             }
-
-
         }
-
-      
 
         /// <summary>
         /// Actualizar un Parámetro del Sistema
@@ -189,7 +182,6 @@ namespace DataAccessLayer
             {
                 cnx.Close();
             }
-
 
             return bIndicador;
         }

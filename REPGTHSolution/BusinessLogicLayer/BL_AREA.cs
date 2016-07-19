@@ -11,11 +11,8 @@ namespace BusinessLogicLayer
     /// </summary>
     public class BL_AREA
     {
-        //Inicializamos web service para consulta y actualización de maestros genéricos.  
-        //wsMaestros.mantenimientoMaestros wsMantenimientoMaestros = new wsMaestros.mantenimientoMaestros();
-        wsMaestros.mantenimientoEstructuras wsMantenimientoEstructuras = new wsMaestros.mantenimientoEstructuras();
-        
-
+        //Inicializamos web service para consulta y actualización de maestros genéricos.          
+        wsMaestros.mantenimientoEstructuras wsMantenimientoEstructuras = new wsMaestros.mantenimientoEstructuras();        
         /// <summary>
         ///  Devuelve los datos de todas las AREAS.
         /// </summary>
@@ -158,7 +155,6 @@ namespace BusinessLogicLayer
         }
 
 
-
         /// <summary>
         /// Inserta los datos de una Area
         /// </summary>
@@ -175,7 +171,6 @@ namespace BusinessLogicLayer
             oArea.GERENCIA_ID = oBE_AREA.GERENCIA_ID;
 
             return wsMantenimientoEstructuras.InsertarArea(oArea);
-
         }
 
         /// <summary>

@@ -14,7 +14,6 @@ namespace DataAccessLayer
     {
        public static decimal SeleccionarEvaluacionPorCompetenciaTransversal(Guid PERSONAL_ID,string COMPETENCIA_TRANSVERSALES_CODIGO)
        {
-
            SqlConnection cnx = new SqlConnection();
 
            cnx = DC_Connection.getConnection();
@@ -35,7 +34,6 @@ namespace DataAccessLayer
                    decimal porcentaje = Convert.ToDecimal(objCmd.ExecuteScalar());
 
                    return porcentaje;
-
                }
            }
            catch (Exception ex)
@@ -47,8 +45,6 @@ namespace DataAccessLayer
                cnx.Close();
            }
        }
-
-
 
        public static List<BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES> SeleccionarCompetenciasTransversalesPorPersonal(Guid PERSONAL_ID)
       {
@@ -69,8 +65,6 @@ namespace DataAccessLayer
 
                   objCmd.Parameters.Add("@PERSONAL_ID", SqlDbType.UniqueIdentifier).Value = PERSONAL_ID;
                   
-
-
                   cnx.Open();
                   dr = objCmd.ExecuteReader();
 
@@ -80,14 +74,12 @@ namespace DataAccessLayer
                   int COMPETENCIA_TRANSVERSAL_DESCRIPCION = dr.GetOrdinal("COMPETENCIA_TRANSVERSAL_DESCRIPCION");
                   int EVALUACION_COMPETENCIA_TRANSVERSAL_PORCENTAJE = dr.GetOrdinal("EVALUACION_COMPETENCIA_TRANSVERSAL_PORCENTAJE");
                   
-
                   // creamos un objeto del tamaño de la tupla en el array de objeto Valores
                   object[] Valores = new object[dr.FieldCount];
 
                   // Preguntamos si el DbDataReader tiene registros
                   if (dr.HasRows)
                   {
-
                       // Instancionamos la lista para empezar a setearla
                       oCOMPETENCIASTRANSVERSALESPORPERSONAL = new List<BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES>();
                       while (dr.Read())
@@ -103,8 +95,6 @@ namespace DataAccessLayer
                           oCOMPETENCIASTRANSVERSALESPORPERSONAL.Add(oBE_COMPETENCIASPERSONAL);
                       }
                   }
-
-
               }
 
               return oCOMPETENCIASTRANSVERSALESPORPERSONAL;
@@ -118,7 +108,6 @@ namespace DataAccessLayer
               cnx.Close();
           }
       }
-
 
        public static int ParametroSistemaporValor(String PARAMETRO_DESCRIPCION)
        {
@@ -155,8 +144,6 @@ namespace DataAccessLayer
            }
        }
 
-
-
        public static string ParametroSistemaporValorColor(String PARAMETRO_COLOR)
        {
 
@@ -191,10 +178,5 @@ namespace DataAccessLayer
                cnx.Close();
            }
        }
-
-
-
-
-
     }
 }

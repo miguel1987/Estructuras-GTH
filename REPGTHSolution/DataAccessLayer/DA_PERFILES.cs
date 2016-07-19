@@ -41,7 +41,6 @@ namespace DataAccessLayer
                     int PERFIL_ID = dr.GetOrdinal("PERFIL_ID");
                     int PERFIL_DESCRIPCION = dr.GetOrdinal("PERFIL_DESCRIPCION");
 
-
                     // creamos un objeto del tamaño de la tupla en el array de objeto Valores
                     object[] Valores = new object[dr.FieldCount];
 
@@ -96,7 +95,6 @@ namespace DataAccessLayer
                 {
 
                     objCmd.Parameters.Add("@PERFIL_ID", SqlDbType.Int).Value = ID;
-
 
                     cnx.Open();
                     dr = objCmd.ExecuteReader();

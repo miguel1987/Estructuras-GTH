@@ -112,8 +112,14 @@ namespace WebUI
         {
             //string userId = HttpContext.Current.User.Identity.Name.ToString();
             
-            string userId = "Pc\\soporte_ipd";   
-            //string userId = "Pc\\avallejos"; 
+            //string userId = "Pc\\soporte_ipd";   
+            //mvillacorta gerente
+            //suribe jefe
+            //churtado coordinaodor
+            //mobregon especialista
+            //cosores secretaria ejecutiva
+
+            string userId = "Pc\\mvillacorta"; 
             string[] useridNew = userId.Trim().Split(new[] { "\\" }, StringSplitOptions.None);
             
             BusinessEntities.BE_USUARIO oBE_USUARIO = BusinessLogicLayer.BL_USUARIO.SeleccionarPersonalPorUsuario(useridNew[1]);
@@ -136,9 +142,9 @@ namespace WebUI
                 Session.Add("PERFIL_ID", oBE_USUARIO.PERFIL_ID);
                 Session.Add("PERSONAL_NOMBRE_COMPLETO", oBE_USUARIO.oBE_PERSONAL.NOMBRES_COMPLETOS);
                 if (oBE_USUARIO.oBE_PERSONAL.oBE_GRUPO_ORGANIZACIONAL != null)
-                    Session.Add("CODIGO", oBE_USUARIO.oBE_PERSONAL.oBE_GRUPO_ORGANIZACIONAL.CODIGO);
+                    Session.Add("GRUPO_ORGANIZACIONAL_CODIGO", oBE_USUARIO.oBE_PERSONAL.oBE_GRUPO_ORGANIZACIONAL.CODIGO);
                 else
-                    Session.Add("CODIGO", String.Empty);
+                    Session.Add("GRUPO_ORGANIZACIONAL_CODIGO", String.Empty);
             }     
             
         }

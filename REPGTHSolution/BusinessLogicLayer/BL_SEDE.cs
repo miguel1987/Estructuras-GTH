@@ -12,10 +12,7 @@ namespace BusinessLogicLayer
     public class BL_SEDE
     {
         //Inicializamos web service para consulta y actualización de maestros genéricos.  
-        //wsMaestros.mantenimientoMaestros wsMantenimientoMaestros = new wsMaestros.mantenimientoMaestros();  
         wsMaestros.mantenimientoEstructuras wsMantenimientoEstructuras = new wsMaestros.mantenimientoEstructuras();
-
-
         /// <summary>
         ///  Devuelve los datos de todas las SEDES.
         /// </summary>
@@ -62,8 +59,7 @@ namespace BusinessLogicLayer
 
                }
             }
-            return oListaSede;
-           
+            return oListaSede;           
         }
 
         /// <summary>
@@ -142,6 +138,5 @@ namespace BusinessLogicLayer
         {
             return wsMantenimientoEstructuras.EliminarSede(sede_id);
         }
-
     }
 }

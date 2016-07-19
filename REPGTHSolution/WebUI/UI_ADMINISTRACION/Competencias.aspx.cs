@@ -26,23 +26,17 @@ namespace WebUI.UI_ADMINISTRACION
         {
 
             rgCompetencia.MasterTableView.FilterExpression = "([DESCRIPCION] LIKE \'%" + txtBuscar.Text.Trim() + "%\' OR [CODIGO]LIKE \'%" + txtBuscar.Text.Trim() + "%\')";
-
             rgCompetencia.Rebind();
-
         }
 
         protected void linkBuscar_Click(object sender, EventArgs e)
         {
-
             rgCompetencia.MasterTableView.FilterExpression = "([DESCRIPCION] LIKE \'%" + txtBuscar.Text.Trim() + "%\' OR [CODIGO]LIKE \'%" + txtBuscar.Text.Trim() + "%\')";
-
             rgCompetencia.Rebind();
-
         }
 
         protected void rgCompetencia_ItemDataBound(object sender, GridItemEventArgs e)
         {
-
             if (e.Item is GridEditableItem && e.Item.IsInEditMode)
             {
                 if (!e.Item.GetType().Name.Equals("GridEditFormInsertItem"))
@@ -53,7 +47,6 @@ namespace WebUI.UI_ADMINISTRACION
                         rcbTemp.SelectedValue = editableItem.COMPETENCIA_TIPO_ID.ToString();
                 }
             }
-
         }
 
         protected void rgCompetencia_InsertCommand(object sender, GridCommandEventArgs e)
@@ -61,14 +54,10 @@ namespace WebUI.UI_ADMINISTRACION
             GrabarActualizar(sender, e, "add");
         }
 
-
-
         protected void rgCompetencia_UpdateCommand(object sender, GridCommandEventArgs e)
         {
             GrabarActualizar(sender, e, "Edit");
         }
-
-
 
         protected void rgCompetencia_DeleteCommand(object sender, GridCommandEventArgs e)
         {
@@ -129,7 +118,6 @@ namespace WebUI.UI_ADMINISTRACION
                 oentidad.USUARIO_CREACION = USUARIO;
                 oentidad.ESTADO = 1;
                 BL_COMPETENCIA.ActualizarCompetencia(oentidad);
-
             }
         }
     }

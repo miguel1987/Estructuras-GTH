@@ -75,8 +75,6 @@ namespace DataAccessLayer
 
                         }
                     }
-
-
                 }
 
                 return oCOMPETENCIA_TRANSVERSAL;
@@ -89,8 +87,6 @@ namespace DataAccessLayer
             {
                 cnx.Close();
             }
-
-
         }
 
         /// <summary>
@@ -190,7 +186,6 @@ namespace DataAccessLayer
             {
                 cnx.Close();
             }
-
 
             return bIndicador;
         }

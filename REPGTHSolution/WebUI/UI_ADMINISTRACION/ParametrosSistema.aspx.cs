@@ -24,20 +24,14 @@ namespace WebUI.UI_ADMINISTRACION
 
         protected void txtBuscar_TextChanged(object sender, EventArgs e)
         {
-
             rgParametros.MasterTableView.FilterExpression = "([DESCRIPCION] LIKE \'%" + txtBuscar.Text.Trim() + "%\' OR [CODIGO]LIKE \'%" + txtBuscar.Text.Trim() + "%\')";
-
             rgParametros.Rebind();
-
         }
 
         protected void linkBuscar_Click(object sender, EventArgs e)
         {
-
             rgParametros.MasterTableView.FilterExpression = "([DESCRIPCION] LIKE \'%" + txtBuscar.Text.Trim() + "%\' OR [CODIGO]LIKE \'%" + txtBuscar.Text.Trim() + "%\')";
-
             rgParametros.Rebind();
-
         }
 
         protected void rgParametros_InsertCommand(object sender, GridCommandEventArgs e)
@@ -45,14 +39,10 @@ namespace WebUI.UI_ADMINISTRACION
             GrabarActualizar(sender, e, "add");
         }
 
-
-
         protected void rgParametros_UpdateCommand(object sender, GridCommandEventArgs e)
         {
             GrabarActualizar(sender, e, "Edit");
         }
-
-
 
         protected void rgParametros_DeleteCommand(object sender, GridCommandEventArgs e)
         {
@@ -85,7 +75,6 @@ namespace WebUI.UI_ADMINISTRACION
             else
                 ID = Guid.Parse(editableItem.GetDataKeyValue("ID").ToString());
 
-
             oentidad.ID = (Guid)ID;
             oentidad.DESCRIPCION = values["DESCRIPCION"].ToString();
             oentidad.CODIGO = values["CODIGO"].ToString();
@@ -96,7 +85,6 @@ namespace WebUI.UI_ADMINISTRACION
             {               
                 oentidad.USUARIO_CREACION = USUARIO;
                 BL_PARAMETRO.ActualizarParametro(oentidad);
-
             }
         }
     }

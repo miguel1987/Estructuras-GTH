@@ -11,11 +11,9 @@ namespace BusinessLogicLayer
     /// </summary>
     public class BL_EMPRESA
     {
-        //Inicializamos web service para consulta y actualización de maestros genéricos.  
-        //wsMaestros.mantenimientoMaestros wsMantenimientoMaestros = new wsMaestros.mantenimientoMaestros();
+        //Inicializamos web service para consulta y actualización de maestros genéricos.         
         wsMaestros.mantenimientoEstructuras wsMantenimientoEstructuras = new wsMaestros.mantenimientoEstructuras();
  
-
         /// <summary>
         ///  Devuelve los datos de todas las EMPRESAS.
         /// </summary>
@@ -38,7 +36,6 @@ namespace BusinessLogicLayer
                     oEmpresa.ESTADO = item.ESTADO;
 
                     oListaEmpresa.Add(oEmpresa);
-
                 }
             }
             return oListaEmpresa;
@@ -62,9 +59,7 @@ namespace BusinessLogicLayer
                 oEmpresa.USUARIO_CREACION = oLista[0].USUARIO_CREACION;
                 oEmpresa.FECHA_CREACION = oLista[0].FECHA_CREACION;
                 oEmpresa.USUARIO_ACTUALIZACION = oLista[0].USUARIO_ACTUALIZACION;
-                oEmpresa.ESTADO = oLista[0].ESTADO;            
-
-               
+                oEmpresa.ESTADO = oLista[0].ESTADO;                           
             }
             return oEmpresa;
         }
@@ -84,7 +79,6 @@ namespace BusinessLogicLayer
             oEmpresa.ESTADO = oBE_EMPRESA.ESTADO;
 
             return wsMantenimientoEstructuras.InsertarEmpresa(oEmpresa);
-
         }
 
         /// <summary>

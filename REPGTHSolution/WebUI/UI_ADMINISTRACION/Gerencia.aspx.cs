@@ -21,7 +21,6 @@ namespace WebUI.UI_ADMINISTRACION
 
             this.validarUsuarioEnDominio();
             USUARIO = Guid.Parse(Session["PERSONAL_ID"].ToString());
-
         }
 
         protected void rgGerencia_ItemDataBound(object sender, GridItemEventArgs e)
@@ -40,20 +39,15 @@ namespace WebUI.UI_ADMINISTRACION
            
         }
 
-
         protected void rgGerencia_InsertCommand(object sender, GridCommandEventArgs e)
         {
             GrabarActualizar(sender, e, "add");
         }
 
-
-
         protected void rgGerencia_UpdateCommand(object sender, GridCommandEventArgs e)
         {
             GrabarActualizar(sender, e, "Edit");
         }
-
-
 
         protected void rgGerencia_DeleteCommand(object sender, GridCommandEventArgs e)
         {
@@ -89,19 +83,13 @@ namespace WebUI.UI_ADMINISTRACION
         {
 
             rgGerencia.MasterTableView.FilterExpression = "([DESCRIPCION] LIKE \'%" + txtBuscar.Text.Trim() + "%\' OR [CODIGO]LIKE \'%" + txtBuscar.Text.Trim() + "%\' OR [oBE_EMPRESA.DESCRIPCION]LIKE \'%" + txtBuscar.Text.Trim() + "%\')";
-
             rgGerencia.Rebind();
-
         }
 
         protected void linkBuscar_Click(object sender, EventArgs e)
         {
-
-
             rgGerencia.MasterTableView.FilterExpression = "([DESCRIPCION] LIKE \'%" + txtBuscar.Text.Trim() + "%\' OR [CODIGO]LIKE \'%" + txtBuscar.Text.Trim() + "%\' OR [oBE_EMPRESA.DESCRIPCION]LIKE \'%" + txtBuscar.Text.Trim() + "%\')";
-
             rgGerencia.Rebind();
-
         }
 
         protected void GrabarActualizar(object sender, GridCommandEventArgs e, String action)
@@ -123,7 +111,6 @@ namespace WebUI.UI_ADMINISTRACION
                 ID = Guid.Empty;
             else
                 ID = Guid.Parse(editableItem.GetDataKeyValue("ID").ToString());
-
 
             oentidad.ID = (Guid)ID;
             oentidad.CODIGO = values["CODIGO"].ToString();

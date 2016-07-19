@@ -9,8 +9,7 @@ namespace BusinessLogicLayer
 {
   public  class BL_COORDINACION
     {
-        //Inicializamos web service para consulta y actualización de maestros genéricos.  
-        //wsMaestros.mantenimientoMaestros wsMantenimientoMaestros = new wsMaestros.mantenimientoMaestros();
+        //Inicializamos web service para consulta y actualización de maestros genéricos.          
         wsMaestros.mantenimientoEstructuras wsMantenimientoEstructuras = new wsMaestros.mantenimientoEstructuras();
 
         /// <summary>
@@ -202,7 +201,5 @@ namespace BusinessLogicLayer
         {
             return wsMantenimientoEstructuras.EliminarCoordinacion(coordinacion_id);
         }
-
-
     }
 }

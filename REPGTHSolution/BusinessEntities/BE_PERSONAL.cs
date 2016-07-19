@@ -10,7 +10,6 @@ namespace BusinessEntities
     /// </summary>
     public partial class BE_PERSONAL : BE_GENERICO
     {
-
         public Guid ID { get; set; }
         public String CODIGO_TRABAJO { get; set; }
         public String APELLIDO_PATERNO { get; set; }
@@ -42,7 +41,6 @@ namespace BusinessEntities
         public BE_GRUPO_ORGANIZACIONAL oBE_GRUPO_ORGANIZACIONAL { get; set; }
         public String NOMBRES_COMPLETOS_EMAIL { get; set; }
 
-
         //Campos que no pertenece a la tabla
         public String APELLIDOSYNOMBRESCOMPLETOS
         {
@@ -51,7 +49,6 @@ namespace BusinessEntities
                 return String.Concat(APELLIDO_PATERNO, " ", APELLIDO_MATERNO, ", ", NOMBRES);
             }
         }
-        public String NOMBRE_USUARIO { get; set; }        
-      
+        public String NOMBRE_USUARIO { get; set; }              
     }
 }

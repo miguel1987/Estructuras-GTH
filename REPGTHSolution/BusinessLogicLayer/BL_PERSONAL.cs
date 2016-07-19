@@ -10,7 +10,6 @@ namespace BusinessLogicLayer
     public class BL_PERSONAL
     {
         //Inicializamos web service para consulta y actualización de maestros genéricos.  
-        //wsMaestros.mantenimientoMaestros wsMantenimientoMaestros = new wsMaestros.mantenimientoMaestros();
         wsMaestros.mantenimientoEstructuras wsMantenimientoEstructuras = new wsMaestros.mantenimientoEstructuras();
 
         /// <summary>
@@ -156,23 +155,17 @@ namespace BusinessLogicLayer
 
                                                 }
                                             }
-
-
                                         }
 
                                     }
                                 }
-
                             }
-
                         }
                     }
 
                     oPERSONAL.Add(oBE_PERSONAL);                                
                 }
-
-            }
-            
+            }            
             return oPERSONAL;
         }
 

@@ -16,13 +16,13 @@ namespace WebUI.UI_EVALUACION
     public partial class AsignarEvaluacionesPorPuesto : PageBaseClass
     {
         
-        Guid USUARIO;
+        Guid USUARIO=Guid.Empty;
         BE_EVALUACION_COMPETENCIA_PUESTO BE_EVALUACION_COMPETENCIA_PUESTO = new BE_EVALUACION_COMPETENCIA_PUESTO();
 
         protected void Page_Load(object sender, EventArgs e)
         {
 
-            validarUsuarioEnDominio();
+            this.validarUsuarioEnDominio();
             USUARIO = Guid.Parse(Session["PERSONAL_ID"].ToString());
 
             if (!Page.IsPostBack)

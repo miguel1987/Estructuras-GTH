@@ -20,8 +20,6 @@ namespace BusinessEntities
         public int VALOR { get; set; }
         public string VALOR_COLOR { get; set; }
         
-        //public BE_PERSONAL oBE_PERSONAL { get; set; }
-
         public enum TIPO_COMPETENCIA
         {
             INSPIRAR = 1353,
@@ -45,26 +43,21 @@ namespace BusinessEntities
             SE = 2,
             JD = 3,
             CO = 4
-
         }
 
         public enum PARAMETRO_SISTEMA
-        {
-            
+        {            
         DESARROLLADAS,
         VERDE,
-        AMARILLO
-
-        
+        AMARILLO        
         }
+
         public decimal PORCENTAJE_INSPIRAR { get; set; }
         public decimal PORCENTAJE_ESTRATEGICA { get; set; }
         public decimal PORCENTAJE_CONSTRUCCION { get; set; }
         public decimal PORCENTAJE_DECISION { get; set; }
         public decimal PORCENTAJE_RESULTADOS { get; set; }
-
         public int CONTADOR_INDICADOR { get; set; }
         public int Total { get; set; }
-
     }
 }

@@ -17,9 +17,9 @@ namespace WebUI.UI_ARCHIVO
     {
         Guid USUARIO = Guid.Empty;
         
-
         protected void Page_Load(object sender, EventArgs e)
         {
+            this.validarUsuarioEnDominio();
             USUARIO = Guid.Parse(Session["PERSONAL_ID"].ToString());
             Context.Request.Browser.Adapters.Clear();
         
@@ -28,19 +28,9 @@ namespace WebUI.UI_ARCHIVO
             {
                 try
                 {
-                    validarUsuarioEnDominio();
-                    ValidarPerfilUsuario();
-                    LoadEstructura();
-                    addTooltips();
-                    LoadCombo(Session["EMPRESA_ID"].ToString(), "0");
-
-                    LoadGrilla(rcbPuesto.SelectedValue, rcbCompetenciasPuesto.SelectedValue);
-                   
-                    
-                    
-                    
-                   
-                    
+                    validarUsuarioEnDominio();                   
+                    SeguridadEstructura();                    
+                    LoadGrilla(rcbPuesto.SelectedValue, rcbCompetenciasPuesto.SelectedValue);                                                                                            
                 }
                 catch (Exception ex)
                 {
@@ -53,19 +43,15 @@ namespace WebUI.UI_ARCHIVO
 
         }
 
-        protected void ValidarPerfilUsuario()
+        private void SeguridadEstructura()
         {
-            //Recuperamos el perfil del usuario para validar sus accesos
-            //Validar Accesos por Perfil
-            
-        }
 
+            //Variables para cargar pivot por defecto
+            string nivel = "0";
+            string jerarquia_id = Session["EMPRESA_ID"].ToString();
 
-
-        protected void LoadEstructura()
-        {
             //Cargamos la estructura jerarquica de REP
-            //1. Cargar una lista de objetos de tipo Empresas
+            //1. Cargar una lista de objetos de tipo Empresas            
 
             BL_EMPRESA BL_EMPRESA = new BL_EMPRESA();
             List<BE_EMPRESA> lstEmpresas = BL_EMPRESA.SeleccionarEmpresa();
@@ -76,6 +62,7 @@ namespace WebUI.UI_ARCHIVO
                 RadTreeNode nodeEmpresa = new RadTreeNode(oEmpresa.DESCRIPCION.ToString(), oEmpresa.ID.ToString());
                 nodeEmpresa.Expanded = true;
                 //Añadir nodo Presidencia - CEO
+
 
                 BL_PRESIDENCIA BL_PRESIDENCIA = new BL_PRESIDENCIA();
                 List<BE_PRESIDENCIA> lstPresidencias = BL_PRESIDENCIA.SeleccionarPresidenciaPorEmpresa(oEmpresa.ID);
@@ -91,27 +78,116 @@ namespace WebUI.UI_ARCHIVO
                     {
                         RadTreeNode nodeGerencia = new RadTreeNode(oGerencia.DESCRIPCION.ToString(), oGerencia.ID.ToString());
 
+                        if (oGerencia.ID.ToString() == (Session["GERENCIA_ID"].ToString()))
+                        {
+                            nodeGerencia.Expanded = true;
+                            nodeGerencia.Enabled = true;
+                        }
+                        else
+                        {
+                            nodeGerencia.Expanded = false;
+                            nodeGerencia.Enabled = false;
+                        }
+
                         BL_AREA BL_AREA = new BL_AREA();
                         List<BE_AREA> lstAreas = BL_AREA.SeleccionarAreaGerencia(oGerencia.ID);
 
                         foreach (BE_AREA oArea in lstAreas)
                         {
                             RadTreeNode nodeAreas = new RadTreeNode(oArea.DESCRIPCION.ToString(), oArea.ID.ToString());
+                            RadTreeNode nodeCoordinacion = null;
+
+                            if (oArea.ID.ToString() == (Session["AREA_ID"].ToString()))
+                            {
+                                nodeAreas.Expanded = true;
+                                nodeAreas.Enabled = true;
+                            }
+                            else
+                            {
+                                nodeAreas.Expanded = false;
+                                nodeAreas.Enabled = false;
+                            }
 
                             //llamar a BL COORDINACION  MÉTODO SELECCIONAR COORDINACION POR AREA
                             BL_COORDINACION BL_COORDINACION = new BL_COORDINACION();
                             List<BE_COORDINACION> lstCoordinacion = BL_COORDINACION.SeleccionarCoordinacionPorArea(oArea.ID);
                             foreach (BE_COORDINACION oCoordinacion in lstCoordinacion)
                             {
-                                RadTreeNode nodeCoordinacion = new RadTreeNode(oCoordinacion.DESCRIPCION.ToString(), oCoordinacion.ID.ToString());
+                                nodeCoordinacion = new RadTreeNode(oCoordinacion.DESCRIPCION.ToString(), oCoordinacion.ID.ToString());
+
+                                if (oCoordinacion.ID.ToString() == (Session["COORDINACION_ID"].ToString()))
+                                {
+                                    nodeCoordinacion.Expanded = true;
+                                    nodeCoordinacion.Enabled = true;
+                                }
+                                else
+                                {
+                                    if ((Session["GRUPO_ORGANIZACIONAL_CODIGO"].ToString() != "GE" && Session["GRUPO_ORGANIZACIONAL_CODIGO"].ToString() != "JD"))
+                                    {
+                                        nodeCoordinacion.Expanded = false;
+                                        nodeCoordinacion.Enabled = false;
+                                    }
+                                }
+
                                 nodeAreas.Nodes.Add(nodeCoordinacion);
 
+
                             }
-                           
+
 
                             nodeGerencia.Nodes.Add(nodeAreas);
-                        }
 
+                            if (Session["PERFIL_ID"].ToString() == "1")
+                            {
+
+                                nodePresidencia.Enabled = true;
+                                nodeGerencia.Enabled = true;
+                                nodeAreas.Enabled = true;
+                                nodeCoordinacion.Enabled = true;
+                            }
+                            else if (Session["PERFIL_ID"].ToString() == "2" && Session["GRUPO_ORGANIZACIONAL_CODIGO"].ToString() == "GE")
+                            {
+                                nivel = "2";
+                                jerarquia_id = Session["GERENCIA_ID"].ToString();
+                                nodePresidencia.Enabled = false;
+                                nodeEmpresa.Enabled = false;
+                                nodeAreas.Enabled = true;
+                                if (nodeCoordinacion != null)
+                                    nodeCoordinacion.Enabled = true;
+
+                            }
+                            else if (Session["PERFIL_ID"].ToString() == "2" && Session["GRUPO_ORGANIZACIONAL_CODIGO"].ToString() == "JD")
+                            {
+                                nivel = "3";
+                                jerarquia_id = Session["AREA_ID"].ToString();
+                                nodeEmpresa.Enabled = false;
+                                nodePresidencia.Enabled = false;
+                                nodeGerencia.Enabled = false;
+                                nodeAreas.Enabled = true;
+
+
+                            }
+
+                            else if (Session["PERFIL_ID"].ToString() == "2" && Session["GRUPO_ORGANIZACIONAL_CODIGO"].ToString() == "CO")
+                            {
+                                nivel = "4";
+                                jerarquia_id = Session["COORDINACION_ID"].ToString();
+                                nodeEmpresa.Enabled = false;
+                                nodePresidencia.Enabled = false;
+                                nodeGerencia.Enabled = false;
+                                nodeAreas.Enabled = false;
+
+                            }
+                            else
+                            {
+                                nodeEmpresa.Enabled = false;
+                                nodePresidencia.Enabled = false;
+                                nodeGerencia.Enabled = false;
+                                nodeAreas.Enabled = false;
+
+                            }
+
+                        }
 
                         nodePresidencia.Nodes.Add(nodeGerencia);
 
@@ -120,13 +196,34 @@ namespace WebUI.UI_ARCHIVO
 
                 this.rtvTransversales.Nodes.Add(nodeEmpresa);
 
+            }
+
+
+            if (nivel == "0")
+            {
+
+                if (Session["AREA_ID"].ToString() == Guid.Empty.ToString())
+                {
+                    nivel = "2";
+                    jerarquia_id = Session["GERENCIA_ID"].ToString();
+                }
+
+                if (Session["COORDINACION_ID"] == Guid.Empty.ToString())
+                {
+                    nivel = "3";
+                    jerarquia_id = Session["AREA_ID"].ToString();
+                }
+                else
+                {
+                    nivel = "4";
+                    jerarquia_id = Session["COORDINACION_ID"].ToString();
+                }
 
             }
-        
 
+            LoadCombo(jerarquia_id, nivel);                               
         }
-                
-       
+                       
         protected void rtvTransversales_NodeClick(object sender, RadTreeNodeEventArgs e)
         {       
 
@@ -135,10 +232,9 @@ namespace WebUI.UI_ARCHIVO
             string nivel = rtvTransversales.SelectedNode.Level.ToString();
             
             LoadCombo(idNodo, nivel);
-            
+            rgEvaluacionesporPuesto.Rebind();            
         }
         
-
         protected void LoadCombo(string idNodo, string nivel)
         {
 
@@ -146,13 +242,11 @@ namespace WebUI.UI_ARCHIVO
             odsPuesto.SelectParameters.Add("jerarquia_id", System.Data.DbType.Guid, idNodo);
             odsPuesto.SelectParameters.Add("nivel", System.Data.DbType.Int16, nivel);
             rcbPuesto.DataBind();
-            rcbCompetenciasPuesto.DataBind();
-            
+            rcbCompetenciasPuesto.DataBind();            
         }
 
         protected void LoadGrilla(string puesto_id, string competencia_tipo_id)
         {
-
             odsCompetenciasPuesto.SelectParameters.Clear();
             odsCompetenciasPuesto.SelectParameters.Add("puesto_id", System.Data.DbType.Guid, puesto_id);
             odsCompetenciasPuesto.SelectParameters.Add("competencia_tipo_id", System.Data.DbType.Guid, competencia_tipo_id);
@@ -161,63 +255,17 @@ namespace WebUI.UI_ARCHIVO
 
         protected void rcbCompetenciasPuesto_SelectedIndexChanged(object sender, EventArgs e)
         {
-
             LoadGrilla(rcbPuesto.SelectedValue, rcbCompetenciasPuesto.SelectedValue);
-            rgEvaluacionesporPuesto.Rebind();
-            
-
+            rgEvaluacionesporPuesto.Rebind();            
         }
 
         protected void rcbPuesto_SelectedIndexChanged(object sender, EventArgs e)
         {
-
             LoadGrilla(rcbPuesto.SelectedValue, rcbCompetenciasPuesto.SelectedValue);
             rgEvaluacionesporPuesto.Rebind();
-
-
         }
 
-
-        protected void addTooltips()
-        {
-            RadToolTipManager1.TargetControls.Clear();
-
-            foreach (RadTreeNode node in rtvTransversales.Nodes)
-            {
-                node.Attributes.Add("ID", node.Text);
-                RadToolTipManager1.TargetControls.Add(node.Attributes["ID"], true);
-                NodesInNode(node);
-            }
-        }
-
-        protected void NodesInNode(RadTreeNode startNode)
-        {
-            if (startNode.Nodes.Count > 0)
-            {
-                foreach (RadTreeNode node in startNode.Nodes)
-                {
-
-                    node.Attributes.Add("ID", node.Text);
-                    RadToolTipManager1.TargetControls.Add(node.Attributes["ID"], true);
-                    NodesInNode(node);
-                }
-            }
-        }
-
-
-
-        protected void RadToolTipManager1_AjaxUpdate(object sender, ToolTipUpdateEventArgs e)
-        {
-            Label text = new Label();
-            text.Text = e.TargetControlID;
-            e.UpdatePanel.ContentTemplateContainer.Controls.Add(text);
-        }       
-
-
-
-
-
-
+        
         protected void rgEvaluacionesporPuesto_CellDataBound(object sender, PivotGridCellDataBoundEventArgs e)
         {
             if (e.Cell is PivotGridRowHeaderCell)

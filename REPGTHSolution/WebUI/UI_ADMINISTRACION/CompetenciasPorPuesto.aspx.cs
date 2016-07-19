@@ -19,9 +19,7 @@ namespace WebUI.UI_ADMINISTRACION
         protected void Page_Load(object sender, EventArgs e)
         {
             this.validarUsuarioEnDominio();
-            USUARIO = Guid.Parse(Session["PERSONAL_ID"].ToString());
-            
-           
+            USUARIO = Guid.Parse(Session["PERSONAL_ID"].ToString());                      
         }
 
         protected void rgCompetenciasPuesto_ItemDataBound(object sender, GridItemEventArgs e)
@@ -73,17 +71,14 @@ namespace WebUI.UI_ADMINISTRACION
 
         protected void rgCompetenciasPuesto_InsertCommand(object sender, GridCommandEventArgs e)
         {
-            GrabarActualizar(sender, e, "add");
-            
+            GrabarActualizar(sender, e, "add");            
         }
-
 
 
         protected void rgCompetenciasPuesto_UpdateCommand(object sender, GridCommandEventArgs e)
         {
             GrabarActualizar(sender, e, "Edit");
         }
-
 
 
         protected void rgCompetenciasPuesto_DeleteCommand(object sender, GridCommandEventArgs e)
@@ -107,14 +102,12 @@ namespace WebUI.UI_ADMINISTRACION
             rgCompetenciasPuesto.MasterTableView.FilterExpression = "([oBE_PUESTO.DESCRIPCION] LIKE \'%" + txtBuscar.Text.Trim() + "%\' OR [oBE_COMPETENCIA.DESCRIPCION]LIKE \'%" + txtBuscar.Text.Trim() + "%\')";
 
             rgCompetenciasPuesto.Rebind();
-
         }
 
         protected void linkBuscar_Click(object sender, EventArgs e)
         {
 
             rgCompetenciasPuesto.MasterTableView.FilterExpression = "([oBE_PUESTO.DESCRIPCION] LIKE \'%" + txtBuscar.Text.Trim() + "%\' OR [oBE_COMPETENCIA.DESCRIPCION]LIKE \'%" + txtBuscar.Text.Trim() + "%\')";
-
             rgCompetenciasPuesto.Rebind();
 
         }
@@ -139,11 +132,8 @@ namespace WebUI.UI_ADMINISTRACION
             if(e.CommandName == RadGrid.PerformInsertCommandName)
                 ID = Guid.Empty;
             else            
-                ID = Guid.Parse(editableItem.GetDataKeyValue("ID").ToString());
-
-           
-                
-            
+                ID = Guid.Parse(editableItem.GetDataKeyValue("ID").ToString());           
+                            
             oentidad.ID = (Guid)ID;
 
             if (values["COMPETENCIA_PUESTO_VALOR_REQUERIDO"] == null)
@@ -192,11 +182,7 @@ namespace WebUI.UI_ADMINISTRACION
             }else{
                 oentidad.USUARIO_CREACION = USUARIO;               
                 BL_COMPETENCIAS_POR_PUESTO.ActualizarCompetenciaPuesto(oentidad);
-
             }
-
-            
-
         }
     }
 }

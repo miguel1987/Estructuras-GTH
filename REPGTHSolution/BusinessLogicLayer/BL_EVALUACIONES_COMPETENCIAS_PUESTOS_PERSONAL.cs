@@ -22,12 +22,10 @@ namespace BusinessLogicLayer
             return new DA_EVALUACIONES_COMPETENCIAS_PUESTOS_PERSONAL().InsertarEvaluacionCompetenciaPuestoPersonal(oBE_EVALUACIONES_COMPETENCIAS_PUESTOS_PERSONAL);
         }
 
-
         public bool  ActualizarEvaluacionCompetenciasPuestosPersonal(BE_EVALUACIONES_COMPETENCIAS_PUESTOS_PERSONAL oBE_EVALUACIONES_COMPETENCIAS_PUESTOS_PERSONAL)
         {
             return new DA_EVALUACIONES_COMPETENCIAS_PUESTOS_PERSONAL().ActualizarEvaluacionCompetenciaPuestoPersonal(oBE_EVALUACIONES_COMPETENCIAS_PUESTOS_PERSONAL);
         }
-
 
         public bool ActualizarEvaluacionFinal(BE_EVALUACIONES_COMPETENCIAS_PUESTOS_PERSONAL oBE_EVALUACIONES_COMPETENCIAS_PUESTOS_PERSONAL)
         {

@@ -39,8 +39,7 @@
               <td valign="top" width="292"><div class="cont_frm area-tree"> 
                   
                   <!--Arbol -->
-                  <telerik:RadToolTipManager  ID="RadToolTipManager1" runat="server" OnAjaxUpdate="RadToolTipManager1_AjaxUpdate" RenderInPageRoot="true" Animation="Fade" AnimationDuration="300">
-                  </telerik:RadToolTipManager>
+                 
                  <telerik:RadTreeView style="overflow-x:hidden" ID="rtvTransversales" runat="server" OnNodeClick="rtvTransversales_NodeClick"></telerik:RadTreeView>
                   
                   <!--Arbol --> 
@@ -74,12 +73,11 @@ ColumnsSubTotalsPosition="None" ColumnGrandTotalsPosition="None"  />
 
         <TotalsSettings GrandTotalsVisibility="None" RowsSubTotalsPosition="None" 
                       RowGrandTotalsPosition="None" ColumnsSubTotalsPosition="None" 
-                      ColumnGrandTotalsPosition="None"></TotalsSettings>
-
-        
-        
+                      ColumnGrandTotalsPosition="None"></TotalsSettings>                
         <ConfigurationPanelSettings EnableOlapTreeViewLoadOnDemand="True"></ConfigurationPanelSettings>
-    </telerik:RadPivotGrid>                                                                              
+    </telerik:RadPivotGrid>
+    </td>  
+    </tr>                                                                            
       </table>
           <div class="margen"></div>          
           <div class="margen"></div>
@@ -92,15 +90,10 @@ ColumnsSubTotalsPosition="None" ColumnGrandTotalsPosition="None"  />
       </asp:ObjectDataSource>
 
     <asp:ObjectDataSource ID="odsCompetenciasTipos1" runat="server" SelectMethod="SeleccionarCompetenciasTipos"
-        TypeName="BusinessLogicLayer.BL_COMPETENCIAS_TIPOS" DataObjectTypeName="BusinessEntities.BE_COMPETENCIAS_TIPOS"></asp:ObjectDataSource>
-        
-     
-
+        TypeName="BusinessLogicLayer.BL_COMPETENCIAS_TIPOS" DataObjectTypeName="BusinessEntities.BE_COMPETENCIAS_TIPOS"></asp:ObjectDataSource>             
     <p class="mensaje">
          <asp:Label ID="lblMensaje" runat="server" Font-Bold="true" Font-Size="Medium" ForeColor="Red"></asp:Label>
        </p>
-          <!--Area de Contenido -->
-  
-   
+          <!--Area de Contenido -->     
 </asp:Content>
 

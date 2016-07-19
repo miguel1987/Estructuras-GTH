@@ -98,7 +98,6 @@ namespace WebUI.UI_ADMINISTRACION
                     RadComboBox rcbPerfiles = (RadComboBox)e.Item.FindControl("rcbPerfiles");
                     if (rcbPerfiles != null)
                         rcbPerfiles.SelectedValue = editableItem.PERFIL_ID.ToString();                    
-
                 }
             }
 
@@ -126,12 +125,10 @@ namespace WebUI.UI_ADMINISTRACION
             rcbTempSede.DataBind();
             this.odsPuesto.SelectParameters.Add("empresa_id", System.Data.DbType.Guid, selected);
             rcbTempPuesto.DataBind();
-
         }
 
         protected void rcbGerencia_SelectedIndexChanged(object sender, EventArgs e)
         {
-
             RadComboBox rcbTempGerencia = (RadComboBox)sender;
             String selected = rcbTempGerencia.SelectedValue;
             RadComboBox rcbTempArea = (RadComboBox)rcbTempGerencia.NamingContainer.FindControl("rcbArea");
@@ -142,7 +139,6 @@ namespace WebUI.UI_ADMINISTRACION
             this.odsArea.SelectParameters.Add("gerencia_id", System.Data.DbType.Guid, selected);
 
             rcbTempArea.DataBind();
-
         }
 
         protected void rcbArea_SelectedIndexChanged(object sender, EventArgs e)
@@ -156,40 +152,29 @@ namespace WebUI.UI_ADMINISTRACION
             this.odsCoordinacion.SelectParameters.Add("area_id", System.Data.DbType.Guid, selected);
 
             rcbTempCoordinacion.DataBind();
-
         }
 
         protected void txtBuscar_TextChanged(object sender, EventArgs e)
         {
             rgPersonal.MasterTableView.FilterExpression = "([APELLIDO_PATERNO] LIKE \'%" + txtBuscar.Text.Trim() + "%\' OR [CODIGO_TRABAJO]LIKE \'%" + txtBuscar.Text.Trim() + "%\' OR [oBE_GERENCIA.DESCRIPCION]LIKE \'%" + txtBuscar.Text.Trim() + "%\' OR [oBE_AREA.DESCRIPCION]LIKE \'%" + txtBuscar.Text.Trim() + "%\' OR [oBE_COORDINACION.DESCRIPCION]LIKE \'%" + txtBuscar.Text.Trim() + "%\' OR [oBE_PUESTO.DESCRIPCION]LIKE \'%" + txtBuscar.Text.Trim() + "%\' OR [oBE_SEDE.DESCRIPCION]LIKE \'%" + txtBuscar.Text.Trim() + "%\' OR [oBE_GRUPO_ORGANIZACIONAL.DESCRIPCION]LIKE \'%" + txtBuscar.Text.Trim() + "%\' OR [NOMBRE_USUARIO]LIKE \'%" + txtBuscar.Text.Trim() + "%\')";
-
             rgPersonal.Rebind();
-
         }
 
         protected void linkBuscar_Click(object sender, EventArgs e)
         {
-
             rgPersonal.MasterTableView.FilterExpression = "([APELLIDO_PATERNO] LIKE \'%" + txtBuscar.Text.Trim() + "%\' OR [CODIGO_TRABAJO]LIKE \'%" + txtBuscar.Text.Trim() + "%\' OR [oBE_GERENCIA.DESCRIPCION]LIKE \'%" + txtBuscar.Text.Trim() + "%\' OR [oBE_AREA.DESCRIPCION]LIKE \'%" + txtBuscar.Text.Trim() + "%\' OR [oBE_COORDINACION.DESCRIPCION]LIKE \'%" + txtBuscar.Text.Trim() + "%\' OR [oBE_PUESTO.DESCRIPCION]LIKE \'%" + txtBuscar.Text.Trim() + "%\' OR [oBE_SEDE.DESCRIPCION]LIKE \'%" + txtBuscar.Text.Trim() + "%\' OR [oBE_GRUPO_ORGANIZACIONAL.DESCRIPCION]LIKE \'%" + txtBuscar.Text.Trim() + "%\' OR [NOMBRE_USUARIO]LIKE \'%" + txtBuscar.Text.Trim() + "%\')";
-
             rgPersonal.Rebind();
-
         }
-
 
         protected void rgPersonal_InsertCommand(object sender, GridCommandEventArgs e)
         {
             GrabarActualizar(sender, e, "add");
         }
 
-
-
         protected void rgPersonal_UpdateCommand(object sender, GridCommandEventArgs e)
         {
             GrabarActualizar(sender, e, "Edit");
         }
-
-
 
         protected void rgPersonal_DeleteCommand(object sender, GridCommandEventArgs e)
         {
@@ -230,7 +215,6 @@ namespace WebUI.UI_ADMINISTRACION
 
             RadComboBox oRadComboBox4 = (RadComboBox)e.Item.FindControl("rcbPerfiles");
 
-
             BE_PERSONAL oentidad = new BE_PERSONAL();
             BL_PERSONAL BL_PERSONAL = new BL_PERSONAL();
 
@@ -240,7 +224,6 @@ namespace WebUI.UI_ADMINISTRACION
                 ID = Guid.Empty;
             else
                 ID = Guid.Parse(editableItem.GetDataKeyValue("ID").ToString());
-
 
             oentidad.ID = (Guid)ID;
             oentidad.CODIGO_TRABAJO = values["CODIGO_TRABAJO"].ToString();
@@ -290,9 +273,9 @@ namespace WebUI.UI_ADMINISTRACION
             }
             else
             {
-                //e.Canceled = true;
+                
                 oRadComboBox4.Text = String.Empty;
-                //return;
+               
             }
 
 
@@ -313,9 +296,9 @@ namespace WebUI.UI_ADMINISTRACION
             }
             else
             {
-                //e.Canceled = true;
+                
                 oRadComboBox_Coordinacion.Text = String.Empty;
-                //return;
+                
             }
 
             if (!String.IsNullOrEmpty(oRadComboBox_Puesto.SelectedValue))
@@ -354,8 +337,7 @@ namespace WebUI.UI_ADMINISTRACION
                 oentidad.USUARIO_CREACION = USUARIO;
                 oentidad.ESTADO = 1;
                 BL_PERSONAL.ActualizarPersonal(oentidad);
-                rgPersonal.Rebind();
-                
+                rgPersonal.Rebind();                
             }
         }
     }

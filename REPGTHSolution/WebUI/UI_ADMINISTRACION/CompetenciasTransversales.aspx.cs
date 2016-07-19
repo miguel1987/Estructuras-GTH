@@ -85,7 +85,6 @@ namespace WebUI.UI_ADMINISTRACION
             else
                 ID = Guid.Parse(editableItem.GetDataKeyValue("ID").ToString());
 
-
             oentidad.ID = (Guid)ID;
             oentidad.DESCRIPCION = values["DESCRIPCION"].ToString();
             oentidad.CODIGO = values["CODIGO"].ToString();          
@@ -102,7 +101,6 @@ namespace WebUI.UI_ADMINISTRACION
                 oentidad.USUARIO_CREACION = USUARIO;
                 oentidad.ESTADO = 1;
                 BL_COMPETENCIA_TRANSVERSAL.ActualizarCompetenciaTransversal(oentidad);
-
             }
         }
     }

@@ -14,7 +14,6 @@ namespace DataConnectionComponent
     {        
         public static string connStr = ConfigurationManager.ConnectionStrings["SFT_VIRTUAL"].ConnectionString;
        
-
         /// <summary>
         /// Método que devuelve la cadena de conexión a la base de datos.
         /// </summary>        
@@ -26,7 +25,6 @@ namespace DataConnectionComponent
             cnxSftVirtual.ConnectionString = connStr;
 
             return cnxSftVirtual;
-
         }
     }
 }

@@ -9,7 +9,6 @@ namespace BusinessLogicLayer
 {
     public class BL_USUARIO
     {       
-
         /// <summary>
         /// Devueve los datos de todos los usuario
         /// </summary>       

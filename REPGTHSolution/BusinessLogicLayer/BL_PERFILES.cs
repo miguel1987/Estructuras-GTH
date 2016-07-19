@@ -13,6 +13,5 @@ namespace BusinessLogicLayer
         {
             return new DA_PERFILES().SeleccionarPerfiles();
         }
-
     }
 }

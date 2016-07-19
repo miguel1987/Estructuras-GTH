@@ -8,10 +8,6 @@
 <link href="../Styles/Grid.MySilk.css" rel="stylesheet" type="text/css" />
  <link href="../Styles/TreeView.MySilk.css" rel="stylesheet" type="text/css" />
     <link href="../Styles/Pivot.css" rel="stylesheet" type="text/css" />
-    
-
-
-
           <div class="margen"></div>
           <div class="margen"></div>
           <div class="derecha">
@@ -34,8 +30,6 @@
               <td valign="top" width="292"><div class="cont_frm area-tree"> 
                   
                   <!--Arbol -->
-                  <telerik:RadToolTipManager  ID="RadToolTipManager1" runat="server" OnAjaxUpdate="RadToolTipManager1_AjaxUpdate" RenderInPageRoot="true" Animation="Fade" AnimationDuration="300">
-                  </telerik:RadToolTipManager>
                   
                  <telerik:RadTreeView style="overflow-x:hidden" ID="rtvTransversales" runat="server" OnNodeClick="rtvTransversales_NodeClick" ></telerik:RadTreeView>
                   
@@ -94,26 +88,15 @@ ColumnsSubTotalsPosition="None" ColumnGrandTotalsPosition="None"  />
       </table>
       
           <div class="margen">
-          </div>
-          
-          
-          
-    
-          
+          </div>          
           <div class="margen"></div>
           <asp:ObjectDataSource  ID="odsEvaluacionesTransversales" runat="server" SelectMethod="SeleccionarEvaluacionesTransversalesPorJerarquia"         
-        TypeName="BusinessLogicLayer.BL_EVALUACIONES_COMPETENCIAS_TRANSVERSALES" DataObjectTypeName="BusinessEntities.BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES">
-        
+        TypeName="BusinessLogicLayer.BL_EVALUACIONES_COMPETENCIAS_TRANSVERSALES" DataObjectTypeName="BusinessEntities.BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES">        
     </asp:ObjectDataSource>
-
-     
-
     <p class="mensaje">
          <asp:Label ID="lblMensaje" runat="server" Font-Bold="true" Font-Size="Medium" ForeColor="Red"></asp:Label>
        </p>
           <!--Area de Contenido -->
-<asp:HiddenField ID="hf_Contador" runat="server" /> 
-  
-   
+<asp:HiddenField ID="hf_Contador" runat="server" />    
 </asp:Content>
 

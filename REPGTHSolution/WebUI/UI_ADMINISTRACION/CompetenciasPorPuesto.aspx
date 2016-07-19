@@ -84,11 +84,7 @@
                         </EditItemTemplate>
                     </telerik:GridTemplateColumn> 
                     <telerik:GridBoundColumn DataField="COMPETENCIA_PUESTO_VALOR_REQUERIDO"
-                    HeaderText="VALOR REQUERIDO" SortExpression="COMPETENCIA_PUESTO_VALOR_REQUERIDO" UniqueName="COMPETENCIA_PUESTO_VALOR_REQUERIDO" HeaderStyle-Width="25%">
-                    <%--<ColumnValidationSettings EnableRequiredFieldValidation="true">
-                        <RequiredFieldValidator ForeColor="Red" Text="*">
-                        </RequiredFieldValidator>
-                    </ColumnValidationSettings>--%>
+                    HeaderText="VALOR REQUERIDO" SortExpression="COMPETENCIA_PUESTO_VALOR_REQUERIDO" UniqueName="COMPETENCIA_PUESTO_VALOR_REQUERIDO" HeaderStyle-Width="25%">                  
                 </telerik:GridBoundColumn>                    
                     <telerik:GridEditCommandColumn ButtonType="ImageButton" EditText="Actualizar"
                     UniqueName="EditCommandColumn" CancelImageUrl="../Styles/Grid/Cancel.gif" 

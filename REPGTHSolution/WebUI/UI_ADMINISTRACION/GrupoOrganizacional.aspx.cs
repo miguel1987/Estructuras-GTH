@@ -20,7 +20,6 @@ namespace WebUI.UI_ADMINISTRACION
         {
             this.validarUsuarioEnDominio();
             USUARIO = Guid.Parse(Session["PERSONAL_ID"].ToString());
-
         }
 
         protected void rgGrupoOrganizacional_ItemDataBound(object sender, GridItemEventArgs e)
@@ -33,23 +32,17 @@ namespace WebUI.UI_ADMINISTRACION
                     BE_GRUPO_ORGANIZACIONAL editableItem = ((BE_GRUPO_ORGANIZACIONAL)e.Item.DataItem);
                 }
             }
-
         }
-
 
         protected void rgGrupoOrganizacional_InsertCommand(object sender, GridCommandEventArgs e)
         {
             GrabarActualizar(sender, e, "add");
         }
 
-
-
         protected void rgGrupoOrganizacional_UpdateCommand(object sender, GridCommandEventArgs e)
         {
             GrabarActualizar(sender, e, "Edit");
         }
-
-
 
         protected void rgGrupoOrganizacional_DeleteCommand(object sender, GridCommandEventArgs e)
         {
@@ -86,18 +79,14 @@ namespace WebUI.UI_ADMINISTRACION
         {
 
             rgGrupoOrganizacional.MasterTableView.FilterExpression = "([DESCRIPCION] LIKE \'%" + txtBuscar.Text.Trim() + "%\' OR [CODIGO]LIKE \'%" + txtBuscar.Text.Trim() + "%\')";
-
             rgGrupoOrganizacional.Rebind();
-
         }
 
         protected void linkBuscar_Click(object sender, EventArgs e)
         {
 
             rgGrupoOrganizacional.MasterTableView.FilterExpression = "([DESCRIPCION] LIKE \'%" + txtBuscar.Text.Trim() + "%\' OR [CODIGO]LIKE \'%" + txtBuscar.Text.Trim() + "%\')";
-
             rgGrupoOrganizacional.Rebind();
-
         }
 
         protected void GrabarActualizar(object sender, GridCommandEventArgs e, String action)

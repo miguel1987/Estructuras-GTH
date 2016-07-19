@@ -5,12 +5,13 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
     <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=8; IE=9" />
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta http-equiv="Content-Style-Type" content="text/css">
-    <meta http-equiv="Content-Script-Type" content="text/javascript">
-    <meta http-equiv="imagetoolbar" content="no">
-    <link rel="stylesheet" type="text/css" href="../Styles/normalize.css" media="screen">
-    <link rel="stylesheet" type="text/css" href="../Styles/main.css" media="screen">
+    <meta http-equiv="Content-Style-Type" content="text/css"/>
+    <meta http-equiv="Content-Script-Type" content="text/javascript"/>
+    
+    <link rel="stylesheet" type="text/css" href="../Styles/normalize.css" media="screen"/>
+    <link rel="stylesheet" type="text/css" href="../Styles/main.css" media="screen"/>
     <title>REP - Sistema de Gestion de Competencias</title>    
     <script type="text/javascript" src="../Scripts/jquery.min.js"></script>
     <script type="text/javascript" src="../Scripts/jquery.hoveraccordion.js"></script>
@@ -34,8 +35,8 @@ AsyncPostBackTimeout="360000">
     <div class="more">
           <ul id="conf-menu">
         <li>
-              <ul class="sub-menu">
-            <li><a href="#" class="separador">Configuración del Sistema</a></li>
+              <ul id="ConfiguracionSistema" runat="server" class="sub-menu">
+            <li ><a href="#" class="separador">Configuración del Sistema</a></li>
             <li><a href="../UI_ADMINISTRACION/Empresa.aspx">Empresas</a></li>
             <li><a href="../UI_ADMINISTRACION/Gerencia.aspx">Gerencias</a></li>
             <li><a href="../UI_ADMINISTRACION/Area.aspx">Áreas</a></li>
@@ -47,7 +48,7 @@ AsyncPostBackTimeout="360000">
             <li><a href="../UI_ADMINISTRACION/CompetenciasTransversales.aspx">Competencias Transversales</a></li>
             <li><a href="../UI_ADMINISTRACION/Competencias.aspx">Catálogo de Competencias</a></li>
             <li><a href="../UI_ADMINISTRACION/CompetenciasPorPuesto.aspx" class="separador">Competencias por Puesto</a></li>
-            <li><a href="../UI_ADMINISTRACION/ParametrosSistema.aspx">Parametros del Sistema</a></li>
+            <li><a id="sistema" runat="server" href="../UI_ADMINISTRACION/ParametrosSistema.aspx">Parametros del Sistema</a></li>
           </ul>
             </li>
       </ul>
@@ -55,7 +56,7 @@ AsyncPostBackTimeout="360000">
   </div>
       <a class="soporte" href="../UI_SEGURIDAD/Index.aspx"> <asp:Label ID="lblLogin" runat="server" Text="Nombre Usuario"></asp:Label></a>
   
-      
+   </div>   
       
       <!--<div class="soporte"> Soporte administrador del Sistema </div>--> 
     
@@ -63,7 +64,7 @@ AsyncPostBackTimeout="360000">
       <tr>
     <td valign="top" class="menu"><div class="logo-isa-rep"></div>
           <ul id="menu">
-        <li><a href="../UI_EVALUACION/EvaluacionCompetenciasPuesto.aspx">Evaluar Competencias Técnicas y Habilidades. </a>           
+        <li><a id="EvaTecnicasHabilidades" runat="server" href="../UI_EVALUACION/EvaluacionCompetenciasPuesto.aspx">Evaluar Competencias Técnicas y Habilidades. </a>           
         </li>
         <li><a href="#"> Consulta de Evaluaciones </a>
               <ul>
@@ -71,12 +72,12 @@ AsyncPostBackTimeout="360000">
             <li><a href="../UI_EVALUACION/EvaluacionesCompetenciasPorPuesto.aspx">Competencias Técnicas y Habilidades</a></li>
           </ul>
             </li>
-        <li><a href="#"> Reportes Competencias Transversales</a>
+        <li id="reporteTransversales" runat="server"><a  href="#"  > Reportes Competencias Transversales</a>
           <ul>
             <li><a href="../UI_REPORTES/ReporteCompetenciasTransversales.aspx">Evaluciones Transversales y de Liderazgo</a></li>            
           </ul>
             </li>
-        <li><a href="#"> Reportes Competencias por Puesto </a>
+        <li id="reportePuesto" runat="server"><a  href="#"> Reportes Competencias por Puesto </a>
           <ul>
             <li><a href="../UI_REPORTES/ReporteCompetenciasPuesto.aspx">Indicador de Brechas por Puesto y Colaborador</a></li>
             <li><a href="../UI_REPORTES/ReporteCompetenciasPuestoJerarquia.aspx">Evaluación de Competencias por Jerarquía</a></li>    

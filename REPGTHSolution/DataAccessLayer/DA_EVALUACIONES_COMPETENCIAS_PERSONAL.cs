@@ -15,7 +15,6 @@ namespace DataAccessLayer
     /// </summary>
    public class DA_EVALUACIONES_COMPETENCIAS_PERSONAL
     {
-
         /// <summary>
         /// Inserta los datos de  EVALUACIONES_COMPETENCIAS_PERSONAL
         /// </summary>
@@ -37,11 +36,8 @@ namespace DataAccessLayer
                 objCmd.Parameters.Add("@COMPETENCIA_ID", SqlDbType.UniqueIdentifier).Value = oBE_EVALUACIONES_COMPETENCIAS_PERSONAL.COMPETENCIA_ID;
                 objCmd.Parameters.Add("@EVALUACION_COMPETENCIA_BRECHA", SqlDbType.Int).Value = oBE_EVALUACIONES_COMPETENCIAS_PERSONAL.BRECHA;             
 
-
                 bIndicador = objCmd.ExecuteNonQuery() > 0;
-
                 return bIndicador;
-
             }
             catch (Exception ex)
             {
@@ -49,8 +45,6 @@ namespace DataAccessLayer
             }
 
         }
-
-
 
        public Boolean ActalizarEvalucionCompetenciaPersonal(BE_EVALUACIONES_COMPETENCIAS_PUESTOS_PERSONAL oBE_EVALUACIONES_COMPETENCIAS_PERSONAL, SqlTransaction otransaction, SqlCommand objCmd)
        {
@@ -78,13 +72,6 @@ namespace DataAccessLayer
            {
                throw new Exception("Error: " + ex.Message);
            }
-
-
        }
-
-
-
-
-
     }
 }

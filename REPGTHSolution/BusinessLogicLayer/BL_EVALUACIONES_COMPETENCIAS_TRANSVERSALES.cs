@@ -8,33 +8,26 @@ using DataAccessLayer;
 namespace BusinessLogicLayer
 {
    public class BL_EVALUACIONES_COMPETENCIAS_TRANSVERSALES
-    {
-       
-        //Inicializamos web service para consulta y actualización de maestros genéricos.  
-        //wsMaestros.mantenimientoMaestros wsMantenimientoMaestros = new wsMaestros.mantenimientoMaestros();
+    {       
+        //Inicializamos web service para consulta y actualización de maestros genéricos.          
         wsMaestros.mantenimientoEstructuras wsMantenimientoEstructuras = new wsMaestros.mantenimientoEstructuras();
         wsMaestros.BE_PERSONAL[] oListaPorEmpresa, oListaPorPresidencia, oListaPorGerencia, oListaPorArea, oListaPorCoordinacion = null;
         wsMaestros.BE_COORDINACION[] oListaCoordinaciones = null;
         wsMaestros.BE_GERENCIA[] oListaGerencias = null;
         DA_EVALUACION_COMPETENCIA_PUESTO DA_COMPETENCIA_PUESTO = new DA_EVALUACION_COMPETENCIA_PUESTO();
-
        
-
         public List<BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES> SeleccionarEvaluacionesTransversalesPorJerarquia(Guid jerarquia_id, int nivel)
         {
             List<BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES> oListaEvaluacionesTransversales = new List<BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES>();
             
-
             switch (nivel)
             {
                 case 0:
                     oListaPorEmpresa = wsMantenimientoEstructuras.SeleccionarPersonalPorEmpresa(jerarquia_id);
                     break;
-
                 case 1:
                     oListaPorPresidencia = wsMantenimientoEstructuras.SeleccionarPersonalPorPresidencia(jerarquia_id);
                     break;
-
                 case 2:
                     oListaPorGerencia = wsMantenimientoEstructuras.SeleccionarPersonalPorGerencia(jerarquia_id);
                     oListaGerencias = wsMantenimientoEstructuras.SeleccionarGerenciaPorId(jerarquia_id);
@@ -56,13 +49,10 @@ namespace BusinessLogicLayer
                 {
                     List<BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES> oListaEvaluacionesTransversales_Temp = new List<BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES>();
                     oListaEvaluacionesTransversales_Temp = CargarListaEvaluaciones(item);
-                    oListaEvaluacionesTransversales.AddRange(oListaEvaluacionesTransversales_Temp);                
-                              
+                    oListaEvaluacionesTransversales.AddRange(oListaEvaluacionesTransversales_Temp);                                              
                 }
             }
              
-
-
              if (oListaPorPresidencia != null)
              {
                  foreach (var item in oListaPorPresidencia)
@@ -70,10 +60,8 @@ namespace BusinessLogicLayer
                      List<BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES> oListaEvaluacionesTransversales_Temp = new List<BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES>();
                      oListaEvaluacionesTransversales_Temp = CargarListaEvaluaciones(item);
                      oListaEvaluacionesTransversales.AddRange(oListaEvaluacionesTransversales_Temp);                   
-
                  }
              }
-
 
              if (oListaPorGerencia != null)
              {
@@ -88,13 +76,10 @@ namespace BusinessLogicLayer
                                  List<BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES> oListaEvaluacionesTransversales_Temp = new List<BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES>();
                                  oListaEvaluacionesTransversales_Temp = CargarListaEvaluaciones(item);
                                  oListaEvaluacionesTransversales.AddRange(oListaEvaluacionesTransversales_Temp);
-
-                             }
-                             
+                             }                             
                          }
                          else if (oListaGerencias[0].CODIGO == BE_GERENCIA.CODIGO_GERENCIA.AI.ToString() || oListaGerencias[0].CODIGO == BE_GERENCIA.CODIGO_GERENCIA.AJ.ToString() || oListaGerencias[0].CODIGO == BE_GERENCIA.CODIGO_GERENCIA.CC.ToString())
                          {
-
                              List<BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES> oListaEvaluacionesTransversales_Temp = new List<BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES>();
                              oListaEvaluacionesTransversales_Temp = CargarListaEvaluaciones(item);
                              oListaEvaluacionesTransversales.AddRange(oListaEvaluacionesTransversales_Temp);
@@ -107,7 +92,6 @@ namespace BusinessLogicLayer
                                  List<BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES> oListaEvaluacionesTransversales_Temp = new List<BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES>();
                                  oListaEvaluacionesTransversales_Temp = CargarListaEvaluaciones(item);
                                  oListaEvaluacionesTransversales.AddRange(oListaEvaluacionesTransversales_Temp);
-
                              }
 
                          }
@@ -155,7 +139,6 @@ namespace BusinessLogicLayer
                             oListaEvaluacionesTransversales.AddRange(oListaEvaluacionesTransversales_Temp);
                         }
 
-
                         else
                         {
                             if (item.oBE_GRUPO_ORGANIZACIONAL.CODIGO != BE_EVALUACION_COMPETENCIA_PUESTO.PERSONAL_CODIGO.JD.ToString())
@@ -166,26 +149,15 @@ namespace BusinessLogicLayer
                             }
                         }
                     }
-
-
                 }
             }
-
-
              return oListaEvaluacionesTransversales;
-
         }
-       /// <summary>
-       /// 
-       /// </summary>
-       /// <param name="item"></param>
-       /// <returns></returns>
-       /// 
 
-        public List<BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES> SeleccionarEvaluacionesTransversalesPorJerarquia(Guid jerarquia_id, int nivel,Guid usuario_id)
+        public List<BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES> SeleccionarEvaluacionesTransversalesPorJerarquia(Guid jerarquia_id, int nivel, Guid usuario_id, String usuario_grupo_organizacional)
         {
             List<BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES> oListaEvaluacionesTransversales = new List<BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES>();
-
+            List<BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES> oListaEvaluacionesTransversales_Filtrada = new List<BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES>();
 
             switch (nivel)
             {
@@ -208,9 +180,7 @@ namespace BusinessLogicLayer
                 case 4:
                     oListaPorCoordinacion = wsMantenimientoEstructuras.SeleccionarPersonalPorCoordinacion(jerarquia_id);
                     break;
-
             }
-
 
             if (oListaPorEmpresa != null)
             {
@@ -219,11 +189,8 @@ namespace BusinessLogicLayer
                     List<BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES> oListaEvaluacionesTransversales_Temp = new List<BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES>();
                     oListaEvaluacionesTransversales_Temp = CargarListaEvaluaciones(item);
                     oListaEvaluacionesTransversales.AddRange(oListaEvaluacionesTransversales_Temp);
-
                 }
             }
-
-
 
             if (oListaPorPresidencia != null)
             {
@@ -232,10 +199,8 @@ namespace BusinessLogicLayer
                     List<BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES> oListaEvaluacionesTransversales_Temp = new List<BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES>();
                     oListaEvaluacionesTransversales_Temp = CargarListaEvaluaciones(item);
                     oListaEvaluacionesTransversales.AddRange(oListaEvaluacionesTransversales_Temp);
-
                 }
             }
-
 
             if (oListaPorGerencia != null)
             {
@@ -250,26 +215,21 @@ namespace BusinessLogicLayer
                                 List<BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES> oListaEvaluacionesTransversales_Temp = new List<BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES>();
                                 oListaEvaluacionesTransversales_Temp = CargarListaEvaluaciones(item);
                                 oListaEvaluacionesTransversales.AddRange(oListaEvaluacionesTransversales_Temp);
-
                             }
-
                         }
                         else if (oListaGerencias[0].CODIGO == BE_GERENCIA.CODIGO_GERENCIA.AI.ToString() || oListaGerencias[0].CODIGO == BE_GERENCIA.CODIGO_GERENCIA.AJ.ToString() || oListaGerencias[0].CODIGO == BE_GERENCIA.CODIGO_GERENCIA.CC.ToString())
                         {
-
                             List<BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES> oListaEvaluacionesTransversales_Temp = new List<BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES>();
                             oListaEvaluacionesTransversales_Temp = CargarListaEvaluaciones(item);
                             oListaEvaluacionesTransversales.AddRange(oListaEvaluacionesTransversales_Temp);
                         }
                         else
                         {
-
                             if (item.oBE_GRUPO_ORGANIZACIONAL.CODIGO == BE_EVALUACION_COMPETENCIA_PUESTO.PERSONAL_CODIGO.GE.ToString() || item.oBE_GRUPO_ORGANIZACIONAL.CODIGO == BE_EVALUACION_COMPETENCIA_PUESTO.PERSONAL_CODIGO.JD.ToString() || item.oBE_GRUPO_ORGANIZACIONAL.CODIGO == BE_EVALUACION_COMPETENCIA_PUESTO.PERSONAL_CODIGO.SE.ToString())
                             {
                                 List<BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES> oListaEvaluacionesTransversales_Temp = new List<BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES>();
                                 oListaEvaluacionesTransversales_Temp = CargarListaEvaluaciones(item);
                                 oListaEvaluacionesTransversales.AddRange(oListaEvaluacionesTransversales_Temp);
-
                             }
 
                         }
@@ -286,26 +246,22 @@ namespace BusinessLogicLayer
                     {
                         if (item.oBE_GRUPO_ORGANIZACIONAL != null)
                         {
-                            if (item.oBE_GRUPO_ORGANIZACIONAL.CODIGO!= BE_EVALUACION_COMPETENCIA_PUESTO.PERSONAL_CODIGO.GE.ToString() && item.oBE_GRUPO_ORGANIZACIONAL.CODIGO!= BE_EVALUACION_COMPETENCIA_PUESTO.PERSONAL_CODIGO.JD.ToString() && item.oBE_GRUPO_ORGANIZACIONAL.CODIGO != BE_EVALUACION_COMPETENCIA_PUESTO.PERSONAL_CODIGO.CO.ToString())
+                            if (item.oBE_GRUPO_ORGANIZACIONAL.CODIGO == BE_EVALUACION_COMPETENCIA_PUESTO.PERSONAL_CODIGO.JD.ToString() || item.oBE_GRUPO_ORGANIZACIONAL.CODIGO == BE_EVALUACION_COMPETENCIA_PUESTO.PERSONAL_CODIGO.CO.ToString() || item.oBE_COORDINACION == null)
                             {
                                 List<BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES> oListaEvaluacionesTransversales_Temp = new List<BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES>();
-                                oListaEvaluacionesTransversales_Temp = CargarListaEvaluaciones(item,usuario_id);
+                                oListaEvaluacionesTransversales_Temp = CargarListaEvaluaciones(item);
                                 oListaEvaluacionesTransversales.AddRange(oListaEvaluacionesTransversales_Temp);
                             }
                         }
                     }
                     else
                     {
-                        if (item.oBE_GRUPO_ORGANIZACIONAL.CODIGO != BE_EVALUACION_COMPETENCIA_PUESTO.PERSONAL_CODIGO.GE.ToString() && item.oBE_GRUPO_ORGANIZACIONAL.CODIGO != BE_EVALUACION_COMPETENCIA_PUESTO.PERSONAL_CODIGO.JD.ToString() && item.oBE_GRUPO_ORGANIZACIONAL.CODIGO != BE_EVALUACION_COMPETENCIA_PUESTO.PERSONAL_CODIGO.CO.ToString())
-                        {
-                            List<BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES> oListaEvaluacionesTransversales_Temp = new List<BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES>();
-                            oListaEvaluacionesTransversales_Temp = CargarListaEvaluaciones(item,usuario_id);
-                            oListaEvaluacionesTransversales.AddRange(oListaEvaluacionesTransversales_Temp);
-                        }
+                        List<BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES> oListaEvaluacionesTransversales_Temp = new List<BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES>();
+                        oListaEvaluacionesTransversales_Temp = CargarListaEvaluaciones(item);
+                        oListaEvaluacionesTransversales.AddRange(oListaEvaluacionesTransversales_Temp);
                     }
                 }
             }
-
 
             if (oListaPorCoordinacion != null)
             {
@@ -313,40 +269,35 @@ namespace BusinessLogicLayer
                 {
                     if (item.oBE_GRUPO_ORGANIZACIONAL != null)
                     {
-                        if (item.oBE_GRUPO_ORGANIZACIONAL.CODIGO != BE_EVALUACION_COMPETENCIA_PUESTO.PERSONAL_CODIGO.GE.ToString() && item.oBE_GRUPO_ORGANIZACIONAL.CODIGO != BE_EVALUACION_COMPETENCIA_PUESTO.PERSONAL_CODIGO.JD.ToString() && item.oBE_GRUPO_ORGANIZACIONAL.CODIGO != BE_EVALUACION_COMPETENCIA_PUESTO.PERSONAL_CODIGO.CO.ToString())
+                        if (item.oBE_GRUPO_ORGANIZACIONAL.CODIGO != BE_EVALUACION_COMPETENCIA_PUESTO.PERSONAL_CODIGO.CO.ToString())
                         {
                             List<BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES> oListaEvaluacionesTransversales_Temp = new List<BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES>();
-                            oListaEvaluacionesTransversales_Temp = CargarListaEvaluaciones(item,usuario_id);
+                            oListaEvaluacionesTransversales_Temp = CargarListaEvaluaciones(item);
                             oListaEvaluacionesTransversales.AddRange(oListaEvaluacionesTransversales_Temp);
                         }
 
-
                         else
                         {
-                            if (item.oBE_GRUPO_ORGANIZACIONAL.CODIGO != BE_EVALUACION_COMPETENCIA_PUESTO.PERSONAL_CODIGO.GE.ToString() && item.oBE_GRUPO_ORGANIZACIONAL.CODIGO != BE_EVALUACION_COMPETENCIA_PUESTO.PERSONAL_CODIGO.JD.ToString() && item.oBE_GRUPO_ORGANIZACIONAL.CODIGO != BE_EVALUACION_COMPETENCIA_PUESTO.PERSONAL_CODIGO.CO.ToString())
+                            if (item.oBE_GRUPO_ORGANIZACIONAL.CODIGO != BE_EVALUACION_COMPETENCIA_PUESTO.PERSONAL_CODIGO.JD.ToString())
                             {
                                 List<BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES> oListaEvaluacionesTransversales_Temp = new List<BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES>();
-                                oListaEvaluacionesTransversales_Temp = CargarListaEvaluaciones(item,usuario_id);
+                                oListaEvaluacionesTransversales_Temp = CargarListaEvaluaciones(item);
                                 oListaEvaluacionesTransversales.AddRange(oListaEvaluacionesTransversales_Temp);
                             }
                         }
                     }
-
-
                 }
             }
 
+            if (usuario_grupo_organizacional != BE_EVALUACION_COMPETENCIA_PUESTO.PERSONAL_CODIGO.GE.ToString() && usuario_grupo_organizacional != BE_EVALUACION_COMPETENCIA_PUESTO.PERSONAL_CODIGO.JD.ToString() && usuario_grupo_organizacional != BE_EVALUACION_COMPETENCIA_PUESTO.PERSONAL_CODIGO.CO.ToString())
+            {
+                oListaEvaluacionesTransversales_Filtrada = oListaEvaluacionesTransversales.Where(n => n.PERSONAL_ID == usuario_id).ToList();
 
+                return oListaEvaluacionesTransversales_Filtrada;                
+            }
             return oListaEvaluacionesTransversales;
-
         }
-
-
-
-
-
-       ///////////////
-
+      
         protected List<BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES> CargarListaEvaluaciones(wsMaestros.BE_PERSONAL item)
         {
             List<BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES> oListaCompetenciaEvaluaciones = new List<BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES>();
@@ -370,7 +321,6 @@ namespace BusinessLogicLayer
             }
             
             return oListaEvaluacionesTransversales;
-
         }
 
         protected List<BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES> CargarListaEvaluaciones(wsMaestros.BE_PERSONAL item, Guid usuario_id)
@@ -399,15 +349,12 @@ namespace BusinessLogicLayer
             }
 
             return oListaEvaluacionesTransversales;
-
         }
-
 
         public static  decimal SeleccionarEvaluacionPorCompetenciaTransversal(Guid PERSONAL_ID, int COMPETENCIA_TRANSVERSALES_CODIGO)
         {
             return DA_EVALUACIONES_COMPETENCIAS_TRANSVERSALES.SeleccionarEvaluacionPorCompetenciaTransversal(PERSONAL_ID, COMPETENCIA_TRANSVERSALES_CODIGO.ToString());
         }
-
 
         public static List<BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES> SeleccionarCompetenciasTransversalesPorPersonal(Guid PERSONAL_ID)
         {
@@ -416,54 +363,37 @@ namespace BusinessLogicLayer
 
         public static int ParametroSistemaporValor(String PARAMETRO_DESCRIPCION)
         {
-            return DA_EVALUACIONES_COMPETENCIAS_TRANSVERSALES.ParametroSistemaporValor(PARAMETRO_DESCRIPCION);
-        
-        
+            return DA_EVALUACIONES_COMPETENCIAS_TRANSVERSALES.ParametroSistemaporValor(PARAMETRO_DESCRIPCION);        
         }
-
-       
 
         public static string ParametroSistemaporValorColor(String PARAMETRO_COLOR)
         {
             return DA_EVALUACIONES_COMPETENCIAS_TRANSVERSALES.ParametroSistemaporValorColor(PARAMETRO_COLOR);
-
-
         }
-
-
-
 
         public List<BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES> CalcularIndicadorporGerencia(Guid jerarquia_id, int nivel)
         {
             List<BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES> oListaEvaluacionesTransversales = new List<BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES>();
-
 
             switch (nivel)
             {
                 case 0:
                     oListaPorEmpresa = wsMantenimientoEstructuras.SeleccionarPersonalPorEmpresa(jerarquia_id);
                     break;
-
                 case 1:
                     oListaPorPresidencia = wsMantenimientoEstructuras.SeleccionarPersonalPorPresidencia(jerarquia_id);
                     break;
-
                 case 2:
                     oListaPorGerencia = wsMantenimientoEstructuras.SeleccionarPersonalPorGerencia(jerarquia_id);
-
                     break;
                 case 3:
-                    oListaPorArea = wsMantenimientoEstructuras.SeleccionarPersonalPorArea(jerarquia_id);
-                    
+                    oListaPorArea = wsMantenimientoEstructuras.SeleccionarPersonalPorArea(jerarquia_id);                    
                     break;
                 case 4:
                     oListaPorCoordinacion = wsMantenimientoEstructuras.SeleccionarPersonalPorCoordinacion(jerarquia_id);
                     break;
-
             }
                   
-
-
             if (oListaPorGerencia != null)
             {
                 foreach (var item in oListaPorGerencia)
@@ -471,12 +401,7 @@ namespace BusinessLogicLayer
                    
                             List<BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES> oListaEvaluacionesTransversales_Temp = new List<BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES>();
                             oListaEvaluacionesTransversales_Temp = CargarListaEvaluaciones(item);
-                            oListaEvaluacionesTransversales.AddRange(oListaEvaluacionesTransversales_Temp);
-
-                       
-                    
-
-
+                            oListaEvaluacionesTransversales.AddRange(oListaEvaluacionesTransversales_Temp);                       
                 }
             }
 
@@ -484,23 +409,13 @@ namespace BusinessLogicLayer
             {
                 foreach (var item in oListaPorArea)
                 {
-
                     List<BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES> oListaEvaluacionesTransversales_Temp = new List<BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES>();
                     oListaEvaluacionesTransversales_Temp = CargarListaEvaluaciones(item);
                     oListaEvaluacionesTransversales.AddRange(oListaEvaluacionesTransversales_Temp);
-
                 }
             }
 
-
-            
-
-
             return oListaEvaluacionesTransversales;
-
         }
-
-
     }
-
 }

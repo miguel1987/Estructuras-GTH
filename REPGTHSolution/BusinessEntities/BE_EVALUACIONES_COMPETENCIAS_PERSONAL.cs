@@ -11,7 +11,5 @@ namespace BusinessEntities
         public Guid PERSONAL_ID { get; set; }
         public Guid COMPETENCIA_ID { get; set; }
         public int EVALUACION_COMPETENCIA_BRECHA { get; set; }
-
-
     }
 }

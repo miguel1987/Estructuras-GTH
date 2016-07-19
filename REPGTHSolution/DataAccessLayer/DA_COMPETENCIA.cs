@@ -77,15 +77,10 @@ namespace DataAccessLayer
                             DA_COMPETENCIAS_TIPOS DA_COMPETENCIAS_TIPOS = new DA_COMPETENCIAS_TIPOS();
 
                             oBE_COMPETENCIA_TIPO = DA_COMPETENCIAS_TIPOS.SeleccionarCompetenciasTiposPorId(oBE_COMPETENCIA.COMPETENCIA_TIPO_ID)[0];
-
                             oBE_COMPETENCIA.oBE_COMPETENCIA_TIPO = oBE_COMPETENCIA_TIPO;
-
                             oCOMPETENCIA.Add(oBE_COMPETENCIA);
-
                         }
                     }
-
-
                 }
 
                 return oCOMPETENCIA;
@@ -98,8 +93,6 @@ namespace DataAccessLayer
             {
                 cnx.Close();
             }
-
-
         }
 
         /// <summary>
@@ -127,7 +120,6 @@ namespace DataAccessLayer
                     )
                 {
                     //Se crea el objeto Parameters por cada parametro
-
                     objCmd.Parameters.Add("@COMPETENCIA_CODIGO", SqlDbType.VarChar).Value = oBE_COMPETENCIA.CODIGO;
                     objCmd.Parameters.Add("@COMPETENCIA_DESCRIPCION", SqlDbType.VarChar).Value = oBE_COMPETENCIA.DESCRIPCION;
                     objCmd.Parameters.Add("@COMPETENCIA_TIPO_ID", SqlDbType.UniqueIdentifier).Value = oBE_COMPETENCIA.COMPETENCIA_TIPO_ID;
@@ -149,7 +141,6 @@ namespace DataAccessLayer
             {
                 cnx.Close();
             }
-
 
             return bIndicador;
         }

@@ -12,10 +12,7 @@ namespace BusinessLogicLayer
     public class BL_GRUPO_ORGANIZACIONAL
     {
         //Inicializamos web service para consulta y actualización de maestros genéricos.  
-        //wsMaestros.mantenimientoMaestros wsMantenimientoMaestros = new wsMaestros.mantenimientoMaestros();
         wsMaestros.mantenimientoEstructuras wsMantenimientoEstructuras = new wsMaestros.mantenimientoEstructuras();
- 
-
         /// <summary>
         ///  Devuelve los datos de todas las GRUPOS_ORGANIZACIONALES.
         /// </summary>
@@ -38,7 +35,6 @@ namespace BusinessLogicLayer
                     oGrupoOrganizacional.ESTADO = item.ESTADO;
 
                     oListaGrupoOrganizacional.Add(oGrupoOrganizacional);
-
                 }
             }
             return oListaGrupoOrganizacional;
@@ -59,7 +55,6 @@ namespace BusinessLogicLayer
             oGrupoOrganizacional.ESTADO = oBE_GRUPO_ORGANIZACIONAL.ESTADO;
 
             return wsMantenimientoEstructuras.InsertarGrupoOrganizacional(oGrupoOrganizacional);
-
         }
 
         /// <summary>

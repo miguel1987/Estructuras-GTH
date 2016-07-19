@@ -18,14 +18,19 @@ namespace WebUI.Template
 
             if (Session["PERSONAL_NOMBRE_USUARIO"] != null)
             {
-                lblLogin.Text = Session["PERSONAL_NOMBRE_USUARIO"].ToString();
-                
-
+                lblLogin.Text = Session["PERSONAL_NOMBRE_USUARIO"].ToString();                               
+            }
+            if (Session["GRUPO_ORGANIZACIONAL_CODIGO"].ToString() != "GE" && Session["GRUPO_ORGANIZACIONAL_CODIGO"].ToString() != "JD" && Session["GRUPO_ORGANIZACIONAL_CODIGO"].ToString() != "CO")
+            {
+                EvaTecnicasHabilidades.Visible = false;               
+                reporteTransversales.Visible = false;
+                reportePuesto.Visible = false;
             }
 
-            
-                
-
+            if (Session["PERFIL_ID"].ToString() != "1")
+            {                
+                ConfiguracionSistema.Visible = false;
+            }                     
         }
 
         protected void lkbSalir_Click(object sender, EventArgs e)
@@ -37,14 +42,7 @@ namespace WebUI.Template
         {
             Session.Abandon();
             Session.Clear();
-
             Response.Redirect("~/UI_SEGURIDAD/Acceso.aspx");
         }
-        
-            
-
-
-
-
     }
 }

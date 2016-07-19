@@ -110,8 +110,7 @@
                             MarkFirstMatch="true" Filter="None" EnableTextSelection="true" DataTextField="DESCRIPCION"
                             AllowCustomText="true" DataSourceID="odsSede" LoadingMessage="Cargando...">
                         </telerik:RadComboBox>
-                        <%--<asp:RequiredFieldValidator ID="rfvSede" runat="server" ControlToValidate="rcbSede" ForeColor="Red" Text="*">
-                        </asp:RequiredFieldValidator>   --%>                          
+                                                
                     </EditItemTemplate>
                 </telerik:GridTemplateColumn>               
                 <telerik:GridTemplateColumn HeaderText="GERENCIA" HeaderStyle-Width="250px" SortExpression="oBE_GERENCIA.DESCRIPCION" DataField="oBE_GERENCIA.DESCRIPCION" UniqueName="oBE_GERENCIA.DESCRIPCION"
@@ -148,8 +147,7 @@
                             MarkFirstMatch="true" Filter="None" EnableTextSelection="true" DataTextField="DESCRIPCION"
                             AllowCustomText="true" DataSourceID="odsCoordinacion" LoadingMessage="Cargando...">
                         </telerik:RadComboBox>
-                        <%--<asp:RequiredFieldValidator ID="rfvCoordinacion" runat="server" ControlToValidate="rcbCoordinacion" ForeColor="Red" Text="*">
-                        </asp:RequiredFieldValidator>                             --%>
+                                                    --%>
                     </EditItemTemplate>
                 </telerik:GridTemplateColumn>                
                 <telerik:GridTemplateColumn HeaderText="PUESTO" SortExpression="oBE_PUESTO.DESCRIPCION" Datafield="oBE_PUESTO.DESCRIPCION" UniqueName="oBE_PUESTO.DESCRIPCION"
@@ -161,8 +159,7 @@
                         <telerik:RadComboBox runat="server" ID="rcbPuesto" DataValueField="ID" MarkFirstMatch="true" Filter="None" EnableTextSelection="true"
                                 DataTextField="DESCRIPCION" AllowCustomText="true" DataSourceID="odsPuesto" LoadingMessage="Cargando..." Width="50%">
                             </telerik:RadComboBox>
-                            <%--<asp:RequiredFieldValidator ID="rfvPuesto" runat="server" ControlToValidate="rcbPuesto" ForeColor="Red" Text="*">
-                            </asp:RequiredFieldValidator>  --%>   
+                              
                         </EditItemTemplate>
                 </telerik:GridTemplateColumn>                                 
                 <telerik:GridTemplateColumn HeaderText="GRUPO ORGANIZACIONAL" HeaderStyle-Width="250px" SortExpression="oBE_GRUPO_ORGANIZACIONAL.DESCRIPCION" DataField="oBE_GRUPO_ORGANIZACIONAL.DESCRIPCION" UniqueName="oBE_GRUPO_ORGANIZACIONAL.DESCRIPCION"
@@ -175,8 +172,7 @@
                             MarkFirstMatch="true" Filter="None" EnableTextSelection="true" DataTextField="DESCRIPCION"
                             AllowCustomText="true" DataSourceID="odsGrupoOrganizacional" LoadingMessage="Cargando...">
                         </telerik:RadComboBox>
-                        <%--<asp:RequiredFieldValidator ID="rfvGrupoOrganizacional" runat="server" ControlToValidate="rcbGrupoOrganizacional" ForeColor="Red" Text="*">
-                        </asp:RequiredFieldValidator>          --%>                   
+                                          
                     </EditItemTemplate>
                 </telerik:GridTemplateColumn>                
                 <telerik:GridTemplateColumn HeaderText="PERFIL" HeaderStyle-Width="250px" SortExpression="oBE_PERFILES.DESCRIPCION" Datafield="oBE_PERFILES.DESCRIPCION" UniqueName="oBE_PERFILES.DESCRIPCION"
@@ -189,9 +185,7 @@
                             MarkFirstMatch="true" Filter="None" EnableTextSelection="true" DataTextField="DESCRIPCION"
                             AllowCustomText="true" DataSourceID="odsPerfiles" LoadingMessage="Cargando...">
                         </telerik:RadComboBox>
-                        <%--<asp:RequiredFieldValidator ID="rfvPerfiles" runat="server" ControlToValidate="rcbPerfiles"
-                            ForeColor="Red" Text="*">
-                        </asp:RequiredFieldValidator>--%>
+                        
                     </EditItemTemplate>
                 </telerik:GridTemplateColumn>                
                 <telerik:GridEditCommandColumn ButtonType="ImageButton" UniqueName="EditCommandColumn" EditText="Actualizar">

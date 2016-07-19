@@ -34,8 +34,7 @@ namespace DataAccessLayer
                     cnx.Open();
                     Int32 estado = Convert.ToInt32(objCmd.ExecuteScalar());                   
 
-                    return estado;
-                    
+                    return estado;                    
                 }
             }
             catch (Exception ex)

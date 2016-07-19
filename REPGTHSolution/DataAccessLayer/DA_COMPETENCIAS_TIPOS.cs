@@ -20,7 +20,6 @@ namespace DataAccessLayer
 
        public List<BE_COMPETENCIAS_TIPOS> SeleccionarCompetenciasTipos()
        {
-
            SqlConnection cnx = new SqlConnection();
            DbDataReader dr;
            cnx = DC_Connection.getConnection();
@@ -45,7 +44,6 @@ namespace DataAccessLayer
                    int USUARIO_ACTUALIZACION = dr.GetOrdinal("USUARIO_ACTUALIZACION");
                    int FECHA_ACTUALIZACION = dr.GetOrdinal("FECHA_ACTUALIZACION");
                    int COMPETENCIA_TIPO_ESTADO = dr.GetOrdinal("COMPETENCIA_TIPO_ESTADO");
-
 
                    // creamos un objeto del tamaño de la tupla en el array de objeto Valores
                    object[] Valores = new object[dr.FieldCount];
@@ -73,7 +71,6 @@ namespace DataAccessLayer
                        }
                    }
 
-
                }
                return oCOMPETENCIAS_TIPOS;
            }
@@ -85,8 +82,6 @@ namespace DataAccessLayer
            {
                cnx.Close();
            }      
-
-
        }
 
        /// <summary>
@@ -97,7 +92,6 @@ namespace DataAccessLayer
 
        public List<BE_COMPETENCIAS_TIPOS> SeleccionarCompetenciasTiposPorId(Guid competencia_tipo_id)
        {
-
            SqlConnection cnx = new SqlConnection();
            DbDataReader dr;
            cnx = DC_Connection.getConnection();
@@ -125,7 +119,6 @@ namespace DataAccessLayer
                    int FECHA_ACTUALIZACION = dr.GetOrdinal("FECHA_ACTUALIZACION");
                    int COMPETENCIA_TIPO_ESTADO = dr.GetOrdinal("COMPETENCIA_TIPO_ESTADO");
 
-
                    // creamos un objeto del tamaño de la tupla en el array de objeto Valores
                    object[] Valores = new object[dr.FieldCount];
 
@@ -151,8 +144,6 @@ namespace DataAccessLayer
                            oCOMPETENCIAS_TIPOS.Add(oBE_COMPETENCIAS_TIPOS);
                        }
                    }
-
-
                }
                return oCOMPETENCIAS_TIPOS;
            }
@@ -164,7 +155,6 @@ namespace DataAccessLayer
            {
                cnx.Close();
            }     
-
        }
     }
 }

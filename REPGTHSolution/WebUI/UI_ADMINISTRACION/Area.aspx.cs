@@ -19,9 +19,7 @@ namespace WebUI.UI_ADMINISTRACION
         protected void Page_Load(object sender, EventArgs e)
         {
             this.validarUsuarioEnDominio();
-            USUARIO = Guid.Parse(Session["PERSONAL_ID"].ToString());
-            
-           
+            USUARIO = Guid.Parse(Session["PERSONAL_ID"].ToString());           
         }
 
         protected void rgArea_ItemDataBound(object sender, GridItemEventArgs e)
@@ -60,26 +58,18 @@ namespace WebUI.UI_ADMINISTRACION
             rcbTempGerencia.ClearSelection();
             this.odsGerencia.SelectParameters.Clear();
             this.odsGerencia.SelectParameters.Add("empresa_id", System.Data.DbType.Guid, selected);            
-
             rcbTempGerencia.DataBind();            
-
         }
-
 
         protected void rgArea_InsertCommand(object sender, GridCommandEventArgs e)
         {
-            GrabarActualizar(sender, e, "add");
-            
+            GrabarActualizar(sender, e, "add");            
         }
-
-
 
         protected void rgArea_UpdateCommand(object sender, GridCommandEventArgs e)
         {
             GrabarActualizar(sender, e, "Edit");
         }
-
-
             
         protected void rgArea_DeleteCommand(object sender, GridCommandEventArgs e)
         {
@@ -115,18 +105,13 @@ namespace WebUI.UI_ADMINISTRACION
         protected void txtBuscar_TextChanged(object sender, EventArgs e)
         {
             rgArea.MasterTableView.FilterExpression = "([DESCRIPCION] LIKE \'%" + txtBuscar.Text.Trim() + "%\' OR [CODIGO]LIKE \'%" + txtBuscar.Text.Trim() + "%\' OR [oBE_EMPRESA.DESCRIPCION]LIKE \'%" + txtBuscar.Text.Trim() + "%\' OR [oBE_GERENCIA.DESCRIPCION]LIKE \'%" + txtBuscar.Text.Trim() + "%\')";
-
             rgArea.Rebind();
-
         }
 
         protected void linkBuscar_Click(object sender, EventArgs e)
         {
-
             rgArea.MasterTableView.FilterExpression = "([DESCRIPCION] LIKE \'%" + txtBuscar.Text.Trim() + "%\' OR [CODIGO]LIKE \'%" + txtBuscar.Text.Trim() + "%\' OR [oBE_EMPRESA.DESCRIPCION]LIKE \'%" + txtBuscar.Text.Trim() + "%\' OR [oBE_GERENCIA.DESCRIPCION]LIKE \'%" + txtBuscar.Text.Trim() + "%\')";
-
             rgArea.Rebind();
-
         }
 
         protected void GrabarActualizar(object sender, GridCommandEventArgs e, String action)
@@ -149,10 +134,7 @@ namespace WebUI.UI_ADMINISTRACION
                 ID = Guid.Empty;
             else            
                 ID = Guid.Parse(editableItem.GetDataKeyValue("ID").ToString());
-
-           
-                
-
+                           
             oentidad.ID = (Guid)ID;
             oentidad.CODIGO = values["CODIGO"].ToString();
             oentidad.DESCRIPCION = values["DESCRIPCION"].ToString();
@@ -185,11 +167,7 @@ namespace WebUI.UI_ADMINISTRACION
                 oentidad.USUARIO_CREACION = USUARIO;
                 oentidad.ESTADO = 1;
                 BL_AREA.ActualizarAreas(oentidad);
-
-            }
-
-            
-
+            }            
         }
     }
 }

@@ -11,11 +11,8 @@ namespace BusinessLogicLayer
     /// </summary>
     public class BL_GERENCIA
     {
-        //Inicializamos web service para consulta y actualización de maestros genéricos.  
-        //wsMaestros.mantenimientoMaestros wsMantenimientoMaestros = new wsMaestros.mantenimientoMaestros();  
+        //Inicializamos web service para consulta y actualización de maestros genéricos.   
         wsMaestros.mantenimientoEstructuras wsMantenimientoEstructuras = new wsMaestros.mantenimientoEstructuras();
-
-
         /// <summary>
         ///  Devuelve los datos de todas las GERENCIAS.
         /// </summary>
@@ -59,11 +56,9 @@ namespace BusinessLogicLayer
                     }
 
                     oListaGerencia.Add(oGerencia);
-
                }
             }
-            return oListaGerencia;
-           
+            return oListaGerencia;           
         }
 
         /// <summary>
@@ -73,7 +68,6 @@ namespace BusinessLogicLayer
         /// <returns> List de BE_GERENCIA con los objetos de la entidad, que a su vez representan la tabla GERENCIAS de la base de datos.En caso no haiga datos devuelve nothing </returns>
         public List<BE_GERENCIA> SeleccionarGerencia(Guid empresa_id)
         {
-
             wsMaestros.BE_GERENCIA[] oLista = wsMantenimientoEstructuras.SeleccionarGerenciaPorEmpresa(empresa_id);
             List<BE_GERENCIA> oListaGerencia = new List<BE_GERENCIA>();
             if (oLista != null)
@@ -103,7 +97,6 @@ namespace BusinessLogicLayer
         /// <returns> List de BE_GERENCIA con los objetos de la entidad, que a su vez representan la tabla GERENCIAS de la base de datos.En caso no haiga datos devuelve nothing </returns>
         public List<BE_GERENCIA> SeleccionarGerenciaPorEmpresa(Guid empresa_id)
         {
-
             wsMaestros.BE_GERENCIA[] oLista = wsMantenimientoEstructuras.SeleccionarGerenciaPorEmpresa(empresa_id);
             List<BE_GERENCIA> oListaGerencia = new List<BE_GERENCIA>();
 
@@ -122,12 +115,9 @@ namespace BusinessLogicLayer
                     oGerencia.ESTADO = item.ESTADO;
 
                     oListaGerencia.Add(oGerencia);
-
                 }
             }
-
             return oListaGerencia;
-
         }
 
         /// <summary>
@@ -145,8 +135,7 @@ namespace BusinessLogicLayer
             oGerencia.ESTADO = oBE_GERENCIA.ESTADO;
             oGerencia.EMPRESA_ID = oBE_GERENCIA.EMPRESA_ID;
 
-            return wsMantenimientoEstructuras.InsertarGerencia(oGerencia);
-             
+            return wsMantenimientoEstructuras.InsertarGerencia(oGerencia);             
         }
 
         /// <summary>
@@ -176,6 +165,5 @@ namespace BusinessLogicLayer
         {
             return wsMantenimientoEstructuras.EliminarGerencia(gerencia_id);
         }
-
     }
 }

@@ -13,7 +13,6 @@ namespace DataAccessLayer
   public  class DA_COMPETENCIAS_POR_PUESTO
     {
 
-
       public List<BE_COMPETENCIAS_POR_PUESTO>SeleccionarCompetenciasPorPuestoyTipo(Guid PUESTO_ID, Guid COMPETENCIA_TIPO_ID)
       {
 
@@ -33,7 +32,6 @@ namespace DataAccessLayer
 
                   objCmd.Parameters.Add("@PUESTO_ID", SqlDbType.UniqueIdentifier).Value =PUESTO_ID;
                   objCmd.Parameters.Add("@COMPETENCIA_TIPO_ID", SqlDbType.UniqueIdentifier).Value =COMPETENCIA_TIPO_ID;                 
-
 
                   cnx.Open();
                   dr = objCmd.ExecuteReader();
@@ -109,10 +107,8 @@ namespace DataAccessLayer
                   objCmd.Parameters.Add("@COMPETENCIA_TIPO_ID", SqlDbType.UniqueIdentifier).Value = COMPETENCIA_TIPO_ID;
                   objCmd.Parameters.Add("@PERSONAL_ID", SqlDbType.UniqueIdentifier).Value = PERSONAL_ID;
 
-
                   cnx.Open();
                   dr = objCmd.ExecuteReader();
-
                   // Se crea una variable tipo int por cada posicion de cada campo
                   int COMPETENCIA_ID = dr.GetOrdinal("COMPETENCIA_ID");
                   int COMPETENCIA_DESCRIPCION = dr.GetOrdinal("COMPETENCIA_DESCRIPCION");
@@ -147,8 +143,6 @@ namespace DataAccessLayer
                           oCOMPETENCIASPORPUESTO.Add(oBE_COMPETENCIASPUESTO);
                       }
                   }
-
-
               }
 
               return oCOMPETENCIASPORPUESTO;
@@ -212,8 +206,6 @@ namespace DataAccessLayer
                           oCOMPETENCIASPORPUESTO.Add(oBE_COMPETENCIASPUESTO);
                       }
                   }
-
-
               }
 
               return oCOMPETENCIASPORPUESTO;
@@ -227,7 +219,6 @@ namespace DataAccessLayer
               cnx.Close();
           }
       }
-
 
       public int EvaluacionFinalGrabar(Guid PUESTO_ID)
       {
@@ -249,11 +240,8 @@ namespace DataAccessLayer
 
                   objCmd.Parameters.Add("@PUESTO_ID", SqlDbType.UniqueIdentifier).Value = PUESTO_ID;
 
-
-
                   cnx.Open();
                   evaluacion =(int) objCmd.ExecuteScalar();
-
               }
 
               return evaluacion;
@@ -314,7 +302,6 @@ namespace DataAccessLayer
           {
               cnx.Close();
           }
-
 
           return bIndicador;
       }
@@ -416,20 +403,5 @@ namespace DataAccessLayer
 
           return bIndicador;
       }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     }
 }

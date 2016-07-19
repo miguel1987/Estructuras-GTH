@@ -17,31 +17,23 @@ namespace WebUI.UI_ARCHIVO
     public partial class EvaluacionesTransversalesLiderazgo : PageBaseClass
     {
         Guid USUARIO = Guid.Empty;
+        string USUARIO_GRUPO_ORGANIZACIONAL = String.Empty;
         BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES = new BusinessEntities.BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES();
         
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            this.validarUsuarioEnDominio();
             USUARIO = Guid.Parse(Session["PERSONAL_ID"].ToString());
+            USUARIO_GRUPO_ORGANIZACIONAL = Session["GRUPO_ORGANIZACIONAL_CODIGO"].ToString();
             
             if (!Page.IsPostBack)
             {
                 try
                 {
-                    validarUsuarioEnDominio();
-                    ValidarPerfilUsuario();
-                    LoadEstructura();
-                    
-                    //SeguridadEstructura();
-                    LoadGrilla(Session["EMPRESA_ID"].ToString(), "0");
-                    addTooltips();
-                    
-                    lblMensaje.Text = hf_Contador.Value;
-
-                    
-
-
-
+                    validarUsuarioEnDominio();                                                        
+                    SeguridadEstructura();                                        
+                    lblMensaje.Text = hf_Contador.Value;                    
                 }
                 catch (Exception ex)
                 {
@@ -54,97 +46,12 @@ namespace WebUI.UI_ARCHIVO
 
         }
 
-        protected void ValidarPerfilUsuario()
-        {
-            //Recuperamos el perfil del usuario para validar sus accesos
-            //Validar Accesos por Perfil
-
-        }
-
-
-
-        protected void LoadEstructura()
-        {
-            //Cargamos la estructura jerarquica de REP
-            //1. Cargar una lista de objetos de tipo Empresas
-            
-            BL_EMPRESA BL_EMPRESA = new BL_EMPRESA();
-            List<BE_EMPRESA> lstEmpresas = BL_EMPRESA.SeleccionarEmpresa();
-
-            //2. Recorrear la lista con un foreach y añadir al tree view estructura un nodo por cada empresa
-            foreach (BE_EMPRESA oEmpresa in lstEmpresas)
-            {
-                RadTreeNode nodeEmpresa = new RadTreeNode(oEmpresa.DESCRIPCION.ToString(), oEmpresa.ID.ToString());
-                nodeEmpresa.Expanded = true;
-                //Añadir nodo Presidencia - CEO
-                
-
-                BL_PRESIDENCIA BL_PRESIDENCIA = new BL_PRESIDENCIA();
-                List<BE_PRESIDENCIA> lstPresidencias = BL_PRESIDENCIA.SeleccionarPresidenciaPorEmpresa(oEmpresa.ID);
-                foreach (BE_PRESIDENCIA oPresidencia in lstPresidencias)
-                {
-                    RadTreeNode nodePresidencia = new RadTreeNode(oPresidencia.DESCRIPCION.ToString(), oPresidencia.ID.ToString());
-                    nodeEmpresa.Nodes.Add(nodePresidencia);
-                    nodePresidencia.Expanded = true;
-                    BL_GERENCIA BL_GERENCIA = new BL_GERENCIA();
-                    List<BE_GERENCIA> lstGerencias = BL_GERENCIA.SeleccionarGerenciaPorEmpresa(oEmpresa.ID);
-
-                    foreach (BE_GERENCIA oGerencia in lstGerencias)
-                    {
-                        RadTreeNode nodeGerencia = new RadTreeNode(oGerencia.DESCRIPCION.ToString(), oGerencia.ID.ToString());
-                        
-                        BL_AREA BL_AREA = new BL_AREA();
-                        List<BE_AREA> lstAreas = BL_AREA.SeleccionarAreaGerencia(oGerencia.ID);
-
-                        foreach (BE_AREA oArea in lstAreas)
-                        {
-                            RadTreeNode nodeAreas = new RadTreeNode(oArea.DESCRIPCION.ToString(), oArea.ID.ToString());
-
-                            //llamar a BL COORDINACION  MÉTODO SELECCIONAR COORDINACION POR AREA
-                            BL_COORDINACION BL_COORDINACION = new BL_COORDINACION();
-                            List<BE_COORDINACION> lstCoordinacion = BL_COORDINACION.SeleccionarCoordinacionPorArea(oArea.ID);
-                            foreach (BE_COORDINACION oCoordinacion in lstCoordinacion)
-                            {
-                                RadTreeNode nodeCoordinacion = new RadTreeNode(oCoordinacion.DESCRIPCION.ToString(), oCoordinacion.ID.ToString());
-                                nodeAreas.Nodes.Add(nodeCoordinacion);
-                                
-
-                            }
-
-                            
-                            nodeGerencia.Nodes.Add(nodeAreas);
-                            
-                        }
-
-
-                        nodePresidencia.Nodes.Add(nodeGerencia);
-
-                    }
-                }
-
-                this.rtvTransversales.Nodes.Add(nodeEmpresa);
-
-
-            }
-
-
-        }
-
-
         protected void rtvTransversales_NodeClick(object sender, RadTreeNodeEventArgs e)
         {
-
             string idNodo = e.Node.Value.ToString();
-
             string nivel = rtvTransversales.SelectedNode.Level.ToString();
-            LoadGrilla(idNodo, nivel);
-
-            
-            
-            
+            LoadGrilla(idNodo, nivel);            
         }
-
-        
 
         protected void SeguridadEstructura()
         {
@@ -224,8 +131,11 @@ namespace WebUI.UI_ARCHIVO
                                 }
                                 else
                                 {
-                                    nodeCoordinacion.Expanded = false;
-                                    nodeCoordinacion.Enabled = false;
+                                    if ((Session["GRUPO_ORGANIZACIONAL_CODIGO"].ToString() != "GE" && Session["GRUPO_ORGANIZACIONAL_CODIGO"].ToString() != "JD"))
+                                    {
+                                        nodeCoordinacion.Expanded = false;
+                                        nodeCoordinacion.Enabled = false;
+                                    }
                                 }
 
                                 nodeAreas.Nodes.Add(nodeCoordinacion);
@@ -244,38 +154,42 @@ namespace WebUI.UI_ARCHIVO
                                 nodeAreas.Enabled = true;
                                 nodeCoordinacion.Enabled = true;
                             }
-                            else if (Session["PERFIL_ID"].ToString() == "2" && Session["CODIGO"].ToString() == "GE")
+                            else if (Session["PERFIL_ID"].ToString() == "2" && Session["GRUPO_ORGANIZACIONAL_CODIGO"].ToString() == "GE")
                             {
                                 nivel = "2";
                                 jerarquia_id = Session["GERENCIA_ID"].ToString();
-                                nodePresidencia.Enabled =true;
-                                nodeGerencia.Enabled = true;
+                                nodePresidencia.Enabled =false;
+                                nodeEmpresa.Enabled = false;
                                 nodeAreas.Enabled = true;
+                                if(nodeCoordinacion!=null)
                                 nodeCoordinacion.Enabled = true;
                             
                             }
-                            else if (Session["PERFIL_ID"].ToString() == "2" && Session["CODIGO"].ToString() == "JD")
+                            else if (Session["PERFIL_ID"].ToString() == "2" && Session["GRUPO_ORGANIZACIONAL_CODIGO"].ToString() == "JD")
                             {
                                 nivel = "3";
                                 jerarquia_id = Session["AREA_ID"].ToString();
+                                nodeEmpresa.Enabled = false;
                                 nodePresidencia.Enabled = false;
                                 nodeGerencia.Enabled = false;
                                 nodeAreas.Enabled =true;
-                                //nodeCoordinacion.Enabled = true;
+                                
 
                             }
 
-                            else if (Session["PERFIL_ID"].ToString() == "2" && Session["CODIGO"].ToString() == "CO")
+                            else if (Session["PERFIL_ID"].ToString() == "2" && Session["GRUPO_ORGANIZACIONAL_CODIGO"].ToString() == "CO")
                             {
                                 nivel = "4";
                                 jerarquia_id = Session["COORDINACION_ID"].ToString();
+                                nodeEmpresa.Enabled = false;
                                 nodePresidencia.Enabled = false;
                                 nodeGerencia.Enabled = false;
                                 nodeAreas.Enabled = false;
 
                             }
                             else
-                            {                              
+                            {
+                                nodeEmpresa.Enabled = false;
                                 nodePresidencia.Enabled = false;
                                 nodeGerencia.Enabled = false;
                                 nodeAreas.Enabled = false;                                
@@ -284,10 +198,8 @@ namespace WebUI.UI_ARCHIVO
                             
                         }
 
-
                         nodePresidencia.Nodes.Add(nodeGerencia);
                         
-
                     }
                 }
 
@@ -320,13 +232,7 @@ namespace WebUI.UI_ARCHIVO
             }
 
             LoadGrilla(jerarquia_id, nivel);
-
-
         }
-
-
-
-
 
         protected void LoadGrilla(string idNodo, string nivel)
         {
@@ -337,7 +243,10 @@ namespace WebUI.UI_ARCHIVO
 
             odsEvaluacionesTransversales.SelectParameters.Add("nivel", System.Data.DbType.Int16, nivel);
             if (Session["PERFIL_ID"].ToString() == "2")
+            {
                 odsEvaluacionesTransversales.SelectParameters.Add("usuario_id", System.Data.DbType.Guid, USUARIO.ToString());
+                odsEvaluacionesTransversales.SelectParameters.Add("usuario_grupo_organizacional", System.Data.DbType.String, USUARIO_GRUPO_ORGANIZACIONAL);
+            }
 
             rgEvaluacionesTransversalesporPersonal.DataBind();
 
@@ -345,9 +254,7 @@ namespace WebUI.UI_ARCHIVO
             CalcularIndicadorGerente(idNodo, nivel);
 
             if (Convert.ToInt16(lblIndicadorGerencia.Text) == 0)
-                this.lblIndicadorGerencia.Text = this.lblIndicador.Text;
-
-            
+                this.lblIndicadorGerencia.Text = this.lblIndicador.Text;            
         }
 
         protected void CalcularIndicador(string idNodo, string nivel)
@@ -381,10 +288,7 @@ namespace WebUI.UI_ARCHIVO
                 indicador = (contadorCompetenciasDesarrolladas / contadorTotalRegistros) * 100;
 
             this.lblIndicador.Text = Decimal.Round(indicador, 0).ToString();
-
-
         }
-
 
         protected void CalcularIndicadorGerente(string idNodo, string nivel)
         {
@@ -420,92 +324,40 @@ namespace WebUI.UI_ARCHIVO
                 indicador = (contadorGerencia / contadorTotalRegistros) * 100;
 
             this.lblIndicadorGerencia.Text = Decimal.Round(indicador, 0).ToString();
-
-
         }
 
         protected void obtenervalor(string valor)
         {
             int prueba;
 
-
             valor = BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES.PARAMETRO_SISTEMA.DESARROLLADAS.ToString();
             prueba = BL_EVALUACIONES_COMPETENCIAS_TRANSVERSALES.ParametroSistemaporValor(valor);
             BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES.VALOR = prueba;
-
-
         }
-
 
         protected void obtenerColorVerde(string valor)
         {
             string color;
 
-
             valor = BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES.PARAMETRO_SISTEMA.VERDE.ToString();
             color = BL_EVALUACIONES_COMPETENCIAS_TRANSVERSALES.ParametroSistemaporValorColor(valor);
             BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES.VALOR_COLOR =color;
-
-
         }
 
         protected void obtenerColorAmarillo(string valor)
         {
             string color;
 
-
             valor = BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES.PARAMETRO_SISTEMA.AMARILLO.ToString();
             color = BL_EVALUACIONES_COMPETENCIAS_TRANSVERSALES.ParametroSistemaporValorColor(valor);
             BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES.VALOR_COLOR = color;
-
-
         }
 
         protected void txtBuscar_TextChanged(object sender, EventArgs e)
         {
-
             rgEvaluacionesTransversalesporPersonal.FilterByLabel(PivotGridFilterFunction.Contains, rgEvaluacionesTransversalesporPersonal.Fields["PERSONAL_DESCRIPCION"],txtBuscar.Text);
-
-
         }
-
-        protected void addTooltips()
-        {
-            RadToolTipManager1.TargetControls.Clear();
-            
-
-            foreach (RadTreeNode node in rtvTransversales.Nodes)
-            {
-                node.Attributes.Add("ID", node.Text);
-                RadToolTipManager1.TargetControls.Add(node.Attributes["ID"], true);
-                NodesInNode(node);
-            }
-        }
-
-
-        protected void NodesInNode(RadTreeNode startNode)
-        {
-            if (startNode.Nodes.Count > 0)
-            {
-                foreach (RadTreeNode node in startNode.Nodes)
-                {
-
-                    node.Attributes.Add("ID", node.Text);
-                    RadToolTipManager1.TargetControls.Add(node.Attributes["ID"], true);
-                    NodesInNode(node);
-                }
-            }
-        }
-
-
-
-        protected void RadToolTipManager1_AjaxUpdate(object sender, ToolTipUpdateEventArgs e)
-        {
-            Label text = new Label();
-            text.Text = e.TargetControlID;
-            e.UpdatePanel.ContentTemplateContainer.Controls.Add(text);
-        }    
-
+       
         protected void rgEvaluacionesTransversalesporPersonal_CellDataBound(object sender, PivotGridCellDataBoundEventArgs e)
         {       
             
@@ -542,9 +394,7 @@ namespace WebUI.UI_ARCHIVO
 
                                         string color =BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES.VALOR_COLOR;
                                         
-                                        cell.BackColor = ColorTranslator.FromHtml(color);
-                                        
-                                        
+                                        cell.BackColor = ColorTranslator.FromHtml(color);                                        
                                     }
                                     else if (porcentaje < 80)
                                     {
@@ -555,41 +405,13 @@ namespace WebUI.UI_ARCHIVO
                                         string color = BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES.VALOR_COLOR;
 
                                         cell.BackColor = ColorTranslator.FromHtml(color);
-                                    }
-
-                                   
+                                    }                                   
                                 }
                                 break;
                         }
                     }
                 }
-
-
-            }
-
-
-            
+            }            
         }
-
-
-
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     }
 }

@@ -19,9 +19,7 @@ namespace WebUI.UI_ADMINISTRACION
         protected void Page_Load(object sender, EventArgs e)
         {
             this.validarUsuarioEnDominio();
-            USUARIO = Guid.Parse(Session["PERSONAL_ID"].ToString());
-            
-           
+            USUARIO = Guid.Parse(Session["PERSONAL_ID"].ToString());           
         }
 
         protected void rgCoordinacion_ItemDataBound(object sender, GridItemEventArgs e)
@@ -72,7 +70,6 @@ namespace WebUI.UI_ADMINISTRACION
             this.odsGerencia.SelectParameters.Add("empresa_id", System.Data.DbType.Guid, selected);            
 
             rcbTempGerencia.DataBind();            
-
         }
 
         protected void rcbGerencia_SelectedIndexChanged(object sender, EventArgs e)
@@ -86,26 +83,19 @@ namespace WebUI.UI_ADMINISTRACION
             this.odsArea.SelectParameters.Add("gerencia_id", System.Data.DbType.Guid, selected);
 
             rcbTempArea.DataBind();
-
         }
-
 
 
         protected void rgCoordinacion_InsertCommand(object sender, GridCommandEventArgs e)
         {
-            GrabarActualizar(sender, e, "add");
-            
+            GrabarActualizar(sender, e, "add");           
         }
-
-
-
+              
         protected void rgCoordinacion_UpdateCommand(object sender, GridCommandEventArgs e)
         {
             GrabarActualizar(sender, e, "Edit");
         }
-
-
-
+         
         protected void rgCoordinacion_DeleteCommand(object sender, GridCommandEventArgs e)
         {
             var editableItem = ((GridEditableItem)e.Item);
@@ -140,7 +130,6 @@ namespace WebUI.UI_ADMINISTRACION
         protected void txtBuscar_TextChanged(object sender, EventArgs e)
         {
             rgCoordinacion.MasterTableView.FilterExpression = "([DESCRIPCION] LIKE \'%" + txtBuscar.Text.Trim() + "%\' OR [CODIGO]LIKE \'%" + txtBuscar.Text.Trim() + "%\' OR [oBE_EMPRESA.DESCRIPCION]LIKE \'%" + txtBuscar.Text.Trim() + "%\' OR [oBE_GERENCIA.DESCRIPCION]LIKE \'%" + txtBuscar.Text.Trim() + "%\')";
-
             rgCoordinacion.Rebind();
 
         }
@@ -149,9 +138,7 @@ namespace WebUI.UI_ADMINISTRACION
         {
 
             rgCoordinacion.MasterTableView.FilterExpression = "([DESCRIPCION] LIKE \'%" + txtBuscar.Text.Trim() + "%\' OR [CODIGO]LIKE \'%" + txtBuscar.Text.Trim() + "%\' OR [oBE_EMPRESA.DESCRIPCION]LIKE \'%" + txtBuscar.Text.Trim() + "%\' OR [oBE_GERENCIA.DESCRIPCION]LIKE \'%" + txtBuscar.Text.Trim() + "%\')";
-
             rgCoordinacion.Rebind();
-
         }
 
         protected void GrabarActualizar(object sender, GridCommandEventArgs e, String action)
@@ -198,11 +185,7 @@ namespace WebUI.UI_ADMINISTRACION
                 oentidad.USUARIO_CREACION = USUARIO;
                 oentidad.ESTADO = 1;
                 BL_COORDINACION.ActualizarCoordinacion(oentidad);
-
-            }
-
-            
-
+            }           
         }
     }
 }

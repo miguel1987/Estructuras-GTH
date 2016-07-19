@@ -53,7 +53,6 @@ namespace DataAccessLayer
                     objCmd.Parameters.Add("@EVALUACION_COMPETENCIA_ANIO", SqlDbType.Int).Value = oBE_EVALUACIONES_COMPETENCIAS_PUESTOS_PERSONAL.ANIO_EVALUACION;
                     objCmd.Parameters.Add("@USUARIO", SqlDbType.UniqueIdentifier).Value = oBE_EVALUACIONES_COMPETENCIAS_PUESTOS_PERSONAL.USUARIO_CREACION;
 
-
                     cnx.Open();
 
                     oTransaction = cnx.BeginTransaction();
@@ -95,8 +94,6 @@ namespace DataAccessLayer
             return evluacion_competencia_puesto_personal_id;
         }
 
-
-
         public bool ActualizarEvaluacionCompetenciaPuestoPersonal(BE_EVALUACIONES_COMPETENCIAS_PUESTOS_PERSONAL oBE_EVALUACIONES_COMPETENCIAS_PUESTOS_PERSONAL)
         {
             SqlConnection cnx = new SqlConnection();
@@ -127,9 +124,6 @@ namespace DataAccessLayer
                     objCmd.Parameters.Add("@EVALUACION_COMPETENCIA_BRECHA", SqlDbType.Int).Value = oBE_EVALUACIONES_COMPETENCIAS_PUESTOS_PERSONAL.BRECHA;
                     objCmd.Parameters.Add("@EVALUACION_COMPETENCIA_ESTADO", SqlDbType.Int).Value = oBE_EVALUACIONES_COMPETENCIAS_PUESTOS_PERSONAL.ESTADO_EVALUACION;
                     
-                    
-
-
                     cnx.Open();
 
                     oTransaction = cnx.BeginTransaction();
@@ -171,12 +165,6 @@ namespace DataAccessLayer
             }
             return bSolicitud;
         }
-
-
-
-
-
-
 
         public bool ActualizarEvaluacionFinal(BE_EVALUACIONES_COMPETENCIAS_PUESTOS_PERSONAL oBE_EVALUACIONES_COMPETENCIAS_PUESTOS_PERSONAL)
         {
@@ -224,14 +212,5 @@ namespace DataAccessLayer
             }
             return bSolicitud;
         }
-
-
-
-
-
-
-
-
-
     }
 }

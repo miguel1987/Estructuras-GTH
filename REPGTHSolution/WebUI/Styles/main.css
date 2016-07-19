@@ -99,6 +99,8 @@ ul {
 	width: 226px;
 	list-style-type: none;
 	line-height: 20px;
+    top: 0px;
+    left: 0px;
 }
 #menu .closed {
 	background-image: url(../Images/ha-down.gif);
@@ -311,7 +313,8 @@ ul#conf-menu li ul.sub-menu li a.separador {
 	
 }
 .area-tree {
-	width: 250px;
+	/*width: 250px;*/
+	width:340px;
 	
 }
 .frm_titulo01 {

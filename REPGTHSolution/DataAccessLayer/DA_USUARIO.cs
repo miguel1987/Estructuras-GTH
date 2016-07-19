@@ -16,7 +16,6 @@ namespace DataAccessLayer
     /// </summary>
     public class DA_USUARIO
     {
-
         /// <summary>
         /// Devuelve los datos de todos los Usuarios
         /// </summary>
@@ -47,7 +46,6 @@ namespace DataAccessLayer
                     int FECHA_CREACION = dr.GetOrdinal("FECHA_CREACION");
                     int USUARIO_ACTUALIZACION = dr.GetOrdinal("USUARIO_ACTUALIZACION");
                     int FECHA_ACTUALIZACION = dr.GetOrdinal("FECHA_ACTUALIZACION");
-
 
                     // creamos un objeto del tamaño de la tupla en el array de objeto Valores
                     object[] Valores = new object[dr.FieldCount];
@@ -106,9 +104,7 @@ namespace DataAccessLayer
                     CommandText = "USP_USUARIO_SELECCIONAR_POR_PERSONAL_ID"
                 })
                 {
-
                     objCmd.Parameters.Add("@PERSONAL_ID", SqlDbType.UniqueIdentifier).Value = personal_id;
-
 
                     cnx.Open();
                     dr = objCmd.ExecuteReader();
@@ -245,7 +241,6 @@ namespace DataAccessLayer
             {
                 cnx.Close();
             }
-
 
             return bIndicador;
         }

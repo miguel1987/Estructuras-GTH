@@ -12,10 +12,7 @@ namespace BusinessLogicLayer
     public class BL_PUESTO
     {
         //Inicializamos web service para consulta y actualización de maestros genéricos.  
-        //wsMaestros.mantenimientoMaestros wsMantenimientoMaestros = new wsMaestros.mantenimientoMaestros();  
         wsMaestros.mantenimientoEstructuras wsMantenimientoEstructuras = new wsMaestros.mantenimientoEstructuras();
-
-
         /// <summary>
         ///  Devuelve los datos de todas los PUESTOS.
         /// </summary>
@@ -159,8 +156,6 @@ namespace BusinessLogicLayer
 
         }
 
-
-
         /// <summary>
         /// Inserta los datos de un Puesto
         /// </summary>
@@ -177,8 +172,7 @@ namespace BusinessLogicLayer
             oPuesto.NIVEL = oBE_PUESTO.NIVEL;
             oPuesto.EMPRESA_ID = oBE_PUESTO.EMPRESA_ID;
 
-            return wsMantenimientoEstructuras.InsertarPuesto(oPuesto);
-             
+            return wsMantenimientoEstructuras.InsertarPuesto(oPuesto);             
         }
 
         /// <summary>
@@ -209,6 +203,5 @@ namespace BusinessLogicLayer
         {
             return wsMantenimientoEstructuras.EliminarPuesto(puesto_id);
         }
-
     }
 }

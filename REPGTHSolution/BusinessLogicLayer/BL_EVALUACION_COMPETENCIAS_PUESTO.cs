@@ -9,8 +9,7 @@ namespace BusinessLogicLayer
 {
     public class BL_EVALUACION_COMPETENCIAS_PUESTO
     {
-        //Inicializamos web service para consulta y actualización de maestros genéricos.  
-        //wsMaestros.mantenimientoMaestros wsMantenimientoMaestros = new wsMaestros.mantenimientoMaestros();
+        //Inicializamos web service para consulta y actualización de maestros genéricos.          
         wsMaestros.mantenimientoEstructuras wsMantenimientoEstructuras = new wsMaestros.mantenimientoEstructuras();
         wsMaestros.BE_PERSONAL[] oListaPorEmpresa,oListaPorPresidencia,oListaPorGerencia,oListaPorArea,oListaPorCoordinacion=null;
         DA_EVALUACION_COMPETENCIA_PUESTO DA_COMPETENCIA_PUESTO = new DA_EVALUACION_COMPETENCIA_PUESTO();
@@ -18,7 +17,6 @@ namespace BusinessLogicLayer
         wsMaestros.BE_COORDINACION[] oListaCoordinaciones = null;
         wsMaestros.BE_GERENCIA[] oListaGerencias = null;
         
-
         /// <summary>
         ///  Devuelve los datos de todos los puesto y colaboradores.
         /// </summary>
@@ -48,7 +46,6 @@ namespace BusinessLogicLayer
                 case 4:
                     oListaPorCoordinacion = wsMantenimientoEstructuras.SeleccionarPersonalPorCoordinacion(jerarquia_id);
                     break;
-
             }
 
             
@@ -74,7 +71,6 @@ namespace BusinessLogicLayer
                         oEvaluacion_Competencia.ESTADO_DESCRIPCION = BE_EVALUACION_COMPETENCIA_PUESTO.ESTADO_EVALUACION.Evaluado.ToString();
 
                     oListaEvaluacionesEstado.Add(oEvaluacion_Competencia);
-
                 }
             }
                    
@@ -160,7 +156,6 @@ namespace BusinessLogicLayer
                                 oEvaluacion_Competencia.ESTADO_DESCRIPCION = BE_EVALUACION_COMPETENCIA_PUESTO.ESTADO_EVALUACION.Evaluado.ToString();
 
                             oListaEvaluacionesEstado.Add(oEvaluacion_Competencia);
-
                         }
                         else
                         {
@@ -288,22 +283,14 @@ namespace BusinessLogicLayer
                             oEvaluacion_Competencia.ESTADO_DESCRIPCION = BE_EVALUACION_COMPETENCIA_PUESTO.ESTADO_EVALUACION.Evaluado.ToString();
 
                         oListaEvaluacionesEstado.Add(oEvaluacion_Competencia);
-
                     }
 
                 }
             }
             return oListaEvaluacionesEstado;
 
-
-
             } //final del metodo
-
-
         }
-
-
-
     }
 
 

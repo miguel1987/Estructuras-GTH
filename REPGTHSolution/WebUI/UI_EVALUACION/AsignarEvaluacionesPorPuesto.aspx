@@ -97,21 +97,6 @@
                 <telerik:GridBoundColumn EditFormHeaderTextFormat="" Visible="false" DataField="ESTADO_EVALUACION" HeaderText="" SortExpression="ESTADO_EVALUACION" UniqueName="ESTADO_EVALUACION" AutoPostBackOnFilter="true" Display="true">                    
 <HeaderStyle Font-Size="8pt"></HeaderStyle>
                 </telerik:GridBoundColumn>
-                <%--<telerik:GridTemplateColumn DataField="ESTADO_EVALUACION" EditFormHeaderTextFormat="" HeaderText="ESTADO_EVALUACION" SortExpression="ESTADO_EVALUACION" Visible="false"
-                    UniqueName="ESTADO_EVALUACION" ColumnEditorID="GridTextBoxColumnEditorTipo" HeaderStyle-Width="8px"
-                    ItemStyle-Width="8px">
-                    <ItemTemplate>
-                        <asp:Label ID="lblEstadoEvaluacion" runat="server" Text='<%# Eval("ESTADO_EVALUACION")%>' Visible="false" />
-                    </ItemTemplate>
-                    
-
-                    <EditItemTemplate>
-                        <asp:TextBox ID="tbEstadoEvaluacion" runat="server" Enabled="false" Columns="3" Width="300px" Text='<%# Eval("ESTADO_EVALUACION")%>' Visible="false">
-                        </asp:TextBox>
-                    </EditItemTemplate>                    
-                    <HeaderStyle Width="8px"></HeaderStyle>
-                    <ItemStyle Width="8px"></ItemStyle>
-                </telerik:GridTemplateColumn> --%>
                <telerik:GridEditCommandColumn  ButtonType="ImageButton" EditText="Actualizar"
                     UniqueName="EditCommandColumn" CancelImageUrl="../images/ico-delete.png" 
                     InsertImageUrl="../images/ico-edit.png" UpdateImageUrl="../images/ico-edit.png">
@@ -150,11 +135,6 @@
         TypeName="BusinessLogicLayer.BL_COMPETENCIAS_TIPOS"></asp:ObjectDataSource>
   <asp:ObjectDataSource ID="odsCompetenciasPuesto" runat="server" SelectMethod="SeleccionarCompetenciasPorPuestoyTipo" TypeName="BusinessLogicLayer.BL_COMPETENCIAS_POR_PUESTO"
     DataObjectTypeName="BusinessEntities.BE_COMPETENCIAS_POR_PUESTO">
-   <%-- <SelectParameters>
-        <asp:Parameter Name="idPuesto" Type="String" DefaultValue="00000000-0000-0000-0000-000000000000" />           
-        <asp:Parameter Name="idTipoCompetencia" Type="String" DefaultValue="00000000-0000-0000-0000-000000000000" />
-        <asp:Parameter Name="idPersonal" Type="String" DefaultValue="00000000-0000-0000-0000-000000000000" />
-    </SelectParameters>--%>
   </asp:ObjectDataSource>
   <asp:HiddenField ID="hf_PersonalId" runat="server" />
   <asp:HiddenField ID="hf_Personal" runat="server" />
