@@ -106,15 +106,18 @@ namespace BusinessLogicLayer
                 foreach (var item in oLista)
                 {
                     BE_GERENCIA oGerencia = new BE_GERENCIA();
-                    oGerencia.ID = item.ID;
-                    oGerencia.CODIGO = item.CODIGO;
-                    oGerencia.DESCRIPCION = item.DESCRIPCION;
-                    oGerencia.USUARIO_CREACION = item.USUARIO_CREACION;
-                    oGerencia.FECHA_CREACION = item.FECHA_CREACION;
-                    oGerencia.USUARIO_ACTUALIZACION = item.USUARIO_ACTUALIZACION;
-                    oGerencia.ESTADO = item.ESTADO;
+                    if (item.CODIGO != BE_GERENCIA.CODIGO_GERENCIA.GG.ToString())
+                    {
+                        oGerencia.ID = item.ID;
+                        oGerencia.CODIGO = item.CODIGO;
+                        oGerencia.DESCRIPCION = item.DESCRIPCION;
+                        oGerencia.USUARIO_CREACION = item.USUARIO_CREACION;
+                        oGerencia.FECHA_CREACION = item.FECHA_CREACION;
+                        oGerencia.USUARIO_ACTUALIZACION = item.USUARIO_ACTUALIZACION;
+                        oGerencia.ESTADO = item.ESTADO;
 
-                    oListaGerencia.Add(oGerencia);
+                        oListaGerencia.Add(oGerencia);
+                    }
                 }
             }
             return oListaGerencia;

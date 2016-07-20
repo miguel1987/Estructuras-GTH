@@ -10,6 +10,7 @@ namespace BusinessLogicLayer
     public class BL_PERSONAL
     {
         //Inicializamos web service para consulta y actualización de maestros genéricos.  
+        
         wsMaestros.mantenimientoEstructuras wsMantenimientoEstructuras = new wsMaestros.mantenimientoEstructuras();
 
         /// <summary>
@@ -113,6 +114,40 @@ namespace BusinessLogicLayer
 
                     }
 
+                    wsMaestros.BE_EMPRESA[] oEmpresa = wsMantenimientoEstructuras.SeleccionarEmpresa();
+                    if (oEmpresa != null)
+                    {
+                        foreach (var itemEmpresa in oEmpresa)
+                        {
+                            BE_EMPRESA oBE_EMPRESA = new BE_EMPRESA();
+
+                            if (oBE_PERSONAL.EMPRESA_ID == itemEmpresa.ID)
+                            {
+                                oBE_EMPRESA.ID = itemEmpresa.ID;
+                                oBE_EMPRESA.DESCRIPCION = itemEmpresa.DESCRIPCION;
+                                oBE_PERSONAL.oBE_EMPRESA = oBE_EMPRESA;
+                            }
+
+                        }
+                    }
+
+                    wsMaestros.BE_GERENCIA[] oGerencia = wsMantenimientoEstructuras.SeleccionarGerencia();
+                    if (oGerencia != null)
+                    {
+                        foreach (var itemGerencia in oGerencia)
+                        {
+                            BE_GERENCIA oBE_GERENCIA = new BE_GERENCIA();
+
+                            if (oBE_PERSONAL.GERENCIA_ID == itemGerencia.ID)
+                            {
+                                oBE_GERENCIA.ID = itemGerencia.ID;
+                                oBE_GERENCIA.DESCRIPCION = itemGerencia.DESCRIPCION;
+                                oBE_PERSONAL.oBE_GERENCIA = oBE_GERENCIA;
+                            }
+
+                        }
+                    }
+
                     wsMaestros.BE_AREA[] oArea = wsMantenimientoEstructuras.SeleccionarAreas();
                     if (oArea != null)
                     {
@@ -126,46 +161,18 @@ namespace BusinessLogicLayer
                                 oBE_AREA.GERENCIA_ID = itemArea.GERENCIA_ID;
                                 oBE_PERSONAL.oBE_AREA = oBE_AREA;
 
-                                wsMaestros.BE_GERENCIA[] oGerencia = wsMantenimientoEstructuras.SeleccionarGerencia();
-                                if (oGerencia != null)
-                                {
-                                    foreach (var itemGerencia in oGerencia)
-                                    {
-                                        BE_GERENCIA oBE_GERENCIA = new BE_GERENCIA();
+                       
 
-                                        if (oBE_PERSONAL.GERENCIA_ID == itemGerencia.ID)
-                                        {
-                                            oBE_GERENCIA.ID = itemGerencia.ID;
-                                            oBE_GERENCIA.DESCRIPCION = itemGerencia.DESCRIPCION;
-                                            oBE_PERSONAL.oBE_GERENCIA = oBE_GERENCIA;
-
-                                            wsMaestros.BE_EMPRESA[] oEmpresa = wsMantenimientoEstructuras.SeleccionarEmpresa();
-                                            if (oEmpresa != null)
-                                            {
-                                                foreach (var itemEmpresa in oEmpresa)
-                                                {
-                                                    BE_EMPRESA oBE_EMPRESA = new BE_EMPRESA();
-
-                                                    if (oBE_PERSONAL.EMPRESA_ID == itemEmpresa.ID)
-                                                    {
-                                                        oBE_EMPRESA.ID = itemEmpresa.ID;
-                                                        oBE_EMPRESA.DESCRIPCION = itemEmpresa.DESCRIPCION;
-                                                        oBE_PERSONAL.oBE_EMPRESA = oBE_EMPRESA;
-                                                    }
-
-                                                }
-                                            }
-                                        }
-
-                                    }
-                                }
                             }
+
                         }
                     }
 
                     oPERSONAL.Add(oBE_PERSONAL);                                
                 }
-            }            
+
+            }
+            
             return oPERSONAL;
         }
 

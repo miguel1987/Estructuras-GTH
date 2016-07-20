@@ -82,7 +82,7 @@
                     </ColumnValidationSettings>
                 </telerik:GridBoundColumn>   
                 <telerik:GridBoundColumn DataField="NOMBRE_USUARIO" 
-                    HeaderText="NOMBRE USUARIO PROPIETARIO" SortExpression="NOMBRE_USUARIO" UniqueName="NOMBRE_USUARIO" AutoPostBackOnFilter="true">
+                    HeaderText="NOMBRE USUARIO" SortExpression="NOMBRE_USUARIO" UniqueName="NOMBRE_USUARIO" AutoPostBackOnFilter="true">
                     <ColumnValidationSettings EnableRequiredFieldValidation="true">
                         <RequiredFieldValidator ForeColor="Red" Text="*">
                         </RequiredFieldValidator>
