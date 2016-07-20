@@ -119,7 +119,7 @@ namespace WebUI
             //mobregon especialista
             //cosores secretaria ejecutiva
 
-            string userId = "Pc\\mvillacorta"; 
+            string userId = "Pc\\soporte_ipd"; 
             string[] useridNew = userId.Trim().Split(new[] { "\\" }, StringSplitOptions.None);
             
             BusinessEntities.BE_USUARIO oBE_USUARIO = BusinessLogicLayer.BL_USUARIO.SeleccionarPersonalPorUsuario(useridNew[1]);

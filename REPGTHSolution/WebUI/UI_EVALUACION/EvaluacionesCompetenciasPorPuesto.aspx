@@ -15,7 +15,9 @@
               <tr>
               <td style="height: 50px">
                   <asp:Label ID="lblPuesto" runat="server" Text="Puesto:"></asp:Label>
-                  <telerik:RadComboBox ID="rcbPuesto" runat="server" DataValueField="ID" DataTextField="DESCRIPCION" DataSourceID="odsPuesto" AutoPostBack="true" OnSelectedIndexChanged="rcbPuesto_SelectedIndexChanged" >
+                  <telerik:RadComboBox ID="rcbPuesto" runat="server" DataValueField="ID" 
+                      DataTextField="DESCRIPCION" DataSourceID="odsPuesto" AutoPostBack="true" 
+                      OnSelectedIndexChanged="rcbPuesto_SelectedIndexChanged" Filter="StartsWith" >
                   </telerik:RadComboBox>
                      </td>
              <td style="height: 50px">

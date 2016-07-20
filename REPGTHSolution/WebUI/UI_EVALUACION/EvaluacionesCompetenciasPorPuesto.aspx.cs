@@ -22,7 +22,7 @@ namespace WebUI.UI_ARCHIVO
             this.validarUsuarioEnDominio();
             USUARIO = Guid.Parse(Session["PERSONAL_ID"].ToString());
             Context.Request.Browser.Adapters.Clear();
-        
+            
 
             if (!Page.IsPostBack)
             {
@@ -143,6 +143,7 @@ namespace WebUI.UI_ARCHIVO
                                 nodePresidencia.Enabled = true;
                                 nodeGerencia.Enabled = true;
                                 nodeAreas.Enabled = true;
+                                if (nodeCoordinacion != null)
                                 nodeCoordinacion.Enabled = true;
                             }
                             else if (Session["PERFIL_ID"].ToString() == "2" && Session["GRUPO_ORGANIZACIONAL_CODIGO"].ToString() == "GE")

@@ -20,7 +20,7 @@ namespace WebUI.Template
             {
                 lblLogin.Text = Session["PERSONAL_NOMBRE_USUARIO"].ToString();                               
             }
-            if (Session["GRUPO_ORGANIZACIONAL_CODIGO"].ToString() != "GE" && Session["GRUPO_ORGANIZACIONAL_CODIGO"].ToString() != "JD" && Session["GRUPO_ORGANIZACIONAL_CODIGO"].ToString() != "CO")
+            if (Session["PERFIL_ID"].ToString() != "1" && Session["GRUPO_ORGANIZACIONAL_CODIGO"].ToString() != "GE" && Session["GRUPO_ORGANIZACIONAL_CODIGO"].ToString() != "JD" && Session["GRUPO_ORGANIZACIONAL_CODIGO"].ToString() != "CO")
             {
                 EvaTecnicasHabilidades.Visible = false;               
                 reporteTransversales.Visible = false;
