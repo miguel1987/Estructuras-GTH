@@ -42,7 +42,7 @@
                   
                   <!--Arbol -->
                  
-                 <telerik:RadTreeView style="overflow-x:hidden" ID="rtvTransversales" runat="server" OnNodeClick="rtvTransversales_NodeClick"></telerik:RadTreeView>
+                 <telerik:RadTreeView Style="white-space: normal" ID="rtvTransversales" runat="server" OnNodeClick="rtvTransversales_NodeClick"></telerik:RadTreeView>
                   
                   <!--Arbol --> 
                   
@@ -50,8 +50,8 @@
               <td width="10">&nbsp;</td>
               <td valign="top">
               <telerik:RadPivotGrid ID="rgEvaluacionesporPuesto" CssClass="Pivot" runat="server" ShowColumnHeaderZone="false" ShowRowHeaderZone="false" ShowDataHeaderZone="false" EnableZoneContextMenu="false"  ShowFilterHeaderZone="false"   TotalsSettings-GrandTotalsVisibility="None" AllowSorting="true" 
-        AllowFilteringByColumn="false"   DataSourceID="odsCompetenciasPuesto" OnCellDataBound="rgEvaluacionesporPuesto_CellDataBound" Width="100%" Height="350px"
-                       Culture="es-PE" CellPadding="2" CellSpacing="2"
+        AllowFilteringByColumn="false"   DataSourceID="odsCompetenciasPuesto" OnCellDataBound="rgEvaluacionesporPuesto_CellDataBound" width="100%"
+                       Culture="es-PE" CellPadding="4" CellSpacing="4"
          AllowPaging="True" AllowFiltering="true" >
         <ClientSettings Scrolling-AllowVerticalScroll="true">
             </ClientSettings>             
@@ -61,15 +61,15 @@ ColumnsSubTotalsPosition="None" ColumnGrandTotalsPosition="None"  />
         <PagerStyle ChangePageSizeButtonToolTip="Change Page Size" PageSizeControlType="RadComboBox">
         </PagerStyle>
         <Fields>          
-            <telerik:PivotGridRowField DataField="COMPETENCIA_DESCRIPCION" UniqueName="COMPETENCIA_DESCRIPCION" CellStyle-Width="50px">                
+            <telerik:PivotGridRowField DataField="COMPETENCIA_DESCRIPCION" UniqueName="COMPETENCIA_DESCRIPCION" CellStyle-Width="20px">                
             </telerik:PivotGridRowField>            
-            <telerik:PivotGridRowField DataField="VALOR_REQUERIDO" UniqueName="VALOR_REQUERIDO" CellStyle-Width="80px">                
+            <telerik:PivotGridRowField DataField="VALOR_REQUERIDO" UniqueName="VALOR_REQUERIDO" CellStyle-Width="210px">                
             </telerik:PivotGridRowField>
-            <telerik:PivotGridColumnField DataField="PERSONAL_DESCRIPCION" UniqueName="PERSONAL_DESCRIPCION">
+            <telerik:PivotGridColumnField DataField="PERSONAL_DESCRIPCION" UniqueName="PERSONAL_DESCRIPCION" CellStyle-Width="50px">
             </telerik:PivotGridColumnField>                   
-            <telerik:PivotGridAggregateField DataField="VALOR_REAL" UniqueName="VALOR_REAL"  Caption="VALOR_REAL"  CellStyle-Width="30px">
+            <telerik:PivotGridAggregateField DataField="VALOR_REAL" UniqueName="VALOR_REAL"  Caption="VALOR_REAL"  CellStyle-Width="4px">
             </telerik:PivotGridAggregateField>
-            <telerik:PivotGridAggregateField DataField="BRECHA" UniqueName="BRECHA" Caption="BRECHA"  CellStyle-Width="30px">               
+            <telerik:PivotGridAggregateField DataField="BRECHA" UniqueName="BRECHA" Caption="BRECHA"  CellStyle-Width="9px">               
             </telerik:PivotGridAggregateField>
         </Fields>
 

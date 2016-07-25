@@ -70,7 +70,7 @@
                     <asp:TextBox ID="txtValorReal" runat="server" Columns="3" Width="189px" value='<%# Eval("REAL")%>' >
                         </asp:TextBox>
                    <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server" ValidationExpression="\d+"
-                            ControlToValidate="txtValorReal" ForeColor="Red" ErrorMessage="[0-9]"
+                            ControlToValidate="txtValorReal" ForeColor="Red" ErrorMessage="Ingrese solo numeros del 0 al 9"
                             Display="Dynamic"></asp:RegularExpressionValidator>
                     
                     </EditItemTemplate>
@@ -79,7 +79,7 @@
                         <asp:TextBox ID="txtValorRealIns" runat="server" Columns="3" Width="300px">
                         </asp:TextBox>
                         <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server" ValidationExpression="\d+"
-                            ControlToValidate="txtValorRealIns" ForeColor="Red" ErrorMessage="[0-9]"
+                            ControlToValidate="txtValorRealIns" ForeColor="Red" ErrorMessage="Ingrese solo numeros del 0 al 9"
                             Display="Dynamic"></asp:RegularExpressionValidator>
                     </InsertItemTemplate>
                     </telerik:GridTemplateColumn>     

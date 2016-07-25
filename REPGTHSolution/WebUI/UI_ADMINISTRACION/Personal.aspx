@@ -147,7 +147,7 @@
                             MarkFirstMatch="true" Filter="None" EnableTextSelection="true" DataTextField="DESCRIPCION"
                             AllowCustomText="true" DataSourceID="odsCoordinacion" LoadingMessage="Cargando...">
                         </telerik:RadComboBox>
-                                                    --%>
+                                                    
                     </EditItemTemplate>
                 </telerik:GridTemplateColumn>                
                 <telerik:GridTemplateColumn HeaderText="PUESTO" SortExpression="oBE_PUESTO.DESCRIPCION" Datafield="oBE_PUESTO.DESCRIPCION" UniqueName="oBE_PUESTO.DESCRIPCION"

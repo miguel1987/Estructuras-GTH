@@ -17,3 +17,11 @@
     width:100px;
     
 }
+
+.rpgRowHeaderField.rpgRowHeader
+{
+    width:180px!important;
+    height:20px!important;
+    
+    
+    }

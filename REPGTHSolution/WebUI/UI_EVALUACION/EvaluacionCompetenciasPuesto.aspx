@@ -30,7 +30,7 @@
                   
                   <!--Arbol -->
                   
-                    <telerik:RadTreeView style="overflow-x:hidden"  EnableDragAndDrop="false" EnableDragAndDropBetweenNodes="false"  ID="rtvEstructuras" runat="server"  
+                    <telerik:RadTreeView Style="white-space: normal"  EnableDragAndDrop="false" EnableDragAndDropBetweenNodes="false"  ID="rtvEstructuras" runat="server"  
                       OnNodeClick="rtvEstructuras_NodeClick" EnableEmbeddedSkins="False" 
                           Skin="Default" ImagesPath="../Styles/TreeView/"   >
                         <collapseanimation type="Linear" />

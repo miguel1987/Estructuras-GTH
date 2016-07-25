@@ -28,9 +28,23 @@ namespace WebUI.UI_ARCHIVO
             {
                 try
                 {
-                    validarUsuarioEnDominio();                   
-                    SeguridadEstructura();                    
-                    LoadGrilla(rcbPuesto.SelectedValue, rcbCompetenciasPuesto.SelectedValue);                                                                                            
+                    validarUsuarioEnDominio();
+                    if (Session["PERFIL_ID"].ToString() == "1")
+                    {
+                        LoadEstructura();
+                        LoadCombo(Session["EMPRESA_ID"].ToString(), "0");
+                        LoadGrilla(rcbPuesto.SelectedValue, rcbCompetenciasPuesto.SelectedValue); 
+
+
+                    }
+                    else
+                    {
+
+                        SeguridadEstructura();
+                        LoadGrilla(rcbPuesto.SelectedValue, rcbCompetenciasPuesto.SelectedValue); 
+                    }   
+                    //SeguridadEstructura();                    
+                    //LoadGrilla(rcbPuesto.SelectedValue, rcbCompetenciasPuesto.SelectedValue);                                                                                            
                 }
                 catch (Exception ex)
                 {
@@ -224,6 +238,80 @@ namespace WebUI.UI_ARCHIVO
 
             LoadCombo(jerarquia_id, nivel);                               
         }
+
+
+
+        protected void LoadEstructura()
+        {
+            //Cargamos la estructura jerarquica de REP
+            //1. Cargar una lista de objetos de tipo Empresas
+
+            BL_EMPRESA BL_EMPRESA = new BL_EMPRESA();
+            List<BE_EMPRESA> lstEmpresas = BL_EMPRESA.SeleccionarEmpresa();
+
+            //2. Recorrear la lista con un foreach y añadir al tree view estructura un nodo por cada empresa
+            foreach (BE_EMPRESA oEmpresa in lstEmpresas)
+            {
+                RadTreeNode nodeEmpresa = new RadTreeNode(oEmpresa.DESCRIPCION.ToString(), oEmpresa.ID.ToString());
+                nodeEmpresa.Expanded = true;
+                //Añadir nodo Presidencia - CEO
+
+
+                BL_PRESIDENCIA BL_PRESIDENCIA = new BL_PRESIDENCIA();
+                List<BE_PRESIDENCIA> lstPresidencias = BL_PRESIDENCIA.SeleccionarPresidenciaPorEmpresa(oEmpresa.ID);
+                foreach (BE_PRESIDENCIA oPresidencia in lstPresidencias)
+                {
+                    RadTreeNode nodePresidencia = new RadTreeNode(oPresidencia.DESCRIPCION.ToString(), oPresidencia.ID.ToString());
+                    nodeEmpresa.Nodes.Add(nodePresidencia);
+                    nodePresidencia.Expanded = true;
+                    BL_GERENCIA BL_GERENCIA = new BL_GERENCIA();
+                    List<BE_GERENCIA> lstGerencias = BL_GERENCIA.SeleccionarGerenciaPorEmpresa(oEmpresa.ID);
+
+                    foreach (BE_GERENCIA oGerencia in lstGerencias)
+                    {
+                        RadTreeNode nodeGerencia = new RadTreeNode(oGerencia.DESCRIPCION.ToString(), oGerencia.ID.ToString());
+
+                        BL_AREA BL_AREA = new BL_AREA();
+                        List<BE_AREA> lstAreas = BL_AREA.SeleccionarAreaGerencia(oGerencia.ID);
+
+                        foreach (BE_AREA oArea in lstAreas)
+                        {
+                            RadTreeNode nodeAreas = new RadTreeNode(oArea.DESCRIPCION.ToString(), oArea.ID.ToString());
+
+                            //llamar a BL COORDINACION  MÉTODO SELECCIONAR COORDINACION POR AREA
+                            BL_COORDINACION BL_COORDINACION = new BL_COORDINACION();
+                            List<BE_COORDINACION> lstCoordinacion = BL_COORDINACION.SeleccionarCoordinacionPorArea(oArea.ID);
+                            foreach (BE_COORDINACION oCoordinacion in lstCoordinacion)
+                            {
+                                RadTreeNode nodeCoordinacion = new RadTreeNode(oCoordinacion.DESCRIPCION.ToString(), oCoordinacion.ID.ToString());
+                                nodeAreas.Nodes.Add(nodeCoordinacion);
+
+
+                            }
+
+
+                            nodeGerencia.Nodes.Add(nodeAreas);
+
+                        }
+
+
+                        nodePresidencia.Nodes.Add(nodeGerencia);
+
+                    }
+                }
+
+                this.rtvTransversales.Nodes.Add(nodeEmpresa);
+
+
+            }
+
+
+        }
+
+
+
+
+
                        
         protected void rtvTransversales_NodeClick(object sender, RadTreeNodeEventArgs e)
         {       
