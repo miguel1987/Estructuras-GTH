@@ -431,6 +431,13 @@ namespace WebSv
             return BL_PERSONAL.SeleccionarPersonalPorUsuario(NombreUsuario);
         }
 
+        //Seleccionar datos de Personal por username
+        [WebMethod]
+        public BE_PERSONAL SeleccionarPersonalPorCodigo(String Codigo)
+        {
+            return BL_PERSONAL.SeleccionarPersonalPorCodigo(Codigo);
+        }
+
         //Seleccionar todos los colaboradores de que pertenecen a un puesto
         [WebMethod]
         public List<BE_PERSONAL> SeleccionarPersonalPorPuesto(Guid puesto_id)

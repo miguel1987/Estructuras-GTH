@@ -832,6 +832,101 @@ namespace DataAccessLayer
             }
         }
 
+
+        /// <summary>
+        /// Devuelve los datos del usuario que ingresa a la aplicación
+        /// </summary>
+        /// <param name="Codigo">Codigo de personal al cual se desea consultar</param>
+        /// <returns>List de BE_PERSONAL con los objetos de la entidad, que a su vez representan la tabla BE_PERSONAL de la base de datos. En caso no haiga datos devuelve nothing.</returns>
+        public BE_PERSONAL SeleccionarPersonalPorCodigo(String Codigo)
+        {
+            SqlConnection cnx = new SqlConnection();
+            DbDataReader dr;
+            cnx = DC_Connection.getConnection();
+            BE_PERSONAL oBE_PERSONAL = null;
+            List<BE_GRUPO_ORGANIZACIONAL> oGRUPO_ORGANIZACIONAL = null;
+            try
+            {
+                using (SqlCommand objCmd = new SqlCommand()
+                {
+                    Connection = cnx,
+                    CommandType = CommandType.StoredProcedure,
+                    CommandText = "USP_PERSONAL_SELECCIONAR_POR_CODIGO"
+                })
+                {
+                    objCmd.Parameters.Add("@PERSONAL_CODIGO", SqlDbType.VarChar).Value = Codigo;
+
+                    cnx.Open();
+                    dr = objCmd.ExecuteReader();
+
+                    // Se crea una variable tipo int por cada posicion de cada campo
+                    int PERSONAL_ID = dr.GetOrdinal("PERSONAL_ID");
+                    int PERSONAL_CODIGO_TRABAJO = dr.GetOrdinal("PERSONAL_CODIGO_TRABAJO");
+                    int PERSONAL_APELLIDO_PATERNO = dr.GetOrdinal("PERSONAL_APELLIDO_PATERNO");
+                    int PERSONAL_APELLIDO_MATERNO = dr.GetOrdinal("PERSONAL_APELLIDO_MATERNO");
+                    int PERSONAL_NOMBRES = dr.GetOrdinal("PERSONAL_NOMBRES");
+                    int PERSONAL_SEDE_ID = dr.GetOrdinal("PERSONAL_SEDE");
+                    int PERSONAL_EMPRESA_ID = dr.GetOrdinal("PERSONAL_EMPRESA");
+                    int PERSONAL_GERENCIA_ID = dr.GetOrdinal("PERSONAL_GERENCIA");
+                    int PERSONAL_AREA_ID = dr.GetOrdinal("PERSONAL_AREA");
+                    int PERSONAL_COORDINACION_ID = dr.GetOrdinal("PERSONAL_COORDINACION");
+                    int PERSONAL_PUESTO_ID = dr.GetOrdinal("PERSONAL_PUESTO");
+                    int PERSONAL_GRUPO_ORGANIZACIONAL_ID = dr.GetOrdinal("PERSONAL_GRUPO_ORGANIZACIONAL");
+                    int PERSONAL_CORREO = dr.GetOrdinal("PERSONAL_CORREO");
+                    int PERSONAL_NOMBRE_USUARIO = dr.GetOrdinal("PERSONAL_NOMBRE_USUARIO");
+
+                    // creamos un objeto del tamaño de la tupla en el array de objeto Valores
+                    object[] Valores = new object[dr.FieldCount];
+
+                    // Preguntamos si el DbDataReader tiene registros
+                    if (dr.HasRows)
+                    {
+
+                        // Instancionamos la lista para empezar a setearla
+                        oBE_PERSONAL = new BE_PERSONAL();
+                        if (dr.Read())
+                        {
+                            // Obetemos los valores para la tupla
+                            dr.GetValues(Valores);
+                            // BE_PERSONAL oBE_PERSONAL = new BE_PERSONAL();
+                            oBE_PERSONAL.ID = (Guid)Valores.GetValue(PERSONAL_ID);
+                            oBE_PERSONAL.CODIGO_TRABAJO = Valores.GetValue(PERSONAL_CODIGO_TRABAJO).ToString();
+                            oBE_PERSONAL.APELLIDO_PATERNO = Valores.GetValue(PERSONAL_APELLIDO_PATERNO).ToString();
+                            oBE_PERSONAL.APELLIDO_MATERNO = Valores.GetValue(PERSONAL_APELLIDO_MATERNO).ToString();
+                            oBE_PERSONAL.NOMBRES = Valores.GetValue(PERSONAL_NOMBRES).ToString();
+                            oBE_PERSONAL.NOMBRES_COMPLETOS = String.Format("{0} {1}, {2}", oBE_PERSONAL.APELLIDO_PATERNO, oBE_PERSONAL.APELLIDO_MATERNO, oBE_PERSONAL.NOMBRES);
+                            oBE_PERSONAL.SEDE_ID = DBNull.Value == Valores.GetValue(PERSONAL_SEDE_ID) ? Guid.Empty : (Guid)Valores.GetValue(PERSONAL_SEDE_ID);
+                            oBE_PERSONAL.EMPRESA_ID = DBNull.Value == Valores.GetValue(PERSONAL_EMPRESA_ID) ? Guid.Empty : (Guid)Valores.GetValue(PERSONAL_EMPRESA_ID);
+                            oBE_PERSONAL.GERENCIA_ID = DBNull.Value == Valores.GetValue(PERSONAL_GERENCIA_ID) ? Guid.Empty : (Guid)Valores.GetValue(PERSONAL_GERENCIA_ID);
+                            oBE_PERSONAL.AREA_ID = DBNull.Value == Valores.GetValue(PERSONAL_AREA_ID) ? Guid.Empty : (Guid)Valores.GetValue(PERSONAL_AREA_ID);
+                            oBE_PERSONAL.COORDINACION_ID = DBNull.Value == Valores.GetValue(PERSONAL_COORDINACION_ID) ? Guid.Empty : (Guid)Valores.GetValue(PERSONAL_COORDINACION_ID);
+                            oBE_PERSONAL.PUESTO_ID = DBNull.Value == Valores.GetValue(PERSONAL_PUESTO_ID) ? Guid.Empty : (Guid)Valores.GetValue(PERSONAL_PUESTO_ID);
+                            oBE_PERSONAL.GRUPO_ORGANIZACIONAL_ID = DBNull.Value == Valores.GetValue(PERSONAL_GRUPO_ORGANIZACIONAL_ID) ? Guid.Empty : (Guid)Valores.GetValue(PERSONAL_GRUPO_ORGANIZACIONAL_ID);
+                            oBE_PERSONAL.CORREO = Valores.GetValue(PERSONAL_CORREO).ToString();
+                            oBE_PERSONAL.NOMBRE_USUARIO = Valores.GetValue(PERSONAL_NOMBRE_USUARIO).ToString();
+
+                            oGRUPO_ORGANIZACIONAL = new DA_GRUPO_ORGANIZACIONAL().SeleccionarGrupoOrganizacionalPorId(oBE_PERSONAL.GRUPO_ORGANIZACIONAL_ID);
+                            if (oGRUPO_ORGANIZACIONAL != null)
+                            {
+                                oBE_PERSONAL.oBE_GRUPO_ORGANIZACIONAL = oGRUPO_ORGANIZACIONAL[0];
+                            }
+
+                        }
+                    }
+                }
+
+                return oBE_PERSONAL;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                cnx.Close();
+            }
+        }
+
         /// <summary>
         /// Devuelve los datos de todo el Personal que pertenece a un puesto
         /// </summary>

@@ -599,6 +599,16 @@ namespace BussinesLogicLayer
         }
 
         /// <summary>
+        /// Devuelve los datos del personal que corresponde al código de trabajo de personal
+        /// </summary>
+        /// <param name="Codigo">Codigo de trabajo del personal al cual se desea consultar</param>
+        /// <returns>List de BE_PERSONAL con los objetos de la entidad, que a su vez representan la tabla BE_PERSONAL de la base de datos. En caso no haiga datos devuelve nothing.</returns>
+        public static BE_PERSONAL SeleccionarPersonalPorCodigo(String Codigo)
+        {
+            return new DA_PERSONAL().SeleccionarPersonalPorCodigo(Codigo);
+        }
+
+        /// <summary>
         /// Devuelve los datos de todas las personas que pertenecen a un puesto
         /// </summary>        
         /// <param name="puesto_id">Puesto Id a la cual se desea consultar</param>
