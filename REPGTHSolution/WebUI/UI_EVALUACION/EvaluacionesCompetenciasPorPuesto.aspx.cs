@@ -43,8 +43,7 @@ namespace WebUI.UI_ARCHIVO
                         SeguridadEstructura();
                         LoadGrilla(rcbPuesto.SelectedValue, rcbCompetenciasPuesto.SelectedValue); 
                     }   
-                    //SeguridadEstructura();                    
-                    //LoadGrilla(rcbPuesto.SelectedValue, rcbCompetenciasPuesto.SelectedValue);                                                                                            
+                                                                                                                
                 }
                 catch (Exception ex)
                 {
@@ -151,16 +150,7 @@ namespace WebUI.UI_ARCHIVO
 
                             nodeGerencia.Nodes.Add(nodeAreas);
 
-                            if (Session["PERFIL_ID"].ToString() == "1")
-                            {
-
-                                nodePresidencia.Enabled = true;
-                                nodeGerencia.Enabled = true;
-                                nodeAreas.Enabled = true;
-                                if (nodeCoordinacion != null)
-                                nodeCoordinacion.Enabled = true;
-                            }
-                            else if (Session["PERFIL_ID"].ToString() == "2" && Session["GRUPO_ORGANIZACIONAL_CODIGO"].ToString() == "GE")
+                            if (Session["PERFIL_ID"].ToString() == "2" && Session["GRUPO_ORGANIZACIONAL_CODIGO"].ToString() == "GE")
                             {
                                 nivel = "2";
                                 jerarquia_id = Session["GERENCIA_ID"].ToString();
@@ -178,9 +168,7 @@ namespace WebUI.UI_ARCHIVO
                                 nodeEmpresa.Enabled = false;
                                 nodePresidencia.Enabled = false;
                                 nodeGerencia.Enabled = false;
-                                nodeAreas.Enabled = true;
-
-
+                                
                             }
 
                             else if (Session["PERFIL_ID"].ToString() == "2" && Session["GRUPO_ORGANIZACIONAL_CODIGO"].ToString() == "CO")
