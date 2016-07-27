@@ -4,6 +4,7 @@
     <DataSource Name="DSREPORTS">
       <DataSourceReference>DSREPORTS</DataSourceReference>
       <rd:DataSourceID>8cd57586-8d54-456f-9b2f-01731ecfae6a</rd:DataSourceID>
+      <rd:SecurityType>None</rd:SecurityType>
     </DataSource>
   </DataSources>
   <DataSets>
@@ -164,7 +165,33 @@
           <QueryParameter Name="@COORDINACION_ID">
             <Value>=Parameters!COORDINACION_ID.Value</Value>
           </QueryParameter>
+          <QueryParameter Name="@GRUPO_ORGANIZACIONAL_CODIGO">
+            <Value>=Parameters!GRUPO_ORGANIZACIONAL.Value</Value>
+            <rd:UserDefined>true</rd:UserDefined>
+          </QueryParameter>
         </QueryParameters>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+      </Query>
+    </DataSet>
+    <DataSet Name="dsGrupoOrganizacional">
+      <Fields>
+        <Field Name="GRUPO_ORGANIZACIONAL_ID">
+          <DataField>GRUPO_ORGANIZACIONAL_ID</DataField>
+          <rd:TypeName>System.Guid</rd:TypeName>
+        </Field>
+        <Field Name="GRUPO_ORGANIZACIONAL_CODIGO">
+          <DataField>GRUPO_ORGANIZACIONAL_CODIGO</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="GRUPO_ORGANIZACIONAL_DESCRIPCION">
+          <DataField>GRUPO_ORGANIZACIONAL_DESCRIPCION</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DSREPORTS</DataSourceName>
+        <CommandType>StoredProcedure</CommandType>
+        <CommandText>USP_RS_GRUPO_ORGANIZACIONAL_SELECCIONAR</CommandText>
         <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
       </Query>
     </DataSet>
@@ -337,7 +364,6 @@
                       </Style>
                     </Textbox>
                     <ColSpan>4</ColSpan>
-                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
                 <TablixCell />
@@ -955,6 +981,17 @@
           <DataSetName>dsCoordinacion</DataSetName>
           <ValueField>COORDINACION_ID</ValueField>
           <LabelField>COORDINACION_DESCRIPCION</LabelField>
+        </DataSetReference>
+      </ValidValues>
+    </ReportParameter>
+    <ReportParameter Name="GRUPO_ORGANIZACIONAL">
+      <DataType>String</DataType>
+      <Prompt>GRUPO ORGANIZACIONAL</Prompt>
+      <ValidValues>
+        <DataSetReference>
+          <DataSetName>dsGrupoOrganizacional</DataSetName>
+          <ValueField>GRUPO_ORGANIZACIONAL_CODIGO</ValueField>
+          <LabelField>GRUPO_ORGANIZACIONAL_DESCRIPCION</LabelField>
         </DataSetReference>
       </ValidValues>
     </ReportParameter>

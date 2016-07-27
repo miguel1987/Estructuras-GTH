@@ -104,11 +104,26 @@
         <CommandType>StoredProcedure</CommandType>
         <CommandText>USP_RS_EVALUACION_COLABORADORES_POR_COMPETENCIAS</CommandText>
         <QueryParameters>
+          <QueryParameter Name="@EMPRESA_ID">
+            <Value>=Parameters!EMPRESA_ID.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@GERENCIA_ID">
+            <Value>=Parameters!GERENCIA_ID.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@AREA_ID">
+            <Value>=Parameters!AREA_ID.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@COORDINACION_ID">
+            <Value>=Parameters!COORDINACION_ID.Value</Value>
+          </QueryParameter>
           <QueryParameter Name="@COMPETENCIA_ID">
             <Value>=Parameters!COMPETENCIA_ID.Value</Value>
           </QueryParameter>
           <QueryParameter Name="@PERIODO">
             <Value>=Parameters!PERIODO.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name="@GRUPO_ORGANIZACIONAL_CODIGO">
+            <Value>=Parameters!GRUPO_ORGANIZACIONAL_CODIGO.Value</Value>
           </QueryParameter>
         </QueryParameters>
         <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
@@ -134,6 +149,127 @@
             <Value>=Parameters!COMPETENCIA_TIPO_ID.Value</Value>
           </QueryParameter>
         </QueryParameters>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+      </Query>
+    </DataSet>
+    <DataSet Name="dsEmpresas">
+      <Fields>
+        <Field Name="EMPRESA_ID">
+          <DataField>EMPRESA_ID</DataField>
+          <rd:TypeName>System.Guid</rd:TypeName>
+        </Field>
+        <Field Name="EMPRESA_DESCRIPCION">
+          <DataField>EMPRESA_DESCRIPCION</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DSREPORTS</DataSourceName>
+        <CommandType>StoredProcedure</CommandType>
+        <CommandText>USP_RS_EMPRESA_SELECCIONAR</CommandText>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+      </Query>
+    </DataSet>
+    <DataSet Name="dsGerencias">
+      <Fields>
+        <Field Name="GERENCIA_ID">
+          <DataField>GERENCIA_ID</DataField>
+          <rd:TypeName>System.Guid</rd:TypeName>
+        </Field>
+        <Field Name="GERENCIA_CODIGO">
+          <DataField>GERENCIA_CODIGO</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="GERENCIA_DESCRIPCION">
+          <DataField>GERENCIA_DESCRIPCION</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DSREPORTS</DataSourceName>
+        <CommandType>StoredProcedure</CommandType>
+        <CommandText>USP_RS_GERENCIA_SELECCIONAR_POR_EMPRESA</CommandText>
+        <QueryParameters>
+          <QueryParameter Name="@EMPRESA_ID">
+            <Value>=Parameters!EMPRESA_ID.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+      </Query>
+    </DataSet>
+    <DataSet Name="dsAREAS">
+      <Fields>
+        <Field Name="AREA_ID">
+          <DataField>AREA_ID</DataField>
+          <rd:TypeName>System.Guid</rd:TypeName>
+        </Field>
+        <Field Name="AREA_CODIGO">
+          <DataField>AREA_CODIGO</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="AREA_DESCRIPCION">
+          <DataField>AREA_DESCRIPCION</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DSREPORTS</DataSourceName>
+        <CommandType>StoredProcedure</CommandType>
+        <CommandText>USP_RS_AREA_SELECCIONAR_POR_GERENCIA</CommandText>
+        <QueryParameters>
+          <QueryParameter Name="@GERENCIA_ID">
+            <Value>=Parameters!GERENCIA_ID.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+      </Query>
+    </DataSet>
+    <DataSet Name="dsCoordinacion">
+      <Fields>
+        <Field Name="COORDINACION_ID">
+          <DataField>COORDINACION_ID</DataField>
+          <rd:TypeName>System.Guid</rd:TypeName>
+        </Field>
+        <Field Name="COORDINACION_CODIGO">
+          <DataField>COORDINACION_CODIGO</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="COORDINACION_DESCRIPCION">
+          <DataField>COORDINACION_DESCRIPCION</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DSREPORTS</DataSourceName>
+        <CommandType>StoredProcedure</CommandType>
+        <CommandText>USP_RS_COORDINACION_SELECCIONAR_POR_AREA</CommandText>
+        <QueryParameters>
+          <QueryParameter Name="@AREA_ID">
+            <Value>=Parameters!AREA_ID.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+      </Query>
+    </DataSet>
+    <DataSet Name="dsGrupoOrganizacional">
+      <Fields>
+        <Field Name="GRUPO_ORGANIZACIONAL_ID">
+          <DataField>GRUPO_ORGANIZACIONAL_ID</DataField>
+          <rd:TypeName>System.Guid</rd:TypeName>
+        </Field>
+        <Field Name="GRUPO_ORGANIZACIONAL_CODIGO">
+          <DataField>GRUPO_ORGANIZACIONAL_CODIGO</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="GRUPO_ORGANIZACIONAL_DESCRIPCION">
+          <DataField>GRUPO_ORGANIZACIONAL_DESCRIPCION</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DSREPORTS</DataSourceName>
+        <CommandType>StoredProcedure</CommandType>
+        <CommandText>USP_RS_GRUPO_ORGANIZACIONAL_SELECCIONAR</CommandText>
         <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
       </Query>
     </DataSet>
@@ -1038,7 +1174,7 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>dsEvaluacion_Colaboradores_por_Competencias</DataSetName>
-        <Top>4.80695cm</Top>
+        <Top>5.0927cm</Top>
         <Left>0.70591cm</Left>
         <Height>2.12603cm</Height>
         <Width>34.85322cm</Width>
@@ -1079,7 +1215,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox149</rd:DefaultName>
-        <Top>3.92474cm</Top>
+        <Top>3.32149cm</Top>
         <Left>0.70591cm</Left>
         <Height>0.70583cm</Height>
         <Width>8.95472cm</Width>
@@ -1115,7 +1251,7 @@
             </Style>
           </Paragraph>
         </Paragraphs>
-        <Top>3.92474cm</Top>
+        <Top>3.32149cm</Top>
         <Left>9.37258cm</Left>
         <Height>0.70583cm</Height>
         <Width>2.5cm</Width>
@@ -1149,10 +1285,10 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>PERIODO</rd:DefaultName>
-        <Top>3.04781cm</Top>
+        <Top>2.44456cm</Top>
         <Left>3.76925cm</Left>
         <Height>0.83812cm</Height>
-        <Width>5.89138cm</Width>
+        <Width>10.17763cm</Width>
         <ZIndex>6</ZIndex>
         <Style>
           <Border>
@@ -1194,7 +1330,7 @@
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox149</rd:DefaultName>
-        <Top>3.04252cm</Top>
+        <Top>2.43927cm</Top>
         <Left>0.70591cm</Left>
         <Height>0.70583cm</Height>
         <Width>3.1868cm</Width>
@@ -1203,6 +1339,88 @@
           <Border>
             <Style>None</Style>
           </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="Textbox152">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>Total de Personas:</Value>
+                <Style>
+                  <FontSize>12pt</FontSize>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
+              </TextRun>
+              <TextRun>
+                <Value xml:space="preserve"> </Value>
+                <Style>
+                  <FontSize>16pt</FontSize>
+                  <FontWeight>Bold</FontWeight>
+                  <Color>DarkBlue</Color>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <LeftIndent>0cm</LeftIndent>
+            <HangingIndent>0cm</HangingIndent>
+            <Style>
+              <TextAlign>Left</TextAlign>
+            </Style>
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox149</rd:DefaultName>
+        <Top>4.15051cm</Top>
+        <Left>0.70591cm</Left>
+        <Height>0.70583cm</Height>
+        <Width>4.21867cm</Width>
+        <ZIndex>8</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Textbox Name="PERIODO3">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=Count(Fields!Competencia_Desarrollada.Value, "dsEvaluacion_Colaboradores_por_Competencias")</Value>
+                <Style>
+                  <FontSize>14pt</FontSize>
+                  <FontWeight>Bold</FontWeight>
+                  <Color>CornflowerBlue</Color>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Left</TextAlign>
+            </Style>
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>PERIODO</rd:DefaultName>
+        <Top>4.14874cm</Top>
+        <Left>4.92459cm</Left>
+        <Height>0.83812cm</Height>
+        <Width>9.02229cm</Width>
+        <ZIndex>9</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <VerticalAlign>Middle</VerticalAlign>
           <PaddingLeft>2pt</PaddingLeft>
           <PaddingRight>2pt</PaddingRight>
           <PaddingTop>2pt</PaddingTop>
@@ -1225,14 +1443,69 @@
         </DataSetReference>
       </ValidValues>
     </ReportParameter>
+    <ReportParameter Name="EMPRESA_ID">
+      <DataType>String</DataType>
+      <Prompt>EMPRESA</Prompt>
+      <ValidValues>
+        <DataSetReference>
+          <DataSetName>dsEmpresas</DataSetName>
+          <ValueField>EMPRESA_ID</ValueField>
+          <LabelField>EMPRESA_DESCRIPCION</LabelField>
+        </DataSetReference>
+      </ValidValues>
+    </ReportParameter>
+    <ReportParameter Name="GERENCIA_ID">
+      <DataType>String</DataType>
+      <Prompt>GERENCIA</Prompt>
+      <ValidValues>
+        <DataSetReference>
+          <DataSetName>dsGerencias</DataSetName>
+          <ValueField>GERENCIA_ID</ValueField>
+          <LabelField>GERENCIA_DESCRIPCION</LabelField>
+        </DataSetReference>
+      </ValidValues>
+    </ReportParameter>
+    <ReportParameter Name="AREA_ID">
+      <DataType>String</DataType>
+      <Prompt>AREA</Prompt>
+      <ValidValues>
+        <DataSetReference>
+          <DataSetName>dsAREAS</DataSetName>
+          <ValueField>AREA_ID</ValueField>
+          <LabelField>AREA_DESCRIPCION</LabelField>
+        </DataSetReference>
+      </ValidValues>
+    </ReportParameter>
+    <ReportParameter Name="COORDINACION_ID">
+      <DataType>String</DataType>
+      <Prompt>COORDINACION ID</Prompt>
+      <ValidValues>
+        <DataSetReference>
+          <DataSetName>dsCoordinacion</DataSetName>
+          <ValueField>COORDINACION_ID</ValueField>
+          <LabelField>COORDINACION_DESCRIPCION</LabelField>
+        </DataSetReference>
+      </ValidValues>
+    </ReportParameter>
     <ReportParameter Name="COMPETENCIA_TIPO_ID">
       <DataType>String</DataType>
-      <Prompt>Tipo de Competencia</Prompt>
+      <Prompt>TIPO DE COMPETENCIA</Prompt>
       <ValidValues>
         <DataSetReference>
           <DataSetName>dsTipo_competencia</DataSetName>
           <ValueField>COMPETENCIA_TIPO_ID</ValueField>
           <LabelField>COMPETENCIA_TIPO_DESCRIPCION</LabelField>
+        </DataSetReference>
+      </ValidValues>
+    </ReportParameter>
+    <ReportParameter Name="GRUPO_ORGANIZACIONAL_CODIGO">
+      <DataType>String</DataType>
+      <Prompt>GRUPO ORGANIZACIONAL</Prompt>
+      <ValidValues>
+        <DataSetReference>
+          <DataSetName>dsGrupoOrganizacional</DataSetName>
+          <ValueField>GRUPO_ORGANIZACIONAL_CODIGO</ValueField>
+          <LabelField>GRUPO_ORGANIZACIONAL_DESCRIPCION</LabelField>
         </DataSetReference>
       </ValidValues>
     </ReportParameter>

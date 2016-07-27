@@ -25,7 +25,9 @@
     </head>
     <body>
     <form id="form" runat="server">
-<div class="configuracion"><asp:ImageButton CssClass="prueba"  runat="server" OnClick="link_Salir_Click"  ImageUrl="../Images/ico-user.png" ToolTip="Salir" />
+<div class="configuracion">
+<asp:ImageButton ID="imgAyuda" CssClass="prueba"  runat="server" onclientclick="window.open('../Manual de Usuario_GTH.pdf')"  ImageUrl="../Images/icono ayuda.png" ToolTip="Ayuda" />
+<asp:ImageButton CssClass="prueba"  runat="server" OnClick="link_Salir_Click"  ImageUrl="../Images/ico-user.png" ToolTip="Salir" />
  <cc1:ToolkitScriptManager ID="smMaster" runat="server" ScriptMode="Release" EnableScriptGlobalization="true"
 EnablePartialRendering="true" AsyncPostBackErrorMessage="Error de Conexión, intente otra vez."
 AsyncPostBackTimeout="360000">
@@ -77,9 +79,9 @@ AsyncPostBackTimeout="360000">
             <li><a href="../UI_REPORTES/ReporteCompetenciasTransversales.aspx">Evaluciones Transversales y de Liderazgo</a></li>            
           </ul>
             </li>
-        <li id="reportePuesto" runat="server"><a  href="#"> Reportes Competencias por Puesto </a>
+        <li id="reportePuesto" runat="server"><a  href="#"> Reportes Competencias Técnicas y Habilidades </a>
           <ul>
-            <li><a href="../UI_REPORTES/ReporteCompetenciasPuesto.aspx">Indicador de Brechas por Puesto y Colaborador</a></li>
+            <li><a href="../UI_REPORTES/ReporteCompetenciasPuesto.aspx">Evaluación de Competencias por Puesto</a></li>
             <li><a href="../UI_REPORTES/ReporteCompetenciasPuestoJerarquia.aspx">Evaluación de Competencias por Jerarquía</a></li>    
             <li><a href="../UI_REPORTES/Reporte_Evaluacion_Colaboradores.aspx">Evaluación de Colaboradores Por Competencia</a></li>         
           </ul>

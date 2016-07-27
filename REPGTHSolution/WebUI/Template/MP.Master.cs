@@ -38,6 +38,11 @@ namespace WebUI.Template
             Response.Redirect("~/UI_SEGURIDAD/Acceso.aspx");
         }
 
+        //protected void link_Ayuda_Click(object sender, EventArgs e)
+        //{
+        //    Response.Redirect("~/Manual de Usuario_GTH.pdf");
+        //}
+
         protected void link_Salir_Click(object sender, EventArgs e)
         {
             Session.Abandon();
