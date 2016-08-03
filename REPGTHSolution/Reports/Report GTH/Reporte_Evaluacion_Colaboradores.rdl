@@ -366,13 +366,10 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>2.48263in</Width>
+              <Width>2.2743in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.69606in</Width>
-            </TablixColumn>
-            <TablixColumn>
-              <Width>2.21689in</Width>
+              <Width>2.2817in</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>1.79675in</Width>
@@ -381,15 +378,15 @@
               <Width>1.953in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.40466in</Width>
+              <Width>2.19633in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.17175in</Width>
+              <Width>0.7655in</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
             <TablixRow>
-              <Height>0.6008in</Height>
+              <Height>0.25705in</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -468,73 +465,6 @@
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox5</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Style>Solid</Style>
-                        </Border>
-                        <TopBorder>
-                          <Color>Black</Color>
-                          <Style>Solid</Style>
-                          <Width>1pt</Width>
-                        </TopBorder>
-                        <BottomBorder>
-                          <Color>Black</Color>
-                          <Style>Solid</Style>
-                          <Width>1pt</Width>
-                        </BottomBorder>
-                        <LeftBorder>
-                          <Color>Black</Color>
-                          <Style>Solid</Style>
-                          <Width>1pt</Width>
-                        </LeftBorder>
-                        <RightBorder>
-                          <Color>Black</Color>
-                          <Style>Solid</Style>
-                          <Width>1pt</Width>
-                        </RightBorder>
-                        <BackgroundColor>LightBlue</BackgroundColor>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="Textbox7">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value>COORDINACION</Value>
-                              <Style>
-                                <FontWeight>Bold</FontWeight>
-                              </Style>
-                            </TextRun>
-                          </TextRuns>
-                          <Style>
-                            <TextAlign>Center</TextAlign>
-                          </Style>
-                        </Paragraph>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value />
-                              <Style>
-                                <FontWeight>Bold</FontWeight>
-                              </Style>
-                            </TextRun>
-                          </TextRuns>
-                          <Style>
-                            <TextAlign>Center</TextAlign>
-                          </Style>
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>Textbox7</rd:DefaultName>
                       <Style>
                         <Border>
                           <Style>Solid</Style>
@@ -851,7 +781,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!AREA_DESCRIPCION.Value</Value>
+                              <Value>=Fields!AREA_DESCRIPCION.Value &amp; " " &amp; Fields!COORDINACION_DESCRIPCION.Value</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
@@ -861,57 +791,6 @@
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>AREA_DESCRIPCION</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Style>Solid</Style>
-                        </Border>
-                        <TopBorder>
-                          <Color>Black</Color>
-                          <Style>Solid</Style>
-                          <Width>1pt</Width>
-                        </TopBorder>
-                        <BottomBorder>
-                          <Color>Black</Color>
-                          <Style>Solid</Style>
-                          <Width>1pt</Width>
-                        </BottomBorder>
-                        <LeftBorder>
-                          <Color>Black</Color>
-                          <Style>Solid</Style>
-                          <Width>1pt</Width>
-                        </LeftBorder>
-                        <RightBorder>
-                          <Color>Black</Color>
-                          <Style>Solid</Style>
-                          <Width>1pt</Width>
-                        </RightBorder>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="COORDINACION_DESCRIPCION">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value>=Fields!COORDINACION_DESCRIPCION.Value</Value>
-                              <Style />
-                            </TextRun>
-                          </TextRuns>
-                          <Style>
-                            <TextAlign>Center</TextAlign>
-                          </Style>
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>COORDINACION_DESCRIPCION</rd:DefaultName>
                       <Style>
                         <Border>
                           <Style>Solid</Style>
@@ -1160,7 +1039,6 @@
             <TablixMember />
             <TablixMember />
             <TablixMember />
-            <TablixMember />
           </TablixMembers>
         </TablixColumnHierarchy>
         <TablixRowHierarchy>
@@ -1176,8 +1054,8 @@
         <DataSetName>dsEvaluacion_Colaboradores_por_Competencias</DataSetName>
         <Top>5.0927cm</Top>
         <Left>0.70591cm</Left>
-        <Height>2.12603cm</Height>
-        <Width>34.85322cm</Width>
+        <Height>1.25291cm</Height>
+        <Width>28.61964cm</Width>
         <ZIndex>3</ZIndex>
         <Style>
           <Border>
