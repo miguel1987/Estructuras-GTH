@@ -220,6 +220,9 @@ namespace DataAccessLayer
           }
       }
 
+      /// <summary>
+      /// devuelve el tipo de evaluacion 
+      /// </summary>   
       public int EvaluacionFinalGrabar(Guid PUESTO_ID)
       {
 
@@ -403,5 +406,54 @@ namespace DataAccessLayer
 
           return bIndicador;
       }
+
+
+      /// <summary>
+      /// devuelve el codigo del valor requerido
+      /// </summary>
+      public int SeleccionarValorRequerido(BE_EVALUACIONES_COMPETENCIAS_PUESTOS_PERSONAL oBE_COMPE_PUESTO_PERSONAL)
+      {
+          SqlConnection cnx = new SqlConnection();
+          int codigo;
+          cnx = DC_Connection.getConnection();
+          try
+          {
+              using (SqlCommand objCmd = new SqlCommand()
+              {
+                  Connection = cnx,
+                  CommandType = CommandType.StoredProcedure,
+                  CommandText = "USP_COMPETENCIAS_PUESTOS_SELECCIONAR_VALOR_REQUERIDO"
+
+              })
+              {
+                  objCmd.Parameters.Add("@PUESTO_ID", SqlDbType.UniqueIdentifier).Value = oBE_COMPE_PUESTO_PERSONAL.PUESTO_ID;
+                  objCmd.Parameters.Add("@COMPETENCIA_ID", SqlDbType.UniqueIdentifier).Value = oBE_COMPE_PUESTO_PERSONAL.COMPETENCIA_ID;
+                  cnx.Open();
+                  codigo = (int)objCmd.ExecuteScalar();
+              }
+              return codigo;
+
+          }
+          catch (Exception ex)
+          {
+
+              throw ex;
+          }
+          finally
+          {
+              cnx.Close();
+
+          }
+
+
+
+
+      }
+
+
+
+
+
+
     }
 }

@@ -212,5 +212,53 @@ namespace DataAccessLayer
             }
             return bSolicitud;
         }
+
+        public static bool ExisteRegistrosCompetenciasPuestoPersonal(BE_EVALUACIONES_COMPETENCIAS_PUESTOS_PERSONAL OBE_COMPE_PUESTO_PERSONAL)
+        {
+
+            SqlConnection cnx = new SqlConnection();
+
+            cnx = DC_Connection.getConnection();
+
+            try
+            {
+                using (SqlCommand objCmd = new SqlCommand()
+                {
+                    Connection = cnx,
+                    CommandType = CommandType.StoredProcedure,
+                    CommandText = "USP_EVALUACIONES_COMPETENCIAS_PUESTOS_PERSONAL_EXISTE_REGISTROS_COMPETENCIAS_PUESTO_PERSONAL"
+                })
+                {
+                    objCmd.Parameters.Add("@PERSONAL_ID", SqlDbType.UniqueIdentifier).Value = OBE_COMPE_PUESTO_PERSONAL.PERSONAL_ID;
+                    objCmd.Parameters.Add("@COMPETENCIA_ID", SqlDbType.UniqueIdentifier).Value =OBE_COMPE_PUESTO_PERSONAL.COMPETENCIA_ID;
+
+                    cnx.Open();
+                    bool valor = Convert.ToBoolean(objCmd.ExecuteScalar());
+
+                    return valor;
+
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                cnx.Close();
+            }
+        }
+
+
+
+
+
+
+
+
+
+
+
+
     }
 }

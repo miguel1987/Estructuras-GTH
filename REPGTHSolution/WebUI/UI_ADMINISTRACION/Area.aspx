@@ -43,7 +43,8 @@
                 No existen áreas registradas.
             </NoRecordsTemplate>
             <CommandItemSettings AddNewRecordText="Añadir Área" RefreshText="Actualizar"></CommandItemSettings>   
-            <Columns>   
+            <Columns>
+              
                 <telerik:GridBoundColumn DataField="CODIGO"
                     HeaderText="CODIGO" SortExpression="CODIGO" UniqueName="CODIGO" HeaderStyle-Width="350px" 
                     AutoPostBackOnFilter="true">

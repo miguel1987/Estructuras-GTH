@@ -1,4 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Template/MP.Master" CodeBehind="Empresa.aspx.cs" Inherits="WebUI.UI_ADMINISTRACION.Empresa" %>
+<%@ Register assembly="Telerik.Web.UI" namespace="Telerik.Web.UI" tagprefix="telerik" %>
 <asp:Content ID="Content2" ContentPlaceHolderID="cph_contenedor" runat="server">
            
   <link href="../Styles/Grid.MySilk.css" rel="stylesheet" type="text/css" /> 
@@ -59,7 +60,7 @@
                     </ColumnValidationSettings>
                 </telerik:GridBoundColumn>                        
                     <telerik:GridEditCommandColumn ButtonType="ImageButton" EditText="Actualizar"
-                    UniqueName="EditCommandColumn" CancelImageUrl="../Styles/Grid/Cancel.gif" 
+                    UniqueName="EditCommandColumn" CancelImageUrl="../images/ico-edit.png" 
                     InsertImageUrl="../Styles/Grid/Update.gif" UpdateImageUrl="../Styles/Grid/Update.gif">
                     <ItemStyle CssClass="MyImageButton"></ItemStyle>
                 </telerik:GridEditCommandColumn>

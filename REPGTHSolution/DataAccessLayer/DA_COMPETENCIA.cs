@@ -243,5 +243,55 @@ namespace DataAccessLayer
 
             return bIndicador;
         }
+
+        /// <summary>
+        /// devuelve idCompetencia 
+        /// </summary>   
+        public string SeleccionarporCodigo(string codigo_competencia)
+        {
+            SqlConnection cnx = new SqlConnection();
+            string codigo;
+            cnx = DC_Connection.getConnection();
+            try
+            {
+                using (SqlCommand objCmd = new SqlCommand()
+                {
+                    Connection = cnx,
+                    CommandType = CommandType.StoredProcedure,
+                    CommandText = "USP_COMPETENCIAS_SELECCIONAR_POR_CODIGO"
+
+                })
+                {
+                    objCmd.Parameters.Add("@COMPETENCIA_CODIGO", SqlDbType.VarChar).Value = codigo_competencia;
+                    cnx.Open();
+                    codigo = (string)objCmd.ExecuteScalar().ToString().ToUpper();
+                }
+                return codigo;
+
+            }
+            catch (Exception ex)
+            {
+
+                throw ex;
+            }
+            finally
+            {
+                cnx.Close();
+
+            }
+
+
+
+
+        }
+
+
+
+
+
+
+
+
+
     }
 }

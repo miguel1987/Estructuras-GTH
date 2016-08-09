@@ -151,7 +151,8 @@ namespace WebUI.UI_EVALUACION
                 BL_EVALUACIONES_COMPETENCIAS_PUESTOS_PERSONAL.InsertarEvaluacionCompetenciasPuestosPersonal(oentidad);
             }
             else
-            {                
+            {
+                oentidad.ESTADO_EVALUACION = (int)BE_EVALUACION_COMPETENCIA_PUESTO.ESTADO_EVALUACION.En_Evaluacion;
                 BL_EVALUACIONES_COMPETENCIAS_PUESTOS_PERSONAL.ActualizarEvaluacionCompetenciasPuestosPersonal(oentidad);
             }
 

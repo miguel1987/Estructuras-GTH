@@ -417,5 +417,24 @@ namespace BusinessLogicLayer
 
             return oListaEvaluacionesTransversales;
         }
+
+
+        public static bool ExisteEvaluacionTransversal(BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES OBE_COMPE_TRANS)
+        {
+            return DA_EVALUACIONES_COMPETENCIAS_TRANSVERSALES.ExisteRegistrosEvaluacionTransversales(OBE_COMPE_TRANS);       
+        
+        }
+
+        public static bool ActualizacionEvaluacionTransversal(BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES OBE_COMPE_TRANS)
+        {
+            return DA_EVALUACIONES_COMPETENCIAS_TRANSVERSALES.ActualizarEvaluacionTransversal(OBE_COMPE_TRANS);
+                
+        }
+
+
+
+
+
+
     }
 }

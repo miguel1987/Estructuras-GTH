@@ -10,60 +10,78 @@
 namespace WebUI.UI_ADMINISTRACION {
     
     
-    public partial class Empresa {
+    public partial class ImportarCompetenciasPorPuesto {
         
         /// <summary>
-        /// txtBuscar control.
+        /// RadStyleSheetManager1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Telerik.Web.UI.RadTextBox txtBuscar;
+        protected global::Telerik.Web.UI.RadStyleSheetManager RadStyleSheetManager1;
         
         /// <summary>
-        /// linkBuscar control.
+        /// RadAjaxManager1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink linkBuscar;
+        protected global::Telerik.Web.UI.RadAjaxManager RadAjaxManager1;
         
         /// <summary>
-        /// rgEmpresa control.
+        /// lblArchivo control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Telerik.Web.UI.RadGrid rgEmpresa;
+        protected global::System.Web.UI.WebControls.Label lblArchivo;
         
         /// <summary>
-        /// ValidationSummary control.
+        /// AsyncUpload2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ValidationSummary ValidationSummary;
+        protected global::Telerik.Web.UI.RadAsyncUpload AsyncUpload2;
         
         /// <summary>
-        /// odsEmpresa control.
+        /// btnUpload control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ObjectDataSource odsEmpresa;
+        protected global::Telerik.Web.UI.RadButton btnUpload;
         
         /// <summary>
-        /// RadWindowManager1 control.
+        /// btnGrabar control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Telerik.Web.UI.RadWindowManager RadWindowManager1;
+        protected global::Telerik.Web.UI.RadButton btnGrabar;
+        
+        /// <summary>
+        /// rgImportarCompetencias control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadGrid rgImportarCompetencias;
+        
+        /// <summary>
+        /// lblMensajeCompetencia control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblMensajeCompetencia;
     }
 }

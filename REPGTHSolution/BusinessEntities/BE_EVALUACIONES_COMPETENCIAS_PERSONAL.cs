@@ -5,6 +5,9 @@ using System.Text;
 
 namespace BusinessEntities
 {
+    /// <summary>
+    /// Entidad que representa la tabla EVALUACIONES COMPETENCIAS PERSONAL de la base de datos
+    /// </summary>
     public class BE_EVALUACIONES_COMPETENCIAS_PERSONAL
     {
         public Guid ID { get; set; }

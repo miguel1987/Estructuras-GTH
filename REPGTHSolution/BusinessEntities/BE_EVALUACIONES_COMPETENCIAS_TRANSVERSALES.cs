@@ -5,8 +5,12 @@ using System.Text;
 
 namespace BusinessEntities
 {
+    /// <summary>
+    /// Entidad que representa la tabla EVALUACIONES COMPETENCIAS TRANSVERSALES de la base de datos
+    /// </summary>
    public class BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES:BE_GENERICO
     {
+       
         public Guid ID { get; set; }
         public Guid PERSONAL_ID { get; set; }
         public string PERSONAL_DESCRIPCION { get; set; }

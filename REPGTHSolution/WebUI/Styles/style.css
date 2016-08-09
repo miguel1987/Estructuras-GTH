@@ -12,3 +12,22 @@ h1 {
     text-align: center;
 }
 */
+/* Customize uploaded file name */
+html .RadUpload .ruUploadProgress {
+	display: inline-block;
+	max-width: 200px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	vertical-align: top;
+}
+
+html div.photo-upload {
+    font-size: 12px;
+}
+
+.estilosLabel
+{
+    font-size:10pt;
+    
+    }

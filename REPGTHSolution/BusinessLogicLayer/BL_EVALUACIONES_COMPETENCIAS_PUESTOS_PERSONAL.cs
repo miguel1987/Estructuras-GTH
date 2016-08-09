@@ -22,6 +22,9 @@ namespace BusinessLogicLayer
             return new DA_EVALUACIONES_COMPETENCIAS_PUESTOS_PERSONAL().InsertarEvaluacionCompetenciaPuestoPersonal(oBE_EVALUACIONES_COMPETENCIAS_PUESTOS_PERSONAL);
         }
 
+        /// <summary>
+        ///  se actualiza la tabla de evaluacion competencias por puesto en base a la entidad BE_EVALUACIONES_COMPETENCIAS_PUESTOS_PERSONAL
+        /// </summary>        
         public bool  ActualizarEvaluacionCompetenciasPuestosPersonal(BE_EVALUACIONES_COMPETENCIAS_PUESTOS_PERSONAL oBE_EVALUACIONES_COMPETENCIAS_PUESTOS_PERSONAL)
         {
             return new DA_EVALUACIONES_COMPETENCIAS_PUESTOS_PERSONAL().ActualizarEvaluacionCompetenciaPuestoPersonal(oBE_EVALUACIONES_COMPETENCIAS_PUESTOS_PERSONAL);
@@ -31,5 +34,14 @@ namespace BusinessLogicLayer
         {
             return new DA_EVALUACIONES_COMPETENCIAS_PUESTOS_PERSONAL().ActualizarEvaluacionFinal(oBE_EVALUACIONES_COMPETENCIAS_PUESTOS_PERSONAL);
         }
+
+        public static bool ExisteEvaluacionCompetenciasPuestoPersonal(BE_EVALUACIONES_COMPETENCIAS_PUESTOS_PERSONAL OBE_COMPE_PUESTO_PERSONAL)
+        {
+            return DA_EVALUACIONES_COMPETENCIAS_PUESTOS_PERSONAL.ExisteRegistrosCompetenciasPuestoPersonal(OBE_COMPE_PUESTO_PERSONAL);
+
+        }
+
+
+
     }
 }

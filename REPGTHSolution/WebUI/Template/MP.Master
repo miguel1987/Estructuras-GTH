@@ -50,6 +50,8 @@ AsyncPostBackTimeout="360000">
             <li><a href="../UI_ADMINISTRACION/CompetenciasTransversales.aspx">Competencias Transversales</a></li>
             <li><a href="../UI_ADMINISTRACION/Competencias.aspx">Catálogo de Competencias</a></li>
             <li><a href="../UI_ADMINISTRACION/CompetenciasPorPuesto.aspx" class="separador">Competencias por Puesto</a></li>
+            <li><a href="../UI_ADMINISTRACION/ImportarEvaluacionesTransversales.aspx" class="separador">Importar Evaluaciones Transversales</a></li>
+            <li><a href="../UI_ADMINISTRACION/ImportarCompetenciasPorPuesto.aspx" class="separador">Importar Competencias Por Puesto</a></li>
             <li><a id="sistema" runat="server" href="../UI_ADMINISTRACION/ParametrosSistema.aspx">Parametros del Sistema</a></li>
           </ul>
             </li>

@@ -16,6 +16,9 @@ namespace BusinessLogicLayer
         ///  Devuelve los datos de todas las Competencias
         /// </summary>
         /// <returns> List de BE_CUENTA_MAYOR con los objetos de la entidad, que a su vez representan la tabla CUENTAS MAYORES de la base de datos.En caso no existan datos devuelve nothing </returns>
+        /// 
+        //Inicializamos web service para consulta y actualización de maestros genéricos.          
+        wsMaestros.mantenimientoEstructuras wsMantenimientoEstructuras = new wsMaestros.mantenimientoEstructuras();
         public static List<BE_COMPETENCIA> SeleccionarCompetencias()
         {
             return new DA_COMPETENCIA().SeleccionarCompetencias();
@@ -49,6 +52,33 @@ namespace BusinessLogicLayer
         public static Boolean EliminarCompetencia(Guid competencia_id)
         {
             return new DA_COMPETENCIA().EliminarCompetencia(competencia_id);
+        }
+
+        /// <summary>
+        /// se obtiene la lista de personal por codigo  
+        /// </summary>       
+        public BE_PERSONAL SeleccionarPersonalporCodigo(string Codigo_Personal)
+        {
+            wsMaestros.BE_PERSONAL oLista = wsMantenimientoEstructuras.SeleccionarPersonalPorCodigo(Codigo_Personal);
+            BE_PERSONAL oBE_PERSONAL = new BE_PERSONAL();
+            if (oLista != null)
+            {
+
+                oBE_PERSONAL.ID = oLista.ID;
+                oBE_PERSONAL.PUESTO_ID = oLista.PUESTO_ID;
+                oBE_PERSONAL.USUARIO_CREACION = oLista.USUARIO_CREACION;
+                oBE_PERSONAL.USUARIO_ACTUALIZACION = oLista.USUARIO_ACTUALIZACION;
+            }
+            return oBE_PERSONAL;
+        }
+
+        /// <summary>
+        /// devuelve idCompetencia 
+        /// </summary>        
+        public static string seleccionarporCodigo(string codigo_competencia)
+        {
+            DA_COMPETENCIA DA_COMPETENCIA = new DA_COMPETENCIA();
+            return DA_COMPETENCIA.SeleccionarporCodigo(codigo_competencia);
         }
     }
 }

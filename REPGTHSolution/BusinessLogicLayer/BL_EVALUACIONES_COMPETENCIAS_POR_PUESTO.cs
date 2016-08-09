@@ -14,6 +14,11 @@ namespace BusinessLogicLayer
         wsMaestros.mantenimientoEstructuras wsMantenimientoEstructuras = new wsMaestros.mantenimientoEstructuras();
         wsMaestros.BE_PUESTO[] oListaPorPuesto = null;
 
+        /// <summary>
+        ///  Devuelve los datos de todos los puesto y colaboradores.
+        /// </summary>
+        /// <returns> List de BE_PUESTO con los objetos de la entidad, que a su vez representan la tabla PUESTOS de la base de datos.En caso no existan datos devuelve nothing </returns>
+        /// 
         public List<BE_PUESTO> SeleccionarPuestosPorJerarquia(Guid jerarquia_id, int nivel)
         {
             List<BE_PUESTO> oListaPuesto = new List<BE_PUESTO>();
@@ -53,7 +58,11 @@ namespace BusinessLogicLayer
             return oListaPuesto;
         }
 
-
+        /// <summary>
+        ///  Devuelve los datos de todos los puesto y colaboradores.
+        /// </summary>
+        /// <returns> List de BE_EVALUACION_COMPETENCIA_PUESTO con los objetos de la entidad, que a su vez representan la tabla PUESTOS de la base de datos.En caso no existan datos devuelve nothing </returns>
+        ///
         public List<BE_EVALUACION_COMPETENCIA_PUESTO> SeleccionarEvaluaciones(Guid puesto_id, Guid competencia_tipo_id)
         {
             wsMaestros.BE_PERSONAL[] oListaPersonalPorPuesto = null;

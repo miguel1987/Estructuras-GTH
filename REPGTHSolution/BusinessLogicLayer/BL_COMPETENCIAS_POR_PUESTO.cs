@@ -34,6 +34,9 @@ namespace BusinessLogicLayer
            return new DA_COMPETENCIAS_POR_PUESTO().SeleccionarCompetenciasPorPuestoyTipo(idPuesto, idTipoCompetencia);
        }
 
+       /// <summary>
+       /// devuelve el tipo de evaluacion 
+       /// </summary>
        public static int EvaluacionFinalGrabar(Guid idPuesto)
        {
            return new DA_COMPETENCIAS_POR_PUESTO().EvaluacionFinalGrabar(idPuesto);
@@ -129,5 +132,15 @@ namespace BusinessLogicLayer
        {
            return new DA_COMPETENCIAS_POR_PUESTO().EliminarCompetenciaPuesto(competencia_puesto_id);
        }
+
+       /// <summary>
+       /// devuelve el codigo del valor requerido
+       /// </summary>
+       public int SeleccionarValorRequerido(BE_EVALUACIONES_COMPETENCIAS_PUESTOS_PERSONAL oBE_COMPE_PUESTO_PERSONAL)
+       {
+           DA_COMPETENCIAS_POR_PUESTO DA_COMPETENCIAS_POR_PUESTO = new DA_COMPETENCIAS_POR_PUESTO();
+           return DA_COMPETENCIAS_POR_PUESTO.SeleccionarValorRequerido(oBE_COMPE_PUESTO_PERSONAL);       
+       }
+      
     }
 }

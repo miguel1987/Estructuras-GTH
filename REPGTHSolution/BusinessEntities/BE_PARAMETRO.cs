@@ -5,6 +5,9 @@ using System.Text;
 
 namespace BusinessEntities
 {
+    /// <summary>
+    /// Entidad que representa la tabla PARAMETROS SISTEMA de la base de datos
+    /// </summary>
     public partial class BE_PARAMETRO : BE_GENERICO
     {
         public Guid ID { get; set; }

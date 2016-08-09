@@ -37,7 +37,6 @@ namespace BusinessLogicLayer
                     oCoordinacion.ESTADO = item.ESTADO;
 
                     oListaCoordinacion.Add(oCoordinacion);
-
                 }
             }
 

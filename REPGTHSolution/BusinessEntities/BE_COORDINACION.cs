@@ -5,6 +5,9 @@ using System.Text;
 
 namespace BusinessEntities
 {
+    /// <summary>
+    /// Entidad que representa la tabla COORDINACION de la base de datos
+    /// </summary>
   public  class BE_COORDINACION:BE_GENERICO
     {
         public Guid ID { get; set; }

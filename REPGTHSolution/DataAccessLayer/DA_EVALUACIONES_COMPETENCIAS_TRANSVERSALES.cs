@@ -178,5 +178,96 @@ namespace DataAccessLayer
                cnx.Close();
            }
        }
+
+
+
+
+       public static bool ExisteRegistrosEvaluacionTransversales(BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES OBE_COMPE_TRANS)
+       {
+
+           SqlConnection cnx = new SqlConnection();
+
+           cnx = DC_Connection.getConnection();
+
+           try
+           {
+               using (SqlCommand objCmd = new SqlCommand()
+               {
+                   Connection = cnx,
+                   CommandType = CommandType.StoredProcedure,
+                   CommandText = "USP_EVALUACIONES_COMPETENCIAS_TRANSVERSALES_EXISTE_EVALUACION_TRANSVERSAL"
+               })
+               {
+                   objCmd.Parameters.Add("@PERSONAL_ID", SqlDbType.UniqueIdentifier).Value =OBE_COMPE_TRANS.PERSONAL_ID;
+                   objCmd.Parameters.Add("@COMPETENCIA_TRANSVERSAL_ID", SqlDbType.UniqueIdentifier).Value = OBE_COMPE_TRANS.COMPETENCIA_TRANSVERSAL_ID;
+                   objCmd.Parameters.Add("@EVALUACION_COMPETENCIA_TRANSVERSAL_ANIO", SqlDbType.Int).Value = OBE_COMPE_TRANS.ANIO;
+
+                   cnx.Open();
+                   bool valor = Convert.ToBoolean(objCmd.ExecuteScalar());
+
+                   return valor;
+
+               }
+           }
+           catch (Exception ex)
+           {
+               throw ex;
+           }
+           finally
+           {
+               cnx.Close();
+           }
+       }
+
+
+       public static Boolean ActualizarEvaluacionTransversal(BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES OBE_COMPE_TRANS)
+       {
+           SqlConnection cnx = new SqlConnection();
+           bool bIndicador = false;
+
+           cnx = DC_Connection.getConnection();
+
+           try
+           {
+
+               using (
+                   SqlCommand objCmd = new SqlCommand()
+                   {
+                       Connection = cnx,
+                       CommandType = CommandType.StoredProcedure,
+                       CommandText = "USP_EVALUACIONES_COMPETENCIAS_TRANSVERSALES_ACTUALIZAR_EVALUACION_TRANSVERSAL"
+                   }
+                   )
+               {
+                   //Se crea el objeto Parameters por cada parametro
+                   objCmd.Parameters.Add("@EVALUACION_COMPETENCIA_TRANSVERSAL_PORCENTAJE", SqlDbType.Decimal).Value = OBE_COMPE_TRANS.PORCENTAJE;
+                   objCmd.Parameters.Add("@PERSONAL_ID", SqlDbType.UniqueIdentifier).Value = OBE_COMPE_TRANS.PERSONAL_ID;
+                   objCmd.Parameters.Add("@COMPETENCIA_TRANSVERSAL_ID", SqlDbType.UniqueIdentifier).Value = OBE_COMPE_TRANS.COMPETENCIA_TRANSVERSAL_ID;
+                   objCmd.Parameters.Add("@EVALUACION_COMPETENCIA_TRANSVERSAL_ANIO", SqlDbType.Int).Value = OBE_COMPE_TRANS.ANIO;
+                   objCmd.Parameters.Add("@USUARIO", SqlDbType.UniqueIdentifier).Value = OBE_COMPE_TRANS.USUARIO_CREACION;
+
+                   cnx.Open();
+
+                   bIndicador = objCmd.ExecuteNonQuery() > 0;
+               }
+
+           }
+           catch (Exception ex)
+           {
+               throw new Exception("Error: " + ex.Message);
+
+           }
+           finally
+           {
+               cnx.Close();
+           }
+
+
+           return bIndicador;
+       }
+
+
+
+
     }
 }
