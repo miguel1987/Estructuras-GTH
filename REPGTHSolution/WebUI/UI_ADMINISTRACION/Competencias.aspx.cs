@@ -25,13 +25,13 @@ namespace WebUI.UI_ADMINISTRACION
         protected void txtBuscar_TextChanged(object sender, EventArgs e)
         {
 
-            rgCompetencia.MasterTableView.FilterExpression = "([DESCRIPCION] LIKE \'%" + txtBuscar.Text.Trim() + "%\' OR [CODIGO]LIKE \'%" + txtBuscar.Text.Trim() + "%\')";
+            rgCompetencia.MasterTableView.FilterExpression = "([DESCRIPCION] LIKE \'%" + txtBuscar.Text.Trim().ToUpper() + "%\' OR [CODIGO]LIKE \'%" + txtBuscar.Text.Trim().ToUpper() + "%\')";
             rgCompetencia.Rebind();
         }
 
         protected void linkBuscar_Click(object sender, EventArgs e)
         {
-            rgCompetencia.MasterTableView.FilterExpression = "([DESCRIPCION] LIKE \'%" + txtBuscar.Text.Trim() + "%\' OR [CODIGO]LIKE \'%" + txtBuscar.Text.Trim() + "%\')";
+            rgCompetencia.MasterTableView.FilterExpression = "([DESCRIPCION] LIKE \'%" + txtBuscar.Text.Trim().ToUpper() + "%\' OR [CODIGO]LIKE \'%" + txtBuscar.Text.Trim().ToUpper() + "%\')";
             rgCompetencia.Rebind();
         }
 

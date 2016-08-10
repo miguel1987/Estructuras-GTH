@@ -333,10 +333,24 @@ namespace WebUI.UI_EVALUACION
         protected void CalcularIndicador(string idNodo, string nivel)
         {
 
-            List<BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES> oListaEvaluacionesTransversales = new List<BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES>();
+            List<BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES> oListaEvaluacionesTransversales = new List<BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES>();           
+
             BL_EVALUACIONES_COMPETENCIAS_TRANSVERSALES BL_EVALUACIONES_COMPETENCIAS_TRANSVERSALES = new BL_EVALUACIONES_COMPETENCIAS_TRANSVERSALES();
 
+            
+
             oListaEvaluacionesTransversales = BL_EVALUACIONES_COMPETENCIAS_TRANSVERSALES.SeleccionarEvaluacionesTransversalesPorJerarquia(Guid.Parse(idNodo), Int32.Parse(nivel));
+
+            List<object[]> lstPersonalCompetencias = oListaEvaluacionesTransversales
+                /* Group the list by the element at position 0 in each item */
+            .GroupBy(o => o.PERSONAL_ID)
+                        /* Project the created grouping into a new object[]: */
+            .Select(i => new object[]
+            {
+                i.Key,
+                i.Sum(x => x.COMPETENCIA_NO_DESARROLLADA)
+            })
+            .ToList();
 
             decimal contadorCompetenciasDesarrolladas = 0;
             decimal contadorTotalRegistros = 0;
@@ -347,15 +361,15 @@ namespace WebUI.UI_EVALUACION
 
             decimal indicador = 0;
 
-            contadorTotalRegistros = oListaEvaluacionesTransversales.Count;
+            contadorTotalRegistros = lstPersonalCompetencias.Count;
 
-            foreach (var itemevaluaciones in oListaEvaluacionesTransversales)
+            foreach (var itemPersonas in lstPersonalCompetencias)
             {
-                BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES oEvaluacion_Competencia_Transversales = new BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES();
-                oEvaluacion_Competencia_Transversales.PORCENTAJE = itemevaluaciones.PORCENTAJE * 100;
-                if (oEvaluacion_Competencia_Transversales.PORCENTAJE >= parametroCompetenciasDesarrolladas)
+
+                if ((int)itemPersonas[1] == 0)
                     contadorCompetenciasDesarrolladas++;
             }
+        
             if (contadorCompetenciasDesarrolladas > 0 && contadorTotalRegistros > 0)
 
                 indicador = (contadorCompetenciasDesarrolladas / contadorTotalRegistros) * 100;

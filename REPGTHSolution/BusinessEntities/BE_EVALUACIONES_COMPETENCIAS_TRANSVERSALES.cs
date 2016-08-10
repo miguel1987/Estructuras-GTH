@@ -23,6 +23,7 @@ namespace BusinessEntities
         public string CODIGO { get; set; }
         public int VALOR { get; set; }
         public string VALOR_COLOR { get; set; }
+        public int COMPETENCIA_NO_DESARROLLADA { get; set; }
         
         public enum TIPO_COMPETENCIA
         {

@@ -33,14 +33,16 @@
         OnUpdateCommand="rgCompetencia_UpdateCommand" PageSize="10"
         GridLines="None" AllowPaging="True" Width="100%" AllowSorting="true" AllowFilteringByColumn="False" 
         EnableEmbeddedSkins="False" Skin="MySilk" ImagesPath="../Styles/Grid/" style="margin: auto" EnableLinqExpressions="false">
+        <GroupingSettings CaseSensitive="false" />
         <ExportSettings>
             <Pdf PageWidth="" />
         </ExportSettings>
+        
         <MasterTableView DataSourceID="odsCompetencia" CommandItemDisplay="Top" DataKeyNames="ID" HorizontalAlign="NotSet" 
         AutoGenerateColumns="False" EditMode="EditForms" OverrideDataSourceControlSorting="true">
             <NoRecordsTemplate>
                 No existen Competencias registradas.
-            </NoRecordsTemplate>
+            </NoRecordsTemplate>            
             <CommandItemSettings AddNewRecordText="Añadir Competencia" RefreshText="Actualizar"></CommandItemSettings>   
             <Columns>     
                 <telerik:GridBoundColumn DataField="CODIGO" HeaderText="CODIGO" SortExpression="CODIGO" UniqueName="CODIGO" HeaderStyle-Width="20%" 

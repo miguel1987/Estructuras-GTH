@@ -316,6 +316,12 @@ namespace BusinessLogicLayer
                     oEvaluacion_Competencia_Transversales.PUESTO_DESCRIPCION = item.oBE_PUESTO.DESCRIPCION;
                     oEvaluacion_Competencia_Transversales.COMPETENCIA_TRANSVERSAL_DESCRIPCION = itemevaluaciones.COMPETENCIA_TRANSVERSAL_DESCRIPCION;
                     oEvaluacion_Competencia_Transversales.PORCENTAJE = itemevaluaciones.PORCENTAJE;
+
+                    if (itemevaluaciones.PORCENTAJE * 100 >= BL_EVALUACIONES_COMPETENCIAS_TRANSVERSALES.ParametroSistemaporValor(BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES.PARAMETRO_SISTEMA.DESARROLLADAS.ToString()))
+                        oEvaluacion_Competencia_Transversales.COMPETENCIA_NO_DESARROLLADA = 0;
+                    else
+                        oEvaluacion_Competencia_Transversales.COMPETENCIA_NO_DESARROLLADA = 1;
+
                     oListaEvaluacionesTransversales.Add(oEvaluacion_Competencia_Transversales);
                 }
             }
@@ -343,6 +349,12 @@ namespace BusinessLogicLayer
                         oEvaluacion_Competencia_Transversales.PUESTO_DESCRIPCION = item.oBE_PUESTO.DESCRIPCION;
                         oEvaluacion_Competencia_Transversales.COMPETENCIA_TRANSVERSAL_DESCRIPCION = itemevaluaciones.COMPETENCIA_TRANSVERSAL_DESCRIPCION;
                         oEvaluacion_Competencia_Transversales.PORCENTAJE = itemevaluaciones.PORCENTAJE;
+
+                        if (itemevaluaciones.PORCENTAJE * 100 >= BL_EVALUACIONES_COMPETENCIAS_TRANSVERSALES.ParametroSistemaporValor(BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES.PARAMETRO_SISTEMA.DESARROLLADAS.ToString()))
+                            oEvaluacion_Competencia_Transversales.COMPETENCIA_NO_DESARROLLADA = 0;
+                        else
+                            oEvaluacion_Competencia_Transversales.COMPETENCIA_NO_DESARROLLADA = 1;
+
                         oListaEvaluacionesTransversales.Add(oEvaluacion_Competencia_Transversales);
                     }
                 }
