@@ -11,7 +11,7 @@ using Telerik.Web.UI;
 using System.Collections;
 using System.Text;
 
-namespace WebUI.UI_ARCHIVO
+namespace WebUI.UI_EVALUACION
 {
     public partial class EvaluacionesCompetenciasPorPuesto : PageBaseClass
     {
@@ -187,6 +187,8 @@ namespace WebUI.UI_ARCHIVO
                                 nodePresidencia.Enabled = false;
                                 nodeGerencia.Enabled = false;
                                 nodeAreas.Enabled = false;
+                                linkGenerarReporte.Visible = false;
+                                rcbPuesto.Enabled = false;
 
                             }
 
@@ -211,7 +213,7 @@ namespace WebUI.UI_ARCHIVO
                     jerarquia_id = Session["GERENCIA_ID"].ToString();
                 }
 
-                if (Session["COORDINACION_ID"] == Guid.Empty.ToString())
+                if (Session["COORDINACION_ID"].ToString() == Guid.Empty.ToString())
                 {
                     nivel = "3";
                     jerarquia_id = Session["AREA_ID"].ToString();
@@ -224,7 +226,9 @@ namespace WebUI.UI_ARCHIVO
 
             }
 
-            LoadCombo(jerarquia_id, nivel);                               
+            LoadCombo(jerarquia_id, nivel);
+            rcbPuesto.SelectedValue = Session["PERSONAL_PUESTO"].ToString();
+                 
         }
 
 
@@ -295,11 +299,6 @@ namespace WebUI.UI_ARCHIVO
 
 
         }
-
-
-
-
-
                        
         protected void rtvTransversales_NodeClick(object sender, RadTreeNodeEventArgs e)
         {       
@@ -309,7 +308,9 @@ namespace WebUI.UI_ARCHIVO
             string nivel = rtvTransversales.SelectedNode.Level.ToString();
             
             LoadCombo(idNodo, nivel);
-            rgEvaluacionesporPuesto.Rebind();            
+            LoadGrilla(rcbPuesto.SelectedValue, rcbCompetenciasPuesto.SelectedValue); 
+            rgEvaluacionesporPuesto.Rebind();
+            
         }
         
         protected void LoadCombo(string idNodo, string nivel)

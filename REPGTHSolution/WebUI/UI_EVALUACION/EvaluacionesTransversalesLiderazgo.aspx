@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Template/MP.Master" CodeBehind="EvaluacionesTransversalesLiderazgo.aspx" Inherits="WebUI.UI_ARCHIVO.EvaluacionesTransversalesLiderazgo" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Template/MP.Master" CodeBehind="EvaluacionesTransversalesLiderazgo.aspx.cs" Inherits="WebUI.UI_EVALUACION.EvaluacionesTransversalesLiderazgo" %>
 
 <%@ Register assembly="Telerik.Web.UI" namespace="Telerik.Web.UI" tagprefix="telerik" %>
 
@@ -17,7 +17,7 @@
                   <telerik:RadTextBox CssClass="frmTxtBuscar"  ID="txtBuscar" runat="server" AutoPostBack="true" OnTextChanged="txtBuscar_TextChanged" EnableEmbeddedSkins="false"
                  Skin="MySilk"></telerik:RadTextBox></td>
                   <td><a class="frm_boton ">Ir</a></td>
-            <td><a class="frm_boton" href="../UI_REPORTES/ReporteCompetenciasTransversales.aspx" target="_blank">Generar Reporte</a></td>
+            <td><a class="frm_boton" href="../UI_REPORTES/ReporteCompetenciasTransversales.aspx" target="_blank" runat="server" id="linkGenerarReporte">Generar Reporte</a></td>
             <td width="20">&nbsp;</td>
             
            

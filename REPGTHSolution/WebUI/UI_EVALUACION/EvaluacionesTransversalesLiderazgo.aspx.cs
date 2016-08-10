@@ -12,7 +12,7 @@ using System.Collections;
 using System.Text;
 using System.Drawing;
 
-namespace WebUI.UI_ARCHIVO
+namespace WebUI.UI_EVALUACION
 {
     public partial class EvaluacionesTransversalesLiderazgo : PageBaseClass
     {
@@ -193,7 +193,8 @@ namespace WebUI.UI_ARCHIVO
                                 nodeEmpresa.Enabled = false;
                                 nodePresidencia.Enabled = false;
                                 nodeGerencia.Enabled = false;
-                                nodeAreas.Enabled = false;                                
+                                nodeAreas.Enabled = false;
+                                linkGenerarReporte.Visible = false;
 
                             }
                             

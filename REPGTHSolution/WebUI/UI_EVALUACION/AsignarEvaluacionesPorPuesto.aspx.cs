@@ -93,7 +93,7 @@ namespace WebUI.UI_EVALUACION
                 (e.Item as GridEditableItem)["ESTADO_EVALUACION"].Visible = false;
 
             }
-            if (hf_Estado.Value == BE_EVALUACION_COMPETENCIA_PUESTO.ESTADO_EVALUACION.Evaluado.ToString())
+            if (hf_Estado.Value == BE_EVALUACION_COMPETENCIA_PUESTO.ESTADO_EVALUACION.Evaluado.ToString() && Session["PERFIL_ID"].ToString() == "2")
             {
                 if (e.Item is GridDataItem)
                 {
@@ -180,7 +180,7 @@ namespace WebUI.UI_EVALUACION
                 hf_Estado.Value = BE_EVALUACION_COMPETENCIA_PUESTO.ESTADO_EVALUACION.Evaluado.ToString();
                 ActualizarGrilla();
 
-                lblMensaje.Text = "Se actualizó el Estado de las Competencias a Evaluado. Éstas ya no podrán ser editadas.";
+                lblMensaje.Text = "Se actualizó el Estado de las Competencias a Evaluado. Éstas ya no podrán ser editadas, salvo por un usuario administrador";
                
                 
             }

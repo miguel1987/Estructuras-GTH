@@ -45,14 +45,14 @@
             <CommandItemSettings AddNewRecordText="Añadir Puesto" RefreshText="Actualizar" ExportToPdfText="Exportar a PDF"></CommandItemSettings>           
            
             <Columns>   
-                <telerik:GridBoundColumn DataField="CODIGO"
+                <telerik:GridBoundColumn DataField="CODIGO" HeaderStyle-Width="35%"
                     HeaderText="CODIGO" SortExpression="CODIGO" UniqueName="CODIGO" AutoPostBackOnFilter="true">
                     <ColumnValidationSettings EnableRequiredFieldValidation="true">
                         <RequiredFieldValidator ForeColor="Red" Text="*">
                         </RequiredFieldValidator>
                     </ColumnValidationSettings>
                 </telerik:GridBoundColumn>                
-                <telerik:GridBoundColumn DataField="DESCRIPCION" 
+                <telerik:GridBoundColumn DataField="DESCRIPCION" HeaderStyle-Width="35%" 
                     HeaderText="PUESTO" SortExpression="DESCRIPCION" UniqueName="DESCRIPCION" 
                     AutoPostBackOnFilter="true">
                     <ColumnValidationSettings EnableRequiredFieldValidation="true">
@@ -60,7 +60,7 @@
                         </RequiredFieldValidator>
                     </ColumnValidationSettings>
                 </telerik:GridBoundColumn>  
-                <telerik:GridTemplateColumn HeaderText="NIVEL" SortExpression="oBE_NIVEL_PUESTO.DESCRIPCION" DataField="oBE_NIVEL_PUESTO.DESCRIPCION" UniqueName="oBE_NIVEL_PUESTO.DESCRIPCION"
+                <telerik:GridTemplateColumn HeaderText="NIVEL" HeaderStyle-Width="15%" SortExpression="oBE_NIVEL_PUESTO.DESCRIPCION" DataField="oBE_NIVEL_PUESTO.DESCRIPCION" UniqueName="oBE_NIVEL_PUESTO.DESCRIPCION"
                 AutoPostBackOnFilter="true">
                         <ItemTemplate>
                             <%# Eval("oBE_NIVEL_PUESTO.DESCRIPCION")%>
@@ -74,7 +74,7 @@
                             </asp:RequiredFieldValidator>     
                         </EditItemTemplate>
                 </telerik:GridTemplateColumn>        
-                <telerik:GridTemplateColumn HeaderText="EMPRESA" HeaderStyle-Width="250px" SortExpression="oBE_EMPRESA.DESCRIPCION" Datafield="oBE_EMPRESA.DESCRIPCION" UniqueName="oBE_EMPRESA.DESCRIPCION"  
+                <telerik:GridTemplateColumn HeaderText="EMPRESA" HeaderStyle-Width="15%" SortExpression="oBE_EMPRESA.DESCRIPCION" Datafield="oBE_EMPRESA.DESCRIPCION" UniqueName="oBE_EMPRESA.DESCRIPCION"  
                 AutoPostBackOnFilter="true">
                         <ItemTemplate>
                             <%# Eval("oBE_EMPRESA.DESCRIPCION")%>

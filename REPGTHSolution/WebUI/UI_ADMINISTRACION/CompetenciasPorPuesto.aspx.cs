@@ -68,6 +68,20 @@ namespace WebUI.UI_ADMINISTRACION
 
         }
 
+        protected void rcbTipoCompetencia_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            RadComboBox rcbTempTipoCompetencia = (RadComboBox)sender;
+            String selected = rcbTempTipoCompetencia.SelectedValue;
+            RadComboBox rcbTempCompetencia = (RadComboBox)rcbTempTipoCompetencia.NamingContainer.FindControl("rcbCompetencia");
+            rcbTempCompetencia.ClearSelection();
+            this.odsCompetencia.SelectParameters.Clear();
+            this.odsCompetencia.SelectParameters.Add("idTipoCompetencia", System.Data.DbType.Guid, selected);
+
+            rcbTempCompetencia.DataBind();
+
+        }
+
 
         protected void rgCompetenciasPuesto_InsertCommand(object sender, GridCommandEventArgs e)
         {
@@ -117,6 +131,7 @@ namespace WebUI.UI_ADMINISTRACION
             var editableItem = ((GridEditableItem)e.Item);
             //create new entity
             BL_COMPETENCIAS_POR_PUESTO BL_COMPETENCIAS_POR_PUESTO = new BL_COMPETENCIAS_POR_PUESTO();
+           
             //populate its properties
             Hashtable values = new Hashtable();
             editableItem.ExtractValues(values);
@@ -175,11 +190,11 @@ namespace WebUI.UI_ADMINISTRACION
             }
 
             if (action == "add")
-            {
+            {             
                 oentidad.USUARIO_CREACION = USUARIO;               
                 BL_COMPETENCIAS_POR_PUESTO.InsertarCompetenciaPuesto(oentidad);
 
-            }else{
+            } else{
                 oentidad.USUARIO_CREACION = USUARIO;               
                 BL_COMPETENCIAS_POR_PUESTO.ActualizarCompetenciaPuesto(oentidad);
             }

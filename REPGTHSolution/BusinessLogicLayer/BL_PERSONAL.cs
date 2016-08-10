@@ -447,6 +447,7 @@ namespace BusinessLogicLayer
                 oBE_PERSONAL.AREA_ID = oPersonal.AREA_ID;
                 oBE_PERSONAL.DEPARTAMENTO = oPersonal.DEPARTAMENTO;
                 oBE_PERSONAL.PUESTO = oPersonal.PUESTO;
+                oBE_PERSONAL.PUESTO_ID = oPersonal.PUESTO_ID;
                 oBE_PERSONAL.CORREO = oPersonal.CORREO;
                 oBE_PERSONAL.NOMBRE_USUARIO = oPersonal.NOMBRE_USUARIO;
                 oBE_PERSONAL.EMPRESA_ID = oPersonal.EMPRESA_ID;

@@ -96,6 +96,88 @@ namespace DataAccessLayer
         }
 
         /// <summary>
+        ///  Devuelve los datos de todas las Competencias Transversales
+        /// </summary>
+        /// <returns> List de BE_COMPETENCIA_TRANSVERSAL con los objetos de la entidad, que a su vez representan la tabla COMPETENCIAS TRANSVERSALES de la base de datos.En caso no existan datos devuelve nothing </returns>
+        public List<BE_COMPETENCIA> SeleccionarCompetencias(Guid idTipoCompetencia)
+        {
+
+            SqlConnection cnx = new SqlConnection();
+            DbDataReader dr;
+            cnx = DC_Connection.getConnection();
+            List<BE_COMPETENCIA> oCOMPETENCIA = null;
+            try
+            {
+                using (SqlCommand objCmd = new SqlCommand()
+                {
+                    Connection = cnx,
+                    CommandType = CommandType.StoredProcedure,
+                    CommandText = "USP_COMPETENCIA_SELECCIONAR_POR_TIPO"
+                })
+                {
+                    objCmd.Parameters.Add("@COMPETENCIA_TIPO_ID", SqlDbType.UniqueIdentifier).Value = idTipoCompetencia; 
+                    cnx.Open();
+                    dr = objCmd.ExecuteReader();
+
+                    // Se crea una variable tipo int por cada posicion de cada campo
+                    int COMPETENCIA_ID = dr.GetOrdinal("COMPETENCIA_ID");
+                    int COMPETENCIA_CODIGO = dr.GetOrdinal("COMPETENCIA_CODIGO");
+                    int COMPETENCIA_DESCRIPCION = dr.GetOrdinal("COMPETENCIA_DESCRIPCION");
+                    int COMPETENCIA_TIPO_ID = dr.GetOrdinal("COMPETENCIA_TIPO_ID");
+                    int COMPETENCIA_ESTADO = dr.GetOrdinal("COMPETENCIA_ESTADO");
+                    int USUARIO_CREACION = dr.GetOrdinal("USUARIO_CREACION");
+                    int FECHA_CREACION = dr.GetOrdinal("FECHA_CREACION");
+                    int USUARIO_ACTUALIZACION = dr.GetOrdinal("USUARIO_ACTUALIZACION");
+                    int FECHA_ACTUALIZACION = dr.GetOrdinal("FECHA_ACTUALIZACION");
+
+                    // creamos un objeto del tamaño de la tupla en el array de objeto Valores
+                    object[] Valores = new object[dr.FieldCount];
+
+                    // Preguntamos si el DbDatGERENCIAder tiene registros
+                    if (dr.HasRows)
+                    {
+
+                        // Instancionamos la lista para empezar a setearla
+                        oCOMPETENCIA = new List<BE_COMPETENCIA>();
+                        while (dr.Read())
+                        {
+                            // Obetemos los valores para la tupla
+                            dr.GetValues(Valores);
+                            BE_COMPETENCIA oBE_COMPETENCIA = new BE_COMPETENCIA();
+                            oBE_COMPETENCIA.ID = (Guid)Valores.GetValue(COMPETENCIA_ID);
+                            oBE_COMPETENCIA.CODIGO = Valores.GetValue(COMPETENCIA_CODIGO).ToString();
+                            oBE_COMPETENCIA.DESCRIPCION = Valores.GetValue(COMPETENCIA_DESCRIPCION).ToString();
+                            oBE_COMPETENCIA.COMPETENCIA_TIPO_ID = (Guid)Valores.GetValue(COMPETENCIA_TIPO_ID);
+                            oBE_COMPETENCIA.ESTADO = Convert.ToInt32(Valores.GetValue(COMPETENCIA_ESTADO));
+                            oBE_COMPETENCIA.USUARIO_CREACION = (Guid)Valores.GetValue(USUARIO_CREACION);
+                            oBE_COMPETENCIA.FECHA_CREACION = Convert.ToDateTime(Valores.GetValue(FECHA_CREACION));
+                            oBE_COMPETENCIA.USUARIO_ACTUALIZACION = (Guid)Valores.GetValue(USUARIO_ACTUALIZACION);
+                            oBE_COMPETENCIA.FECHA_ACTUALIZACION = Convert.ToDateTime(Valores.GetValue(FECHA_ACTUALIZACION));
+
+                            BE_COMPETENCIAS_TIPOS oBE_COMPETENCIA_TIPO = new BE_COMPETENCIAS_TIPOS();
+                            DA_COMPETENCIAS_TIPOS DA_COMPETENCIAS_TIPOS = new DA_COMPETENCIAS_TIPOS();
+
+                            oBE_COMPETENCIA_TIPO = DA_COMPETENCIAS_TIPOS.SeleccionarCompetenciasTiposPorId(oBE_COMPETENCIA.COMPETENCIA_TIPO_ID)[0];
+                            oBE_COMPETENCIA.oBE_COMPETENCIA_TIPO = oBE_COMPETENCIA_TIPO;
+                            oCOMPETENCIA.Add(oBE_COMPETENCIA);
+                        }
+                    }
+                }
+
+                return oCOMPETENCIA;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                cnx.Close();
+            }
+        }
+
+
+        /// <summary>
         /// Ingresa una nueva Competencia 
         /// </summary>
         /// <param name="oBE_COMPETENCIA">Objeto BE_COMPETENCIA con todos sus campos llenos</param>

@@ -44,7 +44,7 @@
             </NoRecordsTemplate>
             <CommandItemSettings AddNewRecordText="Añadir Competencias Por Puesto" RefreshText="Actualizar"></CommandItemSettings>   
             <Columns>                                                  
-                <telerik:GridTemplateColumn  HeaderText="EMPRESA" HeaderStyle-Width="25%" SortExpression="oBE_EMPRESA.DESCRIPCION" UniqueName="oBE_EMPRESA.DESCRIPCION" DataField="oBE_EMPRESA.DESCRIPCION"
+                <telerik:GridTemplateColumn  HeaderText="EMPRESA" HeaderStyle-Width="10%" SortExpression="oBE_EMPRESA.DESCRIPCION" UniqueName="oBE_EMPRESA.DESCRIPCION" DataField="oBE_EMPRESA.DESCRIPCION"
                 AutoPostBackOnFilter="true">
                         <ItemTemplate>
                             <%# Eval("oBE_EMPRESA.DESCRIPCION")%>
@@ -59,7 +59,7 @@
                             </asp:RequiredFieldValidator>     
                         </EditItemTemplate>
                     </telerik:GridTemplateColumn>   
-                    <telerik:GridTemplateColumn  HeaderText="PUESTO" HeaderStyle-Width="25%" SortExpression="oBE_PUESTO.DESCRIPCION" UniqueName="oBE_PUESTO.DESCRIPCION" DataField="oBE_PUESTO.DESCRIPCION"
+                    <telerik:GridTemplateColumn  HeaderText="PUESTO" HeaderStyle-Width="30%" SortExpression="oBE_PUESTO.DESCRIPCION" UniqueName="oBE_PUESTO.DESCRIPCION" DataField="oBE_PUESTO.DESCRIPCION"
                 AutoPostBackOnFilter="true">
                         <ItemTemplate>
                             <%# Eval("oBE_PUESTO.DESCRIPCION")%>
@@ -71,6 +71,18 @@
                             </telerik:RadComboBox>                               
                         </EditItemTemplate>
                     </telerik:GridTemplateColumn> 
+                    <telerik:GridTemplateColumn  HeaderText="TIPO COMPETENCIA" HeaderStyle-Width="25%" SortExpression="oBE_COMPETENCIA_TIPO.COMPETENCIA_TIPO_DESCRIPCION" UniqueName="oBE_COMPETENCIA_TIPO.COMPETENCIA_TIPO_DESCRIPCION" DataField="oBE_COMPETENCIA_TIPO.COMPETENCIA_TIPO_DESCRIPCION"
+                    AutoPostBackOnFilter="true">
+                        <ItemTemplate>
+                            <%# Eval("oBE_COMPETENCIA_TIPO.COMPETENCIA_TIPO_DESCRIPCION")%>
+                        </ItemTemplate>
+                        <EditItemTemplate>
+                        <telerik:RadComboBox
+                            runat="server" ID="rcbTipoCompetencia" DataValueField="ID" MarkFirstMatch="true" Filter="None" EnableTextSelection="true"
+                                DataTextField="COMPETENCIA_TIPO_DESCRIPCION" AllowCustomText="true" DataSourceID="odsTipoCompetencia" LoadingMessage="Cargando..." Width="50%" AutoPostBack="true" OnSelectedIndexChanged="rcbTipoCompetencia_SelectedIndexChanged">
+                            </telerik:RadComboBox>                             
+                        </EditItemTemplate>
+                    </telerik:GridTemplateColumn>   
                     <telerik:GridTemplateColumn HeaderText="COMPETENCIA" HeaderStyle-Width="25%" SortExpression="oBE_COMPETENCIA.DESCRIPCION" DataField="oBE_COMPETENCIA.DESCRIPCION" UniqueName="oBE_COMPETENCIA.DESCRIPCION"
                     AutoPostBackOnFilter="true">
                         <ItemTemplate>
@@ -84,7 +96,7 @@
                         </EditItemTemplate>
                     </telerik:GridTemplateColumn> 
                     <telerik:GridBoundColumn DataField="COMPETENCIA_PUESTO_VALOR_REQUERIDO"
-                    HeaderText="VALOR REQUERIDO" SortExpression="COMPETENCIA_PUESTO_VALOR_REQUERIDO" UniqueName="COMPETENCIA_PUESTO_VALOR_REQUERIDO" HeaderStyle-Width="25%">                  
+                    HeaderText="VALOR REQUERIDO" SortExpression="COMPETENCIA_PUESTO_VALOR_REQUERIDO" UniqueName="COMPETENCIA_PUESTO_VALOR_REQUERIDO" HeaderStyle-Width="10%">                  
                 </telerik:GridBoundColumn>                    
                     <telerik:GridEditCommandColumn ButtonType="ImageButton" EditText="Actualizar"
                     UniqueName="EditCommandColumn" CancelImageUrl="../Styles/Grid/Cancel.gif" 
@@ -113,7 +125,7 @@
         runat="server"/>
         </div>  
      <asp:ObjectDataSource ID="odsCompetenciaPuesto" runat="server" SelectMethod="SeleccionarCompetenciasPorPuesto"         
-        TypeName="BusinessLogicLayer.BL_COMPETENCIAS_POR_PUESTO" DataObjectTypeName="BusinessEntities.BE_AREA">    
+        TypeName="BusinessLogicLayer.BL_COMPETENCIAS_POR_PUESTO">    
     </asp:ObjectDataSource>  
     <asp:ObjectDataSource ID="odsPuesto" runat="server" SelectMethod="SeleccionarPuesto"         
         TypeName="BusinessLogicLayer.BL_PUESTO">
@@ -123,7 +135,9 @@
     </asp:ObjectDataSource>
     <asp:ObjectDataSource ID="odsEmpresa" runat="server" SelectMethod="SeleccionarEmpresa"         
         TypeName="BusinessLogicLayer.BL_EMPRESA">
-    </asp:ObjectDataSource>   
+    </asp:ObjectDataSource>  
+    <asp:ObjectDataSource ID="odsTipoCompetencia" runat="server" SelectMethod="SeleccionarCompetenciasTipos"
+        TypeName="BusinessLogicLayer.BL_COMPETENCIAS_TIPOS" DataObjectTypeName="BusinessEntities.BE_COMPETENCIAS_TIPOS"></asp:ObjectDataSource>     
     
     <telerik:RadWindowManager ID="RadWindowManager1" runat="server">
     </telerik:RadWindowManager>

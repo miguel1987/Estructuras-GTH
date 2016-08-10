@@ -71,11 +71,13 @@ namespace BusinessLogicLayer
                    oBE_COMPETENCIA_PUESTO.ID = item.ID;
                    oBE_COMPETENCIA_PUESTO.COMPETENCIA_PUESTO_VALOR_REQUERIDO = item.COMPETENCIA_PUESTO_VALOR_REQUERIDO;
 
-                   oBE_COMPETENCIA_PUESTO.COMPETENCIA_ID = item.COMPETENCIA_ID;
+                   oBE_COMPETENCIA_PUESTO.COMPETENCIA_ID = item.COMPETENCIA_ID;                  
 
                    oBE_COMPETENCIA.ID = item.COMPETENCIA_ID;
                    oBE_COMPETENCIA.DESCRIPCION = item.COMPETENCIA_DESCRIPCION;
-                   oBE_COMPETENCIA_PUESTO.oBE_COMPETENCIA = oBE_COMPETENCIA;                   
+                   oBE_COMPETENCIA_PUESTO.oBE_COMPETENCIA = oBE_COMPETENCIA;
+
+                   oBE_COMPETENCIA_PUESTO.oBE_COMPETENCIA_TIPO = item.oBE_COMPETENCIA_TIPO;
 
                    wBE_PUESTO  = wsMantenimientoEstructuras.SeleccionarPuestoPorId(item.PUESTO_ID);
                    oBE_PUESTO.ID = wBE_PUESTO.ID;

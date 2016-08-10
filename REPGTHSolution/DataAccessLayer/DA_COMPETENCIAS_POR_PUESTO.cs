@@ -180,6 +180,7 @@ namespace DataAccessLayer
                   int COMPETENCIA_PUESTO_ID = dr.GetOrdinal("COMPETENCIA_PUESTO_ID");
                   int PUESTO_ID = dr.GetOrdinal("PUESTO_ID");
                   int COMPETENCIA_ID = dr.GetOrdinal("COMPETENCIA_ID");
+                  int COMPETENCIA_TIPO_ID = dr.GetOrdinal("COMPETENCIA_TIPO_ID");
                   int COMPETENCIA_DESCRIPCION = dr.GetOrdinal("COMPETENCIA_DESCRIPCION");
                   int COMPETENCIA_PUESTO_VALOR_REQUERIDO = dr.GetOrdinal("COMPETENCIA_PUESTO_VALOR_REQUERIDO");                
 
@@ -200,9 +201,15 @@ namespace DataAccessLayer
                           oBE_COMPETENCIASPUESTO.ID = (Guid)Valores.GetValue(COMPETENCIA_PUESTO_ID);
                           oBE_COMPETENCIASPUESTO.PUESTO_ID = (Guid)Valores.GetValue(PUESTO_ID);
                           oBE_COMPETENCIASPUESTO.COMPETENCIA_ID = (Guid)Valores.GetValue(COMPETENCIA_ID);
+                          oBE_COMPETENCIASPUESTO.COMPETENCIA_TIPO_ID = (Guid)Valores.GetValue(COMPETENCIA_TIPO_ID);
                           oBE_COMPETENCIASPUESTO.COMPETENCIA_DESCRIPCION = Valores.GetValue(COMPETENCIA_DESCRIPCION).ToString(); 
                           oBE_COMPETENCIASPUESTO.COMPETENCIA_PUESTO_VALOR_REQUERIDO = (int)Valores.GetValue(COMPETENCIA_PUESTO_VALOR_REQUERIDO);
-                        
+
+                          BE_COMPETENCIAS_TIPOS oBE_COMPETENCIA_TIPO = new BE_COMPETENCIAS_TIPOS();
+                          DA_COMPETENCIAS_TIPOS DA_COMPETENCIAS_TIPOS = new DA_COMPETENCIAS_TIPOS();
+
+                          oBE_COMPETENCIA_TIPO = DA_COMPETENCIAS_TIPOS.SeleccionarCompetenciasTiposPorId(oBE_COMPETENCIASPUESTO.COMPETENCIA_TIPO_ID)[0];
+                          oBE_COMPETENCIASPUESTO.oBE_COMPETENCIA_TIPO = oBE_COMPETENCIA_TIPO;
                           oCOMPETENCIASPORPUESTO.Add(oBE_COMPETENCIASPUESTO);
                       }
                   }

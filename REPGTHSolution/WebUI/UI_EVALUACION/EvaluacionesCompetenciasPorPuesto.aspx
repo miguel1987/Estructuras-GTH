@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Template/MP.Master" CodeBehind="EvaluacionesCompetenciasPorPuesto.aspx.cs" Inherits="WebUI.UI_ARCHIVO.EvaluacionesCompetenciasPorPuesto" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Template/MP.Master" CodeBehind="EvaluacionesCompetenciasPorPuesto.aspx.cs" Inherits="WebUI.UI_EVALUACION.EvaluacionesCompetenciasPorPuesto" %>
 
 <%@ Register assembly="Telerik.Web.UI" namespace="Telerik.Web.UI" tagprefix="telerik" %>
 
@@ -28,7 +28,7 @@
                  </telerik:RadComboBox>
              
              </td>
-            <td style="height: 50px"><a class="frm_boton"  href="../UI_REPORTES/ReporteCompetenciasPuesto.aspx" target="_blank">Generar Reporte</a></td>
+            <td style="height: 50px"><a class="frm_boton"  href="../UI_REPORTES/ReporteCompetenciasPuesto.aspx" target="_blank" id="linkGenerarReporte" runat="server">Generar Reporte</a></td>
             <td width="20" style="height: 50px"></td>
             <td style="height: 50px"></td>
             <td style="height: 50px"></td>

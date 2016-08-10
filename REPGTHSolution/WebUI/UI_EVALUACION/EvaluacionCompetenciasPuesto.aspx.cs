@@ -11,7 +11,7 @@ using Telerik.Web.UI;
 using System.Collections;
 using System.Text;
 
-namespace WebUI.UI_ARCHIVO
+namespace WebUI.UI_EVALUACION
 {
     public partial class EvaluacionCompetenciasPuesto : PageBaseClass
     {

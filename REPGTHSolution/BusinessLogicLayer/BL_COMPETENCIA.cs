@@ -25,6 +25,15 @@ namespace BusinessLogicLayer
         }
 
         /// <summary>
+        ///  Devuelve los datos de todas las Competencias de un tipo de competencia determinado
+        /// </summary>
+        /// <returns> List de BE_CUENTA_MAYOR con los objetos de la entidad, que a su vez representan la tabla CUENTAS MAYORES de la base de datos.En caso no existan datos devuelve nothing </returns>
+        public static List<BE_COMPETENCIA> SeleccionarCompetencias(Guid idTipoCompetencia)
+        {
+            return new DA_COMPETENCIA().SeleccionarCompetencias(idTipoCompetencia);
+        }
+
+        /// <summary>
         /// Ingresa una nueva Competencia
         /// </summary>
         /// <param name="oBE_COMPETENCIA">Objeto BE_CUENTA_MAYOR con todos sus campos llenos</param>
