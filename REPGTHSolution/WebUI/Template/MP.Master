@@ -60,9 +60,7 @@ AsyncPostBackTimeout="360000">
   </div>
       <a class="soporte" href="../UI_SEGURIDAD/Index.aspx"> <asp:Label ID="lblLogin" runat="server" Text="Nombre Usuario"></asp:Label></a>
   
-   </div>   
-      
-      <!--<div class="soporte"> Soporte administrador del Sistema </div>--> 
+   </div>    
     
 <table class="master" width="100%" border="0" cellspacing="0" cellpadding="0">
       <tr>

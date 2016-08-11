@@ -1,4 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Template/MP.Master" CodeBehind="CompetenciasTransversales.aspx.cs" Inherits="WebUI.UI_ADMINISTRACION.CompetenciasTransversales" %>
+<%@ Register assembly="Telerik.Web.UI" namespace="Telerik.Web.UI" tagprefix="telerik" %>
 <asp:Content ID="Content2" ContentPlaceHolderID="cph_contenedor" runat="server">
            
   <link href="../Styles/Grid.MySilk.css" rel="stylesheet" type="text/css" /> 
@@ -7,7 +8,7 @@
           radalert(text, null, null, "Eliminar Competencia Transversal");
       }
   </script>        
-          <div class="frm_titulo01">Administrar Compentencia Transversal</div>          
+          <div class="frm_titulo01">Administrar Competencia Transversal</div>          
        
           <div class="margen"></div>
           <div class="izquierda">        
@@ -33,6 +34,7 @@
         OnUpdateCommand="rgCompetenciaTransversal_UpdateCommand" PageSize="10"
         GridLines="None" AllowPaging="True" Width="100%" AllowSorting="true" AllowFilteringByColumn="False" 
         EnableEmbeddedSkins="False" Skin="MySilk" ImagesPath="../Styles/Grid/" style="margin: auto" EnableLinqExpressions="false">
+            <groupingsettings casesensitive="False" />
         <ExportSettings>
             <Pdf PageWidth="" />
         </ExportSettings>
@@ -42,6 +44,10 @@
                 No existen Competencias Transversales registradas.
             </NoRecordsTemplate>
             <CommandItemSettings AddNewRecordText="Añadir Competencia Transversal" RefreshText="Actualizar"></CommandItemSettings>   
+
+<RowIndicatorColumn Visible="True" FilterImageUrl="../Styles/Grid/Filter.gif" SortAscImageUrl="../Styles/Grid/SortAsc.gif" SortDescImageUrl="../Styles/Grid/SortDesc.gif" FilterControlAltText="Filter RowIndicator column"></RowIndicatorColumn>
+
+<ExpandCollapseColumn ExpandImageUrl="../Styles/Grid/SinglePlus.gif" CollapseImageUrl="../Styles/Grid/SingleMinus.gif" Visible="True" FilterImageUrl="../Styles/Grid/Filter.gif" SortAscImageUrl="../Styles/Grid/SortAsc.gif" SortDescImageUrl="../Styles/Grid/SortDesc.gif" FilterControlAltText="Filter ExpandColumn column"></ExpandCollapseColumn>
             <Columns>     
                 <telerik:GridBoundColumn DataField="CODIGO" HeaderText="CODIGO" SortExpression="CODIGO" UniqueName="CODIGO" HeaderStyle-Width="50%" 
                     AutoPostBackOnFilter="true">
@@ -49,6 +55,8 @@
                         <RequiredFieldValidator ForeColor="Red" Text="*">
                         </RequiredFieldValidator>
                     </ColumnValidationSettings>
+
+<HeaderStyle Width="50%"></HeaderStyle>
                 </telerik:GridBoundColumn>              
                 <telerik:GridBoundColumn DataField="DESCRIPCION" HeaderText="EMPRESA" SortExpression="DESCRIPCION" UniqueName="DESCRIPCION" HeaderStyle-Width="50%" 
                     AutoPostBackOnFilter="true">
@@ -56,6 +64,8 @@
                         <RequiredFieldValidator ForeColor="Red" Text="*">
                         </RequiredFieldValidator>
                     </ColumnValidationSettings>
+
+<HeaderStyle Width="50%"></HeaderStyle>
                 </telerik:GridBoundColumn>                        
                     <telerik:GridEditCommandColumn ButtonType="ImageButton" EditText="Actualizar"
                     UniqueName="EditCommandColumn" CancelImageUrl="../Styles/Grid/Cancel.gif" 
@@ -75,8 +85,13 @@
             </EditFormSettings>
             <PagerStyle Mode="NextPrevAndNumeric" PageSizeLabelText="Nro. Items por Página:" PagerTextFormat="{4} Página {0} de {1}, Filas {2} a {3} de {5}" />
         </MasterTableView>
+
+<PagerStyle PrevPageImageUrl="../Styles/Grid/PagingPrev.gif" NextPageImageUrl="../Styles/Grid/PagingNext.gif" FirstPageImageUrl="../Styles/Grid/PagingFirst.gif" LastPageImageUrl="../Styles/Grid/PagingLast.gif" PageSizeControlType="RadComboBox"></PagerStyle>
+
         <FilterMenu EnableImageSprites="False">
         </FilterMenu>
+
+<HeaderContextMenu EnableEmbeddedSkins="False"></HeaderContextMenu>
     </telerik:RadGrid>
     <br />
     <div>

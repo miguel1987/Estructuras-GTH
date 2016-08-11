@@ -64,8 +64,10 @@
                       AllowPaging="True" Width="103%" AllowSorting="True"  
                       OnItemDataBound="rgEvaluaciones_ItemDataBound" AllowFilteringByColumn="false"
        EnableEmbeddedSkins="False" Skin="MySilk" ImagesPath="../Styles/Grid/" EnableLinqExpressions="false">      
+                      <groupingsettings casesensitive="False" />
         <ExportSettings>
             <Pdf PageWidth="" />
+<Pdf PageWidth=""></Pdf>
         </ExportSettings>
         
         <MasterTableView DataSourceID="odsEvaluacionesEstado" CommandItemDisplay="None" DataKeyNames="ID"
@@ -75,22 +77,32 @@
                 No existen evaluaciones registrados para los parámetros seleccionados.
             </NoRecordsTemplate>           
             <CommandItemSettings AddNewRecordText="Añadir Nuevo Registro" RefreshText="Actualizar" ExportToPdfText="Exportar a PDF"></CommandItemSettings>           
+
+<RowIndicatorColumn Visible="True" FilterImageUrl="../Styles/Grid/Filter.gif" SortAscImageUrl="../Styles/Grid/SortAsc.gif" SortDescImageUrl="../Styles/Grid/SortDesc.gif" FilterControlAltText="Filter RowIndicator column"></RowIndicatorColumn>
+
+<ExpandCollapseColumn ExpandImageUrl="../Styles/Grid/SinglePlus.gif" CollapseImageUrl="../Styles/Grid/SingleMinus.gif" Visible="True" FilterImageUrl="../Styles/Grid/Filter.gif" SortAscImageUrl="../Styles/Grid/SortAsc.gif" SortDescImageUrl="../Styles/Grid/SortDesc.gif" FilterControlAltText="Filter ExpandColumn column"></ExpandCollapseColumn>
             <Columns>
                 <telerik:GridBoundColumn DataField="PUESTO_ID" HeaderText="PUESTO_ID" SortExpression="PUESTO_ID" UniqueName="PUESTO_ID" HeaderStyle-Width="90%" Display="false">                    
+<HeaderStyle Width="90%"></HeaderStyle>
                 </telerik:GridBoundColumn>    
                 <telerik:GridBoundColumn DataField="PERSONAL_ID" HeaderText="PERSONAL_ID" SortExpression="PERSONAL_ID" UniqueName="PERSONAL_ID" HeaderStyle-Width="90%" Display="false">                    
+<HeaderStyle Width="90%"></HeaderStyle>
                 </telerik:GridBoundColumn> 
                 <telerik:GridBoundColumn DataField="AREA" HeaderText="DEPARTAMENTO" SortExpression="AREA" UniqueName="AREA" HeaderStyle-Width="90%" Display="false">
+<HeaderStyle Width="90%"></HeaderStyle>
                 </telerik:GridBoundColumn>
                 <telerik:GridBoundColumn DataField="CODIGO" HeaderText="CODIGO_ID" SortExpression="CODIGO" UniqueName="CODIGO" HeaderStyle-Width="90%" Display="false">                    
+<HeaderStyle Width="90%"></HeaderStyle>
                 </telerik:GridBoundColumn>     
                 <telerik:GridBoundColumn DataField="PUESTO_DESCRIPCION" HeaderText="PUESTO" SortExpression="PUESTO_DESCRIPCION" UniqueName="PUESTO_DESCRIPCION"  
                     AutoPostBackOnFilter="true" >                    
                 </telerik:GridBoundColumn>  
                 <telerik:GridBoundColumn DataField="PERSONAL_DESCRIPCION" HeaderText="COLABORADORES" SortExpression="PERSONAL_DESCRIPCION" UniqueName="PERSONAL_DESCRIPCION" HeaderStyle-Font-Size="8" HeaderStyle-Width="260px"  
                     AutoPostBackOnFilter="true">                      
+<HeaderStyle Font-Size="8pt" Width="260px"></HeaderStyle>
                 </telerik:GridBoundColumn>   
                 <telerik:GridBoundColumn DataField="ESTADO_DESCRIPCION" HeaderText="ESTADO" SortExpression="ESTADO_DESCRIPCION" UniqueName="ESTADO" AutoPostBackOnFilter="true" HeaderStyle-Font-Size="8" >                    
+<HeaderStyle Font-Size="8pt"></HeaderStyle>
                 </telerik:GridBoundColumn>                                      
                <telerik:GridTemplateColumn HeaderText="EVALUAR" HeaderStyle-Width="30px" UniqueName="EVALUAR" EditFormHeaderTextFormat = "">
                     <ItemTemplate>
@@ -112,6 +124,8 @@
         <PagerStyle PageSizeControlType="RadComboBox"></PagerStyle>        
         <FilterMenu EnableImageSprites="False">
         </FilterMenu>
+
+<HeaderContextMenu EnableEmbeddedSkins="False"></HeaderContextMenu>
     </telerik:RadGrid>
             <!--Grilla -->
              <asp:ObjectDataSource ID="odsEvaluacionesEstado" runat="server" SelectMethod="SeleccionarEvaluacionesPorJerarquia"         

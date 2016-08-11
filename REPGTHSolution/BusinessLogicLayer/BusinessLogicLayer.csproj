@@ -56,6 +56,7 @@
     <Compile Include="BL_EVALUACION_COMPETENCIAS_PUESTO.cs" />
     <Compile Include="BL_GERENCIA.cs" />
     <Compile Include="BL_GRUPO_ORGANIZACIONAL.cs" />
+    <Compile Include="BL_IMPORTAR_EVALUACIONES_TRANSVERSALES.cs" />
     <Compile Include="BL_PERFILES.cs" />
     <Compile Include="BL_PERSONAL.cs" />
     <Compile Include="BL_PRESIDENCIA.cs" />

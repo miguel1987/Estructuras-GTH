@@ -1,4 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Template/MP.Master" CodeBehind="Competencias.aspx.cs" Inherits="WebUI.UI_ADMINISTRACION.Competencias" %>
+<%@ Register assembly="Telerik.Web.UI" namespace="Telerik.Web.UI" tagprefix="telerik" %>
 <asp:Content ID="Content2" ContentPlaceHolderID="cph_contenedor" runat="server">
            
   <link href="../Styles/Grid.MySilk.css" rel="stylesheet" type="text/css" /> 
@@ -7,7 +8,7 @@
           radalert(text, null, null, "Eliminar Competencia");
       }
   </script>        
-          <div class="frm_titulo01">Administrar Catálogo Compentencia</div>          
+          <div class="frm_titulo01">Administrar Catálogo Competencia</div>          
        
           <div class="margen"></div>
           <div class="izquierda">        

@@ -16,5 +16,8 @@ namespace BusinessEntities
         public Guid COMPETENCIA_TIPO_ID { get; set; }
         public Nullable<Int32> ESTADO { get; set; }
         public BE_COMPETENCIAS_TIPOS oBE_COMPETENCIA_TIPO { get; set; }        
+        
     }
+
+    
 }

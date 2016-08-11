@@ -57,6 +57,8 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
@@ -106,7 +108,8 @@
     <Content Include="Styles\Grid\AddRecord.gif" />
     <Content Include="Styles\Grid\Cancel.gif" />
     <Content Include="Styles\Grid\Delete.gif" />
-    <Content Include="Styles\Grid\Edit.gif" />
+    <Content Include="Styles\Grid\Edit.png" />
+    <Content Include="Styles\Grid\Edit1.gif" />
     <Content Include="Styles\Grid\export.gif" />
     <Content Include="Styles\Grid\Filter.gif" />
     <Content Include="Styles\Grid\icono_imprimir.jpg" />
@@ -201,7 +204,6 @@
     <Content Include="Styles\ListBox\rlbSprite.png" />
     <Content Include="Styles\PanelBar.css" />
     <Content Include="Styles\Pivot.css" />
-    <Content Include="Styles\PivotGrid.MyDefault.css" />
     <Content Include="Styles\PivotGrid\Default.gif" />
     <Content Include="Styles\PivotGrid\sprite.png" />
     <Content Include="Styles\Site.css" />
@@ -228,10 +230,12 @@
     <Content Include="UI_ADMINISTRACION\CompetenciasPorPuesto.aspx" />
     <Content Include="UI_ADMINISTRACION\CompetenciasTransversales.aspx" />
     <Content Include="UI_ADMINISTRACION\Coordinacion.aspx" />
-    <Content Include="UI_ADMINISTRACION\ParametrosSistema.aspx" />
     <Content Include="UI_ADMINISTRACION\Empresa.aspx" />
     <Content Include="UI_ADMINISTRACION\Gerencia.aspx" />
     <Content Include="UI_ADMINISTRACION\GrupoOrganizacional.aspx" />
+    <Content Include="UI_ADMINISTRACION\ImportarCompetenciasPorPuesto.aspx" />
+    <Content Include="UI_ADMINISTRACION\ImportarEvaluacionesTransversales.aspx" />
+    <Content Include="UI_ADMINISTRACION\ParametrosSistema.aspx" />
     <Content Include="UI_ADMINISTRACION\Personal.aspx" />
     <Content Include="UI_ADMINISTRACION\Puesto.aspx" />
     <Content Include="UI_ADMINISTRACION\Sede.aspx" />
@@ -328,13 +332,6 @@
     <Compile Include="UI_ADMINISTRACION\Coordinacion.aspx.designer.cs">
       <DependentUpon>Coordinacion.aspx</DependentUpon>
     </Compile>
-    <Compile Include="UI_ADMINISTRACION\ParametrosSistema.aspx.cs">
-      <DependentUpon>ParametrosSistema.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="UI_ADMINISTRACION\ParametrosSistema.aspx.designer.cs">
-      <DependentUpon>ParametrosSistema.aspx</DependentUpon>
-    </Compile>
     <Compile Include="UI_ADMINISTRACION\Empresa.aspx.cs">
       <DependentUpon>Empresa.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -355,6 +352,27 @@
     </Compile>
     <Compile Include="UI_ADMINISTRACION\GrupoOrganizacional.aspx.designer.cs">
       <DependentUpon>GrupoOrganizacional.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI_ADMINISTRACION\ImportarCompetenciasPorPuesto.aspx.cs">
+      <DependentUpon>ImportarCompetenciasPorPuesto.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI_ADMINISTRACION\ImportarCompetenciasPorPuesto.aspx.designer.cs">
+      <DependentUpon>ImportarCompetenciasPorPuesto.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI_ADMINISTRACION\ImportarEvaluacionesTransversales.aspx.cs">
+      <DependentUpon>ImportarEvaluacionesTransversales.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI_ADMINISTRACION\ImportarEvaluacionesTransversales.aspx.designer.cs">
+      <DependentUpon>ImportarEvaluacionesTransversales.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI_ADMINISTRACION\ParametrosSistema.aspx.cs">
+      <DependentUpon>ParametrosSistema.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI_ADMINISTRACION\ParametrosSistema.aspx.designer.cs">
+      <DependentUpon>ParametrosSistema.aspx</DependentUpon>
     </Compile>
     <Compile Include="UI_ADMINISTRACION\Personal.aspx.cs">
       <DependentUpon>Personal.aspx</DependentUpon>
@@ -508,7 +526,7 @@
         <WebProjectProperties>
           <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>59813</DevelopmentServerPort>
+          <DevelopmentServerPort>38372</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>
           </IISUrl>

@@ -46,15 +46,9 @@
         <ClientSettings EnableFieldsDragDrop="true">  
         
         <Scrolling  AllowVerticalScroll="true" ></Scrolling>      
-            </ClientSettings>
-            
-
-            
-             
+            </ClientSettings>                    
             <TotalsSettings RowsSubTotalsPosition="None" RowGrandTotalsPosition="None"
-ColumnsSubTotalsPosition="None" ColumnGrandTotalsPosition="None"  />       
-        
-        
+            ColumnsSubTotalsPosition="None" ColumnGrandTotalsPosition="None"  />               
         <Fields>          
             <telerik:PivotGridRowField DataField="CODIGO" UniqueName="CODIGO" CellStyle-Width="140px" CellStyle-Height="10px"
                >                
@@ -67,26 +61,20 @@ ColumnsSubTotalsPosition="None" ColumnGrandTotalsPosition="None"  />
             </telerik:PivotGridRowField>
             <telerik:PivotGridColumnField DataField="COMPETENCIA_TRANSVERSAL_DESCRIPCION" UniqueName="COMPETENCIA_TRANSVERSAL_DESCRIPCION" CellStyle-Width="30px" CellStyle-Height="10px">
             </telerik:PivotGridColumnField >
-            <telerik:PivotGridAggregateField DataField="PORCENTAJE" Aggregate="Sum" CellStyle-Width="30px" CellStyle-Height="10px" DataFormatString="{0:P0}"  >
-            
+            <telerik:PivotGridAggregateField DataField="PORCENTAJE" Aggregate="Sum" CellStyle-Width="30px" CellStyle-Height="10px" DataFormatString="{0:P0}"  >            
                </telerik:PivotGridAggregateField>
             </Fields>
-
 <TotalsSettings GrandTotalsVisibility="None" RowsSubTotalsPosition="None" 
                       RowGrandTotalsPosition="None" ColumnsSubTotalsPosition="None" 
                       ColumnGrandTotalsPosition="None"></TotalsSettings>
-
         <ConfigurationPanelSettings EnableOlapTreeViewLoadOnDemand="True"></ConfigurationPanelSettings>
-
 <DataCellStyle Width="100px"></DataCellStyle>
     </telerik:RadPivotGrid>  
-        <div style="clear:both;" class="texto derecha"> Indicador general de colaboradores con competencias desarolladas: <span class="anotacion1"> <asp:Label ID="lblIndicador" runat="server"></asp:Label>%</span> 
+        <div style="clear:both;" class="texto derecha"> Indicador general de colaboradores con competencias desarolladas: <span class="anotacion1"> <asp:Label ID="lblIndicador" runat="server"></asp:Label></span> 
               <br />
-          Indicador general de colaboradores por Gerencia/Departamento<span class="anotacion1"> <asp:Label ID="lblIndicadorGerencia" runat="server"></asp:Label>%</span>
-          
+          Indicador general de colaboradores por Gerencia/Departamento<span class="anotacion1"> <asp:Label ID="lblIndicadorGerencia" runat="server"></asp:Label></span>          
           </div>   
-      </table>
-      
+      </table>      
           <div class="margen">
           </div>          
           <div class="margen"></div>

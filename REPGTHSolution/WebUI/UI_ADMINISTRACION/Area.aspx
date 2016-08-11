@@ -34,8 +34,10 @@
         GridLines="None" AllowPaging="True" Width="100%" 
         OnItemDataBound="rgArea_ItemDataBound" AllowSorting="true" AllowFilteringByColumn="False"
         EnableEmbeddedSkins="False" Skin="MySilk" ImagesPath="../Styles/Grid/" style="margin: auto" EnableLinqExpressions="false">
+        <groupingsettings casesensitive="False" />
         <ExportSettings>
             <Pdf PageWidth="" />
+<Pdf PageWidth=""></Pdf>
         </ExportSettings>
         <MasterTableView DataSourceID="odsArea"
         CommandItemDisplay="Top" DataKeyNames="ID" HorizontalAlign="NotSet" AutoGenerateColumns="False" EditMode="EditForms" OverrideDataSourceControlSorting="true">
@@ -43,6 +45,10 @@
                 No existen áreas registradas.
             </NoRecordsTemplate>
             <CommandItemSettings AddNewRecordText="Añadir Área" RefreshText="Actualizar"></CommandItemSettings>   
+
+<RowIndicatorColumn Visible="True" FilterImageUrl="../Styles/Grid/Filter.gif" SortAscImageUrl="../Styles/Grid/SortAsc.gif" SortDescImageUrl="../Styles/Grid/SortDesc.gif" FilterControlAltText="Filter RowIndicator column"></RowIndicatorColumn>
+
+<ExpandCollapseColumn ExpandImageUrl="../Styles/Grid/SinglePlus.gif" CollapseImageUrl="../Styles/Grid/SingleMinus.gif" Visible="True" FilterImageUrl="../Styles/Grid/Filter.gif" SortAscImageUrl="../Styles/Grid/SortAsc.gif" SortDescImageUrl="../Styles/Grid/SortDesc.gif" FilterControlAltText="Filter ExpandColumn column"></ExpandCollapseColumn>
             <Columns>
               
                 <telerik:GridBoundColumn DataField="CODIGO"
@@ -52,6 +58,8 @@
                         <RequiredFieldValidator ForeColor="Red" Text="*">
                         </RequiredFieldValidator>
                     </ColumnValidationSettings>
+
+<HeaderStyle Width="350px"></HeaderStyle>
                 </telerik:GridBoundColumn>                 
                 <telerik:GridBoundColumn DataField="DESCRIPCION"
                     HeaderText="AREA" SortExpression="DESCRIPCION" UniqueName="DESCRIPCION" HeaderStyle-Width="350px" 
@@ -60,6 +68,8 @@
                         <RequiredFieldValidator ForeColor="Red" Text="*">
                         </RequiredFieldValidator>
                     </ColumnValidationSettings>
+
+<HeaderStyle Width="350px"></HeaderStyle>
                 </telerik:GridBoundColumn>       
                 <telerik:GridTemplateColumn  HeaderText="EMPRESA" HeaderStyle-Width="250px" SortExpression="oBE_EMPRESA.DESCRIPCION" UniqueName="oBE_EMPRESA.DESCRIPCION" DataField="oBE_EMPRESA.DESCRIPCION"
                 AutoPostBackOnFilter="true">
@@ -75,6 +85,8 @@
                                 ForeColor="Red" Text="*">
                             </asp:RequiredFieldValidator>     
                         </EditItemTemplate>
+
+<HeaderStyle Width="250px"></HeaderStyle>
                     </telerik:GridTemplateColumn>    
                     <telerik:GridTemplateColumn HeaderText="GERENCIA" HeaderStyle-Width="250px" SortExpression="oBE_GERENCIA.DESCRIPCION" DataField="oBE_GERENCIA.DESCRIPCION" UniqueName="oBE_GERENCIA.DESCRIPCION"
                     AutoPostBackOnFilter="true">
@@ -87,6 +99,8 @@
                                 DataTextField="DESCRIPCION" AllowCustomText="true" DataSourceID="odsGerencia" LoadingMessage="Cargando..." Width="50%">
                             </telerik:RadComboBox>                          
                         </EditItemTemplate>
+
+<HeaderStyle Width="250px"></HeaderStyle>
                     </telerik:GridTemplateColumn>                  
                     <telerik:GridEditCommandColumn ButtonType="ImageButton" EditText="Actualizar"
                     UniqueName="EditCommandColumn" CancelImageUrl="../Styles/Grid/Cancel.gif" 
@@ -105,6 +119,12 @@
             </EditFormSettings>
             <PagerStyle Mode="NextPrevAndNumeric" PageSizeLabelText="Nro. Items por Página:" PagerTextFormat="{4} Página {0} de {1}, Filas {2} a {3} de {5}" />            
         </MasterTableView>             
+
+<PagerStyle PrevPageImageUrl="../Styles/Grid/PagingPrev.gif" NextPageImageUrl="../Styles/Grid/PagingNext.gif" FirstPageImageUrl="../Styles/Grid/PagingFirst.gif" LastPageImageUrl="../Styles/Grid/PagingLast.gif" PageSizeControlType="RadComboBox"></PagerStyle>
+
+<FilterMenu EnableImageSprites="False" EnableEmbeddedSkins="False"></FilterMenu>
+
+<HeaderContextMenu EnableEmbeddedSkins="False"></HeaderContextMenu>
     </telerik:RadGrid>
     <br />
     <div>

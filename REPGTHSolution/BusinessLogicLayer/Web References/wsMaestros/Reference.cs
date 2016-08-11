@@ -142,6 +142,8 @@ namespace BusinessLogicLayer.wsMaestros {
         
         private System.Threading.SendOrPostCallback SeleccionarPersonalPorUsuarioOperationCompleted;
         
+        private System.Threading.SendOrPostCallback SeleccionarPersonalPorCodigoOperationCompleted;
+        
         private System.Threading.SendOrPostCallback SeleccionarPersonalPorPuestoOperationCompleted;
         
         private System.Threading.SendOrPostCallback InsertarPersonalOperationCompleted;
@@ -355,6 +357,9 @@ namespace BusinessLogicLayer.wsMaestros {
         
         /// <remarks/>
         public event SeleccionarPersonalPorUsuarioCompletedEventHandler SeleccionarPersonalPorUsuarioCompleted;
+        
+        /// <remarks/>
+        public event SeleccionarPersonalPorCodigoCompletedEventHandler SeleccionarPersonalPorCodigoCompleted;
         
         /// <remarks/>
         public event SeleccionarPersonalPorPuestoCompletedEventHandler SeleccionarPersonalPorPuestoCompleted;
@@ -1971,6 +1976,35 @@ namespace BusinessLogicLayer.wsMaestros {
             if ((this.SeleccionarPersonalPorUsuarioCompleted != null)) {
                 System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
                 this.SeleccionarPersonalPorUsuarioCompleted(this, new SeleccionarPersonalPorUsuarioCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
+            }
+        }
+        
+        /// <remarks/>
+        [System.Web.Services.Protocols.SoapDocumentMethodAttribute("http://tempuri.org/SeleccionarPersonalPorCodigo", RequestNamespace="http://tempuri.org/", ResponseNamespace="http://tempuri.org/", Use=System.Web.Services.Description.SoapBindingUse.Literal, ParameterStyle=System.Web.Services.Protocols.SoapParameterStyle.Wrapped)]
+        public BE_PERSONAL SeleccionarPersonalPorCodigo(string Codigo) {
+            object[] results = this.Invoke("SeleccionarPersonalPorCodigo", new object[] {
+                        Codigo});
+            return ((BE_PERSONAL)(results[0]));
+        }
+        
+        /// <remarks/>
+        public void SeleccionarPersonalPorCodigoAsync(string Codigo) {
+            this.SeleccionarPersonalPorCodigoAsync(Codigo, null);
+        }
+        
+        /// <remarks/>
+        public void SeleccionarPersonalPorCodigoAsync(string Codigo, object userState) {
+            if ((this.SeleccionarPersonalPorCodigoOperationCompleted == null)) {
+                this.SeleccionarPersonalPorCodigoOperationCompleted = new System.Threading.SendOrPostCallback(this.OnSeleccionarPersonalPorCodigoOperationCompleted);
+            }
+            this.InvokeAsync("SeleccionarPersonalPorCodigo", new object[] {
+                        Codigo}, this.SeleccionarPersonalPorCodigoOperationCompleted, userState);
+        }
+        
+        private void OnSeleccionarPersonalPorCodigoOperationCompleted(object arg) {
+            if ((this.SeleccionarPersonalPorCodigoCompleted != null)) {
+                System.Web.Services.Protocols.InvokeCompletedEventArgs invokeArgs = ((System.Web.Services.Protocols.InvokeCompletedEventArgs)(arg));
+                this.SeleccionarPersonalPorCodigoCompleted(this, new SeleccionarPersonalPorCodigoCompletedEventArgs(invokeArgs.Results, invokeArgs.Error, invokeArgs.Cancelled, invokeArgs.UserState));
             }
         }
         
@@ -4716,6 +4750,32 @@ namespace BusinessLogicLayer.wsMaestros {
         private object[] results;
         
         internal SeleccionarPersonalPorUsuarioCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
+                base(exception, cancelled, userState) {
+            this.results = results;
+        }
+        
+        /// <remarks/>
+        public BE_PERSONAL Result {
+            get {
+                this.RaiseExceptionIfNecessary();
+                return ((BE_PERSONAL)(this.results[0]));
+            }
+        }
+    }
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
+    public delegate void SeleccionarPersonalPorCodigoCompletedEventHandler(object sender, SeleccionarPersonalPorCodigoCompletedEventArgs e);
+    
+    /// <remarks/>
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Web.Services", "4.6.1038.0")]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.ComponentModel.DesignerCategoryAttribute("code")]
+    public partial class SeleccionarPersonalPorCodigoCompletedEventArgs : System.ComponentModel.AsyncCompletedEventArgs {
+        
+        private object[] results;
+        
+        internal SeleccionarPersonalPorCodigoCompletedEventArgs(object[] results, System.Exception exception, bool cancelled, object userState) : 
                 base(exception, cancelled, userState) {
             this.results = results;
         }

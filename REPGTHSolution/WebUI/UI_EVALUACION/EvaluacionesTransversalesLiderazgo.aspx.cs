@@ -326,8 +326,9 @@ namespace WebUI.UI_EVALUACION
             CalcularIndicador(idNodo, nivel);
             CalcularIndicadorGerente(idNodo, nivel);
 
-            if (Convert.ToInt16(lblIndicadorGerencia.Text) == 0)
-                this.lblIndicadorGerencia.Text = this.lblIndicador.Text;            
+            
+            if(lblIndicadorGerencia.Text=="0%")
+                this.lblIndicadorGerencia.Text=this.lblIndicador.Text;
         }
 
         protected void CalcularIndicador(string idNodo, string nivel)
@@ -374,7 +375,11 @@ namespace WebUI.UI_EVALUACION
 
                 indicador = (contadorCompetenciasDesarrolladas / contadorTotalRegistros) * 100;
 
-            this.lblIndicador.Text = Decimal.Round(indicador, 0).ToString();
+            this.lblIndicador.Text = Decimal.Round(indicador, 0).ToString()+"%";
+            if (indicador >= 76)
+                this.lblIndicador.ForeColor = System.Drawing.Color.Green;
+            if (indicador < 76)
+                this.lblIndicador.ForeColor = System.Drawing.Color.Red;
         }
 
         protected void CalcularIndicadorGerente(string idNodo, string nivel)
@@ -384,6 +389,16 @@ namespace WebUI.UI_EVALUACION
             BL_EVALUACIONES_COMPETENCIAS_TRANSVERSALES BL_EVALUACIONES_COMPETENCIAS_TRANSVERSALES = new BL_EVALUACIONES_COMPETENCIAS_TRANSVERSALES();
 
             oListaEvaluacionesIndicador = BL_EVALUACIONES_COMPETENCIAS_TRANSVERSALES.CalcularIndicadorporGerencia(Guid.Parse(idNodo), Int32.Parse(nivel));
+            List<object[]> lstPersonalCompetencias = oListaEvaluacionesIndicador
+                /* Group the list by the element at position 0 in each item */
+            .GroupBy(o => o.PERSONAL_ID)
+                /* Project the created grouping into a new object[]: */
+            .Select(i => new object[]
+            {
+                i.Key,
+                i.Sum(x => x.COMPETENCIA_NO_DESARROLLADA)
+            })
+            .ToList();
 
             decimal contadorGerencia = 0;
             decimal contadorTotalRegistros = 0;
@@ -391,26 +406,37 @@ namespace WebUI.UI_EVALUACION
             string valor = string.Empty;
             //TODO: Traer de BD
             obtenervalor(valor);
-            int parametroCompetenciasDesarrolladas = BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES.VALOR;
+            //int parametroCompetenciasDesarrolladas = BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES.VALOR;
             
 
             decimal indicador = 0;
+            contadorTotalRegistros = lstPersonalCompetencias.Count;
 
-            contadorTotalRegistros = oListaEvaluacionesIndicador.Count;
+            //contadorTotalRegistros = oListaEvaluacionesIndicador.Count;
 
-            foreach (var itemevaluaciones in oListaEvaluacionesIndicador)
+            //foreach (var itemevaluaciones in oListaEvaluacionesIndicador)
+            //{
+            //    BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES oEvaluacion_Competencia_Transversales = new BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES();
+            //    oEvaluacion_Competencia_Transversales.PORCENTAJE = itemevaluaciones.PORCENTAJE * 100;
+            //    if (oEvaluacion_Competencia_Transversales.PORCENTAJE >= parametroCompetenciasDesarrolladas)
+
+            //        contadorGerencia++;
+            //}
+            foreach (var itemPersonas in lstPersonalCompetencias)
             {
-                BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES oEvaluacion_Competencia_Transversales = new BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES();
-                oEvaluacion_Competencia_Transversales.PORCENTAJE = itemevaluaciones.PORCENTAJE * 100;
-                if (oEvaluacion_Competencia_Transversales.PORCENTAJE >= parametroCompetenciasDesarrolladas)
 
-                contadorGerencia++;
+                if ((int)itemPersonas[1] == 0)
+                    contadorGerencia++;
             }
             if (contadorGerencia > 0 && contadorTotalRegistros > 0)
 
                 indicador = (contadorGerencia / contadorTotalRegistros) * 100;
 
-            this.lblIndicadorGerencia.Text = Decimal.Round(indicador, 0).ToString();
+            this.lblIndicadorGerencia.Text = Decimal.Round(indicador, 0).ToString() + "%";
+            if (indicador >= 76)
+                this.lblIndicadorGerencia.ForeColor = System.Drawing.Color.Green;
+            if (indicador < 76)
+                this.lblIndicadorGerencia.ForeColor = System.Drawing.Color.Red;
         }
 
         protected void obtenervalor(string valor)
