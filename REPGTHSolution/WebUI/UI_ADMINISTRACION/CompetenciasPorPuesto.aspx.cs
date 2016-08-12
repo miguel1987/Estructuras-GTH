@@ -153,6 +153,8 @@ namespace WebUI.UI_ADMINISTRACION
             this.odsArea.SelectParameters.Add("gerencia_id", System.Data.DbType.Guid, selected);
 
             rcbTempArea.DataBind();
+
+            rcbArea_SelectedIndexChanged(sender, e);
         }
 
         protected void rcbArea_SelectedIndexChanged(object sender, EventArgs e)

@@ -28,6 +28,15 @@
         }
              
   </script> 
+  <script type="text/javascript">
+  (function ($) {
+    requestStart = function (target, arguments) {
+        if (arguments.get_eventTarget().indexOf("btnUpload") > -1) {
+            arguments.set_enableAjax(false);
+        }
+    }
+  
+  </script>
 
 </head>
 <body>
@@ -35,26 +44,26 @@
 	<script type="text/javascript">
 	    //Put your JavaScript code here.
     </script>
-	<telerik:RadAjaxManager ID="RadAjaxManager1" runat="server">
-	</telerik:RadAjaxManager>
+	
+    <telerik:RadAjaxManager ID="RadAjaxManager2" DefaultLoadingPanelID="RadAjaxLoadingPanel2"
+        runat="server" OnAjaxRequest="RadAjaxManager1_AjaxRequest">
+        <AjaxSettings>
+            <telerik:AjaxSetting AjaxControlID="RadAjaxPanel1">
+                <UpdatedControls>
+                    <%--<telerik:AjaxUpdatedControl ControlID="btnUpload"/>--%>
+                    <telerik:AjaxUpdatedControl ControlID="rgImportarTransversales"  />
+                </UpdatedControls>
+            </telerik:AjaxSetting>
+            </AjaxSettings>
+ </telerik:RadAjaxManager>
     <div class="frm_titulo01">Importar Evaluaciones Transversales</div>
     <br />
     <br />
     <br />
     <br />
     <br />   
-        <telerik:RadAjaxManager ID="RadAjaxManager2" DefaultLoadingPanelID="RadAjaxLoadingPanel2"
-        runat="server" EnablePageHeadUpdate="False">
-        <AjaxSettings>
-            <telerik:AjaxSetting AjaxControlID="RadAjaxPanel1">
-                <UpdatedControls>
-                    <telerik:AjaxUpdatedControl ControlID="btnUpload"   />
-                    <telerik:AjaxUpdatedControl ControlID="RadGrid1" LoadingPanelID="RadAjaxLoadingPanel2" />
-                </UpdatedControls>
-            </telerik:AjaxSetting>
-            </AjaxSettings>
- </telerik:RadAjaxManager>
-      
+       <telerik:RadAjaxPanel ID="RadAjaxPanel1" runat="server" LoadingPanelID="RadAjaxLoadingPanel2"> 
+     
     <table style="width: 100%">
         <tr>
             <td class="area-tree" style="width: 153px">	   
@@ -77,7 +86,7 @@
             </td>
             <td style="width: 101px; text-align: left;">
      
-      
+          
         <telerik:RadButton ID="btnUpload" runat="server" Text="Cargar Datos" 
             OnClick="btnUpload_Click" Skin="Office2010Silver" style="text-align: right" 
                     Height="22px" Width="93px">
@@ -96,7 +105,14 @@
          <br />
          <br />
          
-         <div style="text-align: justify">
+<%--         <telerik:RadAjaxLoadingPanel ID="RadAjaxLoadingPanel2" IsSticky="true" 
+        runat="server" style="position:absolute; top: 618px; left: 653px;" 
+><img alt="Loading..." src='<%= RadAjaxLoadingPanel.GetWebResourceUrl(Page, "Telerik.Web.UI.Skins.Default.Ajax.loading.gif") %>' 
+                    style="border: 0px;" /> 
+                </telerik:RadAjaxLoadingPanel>--%>
+         
+      
+         
         <telerik:RadGrid ID="rgImportarTransversales" HorizontalAlign="Center" runat="server" PageSize="10" 
         CellSpacing="0" Culture="es-ES"
              AutoGenerateColumns="false" GridLines="None"
@@ -107,8 +123,7 @@
          ShowHeadersWhenNoRecords="true" EnableNoRecordsTemplate="True" ShowHeader="True" HorizontalAlign="NotSet" AutoGenerateColumns="false"   
          OverrideDataSourceControlSorting="true" >    
          <NoRecordsTemplate>
-                No existen Competencias por Puesto registradas.
-            </NoRecordsTemplate>                           
+                No existen Competencias por Puesto registradas.</NoRecordsTemplate>                           
                 <Columns>                                        
                     <telerik:GridBoundColumn DataField="user_id" HeaderText="user_id">
                     </telerik:GridBoundColumn>
@@ -117,10 +132,12 @@
                     <telerik:GridNumericColumn DataField="evaluacion" HeaderText="evaluacion" DataFormatString="{0:f2}" AllowRounding="false"   DataType="System.Decimal"  />                                                           
                 </Columns>                                              
             </MasterTableView>                                                
-            </telerik:RadGrid>        
+            </telerik:RadGrid>
+                </telerik:RadAjaxPanel>         
         <br />
         <asp:Label ID="lblMensaje" runat="server" Font-Bold="true" Font-Size="Medium" ForeColor="Red"></asp:Label>
-	</div>        	
+	       	
 </body>
 </html>
+    
 </asp:Content>

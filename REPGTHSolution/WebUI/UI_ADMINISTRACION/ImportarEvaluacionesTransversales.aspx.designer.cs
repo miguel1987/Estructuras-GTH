@@ -22,15 +22,6 @@ namespace WebUI.UI_ADMINISTRACION {
         protected global::Telerik.Web.UI.RadStyleSheetManager RadStyleSheetManager1;
         
         /// <summary>
-        /// RadAjaxManager1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::Telerik.Web.UI.RadAjaxManager RadAjaxManager1;
-        
-        /// <summary>
         /// RadAjaxManager2 control.
         /// </summary>
         /// <remarks>
@@ -38,6 +29,15 @@ namespace WebUI.UI_ADMINISTRACION {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::Telerik.Web.UI.RadAjaxManager RadAjaxManager2;
+        
+        /// <summary>
+        /// RadAjaxPanel1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadAjaxPanel RadAjaxPanel1;
         
         /// <summary>
         /// lblArchivo control.

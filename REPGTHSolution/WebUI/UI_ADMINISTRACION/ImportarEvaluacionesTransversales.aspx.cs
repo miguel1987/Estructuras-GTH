@@ -23,19 +23,15 @@ namespace WebUI.UI_ADMINISTRACION
         const int MaxTotalBytes = 1048576; // 1 MB
         string path;
         UploadedFile file;
+        string file_name = string.Empty;
         List<BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES> lst = new List<BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES>();
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            USUARIO = Guid.Parse(Session["PERSONAL_ID"].ToString());
-
-            if (!IsPostBack)
-            {
-                rgImportarTransversales.DataSource = String.Empty;
-            }
-
+            USUARIO = Guid.Parse(Session["PERSONAL_ID"].ToString());          
+          
+            cargarGrilla();
             
-
         }
 
 
@@ -66,10 +62,11 @@ namespace WebUI.UI_ADMINISTRACION
                 if (file.ContentLength < MaxTotalBytes)
                 {
                     file.SaveAs(path + file.GetName(), true);
+                    
 
                 }
             }
-
+            lblMensaje.Text = file.GetName();
             cargarGrilla();
 
         }
@@ -81,18 +78,40 @@ namespace WebUI.UI_ADMINISTRACION
             string provider = ConfigurationManager.AppSettings["Provider"].ToString();
             string Extended = ConfigurationManager.AppSettings["Extended"].ToString();
             string DataSource = ConfigurationManager.AppSettings["Data_Source"].ToString();
-            string strConn = provider +
-                 DataSource + path + file.FileName +"; "+ Extended;
+            
+            if (this.AsyncUpload1.UploadedFiles.Count > 0 || rgImportarTransversales.Items.Count > 0)
+            {
+               
+                if (lblMensaje.Text != string.Empty)
+                {
+                    string strConn = provider +
+                         DataSource + path + lblMensaje.Text + "; " + Extended;
 
-            DataSet ds = new DataSet();
-            string select = ConfigurationManager.AppSettings["Select_Competencias_Transversales"].ToString();
-            OleDbDataAdapter da = new OleDbDataAdapter
-            (select, strConn);
-            da.Fill(ds);
-            dynamic data = ds;
-            rgImportarTransversales.MasterTableView.DataSource = data;
-            rgImportarTransversales.DataBind();
+                    DataSet ds = new DataSet();
+                    string select = ConfigurationManager.AppSettings["Select_Competencias_Transversales"].ToString();
+                    OleDbDataAdapter da = new OleDbDataAdapter
+                    (select, strConn);
+                    da.Fill(ds);
+                    dynamic data = ds;
+                    //rgImportarTransversales.MasterTableView.DataSource = data;
+                    rgImportarTransversales.DataSource = ds;
+                    rgImportarTransversales.DataBind();
+                }
+            }
+            else
+            {
+                rgImportarTransversales.DataSource = String.Empty;
+            }
         }
+
+
+        
+
+
+
+
+
+
 
 
         protected void btnGrabar_Click(object sender, EventArgs e)
