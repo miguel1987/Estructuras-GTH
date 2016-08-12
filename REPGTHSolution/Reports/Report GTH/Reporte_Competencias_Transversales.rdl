@@ -198,58 +198,6 @@
   </DataSets>
   <Body>
     <ReportItems>
-      <Image Name="imgLogo">
-        <Source>Embedded</Source>
-        <Value>logo</Value>
-        <Sizing>FitProportional</Sizing>
-        <Top>0.1905cm</Top>
-        <Left>0.40217cm</Left>
-        <Height>1.87cm</Height>
-        <Width>5.54813cm</Width>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-        </Style>
-      </Image>
-      <Textbox Name="Textbox149">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>REPORTE DE EVALUACIONES TRANSVERSALES Y DE LIDERAZGO - </Value>
-                <Style>
-                  <FontSize>16pt</FontSize>
-                  <FontWeight>Bold</FontWeight>
-                  <Color>DarkBlue</Color>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <LeftIndent>0cm</LeftIndent>
-            <HangingIndent>0cm</HangingIndent>
-            <Style>
-              <TextAlign>Right</TextAlign>
-            </Style>
-          </Paragraph>
-        </Paragraphs>
-        <rd:DefaultName>Textbox149</rd:DefaultName>
-        <Top>0.60543cm</Top>
-        <Left>6.24884cm</Left>
-        <Height>0.70583cm</Height>
-        <Width>19.64008cm</Width>
-        <ZIndex>1</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
       <Tablix Name="Tablix1">
         <TablixBody>
           <TablixColumns>
@@ -263,7 +211,10 @@
               <Width>0.12417in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.16584in</Width>
+              <Width>0.74716in</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>0.03125in</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -293,28 +244,17 @@
                       <rd:DefaultName>COMPETENCIA_TRANSVERSAL</rd:DefaultName>
                       <Style>
                         <Border>
-                          <Style>Solid</Style>
+                          <Style>None</Style>
                         </Border>
                         <TopBorder>
-                          <Color>Black</Color>
                           <Style>Solid</Style>
-                          <Width>1pt</Width>
                         </TopBorder>
                         <BottomBorder>
-                          <Color>Black</Color>
                           <Style>Solid</Style>
-                          <Width>1pt</Width>
                         </BottomBorder>
                         <LeftBorder>
-                          <Color>Black</Color>
                           <Style>Solid</Style>
-                          <Width>1pt</Width>
                         </LeftBorder>
-                        <RightBorder>
-                          <Color>Black</Color>
-                          <Style>Solid</Style>
-                          <Width>1pt</Width>
-                        </RightBorder>
                         <BackgroundColor>LightBlue</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
@@ -328,10 +268,44 @@
                 <TablixCell />
                 <TablixCell />
                 <TablixCell />
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox46">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value />
+                              <Style>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox46</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Style>None</Style>
+                        </Border>
+                        <BackgroundColor>LightBlue</BackgroundColor>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>0.6633in</Height>
+              <Height>0.48622in</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -354,8 +328,14 @@
                       <rd:DefaultName>EVALUACION_COMPETENCIA_TRANSVERSAL_PORCENTAJE</rd:DefaultName>
                       <Style>
                         <Border>
-                          <Style>Solid</Style>
+                          <Style>None</Style>
                         </Border>
+                        <BottomBorder>
+                          <Style>Solid</Style>
+                        </BottomBorder>
+                        <LeftBorder>
+                          <Style>Solid</Style>
+                        </LeftBorder>
                         <BackgroundColor>=IIF(Fields!EVALUACION_COMPETENCIA_TRANSVERSAL_PORCENTAJE.Value  &gt;= 0.8, "LightGreen", IIF(Fields!EVALUACION_COMPETENCIA_TRANSVERSAL_PORCENTAJE.Value = 0, "White", "Yellow"))</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
@@ -369,6 +349,45 @@
                 <TablixCell />
                 <TablixCell />
                 <TablixCell />
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox47">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Label>INDICADOR</Label>
+                              <Value>=SUM(IIF(Fields!EVALUACION_COMPETENCIA_TRANSVERSAL_PORCENTAJE.Value&lt; 0.8,1,0))</Value>
+                              <Style />
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox47</rd:DefaultName>
+                      <Visibility>
+                        <Hidden>true</Hidden>
+                      </Visibility>
+                      <Style>
+                        <Border>
+                          <Style>None</Style>
+                        </Border>
+                        <TopBorder>
+                          <Style>Solid</Style>
+                        </TopBorder>
+                        <BottomBorder>
+                          <Style>Solid</Style>
+                        </BottomBorder>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
               </TablixCells>
             </TablixRow>
           </TablixRows>
@@ -393,13 +412,14 @@
                 <TablixMember />
               </TablixMembers>
             </TablixMember>
+            <TablixMember />
           </TablixMembers>
         </TablixColumnHierarchy>
         <TablixRowHierarchy>
           <TablixMembers>
             <TablixMember>
               <TablixHeader>
-                <Size>1.86206in</Size>
+                <Size>0.69539in</Size>
                 <CellContents>
                   <Textbox Name="Textbox15">
                     <CanGrow>true</CanGrow>
@@ -456,7 +476,7 @@
               <TablixMembers>
                 <TablixMember>
                   <TablixHeader>
-                    <Size>4.0825in</Size>
+                    <Size>2.36375in</Size>
                     <CellContents>
                       <Textbox Name="Textbox62">
                         <CanGrow>true</CanGrow>
@@ -513,7 +533,7 @@
                   <TablixMembers>
                     <TablixMember>
                       <TablixHeader>
-                        <Size>2.68667in</Size>
+                        <Size>1.55125in</Size>
                         <CellContents>
                           <Textbox Name="Textbox59">
                             <CanGrow>true</CanGrow>
@@ -582,13 +602,8 @@
                   <GroupExpression>=Fields!PERSONAL_CODIGO_TRABAJO.Value</GroupExpression>
                 </GroupExpressions>
               </Group>
-              <SortExpressions>
-                <SortExpression>
-                  <Value>=Fields!PERSONAL_NOMBRES.Value</Value>
-                </SortExpression>
-              </SortExpressions>
               <TablixHeader>
-                <Size>1.86206in</Size>
+                <Size>0.69539in</Size>
                 <CellContents>
                   <Textbox Name="PERSONAL_CODIGO_TRABAJO">
                     <CanGrow>true</CanGrow>
@@ -601,7 +616,9 @@
                             <Style />
                           </TextRun>
                         </TextRuns>
-                        <Style />
+                        <Style>
+                          <TextAlign>Center</TextAlign>
+                        </Style>
                       </Paragraph>
                     </Paragraphs>
                     <rd:DefaultName>PERSONAL_CODIGO_TRABAJO</rd:DefaultName>
@@ -644,13 +661,8 @@
                       <GroupExpression>=Fields!PERSONAL_NOMBRES.Value</GroupExpression>
                     </GroupExpressions>
                   </Group>
-                  <SortExpressions>
-                    <SortExpression>
-                      <Value>=Fields!PERSONAL_NOMBRES.Value</Value>
-                    </SortExpression>
-                  </SortExpressions>
                   <TablixHeader>
-                    <Size>4.0825in</Size>
+                    <Size>2.36375in</Size>
                     <CellContents>
                       <Textbox Name="Group3">
                         <CanGrow>true</CanGrow>
@@ -706,13 +718,8 @@
                           <GroupExpression>=Fields!PERSONAL_PUESTO.Value</GroupExpression>
                         </GroupExpressions>
                       </Group>
-                      <SortExpressions>
-                        <SortExpression>
-                          <Value>=Fields!PERSONAL_CODIGO_TRABAJO.Value</Value>
-                        </SortExpression>
-                      </SortExpressions>
                       <TablixHeader>
-                        <Size>2.68667in</Size>
+                        <Size>1.55125in</Size>
                         <CellContents>
                           <Textbox Name="Group2">
                             <CanGrow>true</CanGrow>
@@ -778,11 +785,18 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>dsEvaluacionesTransversales</DataSetName>
-        <Top>3.45758cm</Top>
-        <Left>1.83092cm</Left>
-        <Height>3.36956cm</Height>
-        <Width>25.83073cm</Width>
-        <ZIndex>2</ZIndex>
+        <SortExpressions>
+          <SortExpression>
+            <Value>=Fields!PERSONAL_PUESTO.Value</Value>
+          </SortExpression>
+          <SortExpression>
+            <Value>=Fields!PERSONAL_NOMBRES.Value</Value>
+          </SortExpression>
+        </SortExpressions>
+        <Top>0.3355cm</Top>
+        <Left>0.05292cm</Left>
+        <Height>2.91978cm</Height>
+        <Width>14.63374cm</Width>
         <Style>
           <Border>
             <Style>Solid</Style>
@@ -809,121 +823,6 @@
           </RightBorder>
         </Style>
       </Tablix>
-      <Textbox Name="PERIODO">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>=Parameters!PERIODO.Value</Value>
-                <Style>
-                  <FontSize>16pt</FontSize>
-                  <FontWeight>Bold</FontWeight>
-                  <Color>DarkBlue</Color>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style />
-          </Paragraph>
-        </Paragraphs>
-        <rd:DefaultName>PERIODO</rd:DefaultName>
-        <Top>0.60543cm</Top>
-        <Left>25.9242cm</Left>
-        <Height>0.70583cm</Height>
-        <Width>3.45722cm</Width>
-        <ZIndex>3</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="Textbox150">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>Indicador de Competencias Desarrolladas:</Value>
-                <Style>
-                  <FontSize>12pt</FontSize>
-                  <FontWeight>Bold</FontWeight>
-                </Style>
-              </TextRun>
-              <TextRun>
-                <Value xml:space="preserve"> </Value>
-                <Style>
-                  <FontSize>16pt</FontSize>
-                  <FontWeight>Bold</FontWeight>
-                  <Color>DarkBlue</Color>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <LeftIndent>0cm</LeftIndent>
-            <HangingIndent>0cm</HangingIndent>
-            <Style>
-              <TextAlign>Left</TextAlign>
-            </Style>
-          </Paragraph>
-        </Paragraphs>
-        <rd:DefaultName>Textbox149</rd:DefaultName>
-        <Top>2.61064cm</Top>
-        <Left>1.83092cm</Left>
-        <Height>0.70583cm</Height>
-        <Width>8.95472cm</Width>
-        <ZIndex>4</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="EVALUACION_COMPETENCIA_TRANSVERSAL_PORCENTAJE_DESARROLLADO2">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>=(Sum(IIF(Fields!EVALUACION_COMPETENCIA_TRANSVERSAL_PORCENTAJE.Value &lt; 0.8,0,1), "dsEvaluacionesTransversales"))/(Count(Fields!EVALUACION_COMPETENCIA_TRANSVERSAL_PORCENTAJE.Value, "dsEvaluacionesTransversales"))</Value>
-                <Style>
-                  <FontSize>14pt</FontSize>
-                  <FontWeight>Bold</FontWeight>
-                  <Format>0%</Format>
-                  <Color>CornflowerBlue</Color>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style>
-              <TextAlign>Left</TextAlign>
-            </Style>
-          </Paragraph>
-        </Paragraphs>
-        <Top>2.61064cm</Top>
-        <Left>10.63925cm</Left>
-        <Height>0.70583cm</Height>
-        <Width>2.5cm</Width>
-        <ZIndex>5</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
     </ReportItems>
     <Height>3.17127in</Height>
     <Style />
@@ -998,10 +897,156 @@
   </ReportParameters>
   <Width>12.16099in</Width>
   <Page>
+    <PageHeader>
+      <Height>3.44347cm</Height>
+      <PrintOnFirstPage>true</PrintOnFirstPage>
+      <PrintOnLastPage>true</PrintOnLastPage>
+      <ReportItems>
+        <Image Name="imgLogo">
+          <Source>Embedded</Source>
+          <Value>logo</Value>
+          <Sizing>FitProportional</Sizing>
+          <Left>0.21185cm</Left>
+          <Height>1.87cm</Height>
+          <Width>5.54813cm</Width>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+          </Style>
+        </Image>
+        <Textbox Name="Textbox149">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>="REPORTE EVALUACIONES DE COMPETENCIAS TRANSVERSALES Y DE LIDERAZGO" &amp; " - " &amp; Parameters!PERIODO.Value</Value>
+                  <Style>
+                    <FontSize>16pt</FontSize>
+                    <FontWeight>Bold</FontWeight>
+                    <Color>DarkBlue</Color>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <LeftIndent>0cm</LeftIndent>
+              <HangingIndent>0cm</HangingIndent>
+              <Style>
+                <TextAlign>Center</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>Textbox149</rd:DefaultName>
+          <Top>0.41493cm</Top>
+          <Left>6.43952cm</Left>
+          <Height>0.70583cm</Height>
+          <Width>18.74052cm</Width>
+          <ZIndex>1</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Textbox Name="Textbox150">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>Indicador de Competencias Desarrolladas:</Value>
+                  <Style>
+                    <FontSize>12pt</FontSize>
+                    <FontWeight>Bold</FontWeight>
+                  </Style>
+                </TextRun>
+                <TextRun>
+                  <Value xml:space="preserve"> </Value>
+                  <Style>
+                    <FontSize>16pt</FontSize>
+                    <FontWeight>Bold</FontWeight>
+                    <Color>DarkBlue</Color>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <LeftIndent>0cm</LeftIndent>
+              <HangingIndent>0cm</HangingIndent>
+              <Style>
+                <TextAlign>Left</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>Textbox149</rd:DefaultName>
+          <Top>2.42014cm</Top>
+          <Height>0.70583cm</Height>
+          <Width>8.93034cm</Width>
+          <ZIndex>2</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Textbox Name="Textbox96">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>=Sum(IIF(ReportItems!Textbox47.Value = 0,1,0))/CountDistinct(Fields!PERSONAL_NOMBRES.Value, "dsEvaluacionesTransversales")</Value>
+                  <Style>
+                    <FontSize>14pt</FontSize>
+                    <FontWeight>Bold</FontWeight>
+                    <Format>0%</Format>
+                    <Color>=IIF(ReportItems!Textbox96.Value &gt;= 76,"LightGreen","Red")</Color>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Left</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>Textbox96</rd:DefaultName>
+          <Top>2.42014cm</Top>
+          <Left>8.96933cm</Left>
+          <Height>0.70583cm</Height>
+          <Width>2.5cm</Width>
+          <ZIndex>3</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+      </ReportItems>
+      <Style>
+        <Border>
+          <Style>None</Style>
+        </Border>
+      </Style>
+    </PageHeader>
     <PageHeight>21cm</PageHeight>
-    <PageWidth>50cm</PageWidth>
-    <LeftMargin>2cm</LeftMargin>
-    <RightMargin>2cm</RightMargin>
+    <PageWidth>29.7cm</PageWidth>
+    <InteractiveHeight>0cm</InteractiveHeight>
+    <InteractiveWidth>29.7cm</InteractiveWidth>
+    <LeftMargin>1.5cm</LeftMargin>
+    <RightMargin>1.5cm</RightMargin>
     <TopMargin>2cm</TopMargin>
     <BottomMargin>2cm</BottomMargin>
     <ColumnSpacing>0.13cm</ColumnSpacing>
@@ -1027,6 +1072,11 @@ CLIk+PHIcG1+SM4DhdLV4RR0tUGuD6eMtaXWeS2MdJmt7i+8ce1YeCGegxRmGid9TBJC+RrZDmlgybhm
 tNKKjGMPp4jmfAZZ5ba82zIA2/Aki1u0cVOVq8D2ZpaIOFNE2PN5RuXPd63uJcff1raKkmnSReKatsIiKpcIiIAiIgCIiAIiIAiIgCIiAIiIAiIgCIiAIiIAiIgCIiAIiIAiIgCIiAIiIAiIgCIiAIiIAiIgCIiAIiIAiIgCIiAIiIAiIgCIiAIiIAiIgCIiAIiIAiIgCIiAIiIAiIgCIiAIiIAiIgCIiAIiIAiIgCIiAIiIAiIgCIiAIiIAiIgCIiAIiIAiIgP/2Q==</ImageData>
     </EmbeddedImage>
   </EmbeddedImages>
+  <Variables>
+    <Variable Name="INDICADOR_COMPETENCIAS_DESARROLLADAS">
+      <Value />
+    </Variable>
+  </Variables>
   <rd:ReportID>f6ea04e0-9617-4f9b-9f9e-4e61f844b93e</rd:ReportID>
   <rd:ReportUnitType>Cm</rd:ReportUnitType>
 </Report>

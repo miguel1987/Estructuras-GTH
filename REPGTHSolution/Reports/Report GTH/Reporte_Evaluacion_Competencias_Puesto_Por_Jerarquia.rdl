@@ -373,10 +373,10 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>1.71654in</Width>
+              <Width>1.47696in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.60196in</Width>
+              <Width>1.54988in</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -448,7 +448,6 @@
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
-                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
               </TablixCells>
@@ -561,13 +560,8 @@
                   <GroupExpression>=Fields!PERSONAL_NOMBRES.Value</GroupExpression>
                 </GroupExpressions>
               </Group>
-              <SortExpressions>
-                <SortExpression>
-                  <Value>=Fields!COMPETENCIA_TIPO.Value</Value>
-                </SortExpression>
-              </SortExpressions>
               <TablixHeader>
-                <Size>3.9821in</Size>
+                <Size>2.55502in</Size>
                 <CellContents>
                   <Textbox Name="PERSONAL_NOMBRES">
                     <CanGrow>true</CanGrow>
@@ -603,13 +597,8 @@
                       <GroupExpression>=Fields!PERSONAL_PUESTO.Value</GroupExpression>
                     </GroupExpressions>
                   </Group>
-                  <SortExpressions>
-                    <SortExpression>
-                      <Value>=Fields!COMPETENCIA_TIPO.Value</Value>
-                    </SortExpression>
-                  </SortExpressions>
                   <TablixHeader>
-                    <Size>3.39813in</Size>
+                    <Size>2.0648in</Size>
                     <CellContents>
                       <Textbox Name="PERSONAL_PUESTO">
                         <CanGrow>true</CanGrow>
@@ -657,10 +646,18 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>dsEvaluacionesTransversales</DataSetName>
+        <SortExpressions>
+          <SortExpression>
+            <Value>=Fields!PERSONAL_PUESTO.Value</Value>
+          </SortExpression>
+          <SortExpression>
+            <Value>=Fields!PERSONAL_NOMBRES.Value</Value>
+          </SortExpression>
+        </SortExpressions>
         <Top>4.30424cm</Top>
-        <Left>1.79917cm</Left>
+        <Left>0.37042cm</Left>
         <Height>2.37739cm</Height>
-        <Width>27.17478cm</Width>
+        <Width>19.42248cm</Width>
         <ZIndex>1</ZIndex>
         <Style>
           <Border>
@@ -695,7 +692,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>="REPORTE DE EVALUACIONES DE COMPETENCIAS POR PUESTO" &amp; " - " &amp; Parameters!PERIODO.Value</Value>
+                <Value>="REPORTE RESUMEN DE EVALUACIONES POR COMPETENCIA" &amp; " - " &amp; Parameters!PERIODO.Value</Value>
                 <Style>
                   <FontSize>16pt</FontSize>
                   <FontWeight>Bold</FontWeight>
@@ -745,7 +742,7 @@
         </Paragraphs>
         <rd:DefaultName>PERSONAL_GERENCIA</rd:DefaultName>
         <Top>2.62149cm</Top>
-        <Left>1.83092cm</Left>
+        <Left>0.40217cm</Left>
         <Height>0.6cm</Height>
         <Width>3.268cm</Width>
         <ZIndex>3</ZIndex>
@@ -777,7 +774,7 @@
         </Paragraphs>
         <rd:DefaultName>PERSONAL_AREA</rd:DefaultName>
         <Top>3.29205cm</Top>
-        <Left>1.83303cm</Left>
+        <Left>0.40428cm</Left>
         <Height>0.6cm</Height>
         <Width>3.26589cm</Width>
         <ZIndex>4</ZIndex>
@@ -814,7 +811,7 @@
         </Paragraphs>
         <rd:DefaultName>PERSONAL_GERENCIA1</rd:DefaultName>
         <Top>2.65677cm</Top>
-        <Left>5.27531cm</Left>
+        <Left>3.84656cm</Left>
         <Height>0.6cm</Height>
         <Width>15.53953cm</Width>
         <ZIndex>5</ZIndex>
@@ -848,7 +845,7 @@
         </Paragraphs>
         <rd:DefaultName>PERSONAL_AREA1</rd:DefaultName>
         <Top>3.25677cm</Top>
-        <Left>5.27531cm</Left>
+        <Left>3.84656cm</Left>
         <Height>0.6cm</Height>
         <Width>15.53953cm</Width>
         <ZIndex>6</ZIndex>
@@ -940,7 +937,9 @@
   <Width>12.16099in</Width>
   <Page>
     <PageHeight>21cm</PageHeight>
-    <PageWidth>50cm</PageWidth>
+    <PageWidth>29.7cm</PageWidth>
+    <InteractiveHeight>0cm</InteractiveHeight>
+    <InteractiveWidth>50cm</InteractiveWidth>
     <LeftMargin>2cm</LeftMargin>
     <RightMargin>2cm</RightMargin>
     <TopMargin>2cm</TopMargin>

@@ -74,16 +74,16 @@ AsyncPostBackTimeout="360000">
             <li><a href="../UI_EVALUACION/EvaluacionesCompetenciasPorPuesto.aspx">Competencias Técnicas y Habilidades</a></li>
           </ul>
             </li>
-        <li id="reporteTransversales" runat="server"><a  href="#"  > Reportes Competencias Transversales</a>
+        <li id="reporteTransversales" runat="server"><a href="#">Reportes Competencias Transversales</a>
           <ul>
             <li><a href="../UI_REPORTES/ReporteCompetenciasTransversales.aspx">Evaluciones Transversales y de Liderazgo</a></li>            
           </ul>
             </li>
-        <li id="reportePuesto" runat="server"><a  href="#"> Reportes Competencias Técnicas y Habilidades </a>
+        <li id="reportePuesto" runat="server"><a href="#"> Reportes Competencias Técnicas y Habilidades </a>
           <ul>
-            <li><a href="../UI_REPORTES/ReporteCompetenciasPuesto.aspx">Evaluación de Competencias por Puesto</a></li>
-            <li><a href="../UI_REPORTES/ReporteCompetenciasPuestoJerarquia.aspx">Evaluación de Competencias por Jerarquía</a></li>    
-            <li><a href="../UI_REPORTES/Reporte_Evaluacion_Colaboradores.aspx">Evaluación de Colaboradores Por Competencia</a></li>         
+            <li><a href="../UI_REPORTES/ReporteCompetenciasPuesto.aspx">Evaluaciones de Competencias por Puesto</a></li>
+            <li><a href="../UI_REPORTES/ReporteCompetenciasPuestoJerarquia.aspx">Resumen de Evaluaciones Por Competencia</a></li>    
+            <li><a href="../UI_REPORTES/Reporte_Evaluacion_Colaboradores.aspx">Evaluación de Competencias</a></li>         
           </ul>
         </li>
       </ul></td>

@@ -297,7 +297,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>REPORTE DE EVALUACION DE COMPETENCIAS - </Value>
+                <Value>="REPORTE DE EVALUACIÓN DE COMPETENCIAS" &amp; " - " &amp; Parameters!PERIODO.Value</Value>
                 <Style>
                   <FontSize>16pt</FontSize>
                   <FontWeight>Bold</FontWeight>
@@ -308,7 +308,7 @@
             <LeftIndent>0cm</LeftIndent>
             <HangingIndent>0cm</HangingIndent>
             <Style>
-              <TextAlign>Right</TextAlign>
+              <TextAlign>Center</TextAlign>
             </Style>
           </Paragraph>
         </Paragraphs>
@@ -316,42 +316,8 @@
         <Top>0.60543cm</Top>
         <Left>6.12669cm</Left>
         <Height>0.70583cm</Height>
-        <Width>18.55573cm</Width>
+        <Width>15.67583cm</Width>
         <ZIndex>1</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="PERIODO">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>=Parameters!PERIODO.Value</Value>
-                <Style>
-                  <FontSize>16pt</FontSize>
-                  <FontWeight>Bold</FontWeight>
-                  <Color>DarkBlue</Color>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style />
-          </Paragraph>
-        </Paragraphs>
-        <rd:DefaultName>PERIODO</rd:DefaultName>
-        <Top>0.60543cm</Top>
-        <Left>24.49546cm</Left>
-        <Height>0.70583cm</Height>
-        <Width>3.94405cm</Width>
-        <ZIndex>2</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -378,7 +344,7 @@
               <Width>1.953in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.19633in</Width>
+              <Width>1.24841in</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>0.7655in</Width>
@@ -386,7 +352,7 @@
           </TablixColumns>
           <TablixRows>
             <TablixRow>
-              <Height>0.25705in</Height>
+              <Height>0.39247in</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -781,7 +747,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!AREA_DESCRIPCION.Value &amp; " " &amp; Fields!COORDINACION_DESCRIPCION.Value</Value>
+                              <Value>=Fields!AREA_DESCRIPCION.Value &amp; " " &amp; IIF(Fields!COORDINACION_DESCRIPCION.Value = "_ _", "", Fields!COORDINACION_DESCRIPCION.Value)</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
@@ -1054,9 +1020,9 @@
         <DataSetName>dsEvaluacion_Colaboradores_por_Competencias</DataSetName>
         <Top>5.0927cm</Top>
         <Left>0.70591cm</Left>
-        <Height>1.25291cm</Height>
-        <Width>28.61964cm</Width>
-        <ZIndex>3</ZIndex>
+        <Height>1.59686cm</Height>
+        <Width>26.21195cm</Width>
+        <ZIndex>2</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1097,7 +1063,7 @@
         <Left>0.70591cm</Left>
         <Height>0.70583cm</Height>
         <Width>8.95472cm</Width>
-        <ZIndex>4</ZIndex>
+        <ZIndex>3</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1133,7 +1099,7 @@
         <Left>9.37258cm</Left>
         <Height>0.70583cm</Height>
         <Width>2.5cm</Width>
-        <ZIndex>5</ZIndex>
+        <ZIndex>4</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1167,7 +1133,7 @@
         <Left>3.76925cm</Left>
         <Height>0.83812cm</Height>
         <Width>10.17763cm</Width>
-        <ZIndex>6</ZIndex>
+        <ZIndex>5</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1212,7 +1178,7 @@
         <Left>0.70591cm</Left>
         <Height>0.70583cm</Height>
         <Width>3.1868cm</Width>
-        <ZIndex>7</ZIndex>
+        <ZIndex>6</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1257,7 +1223,7 @@
         <Left>0.70591cm</Left>
         <Height>0.70583cm</Height>
         <Width>4.21867cm</Width>
-        <ZIndex>8</ZIndex>
+        <ZIndex>7</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1293,7 +1259,7 @@
         <Left>4.92459cm</Left>
         <Height>0.83812cm</Height>
         <Width>9.02229cm</Width>
-        <ZIndex>9</ZIndex>
+        <ZIndex>8</ZIndex>
         <Style>
           <Border>
             <Style>None</Style>
@@ -1365,17 +1331,6 @@
         </DataSetReference>
       </ValidValues>
     </ReportParameter>
-    <ReportParameter Name="COMPETENCIA_TIPO_ID">
-      <DataType>String</DataType>
-      <Prompt>TIPO DE COMPETENCIA</Prompt>
-      <ValidValues>
-        <DataSetReference>
-          <DataSetName>dsTipo_competencia</DataSetName>
-          <ValueField>COMPETENCIA_TIPO_ID</ValueField>
-          <LabelField>COMPETENCIA_TIPO_DESCRIPCION</LabelField>
-        </DataSetReference>
-      </ValidValues>
-    </ReportParameter>
     <ReportParameter Name="GRUPO_ORGANIZACIONAL_CODIGO">
       <DataType>String</DataType>
       <Prompt>GRUPO ORGANIZACIONAL</Prompt>
@@ -1384,6 +1339,17 @@
           <DataSetName>dsGrupoOrganizacional</DataSetName>
           <ValueField>GRUPO_ORGANIZACIONAL_CODIGO</ValueField>
           <LabelField>GRUPO_ORGANIZACIONAL_DESCRIPCION</LabelField>
+        </DataSetReference>
+      </ValidValues>
+    </ReportParameter>
+    <ReportParameter Name="COMPETENCIA_TIPO_ID">
+      <DataType>String</DataType>
+      <Prompt>TIPO DE COMPETENCIA</Prompt>
+      <ValidValues>
+        <DataSetReference>
+          <DataSetName>dsTipo_competencia</DataSetName>
+          <ValueField>COMPETENCIA_TIPO_ID</ValueField>
+          <LabelField>COMPETENCIA_TIPO_DESCRIPCION</LabelField>
         </DataSetReference>
       </ValidValues>
     </ReportParameter>
@@ -1403,6 +1369,8 @@
   <Page>
     <PageHeight>21cm</PageHeight>
     <PageWidth>50cm</PageWidth>
+    <InteractiveHeight>0cm</InteractiveHeight>
+    <InteractiveWidth>50cm</InteractiveWidth>
     <LeftMargin>2cm</LeftMargin>
     <RightMargin>2cm</RightMargin>
     <TopMargin>2cm</TopMargin>

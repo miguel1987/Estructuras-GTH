@@ -878,18 +878,18 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>2.27422in</Width>
+              <Width>1.99297in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.35752in</Width>
+              <Width>0.9721in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.57627in</Width>
+              <Width>1.07627in</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
             <TablixRow>
-              <Height>0.6633in</Height>
+              <Height>0.37163in</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -1297,7 +1297,7 @@
                           <TablixMembers>
                             <TablixMember>
                               <TablixHeader>
-                                <Size>0.24143in</Size>
+                                <Size>0.39582in</Size>
                                 <CellContents>
                                   <Textbox Name="Textbox82">
                                     <CanGrow>true</CanGrow>
@@ -1513,7 +1513,7 @@
                           <TablixMembers>
                             <TablixMember>
                               <TablixHeader>
-                                <Size>0.24143in</Size>
+                                <Size>0.39582in</Size>
                                 <CellContents>
                                   <Textbox Name="Textbox83">
                                     <CanGrow>true</CanGrow>
@@ -1702,7 +1702,7 @@
                           <TablixMembers>
                             <TablixMember>
                               <TablixHeader>
-                                <Size>0.24143in</Size>
+                                <Size>0.39582in</Size>
                                 <CellContents>
                                   <Textbox Name="Textbox84">
                                     <CanGrow>true</CanGrow>
@@ -1781,7 +1781,7 @@
                 </SortExpression>
               </SortExpressions>
               <TablixHeader>
-                <Size>2.47898in</Size>
+                <Size>1.19773in</Size>
                 <CellContents>
                   <Textbox Name="COMPETENCIA_TIPO">
                     <CanGrow>true</CanGrow>
@@ -1844,7 +1844,7 @@
                     </SortExpression>
                   </SortExpressions>
                   <TablixHeader>
-                    <Size>1.67712in</Size>
+                    <Size>1.4167in</Size>
                     <CellContents>
                       <Textbox Name="COMPETENCIA">
                         <CanGrow>true</CanGrow>
@@ -1907,7 +1907,7 @@
                         </SortExpression>
                       </SortExpressions>
                       <TablixHeader>
-                        <Size>0.93047in</Size>
+                        <Size>0.8888in</Size>
                         <CellContents>
                           <Textbox Name="COMPETENCIA_VALOR_REQUERIDO">
                             <CanGrow>true</CanGrow>
@@ -1976,8 +1976,8 @@
         <DataSetName>dsEvaluacionesTransversales</DataSetName>
         <Top>3.08716cm</Top>
         <Left>1.83092cm</Left>
-        <Height>4.75094cm</Height>
-        <Width>26.14823cm</Width>
+        <Height>4.40227cm</Height>
+        <Width>19.16323cm</Width>
         <ZIndex>2</ZIndex>
         <Style>
           <Border>
@@ -2040,7 +2040,7 @@
         </Style>
       </Textbox>
     </ReportItems>
-    <Height>3.24026in</Height>
+    <Height>3.44859in</Height>
     <Style />
   </Body>
   <ReportParameters>
@@ -2115,6 +2115,8 @@
   <Page>
     <PageHeight>21cm</PageHeight>
     <PageWidth>50cm</PageWidth>
+    <InteractiveHeight>0cm</InteractiveHeight>
+    <InteractiveWidth>50cm</InteractiveWidth>
     <LeftMargin>2cm</LeftMargin>
     <RightMargin>2cm</RightMargin>
     <TopMargin>2cm</TopMargin>

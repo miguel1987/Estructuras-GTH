@@ -4,6 +4,11 @@
     Namespace="Microsoft.Reporting.WebForms" TagPrefix="rsweb" %>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="cph_contenedor" runat="server">
+<div class="frm_titulo01">Reporte Evaluaciones de Competencias Transversales y de Liderazgo</div>  
+<br /> 
+<br /> 
+<br />
+<br />  
 <rsweb:ReportViewer ID="ReportViewer1" runat="server" Font-Names="Verdana" Width="100%" Height="300%"
         Font-Size="8pt" InteractiveDeviceInfos="(Colección)" ProcessingMode="Remote" 
         WaitMessageFont-Names="Verdana" WaitMessageFont-Size="14pt">
