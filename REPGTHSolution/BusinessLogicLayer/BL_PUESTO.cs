@@ -125,6 +125,101 @@ namespace BusinessLogicLayer
         }
 
         /// <summary>
+        ///  Devuelve los datos de todas los PUESTOS de una GERENCIA.
+        /// </summary>
+        /// <param name="empresa_id">Codigo del la Empresa de la cual se desea consultar sus gerencias</param>
+        /// <returns> List de BE_PUESTO con los objetos de la entidad, que a su vez representan la tabla PUESTOS de la base de datos.En caso no haiga datos devuelve nothing </returns>
+        public List<BE_PUESTO> SeleccionarPuesto(Guid empresa_id, Guid gerencia_id)
+        {
+
+            wsMaestros.BE_PUESTO[] oLista = wsMantenimientoEstructuras.SeleccionarPuestoPorGerencia(gerencia_id);
+            List<BE_PUESTO> oListaPuesto = new List<BE_PUESTO>();
+            if (oLista != null)
+            {
+                foreach (var item in oLista)
+                {
+                    BE_PUESTO oPuesto = new BE_PUESTO();
+                    oPuesto.ID = item.ID;
+                    oPuesto.CODIGO = item.CODIGO;
+                    oPuesto.DESCRIPCION = item.DESCRIPCION;
+                    oPuesto.USUARIO_CREACION = item.USUARIO_CREACION;
+                    oPuesto.FECHA_CREACION = item.FECHA_CREACION;
+                    oPuesto.USUARIO_ACTUALIZACION = item.USUARIO_ACTUALIZACION;
+                    oPuesto.ESTADO = item.ESTADO;
+                    oPuesto.NIVEL = item.NIVEL;
+
+                    oListaPuesto.Add(oPuesto);
+
+                }
+            }
+            return oListaPuesto;
+        }
+
+
+        /// <summary>
+        ///  Devuelve los datos de todas los PUESTOS de una AREA.
+        /// </summary>
+        /// <param name="empresa_id">Codigo del la Empresa de la cual se desea consultar sus gerencias</param>
+        /// <returns> List de BE_PUESTO con los objetos de la entidad, que a su vez representan la tabla PUESTOS de la base de datos.En caso no haiga datos devuelve nothing </returns>
+        public List<BE_PUESTO> SeleccionarPuesto(Guid empresa_id, Guid gerencia_id, Guid area_id)
+        {
+
+            wsMaestros.BE_PUESTO[] oLista = wsMantenimientoEstructuras.SeleccionarPuestoPorArea(area_id);
+            List<BE_PUESTO> oListaPuesto = new List<BE_PUESTO>();
+            if (oLista != null)
+            {
+                foreach (var item in oLista)
+                {
+                    BE_PUESTO oPuesto = new BE_PUESTO();
+                    oPuesto.ID = item.ID;
+                    oPuesto.CODIGO = item.CODIGO;
+                    oPuesto.DESCRIPCION = item.DESCRIPCION;
+                    oPuesto.USUARIO_CREACION = item.USUARIO_CREACION;
+                    oPuesto.FECHA_CREACION = item.FECHA_CREACION;
+                    oPuesto.USUARIO_ACTUALIZACION = item.USUARIO_ACTUALIZACION;
+                    oPuesto.ESTADO = item.ESTADO;
+                    oPuesto.NIVEL = item.NIVEL;
+
+                    oListaPuesto.Add(oPuesto);
+
+                }
+            }
+            return oListaPuesto;
+        }
+
+        /// <summary>
+        ///  Devuelve los datos de todas los PUESTOS de una COORDINACION.
+        /// </summary>
+        /// <param name="empresa_id">Codigo del la Empresa de la cual se desea consultar sus gerencias</param>
+        /// <returns> List de BE_PUESTO con los objetos de la entidad, que a su vez representan la tabla PUESTOS de la base de datos.En caso no haiga datos devuelve nothing </returns>
+        public List<BE_PUESTO> SeleccionarPuesto(Guid empresa_id, Guid gerencia_id, Guid area_id, Guid coordinacion_id)
+        {
+
+            wsMaestros.BE_PUESTO[] oLista = wsMantenimientoEstructuras.SeleccionarPuestoPorCoordinacion(coordinacion_id);
+            List<BE_PUESTO> oListaPuesto = new List<BE_PUESTO>();
+            if (oLista != null)
+            {
+                foreach (var item in oLista)
+                {
+                    BE_PUESTO oPuesto = new BE_PUESTO();
+                    oPuesto.ID = item.ID;
+                    oPuesto.CODIGO = item.CODIGO;
+                    oPuesto.DESCRIPCION = item.DESCRIPCION;
+                    oPuesto.USUARIO_CREACION = item.USUARIO_CREACION;
+                    oPuesto.FECHA_CREACION = item.FECHA_CREACION;
+                    oPuesto.USUARIO_ACTUALIZACION = item.USUARIO_ACTUALIZACION;
+                    oPuesto.ESTADO = item.ESTADO;
+                    oPuesto.NIVEL = item.NIVEL;
+
+                    oListaPuesto.Add(oPuesto);
+
+                }
+            }
+            return oListaPuesto;
+        }
+
+
+        /// <summary>
         ///  Devuelve los niveles de puestos
         /// </summary>       
         /// <returns> List de BE_NIVEL_PUESTO con los objetos de la entidad, que a su vez representan los niveles de puestos de la base de datos.En caso no existan datos devuelve nothing </returns>

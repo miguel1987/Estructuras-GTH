@@ -71,7 +71,7 @@
         </ExportSettings>
         
         <MasterTableView DataSourceID="odsEvaluacionesEstado" CommandItemDisplay="None" DataKeyNames="ID"
-         ShowHeadersWhenNoRecords="true" EnableNoRecordsTemplate="True" ShowHeader="True" HorizontalAlign="NotSet" AutoGenerateColumns="False"   
+         ShowHeadersWhenNoRecords="true" EnableNoRecordsTemplate="True" ShowHeader="True" HorizontalAlign="NotSet" AutoGenerateColumns="false"   
          OverrideDataSourceControlSorting="true">
             <NoRecordsTemplate>
                 No existen evaluaciones registrados para los parámetros seleccionados.

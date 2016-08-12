@@ -19,6 +19,8 @@ namespace BusinessEntities
         public BE_COMPETENCIA oBE_COMPETENCIA { get; set; }
         public BE_COMPETENCIAS_TIPOS oBE_COMPETENCIA_TIPO { get; set; }
         public BE_GERENCIA oBE_GERENCIA { get; set; }
+        public BE_AREA oBE_AREA { get; set; }
+        public BE_COORDINACION oBE_COORDINACION { get; set; }
 
         public int REAL { get; set; }
         public string COMENTARIO { get; set; }

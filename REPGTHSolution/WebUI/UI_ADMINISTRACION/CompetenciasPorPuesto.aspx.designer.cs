@@ -40,13 +40,13 @@ namespace WebUI.UI_ADMINISTRACION {
         protected global::System.Web.UI.WebControls.Label lblEmpresa;
         
         /// <summary>
-        /// rcbEmpresa control.
+        /// rcbEmpresaCab control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Telerik.Web.UI.RadComboBox rcbEmpresa;
+        protected global::Telerik.Web.UI.RadComboBox rcbEmpresaCab;
         
         /// <summary>
         /// lblGerencia control.
@@ -58,13 +58,13 @@ namespace WebUI.UI_ADMINISTRACION {
         protected global::System.Web.UI.WebControls.Label lblGerencia;
         
         /// <summary>
-        /// rcbGerencia control.
+        /// rcbGerenciaCab control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Telerik.Web.UI.RadComboBox rcbGerencia;
+        protected global::Telerik.Web.UI.RadComboBox rcbGerenciaCab;
         
         /// <summary>
         /// lblDepartamento control.
@@ -76,13 +76,13 @@ namespace WebUI.UI_ADMINISTRACION {
         protected global::System.Web.UI.WebControls.Label lblDepartamento;
         
         /// <summary>
-        /// rcbArea control.
+        /// rcbAreaCab control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Telerik.Web.UI.RadComboBox rcbArea;
+        protected global::Telerik.Web.UI.RadComboBox rcbAreaCab;
         
         /// <summary>
         /// lblCoordinacion control.
@@ -94,13 +94,13 @@ namespace WebUI.UI_ADMINISTRACION {
         protected global::System.Web.UI.WebControls.Label lblCoordinacion;
         
         /// <summary>
-        /// rcbCoordinacion control.
+        /// rcbCoordinacionCab control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Telerik.Web.UI.RadComboBox rcbCoordinacion;
+        protected global::Telerik.Web.UI.RadComboBox rcbCoordinacionCab;
         
         /// <summary>
         /// rgCompetenciasPuesto control.

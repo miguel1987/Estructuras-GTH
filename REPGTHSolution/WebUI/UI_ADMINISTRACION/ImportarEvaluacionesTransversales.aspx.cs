@@ -28,7 +28,13 @@ namespace WebUI.UI_ADMINISTRACION
         protected void Page_Load(object sender, EventArgs e)
         {
             USUARIO = Guid.Parse(Session["PERSONAL_ID"].ToString());
-            cargarGrilla();
+
+            if (!IsPostBack)
+            {
+                rgImportarTransversales.DataSource = String.Empty;
+            }
+
+            
 
         }
 
@@ -72,31 +78,30 @@ namespace WebUI.UI_ADMINISTRACION
         void cargarGrilla()
         {
             path = Server.MapPath(ConfigurationManager.AppSettings["DocumentPath"].ToString());
-            string provider = ConfigurationManager.AppSettings["Provaider"].ToString();
-            string file = ConfigurationManager.AppSettings["file Transversales"].ToString();
-            string Extended = ConfigurationManager.AppSettings["Extencion"].ToString();
-            string DataSource = ConfigurationManager.AppSettings["Data Source"].ToString();
+            string provider = ConfigurationManager.AppSettings["Provider"].ToString();
+            string Extended = ConfigurationManager.AppSettings["Extended"].ToString();
+            string DataSource = ConfigurationManager.AppSettings["Data_Source"].ToString();
             string strConn = provider +
-                 DataSource + path + file + Extended;
+                 DataSource + path + file.FileName +"; "+ Extended;
 
             DataSet ds = new DataSet();
-            string select = ConfigurationManager.AppSettings["Select Competencias Transversales"].ToString();
+            string select = ConfigurationManager.AppSettings["Select_Competencias_Transversales"].ToString();
             OleDbDataAdapter da = new OleDbDataAdapter
             (select, strConn);
             da.Fill(ds);
             dynamic data = ds;
-            RadGrid1.MasterTableView.DataSource = data;
-            RadGrid1.DataBind();
+            rgImportarTransversales.MasterTableView.DataSource = data;
+            rgImportarTransversales.DataBind();
         }
 
 
         protected void btnGrabar_Click(object sender, EventArgs e)
         {
-            RadGrid1.AllowPaging = false;
-            RadGrid1.Rebind();
+            rgImportarTransversales.AllowPaging = false;
+            rgImportarTransversales.Rebind();
             string msjerror = "Los siguientes códigos de usuarios no han sido registrados: ";
 
-            foreach (GridDataItem item in RadGrid1.MasterTableView.Items)
+            foreach (GridDataItem item in rgImportarTransversales.MasterTableView.Items)
             {
 
                 BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES OBE_COMPE_TRANS = new BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES();
@@ -144,8 +149,8 @@ namespace WebUI.UI_ADMINISTRACION
                
 
             }
-            RadGrid1.AllowPaging = true;
-            RadGrid1.Rebind();
+            rgImportarTransversales.AllowPaging = true;
+            rgImportarTransversales.Rebind();
 
         }
 

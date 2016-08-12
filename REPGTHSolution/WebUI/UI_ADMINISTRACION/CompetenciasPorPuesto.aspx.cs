@@ -35,6 +35,40 @@ namespace WebUI.UI_ADMINISTRACION
                     {
                         rcbTempEmpresa.SelectedValue = editableItem.EMPRESA_ID.ToString();
                     }
+
+                    RadComboBox rcbTempGerencia = (RadComboBox)e.Item.FindControl("rcbGerencia");
+                    if (rcbTempGerencia != null)
+                    {
+                        this.odsGerencia.SelectParameters.Clear();
+                        this.odsGerencia.SelectParameters.Add("empresa_id", System.Data.DbType.Guid, rcbTempEmpresa.SelectedValue);
+
+                        rcbTempGerencia.DataBind();
+
+                        rcbTempGerencia.SelectedValue = editableItem.oBE_GERENCIA.ID.ToString();
+                    }
+
+                    RadComboBox rcbTempArea = (RadComboBox)e.Item.FindControl("rcbArea");
+                    if (rcbTempArea != null)
+                    {
+                        this.odsArea.SelectParameters.Clear();
+                        this.odsArea.SelectParameters.Add("gerencia_id", System.Data.DbType.Guid, rcbTempGerencia.SelectedValue);
+
+                        rcbTempArea.DataBind();
+
+                        rcbTempArea.SelectedValue = editableItem.oBE_AREA.ID.ToString();
+                    }
+
+                    RadComboBox rcbTempCoordinacion = (RadComboBox)e.Item.FindControl("rcbCoordinacion");
+                    if (rcbTempCoordinacion != null)
+                    {
+                        this.odsCoordinacion.SelectParameters.Clear();
+                        this.odsCoordinacion.SelectParameters.Add("area_id", System.Data.DbType.Guid, rcbTempArea.SelectedValue);
+
+                        rcbTempCoordinacion.DataBind();
+
+                        rcbTempCoordinacion.SelectedValue = editableItem.oBE_COORDINACION.ID.ToString();
+                    }
+
                     RadComboBox rcbTemp = (RadComboBox)e.Item.FindControl("rcbPuesto");
                     if (rcbTemp != null)
                     {
@@ -50,6 +84,12 @@ namespace WebUI.UI_ADMINISTRACION
                     {
                         rcbTempCompetencia.SelectedValue = editableItem.COMPETENCIA_ID.ToString();
                     }
+
+                    RadComboBox rcbTempTipoCompetencia = (RadComboBox)e.Item.FindControl("rcbTipoCompetencia");
+                    if (rcbTempTipoCompetencia != null)
+                    {
+                        rcbTempTipoCompetencia.SelectedValue = editableItem.oBE_COMPETENCIA_TIPO.ID.ToString();
+                    }
                 }
             }
         }
@@ -57,17 +97,167 @@ namespace WebUI.UI_ADMINISTRACION
         protected void rcbEmpresa_SelectedIndexChanged(object sender, EventArgs e)
         {           
        
-            RadComboBox rcbTempEmpresa = (RadComboBox)sender;
-            String selected = rcbTempEmpresa.SelectedValue;
+            RadComboBox rcbTempEmpresa = (RadComboBox)sender;            
+            RadComboBox rcbTempGerencia = (RadComboBox)rcbTempEmpresa.NamingContainer.FindControl("rcbGerencia");
+            RadComboBox rcbTempArea = (RadComboBox)rcbTempEmpresa.NamingContainer.FindControl("rcbArea");
+            RadComboBox rcbTempCoordinacion = (RadComboBox)rcbTempEmpresa.NamingContainer.FindControl("rcbCoordinacion");
             RadComboBox rcbTempPuesto = (RadComboBox)rcbTempEmpresa.NamingContainer.FindControl("rcbPuesto");
+            rcbTempGerencia.ClearSelection();
+            rcbTempArea.ClearSelection();
+            rcbTempCoordinacion.ClearSelection();
             rcbTempPuesto.ClearSelection();
-            this.odsPuesto.SelectParameters.Clear();
-            this.odsPuesto.SelectParameters.Add("empresa_id", System.Data.DbType.Guid, selected);
+            this.odsGerencia.SelectParameters.Clear();
+            this.odsGerencia.SelectParameters.Add("empresa_id", System.Data.DbType.Guid, rcbTempEmpresa.SelectedValue);
+            rcbTempGerencia.DataBind();
+
+            if (rcbTempArea.Items.Count == 0)
+            {               
+                this.odsPuesto.SelectParameters.Clear();
+                this.odsPuesto.SelectParameters.Add("empresa_id", System.Data.DbType.Guid, rcbTempEmpresa.SelectedValue);
+                this.odsPuesto.SelectParameters.Add("gerencia_id", System.Data.DbType.Guid, rcbTempGerencia.SelectedValue);
+            }
+            else
+            {
+                if (rcbTempCoordinacion.Items.Count == 0)
+                {
+                    this.odsPuesto.SelectParameters.Clear();
+                    this.odsPuesto.SelectParameters.Add("empresa_id", System.Data.DbType.Guid, rcbTempEmpresa.SelectedValue);
+                    this.odsPuesto.SelectParameters.Add("gerencia_id", System.Data.DbType.Guid, rcbTempGerencia.SelectedValue);
+                    this.odsPuesto.SelectParameters.Add("area_id", System.Data.DbType.Guid, rcbTempArea.SelectedValue);
+
+                }
+                else
+                {
+                    this.odsPuesto.SelectParameters.Clear();
+                    this.odsPuesto.SelectParameters.Add("empresa_id", System.Data.DbType.Guid, rcbTempEmpresa.SelectedValue);
+                    this.odsPuesto.SelectParameters.Add("gerencia_id", System.Data.DbType.Guid, rcbTempGerencia.SelectedValue);
+                    this.odsPuesto.SelectParameters.Add("area_id", System.Data.DbType.Guid, rcbTempArea.SelectedValue);
+                    this.odsPuesto.SelectParameters.Add("coordinacion_id", System.Data.DbType.Guid, rcbTempCoordinacion.SelectedValue);
+
+                }
+            }
 
             rcbTempPuesto.DataBind();            
 
         }
 
+        protected void rcbGerencia_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            RadComboBox rcbTempGerencia = (RadComboBox)sender;
+            String selected = rcbTempGerencia.SelectedValue;
+            RadComboBox rcbTempArea = (RadComboBox)rcbTempGerencia.NamingContainer.FindControl("rcbArea");
+            RadComboBox rcbTempCoordinacion = (RadComboBox)rcbTempGerencia.NamingContainer.FindControl("rcbCoordinacion");
+            rcbTempArea.ClearSelection();
+            rcbTempCoordinacion.ClearSelection();
+            this.odsArea.SelectParameters.Clear();
+            this.odsArea.SelectParameters.Add("gerencia_id", System.Data.DbType.Guid, selected);
+
+            rcbTempArea.DataBind();
+        }
+
+        protected void rcbArea_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            RadComboBox rcbTempArea = (RadComboBox)sender;
+            String selected = rcbTempArea.SelectedValue;
+            RadComboBox rcbTempCoordinacion = (RadComboBox)rcbTempArea.NamingContainer.FindControl("rcbCoordinacion");
+            rcbTempCoordinacion.ClearSelection();
+            this.odsCoordinacion.SelectParameters.Clear();
+            this.odsCoordinacion.SelectParameters.Add("area_id", System.Data.DbType.Guid, selected);
+
+            rcbTempCoordinacion.DataBind();
+        }
+
+
+
+ //---------------------------------------------------------------------------------------------------------------------------------
+        protected void rcbEmpresaCab_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            RadComboBox rcbTempEmpresa = (RadComboBox)sender;
+            RadComboBox rcbTempGerencia = (RadComboBox)rcbTempEmpresa.NamingContainer.FindControl("rcbGerenciaCab");
+            RadComboBox rcbTempArea = (RadComboBox)rcbTempEmpresa.NamingContainer.FindControl("rcbAreaCab");
+            RadComboBox rcbTempCoordinacion = (RadComboBox)rcbTempEmpresa.NamingContainer.FindControl("rcbCoordinacionCab");
+            //RadComboBox rcbTempPuesto = (RadComboBox)rcbTempEmpresa.NamingContainer.FindControl("rcbPuesto");
+            rcbTempGerencia.ClearSelection();
+            rcbTempArea.ClearSelection();
+            rcbTempCoordinacion.ClearSelection();
+            //rcbTempPuesto.ClearSelection();
+            this.odsGerencia.SelectParameters.Clear();
+            this.odsGerencia.SelectParameters.Add("empresa_id", System.Data.DbType.Guid, rcbTempEmpresa.SelectedValue);
+            rcbTempGerencia.DataBind();
+
+            if (rcbTempArea.Items.Count == 0)
+            {
+                this.odsPuesto.SelectParameters.Clear();
+                this.odsPuesto.SelectParameters.Add("empresa_id", System.Data.DbType.Guid, rcbTempEmpresa.SelectedValue);
+                this.odsPuesto.SelectParameters.Add("gerencia_id", System.Data.DbType.Guid, rcbTempGerencia.SelectedValue);
+            }
+            else
+            {
+                if (rcbTempCoordinacion.Items.Count == 0)
+                {
+                    this.odsPuesto.SelectParameters.Clear();
+                    this.odsPuesto.SelectParameters.Add("empresa_id", System.Data.DbType.Guid, rcbTempEmpresa.SelectedValue);
+                    this.odsPuesto.SelectParameters.Add("gerencia_id", System.Data.DbType.Guid, rcbTempGerencia.SelectedValue);
+                    this.odsPuesto.SelectParameters.Add("area_id", System.Data.DbType.Guid, rcbTempArea.SelectedValue);
+
+                }
+                else
+                {
+                    this.odsPuesto.SelectParameters.Clear();
+                    this.odsPuesto.SelectParameters.Add("empresa_id", System.Data.DbType.Guid, rcbTempEmpresa.SelectedValue);
+                    this.odsPuesto.SelectParameters.Add("gerencia_id", System.Data.DbType.Guid, rcbTempGerencia.SelectedValue);
+                    this.odsPuesto.SelectParameters.Add("area_id", System.Data.DbType.Guid, rcbTempArea.SelectedValue);
+                    this.odsPuesto.SelectParameters.Add("coordinacion_id", System.Data.DbType.Guid, rcbTempCoordinacion.SelectedValue);
+
+                }
+            }
+
+            rgCompetenciasPuesto.DataBind();
+
+        }
+
+        protected void rcbGerenciaCab_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            RadComboBox rcbTempGerencia = (RadComboBox)sender;
+            String selected = rcbTempGerencia.SelectedValue;
+            RadComboBox rcbTempArea = (RadComboBox)rcbTempGerencia.NamingContainer.FindControl("rcbAreaCab");
+            RadComboBox rcbTempCoordinacion = (RadComboBox)rcbTempGerencia.NamingContainer.FindControl("rcbCoordinacionCab");
+            rcbTempArea.ClearSelection();
+            rcbTempCoordinacion.ClearSelection();
+            this.odsArea.SelectParameters.Clear();
+            this.odsArea.SelectParameters.Add("gerencia_id", System.Data.DbType.Guid, selected);
+
+            rcbTempArea.DataBind();
+        }
+
+        protected void rcbAreaCab_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            RadComboBox rcbTempArea = (RadComboBox)sender;
+            String selected = rcbTempArea.SelectedValue;
+            RadComboBox rcbTempCoordinacion = (RadComboBox)rcbTempArea.NamingContainer.FindControl("rcbCoordinacionCab");
+            rcbTempCoordinacion.ClearSelection();
+            this.odsCoordinacion.SelectParameters.Clear();
+            this.odsCoordinacion.SelectParameters.Add("area_id", System.Data.DbType.Guid, selected);
+
+            rcbTempCoordinacion.DataBind();
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+//----------------------------------------------------------------------------------------------------------------------------------------------------
         protected void rcbTipoCompetencia_SelectedIndexChanged(object sender, EventArgs e)
         {
 

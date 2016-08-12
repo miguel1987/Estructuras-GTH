@@ -32,10 +32,8 @@
         runat="server" CssClass="estilosLabel" Text="EMPRESA:">
       </asp:Label></td>
             <td style="text-align: left; width: 171px">
-                <telerik:RadComboBox ID="rcbEmpresa" Runat="server" DataValueField="ID" MarkFirstMatch="true" Filter="None" EnableTextSelection="true" Skin="Office2010Silver"
-                DataTextField="DESCRIPCION" AllowCustomText="true" DataSourceID="odsEmpresa" LoadingMessage="Cargando..."
-                
-                >
+                <telerik:RadComboBox ID="rcbEmpresaCab" Runat="server" DataValueField="ID" MarkFirstMatch="true" Filter="None" EnableTextSelection="true" Skin="Office2010Silver"
+                DataTextField="DESCRIPCION" AllowCustomText="true" DataSourceID="odsEmpresa" LoadingMessage="Cargando..." AutoPostBack="true"  OnSelectedIndexChanged="rcbEmpresaCab_SelectedIndexChanged">
                 </telerik:RadComboBox>
             </td>
             <td style="text-align: left; width: 90px">
@@ -43,9 +41,9 @@
         runat="server" CssClass="estilosLabel" Text="GERENCIA:">
       </asp:Label></td>
             <td style="text-align: left; width: 167px">
-                <telerik:RadComboBox ID="rcbGerencia" Runat="server" DataValueField="ID"
+                <telerik:RadComboBox ID="rcbGerenciaCab" Runat="server" DataValueField="ID"
                              Filter="None" EnableTextSelection="true" DataTextField="DESCRIPCION"
-                        AllowCustomText="true"  DataSourceID="odsGerencia" LoadingMessage="Cargando..." Skin="Office2010Silver">
+                        AllowCustomText="true"  DataSourceID="odsGerencia" LoadingMessage="Cargando..." Skin="Office2010Silver" AutoPostBack="true"  OnSelectedIndexChanged="rcbGerenciaCab_SelectedIndexChanged"> 
                 </telerik:RadComboBox>
             </td>
             <td style="text-align: left; width: 138px">
@@ -53,8 +51,8 @@
         runat="server" CssClass="estilosLabel" Text="DEPARTAMENTO:">
       </asp:Label></td>
             <td style="text-align: left">
-                <telerik:RadComboBox ID="rcbArea" Runat="server" DataValueField="ID" MarkFirstMatch="true" Filter="None" EnableTextSelection="true" DataTextField="DESCRIPCION"
-                            AllowCustomText="true" DataSourceID="odsArea" LoadingMessage="Cargando..." Skin="Office2010Silver">
+                <telerik:RadComboBox ID="rcbAreaCab" Runat="server" DataValueField="ID" MarkFirstMatch="true" Filter="None" EnableTextSelection="true" DataTextField="DESCRIPCION"
+                            AllowCustomText="true" DataSourceID="odsArea" LoadingMessage="Cargando..." Skin="Office2010Silver" AutoPostBack="true"  OnSelectedIndexChanged="rcbAreaCab_SelectedIndexChanged" >
                 </telerik:RadComboBox>
             </td>
         </tr>
@@ -78,7 +76,7 @@
         runat="server" CssClass="estilosLabel" Text="COORDINACION:">
       </asp:Label></td>
             <td style="width: 171px">
-                <telerik:RadComboBox ID="rcbCoordinacion" Runat="server" DataValueField="ID"
+                <telerik:RadComboBox ID="rcbCoordinacionCab" Runat="server" DataValueField="ID"
                             MarkFirstMatch="true" Filter="None" EnableTextSelection="true" DataTextField="DESCRIPCION"
                             AllowCustomText="true" DataSourceID="odsCoordinacion" LoadingMessage="Cargando..." Skin="Office2010Silver">
                 </telerik:RadComboBox>
@@ -129,13 +127,70 @@
                             runat="server" ID="rcbEmpresa" DataValueField="ID" MarkFirstMatch="true" Filter="None" EnableTextSelection="true"
                                 DataTextField="DESCRIPCION" AllowCustomText="true" DataSourceID="odsEmpresa" LoadingMessage="Cargando..." Width="50%" AutoPostBack="true" OnSelectedIndexChanged="rcbEmpresa_SelectedIndexChanged">
                             </telerik:RadComboBox>
-                            <asp:RequiredFieldValidator ID="rfvEmpresa" runat="server" ControlToValidate="rcbEmpresa" 
-                                ForeColor="Red" Text="*">
-                            </asp:RequiredFieldValidator>     
+                                
                         </EditItemTemplate>
 
 <HeaderStyle Width="10%"></HeaderStyle>
+
                     </telerik:GridTemplateColumn>   
+
+                               <telerik:GridTemplateColumn  HeaderText="GERENCIA" HeaderStyle-Width="10%" SortExpression="oBE_GERENCIA.DESCRIPCION" UniqueName="oBE_GERENCIA.DESCRIPCION" DataField="oBE_GERENCIA.DESCRIPCION" Display="false"
+                AutoPostBackOnFilter="true">
+                        <ItemTemplate>
+                            <%# Eval("oBE_GERENCIA.DESCRIPCION")%>
+                        </ItemTemplate>
+                        <EditItemTemplate>
+                        <telerik:RadComboBox
+                            runat="server" ID="rcbGerencia" DataValueField="ID" MarkFirstMatch="true" Filter="None" EnableTextSelection="true"
+                                DataTextField="DESCRIPCION" AllowCustomText="true" DataSourceID="odsGerencia" LoadingMessage="Cargando..." Width="50%" AutoPostBack="true" OnSelectedIndexChanged="rcbGerencia_SelectedIndexChanged">
+                            </telerik:RadComboBox>
+                               
+                        </EditItemTemplate>
+
+<HeaderStyle Width="10%"></HeaderStyle>
+
+                    </telerik:GridTemplateColumn> 
+
+                    <telerik:GridTemplateColumn  HeaderText="AREA" HeaderStyle-Width="10%" SortExpression="oBE_AREA.DESCRIPCION" UniqueName="oBE_AREA.DESCRIPCION" DataField="oBE_AREA.DESCRIPCION" Display="false"
+                AutoPostBackOnFilter="true">
+                        <ItemTemplate>
+                            <%# Eval("oBE_AREA.DESCRIPCION")%>
+                        </ItemTemplate>
+                        <EditItemTemplate>
+                        <telerik:RadComboBox
+                            runat="server" ID="rcbArea" DataValueField="ID" MarkFirstMatch="true" Filter="None" EnableTextSelection="true"
+                                DataTextField="DESCRIPCION" AllowCustomText="true" DataSourceID="odsArea" LoadingMessage="Cargando..." Width="50%" AutoPostBack="true" OnSelectedIndexChanged="rcbArea_SelectedIndexChanged">
+                            </telerik:RadComboBox>
+                                
+                        </EditItemTemplate>
+
+<HeaderStyle Width="10%"></HeaderStyle>
+
+                    </telerik:GridTemplateColumn> 
+
+                    <telerik:GridTemplateColumn  HeaderText="COORDINACION" HeaderStyle-Width="10%" SortExpression="oBE_COORDINACION.DESCRIPCION" UniqueName="oBE_COORDINACION.DESCRIPCION" DataField="oBE_COORDINACION.DESCRIPCION" Display="false"
+                AutoPostBackOnFilter="true">
+                        <ItemTemplate>
+                            <%# Eval("oBE_COORDINACION.DESCRIPCION")%>
+                        </ItemTemplate>
+                        <EditItemTemplate>
+                        <telerik:RadComboBox
+                            runat="server" ID="rcbCoordinacion" DataValueField="ID" MarkFirstMatch="true" Filter="None" EnableTextSelection="true"
+                                DataTextField="DESCRIPCION" AllowCustomText="true" DataSourceID="odsCoordinacion" LoadingMessage="Cargando..." Width="50%">
+                            </telerik:RadComboBox>
+                                 
+                        </EditItemTemplate>
+
+<HeaderStyle Width="10%"></HeaderStyle>
+
+                    </telerik:GridTemplateColumn>
+
+
+
+
+
+
+
                     <telerik:GridTemplateColumn  HeaderText="PUESTO" HeaderStyle-Width="50%" SortExpression="oBE_PUESTO.DESCRIPCION" UniqueName="oBE_PUESTO.DESCRIPCION" DataField="oBE_PUESTO.DESCRIPCION"
                 AutoPostBackOnFilter="true">
                         <ItemTemplate>
@@ -144,7 +199,7 @@
                         <EditItemTemplate>
                         <telerik:RadComboBox
                             runat="server" ID="rcbPuesto" DataValueField="ID" MarkFirstMatch="true" Filter="None" EnableTextSelection="true"
-                                DataTextField="DESCRIPCION" AllowCustomText="true" DataSourceID="odsPuesto" LoadingMessage="Cargando..." Width="56%">
+                                DataTextField="DESCRIPCION" AllowCustomText="true" DataSourceID="odsPuesto" LoadingMessage="Cargando..." Width="50%">
                             </telerik:RadComboBox>                               
                         </EditItemTemplate>
 
@@ -234,7 +289,10 @@
         TypeName="BusinessLogicLayer.BL_AREA"></asp:ObjectDataSource>
         <asp:ObjectDataSource ID="odsCoordinacion" runat="server" SelectMethod="SeleccionarCoordinacion"
         TypeName="BusinessLogicLayer.BL_COORDINACION"></asp:ObjectDataSource>
-    
+
+        
+
+
     <telerik:RadWindowManager ID="RadWindowManager1" runat="server">
     </telerik:RadWindowManager>
 </asp:Content>

@@ -94,7 +94,10 @@
             EnableLinqExpressions="false" EnableTheming="false">
             <MasterTableView Width="100%" CommandItemDisplay="None" 
          ShowHeadersWhenNoRecords="true" EnableNoRecordsTemplate="True" ShowHeader="True" HorizontalAlign="NotSet" AutoGenerateColumns="False"   
-         OverrideDataSourceControlSorting="true">                               
+         OverrideDataSourceControlSorting="true"> 
+         <NoRecordsTemplate>
+                No existen Competencias por Puesto registradas.
+            </NoRecordsTemplate>                              
                 <Columns>                                        
                     <telerik:GridBoundColumn DataField="cod_trabajador" HeaderText="cod_trabajador">
                     </telerik:GridBoundColumn>

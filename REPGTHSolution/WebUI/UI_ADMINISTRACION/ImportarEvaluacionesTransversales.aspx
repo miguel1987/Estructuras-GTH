@@ -43,6 +43,18 @@
     <br />
     <br />
     <br />   
+        <telerik:RadAjaxManager ID="RadAjaxManager2" DefaultLoadingPanelID="RadAjaxLoadingPanel2"
+        runat="server" EnablePageHeadUpdate="False">
+        <AjaxSettings>
+            <telerik:AjaxSetting AjaxControlID="RadAjaxPanel1">
+                <UpdatedControls>
+                    <telerik:AjaxUpdatedControl ControlID="btnUpload"   />
+                    <telerik:AjaxUpdatedControl ControlID="RadGrid1" LoadingPanelID="RadAjaxLoadingPanel2" />
+                </UpdatedControls>
+            </telerik:AjaxSetting>
+            </AjaxSettings>
+ </telerik:RadAjaxManager>
+      
     <table style="width: 100%">
         <tr>
             <td class="area-tree" style="width: 153px">	   
@@ -52,9 +64,8 @@
      
       
             </td>
-            <td style="width: 275px">
-     
-      
+            <td style="width: 238px" class="area-tree">
+ 
         <telerik:RadAsyncUpload runat="server" ID="AsyncUpload1" RenderMode="Lightweight" CssClass="photo-upload"
             OnClientFileUploaded="OnClientFileUploaded" AllowedFileExtensions="jpg,jpeg,png,gif,pdf,doc,docx,xls,xlsx"
                                                                      
@@ -64,19 +75,19 @@
         </telerik:RadAsyncUpload>
         
             </td>
-            <td style="width: 127px; text-align: left;">
+            <td style="width: 101px; text-align: left;">
      
       
         <telerik:RadButton ID="btnUpload" runat="server" Text="Cargar Datos" 
             OnClick="btnUpload_Click" Skin="Office2010Silver" style="text-align: right" 
-                    Height="22px" Width="80px">
+                    Height="22px" Width="93px">
         </telerik:RadButton>
         
             </td>
             <td style="width: 626px; text-align: left;">
             <telerik:RadButton ID="btnGrabar" runat="server" Text="Importar Evaluaciones" 
             OnClick="btnGrabar_Click" Skin="Office2010Silver" style="text-align: right" 
-                    Width="123px">
+                    Width="147px">
         </telerik:RadButton>           
                 &nbsp;</td>
         </tr>
@@ -84,16 +95,20 @@
          <br />
          <br />
          <br />
+         
          <div style="text-align: justify">
-        <telerik:RadGrid ID="RadGrid1" HorizontalAlign="Center" runat="server" PageSize="10" 
+        <telerik:RadGrid ID="rgImportarTransversales" HorizontalAlign="Center" runat="server" PageSize="10" 
         CellSpacing="0" Culture="es-ES"
              AutoGenerateColumns="false" GridLines="None"
             AllowPaging="True" AllowFilteringByColumn="false"
        EnableEmbeddedSkins="False" Skin="MySilk" ImagesPath="../Styles/Grid/" 
             EnableLinqExpressions="false" EnableTheming="false">
-            <MasterTableView Width="100%" CommandItemDisplay="None" 
-         ShowHeadersWhenNoRecords="true" EnableNoRecordsTemplate="True" ShowHeader="True" HorizontalAlign="NotSet" AutoGenerateColumns="False"   
-         OverrideDataSourceControlSorting="true">                               
+            <MasterTableView Width="100%" CommandItemDisplay="none" 
+         ShowHeadersWhenNoRecords="true" EnableNoRecordsTemplate="True" ShowHeader="True" HorizontalAlign="NotSet" AutoGenerateColumns="false"   
+         OverrideDataSourceControlSorting="true" >    
+         <NoRecordsTemplate>
+                No existen Competencias por Puesto registradas.
+            </NoRecordsTemplate>                           
                 <Columns>                                        
                     <telerik:GridBoundColumn DataField="user_id" HeaderText="user_id">
                     </telerik:GridBoundColumn>

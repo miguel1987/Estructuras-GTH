@@ -26,7 +26,10 @@ namespace WebUI.UI_ADMINISTRACION
         protected void Page_Load(object sender, EventArgs e)
         {
             USUARIO = Guid.Parse(Session["PERSONAL_ID"].ToString());
-            cargarGrilla();
+            if (!IsPostBack)
+            {
+                rgImportarCompetencias.DataSource = String.Empty;
+            }
 
         }
 
@@ -70,15 +73,14 @@ namespace WebUI.UI_ADMINISTRACION
         void cargarGrilla()
         {
             path = Server.MapPath(ConfigurationManager.AppSettings["DocumentPath"].ToString());
-            string provider = ConfigurationManager.AppSettings["Provaider"].ToString();
-            string file = ConfigurationManager.AppSettings["file Competencias"].ToString();
-            string Extended = ConfigurationManager.AppSettings["Extencion"].ToString();
-            string DataSource = ConfigurationManager.AppSettings["Data Source"].ToString();
+            string provider = ConfigurationManager.AppSettings["Provider"].ToString();
+            string Extended = ConfigurationManager.AppSettings["Extended"].ToString();
+            string DataSource = ConfigurationManager.AppSettings["Data_Source"].ToString();
             string strConn = provider +
-                 DataSource + path + file + Extended;
+                 DataSource + path + file.FileName +"; "+ Extended;
 
             DataSet ds = new DataSet();
-            string select = ConfigurationManager.AppSettings["Select Competencias Por Puesto"].ToString();
+            string select = ConfigurationManager.AppSettings["Select_Competencias_Por_Puesto"].ToString();
             OleDbDataAdapter da = new OleDbDataAdapter
             (select, strConn);
             da.Fill(ds);

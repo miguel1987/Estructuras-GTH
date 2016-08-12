@@ -31,6 +31,15 @@ namespace WebUI.UI_ADMINISTRACION {
         protected global::Telerik.Web.UI.RadAjaxManager RadAjaxManager1;
         
         /// <summary>
+        /// RadAjaxManager2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadAjaxManager RadAjaxManager2;
+        
+        /// <summary>
         /// lblArchivo control.
         /// </summary>
         /// <remarks>
@@ -67,13 +76,13 @@ namespace WebUI.UI_ADMINISTRACION {
         protected global::Telerik.Web.UI.RadButton btnGrabar;
         
         /// <summary>
-        /// RadGrid1 control.
+        /// rgImportarTransversales control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Telerik.Web.UI.RadGrid RadGrid1;
+        protected global::Telerik.Web.UI.RadGrid rgImportarTransversales;
         
         /// <summary>
         /// lblMensaje control.
