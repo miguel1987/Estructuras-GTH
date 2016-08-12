@@ -8,71 +8,23 @@
     </DataSource>
   </DataSources>
   <DataSets>
-    <DataSet Name="dsAno">
-      <Fields>
-        <Field Name="ANO">
-          <DataField>ANO</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-      </Fields>
-      <Query>
-        <DataSourceName>DSREPORTS</DataSourceName>
-        <CommandType>StoredProcedure</CommandType>
-        <CommandText>USP_RS_ANO_SELECCIONAR</CommandText>
-        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
-      </Query>
-    </DataSet>
-    <DataSet Name="dsTipo_competencia">
-      <Fields>
-        <Field Name="COMPETENCIA_TIPO_ID">
-          <DataField>COMPETENCIA_TIPO_ID</DataField>
-          <rd:TypeName>System.Guid</rd:TypeName>
-        </Field>
-        <Field Name="COMPETENCIA_TIPO_CODIGO">
-          <DataField>COMPETENCIA_TIPO_CODIGO</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="COMPETENCIA_TIPO_DESCRIPCION">
-          <DataField>COMPETENCIA_TIPO_DESCRIPCION</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="USUARIOS_CREACION">
-          <DataField>USUARIOS_CREACION</DataField>
-          <rd:TypeName>System.Guid</rd:TypeName>
-        </Field>
-        <Field Name="FECHA_CREACION">
-          <DataField>FECHA_CREACION</DataField>
-          <rd:TypeName>System.DateTime</rd:TypeName>
-        </Field>
-        <Field Name="USUARIO_ACTUALIZACION">
-          <DataField>USUARIO_ACTUALIZACION</DataField>
-          <rd:TypeName>System.Guid</rd:TypeName>
-        </Field>
-        <Field Name="FECHA_ACTUALIZACION">
-          <DataField>FECHA_ACTUALIZACION</DataField>
-          <rd:TypeName>System.DateTime</rd:TypeName>
-        </Field>
-        <Field Name="COMPETENCIA_TIPO_ESTADO">
-          <DataField>COMPETENCIA_TIPO_ESTADO</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
-      </Fields>
-      <Query>
-        <DataSourceName>DSREPORTS</DataSourceName>
-        <CommandType>StoredProcedure</CommandType>
-        <CommandText>USP_COMPETENCIA_TIPO_SELECCIONAR</CommandText>
-        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
-      </Query>
-    </DataSet>
     <DataSet Name="dsEvaluacion_Colaboradores_por_Competencias">
       <Fields>
         <Field Name="GERENCIA_DESCRIPCION">
           <DataField>GERENCIA_DESCRIPCION</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="COMPETENCIA_ID">
-          <DataField>COMPETENCIA_ID</DataField>
-          <rd:TypeName>System.Guid</rd:TypeName>
+        <Field Name="COMPETENCIA_DESCRIPCION">
+          <DataField>COMPETENCIA_DESCRIPCION</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="COMPETENCIA_TIPO">
+          <DataField>COMPETENCIA_TIPO</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="COMPETENCIA_PUESTO_VALOR_REQUERIDO">
+          <DataField>COMPETENCIA_PUESTO_VALOR_REQUERIDO</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
         <Field Name="AREA_DESCRIPCION">
           <DataField>AREA_DESCRIPCION</DataField>
@@ -86,23 +38,11 @@
           <DataField>PUESTO_DESCRIPCION</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="NOMBRES_COMPLETOS">
-          <DataField>NOMBRES_COMPLETOS</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="Competencia_Desarrollada">
-          <DataField>Competencia_Desarrollada</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="EVALUACION_COMPETENCIA_BRECHA">
-          <DataField>EVALUACION_COMPETENCIA_BRECHA</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
-        </Field>
       </Fields>
       <Query>
         <DataSourceName>DSREPORTS</DataSourceName>
         <CommandType>StoredProcedure</CommandType>
-        <CommandText>USP_RS_EVALUACION_COLABORADORES_POR_COMPETENCIAS</CommandText>
+        <CommandText>USP_RS_COMPETENCIAS_POR_PUESTO</CommandText>
         <QueryParameters>
           <QueryParameter Name="@EMPRESA_ID">
             <Value>=Parameters!EMPRESA_ID.Value</Value>
@@ -116,37 +56,8 @@
           <QueryParameter Name="@COORDINACION_ID">
             <Value>=Parameters!COORDINACION_ID.Value</Value>
           </QueryParameter>
-          <QueryParameter Name="@COMPETENCIA_ID">
-            <Value>=Parameters!COMPETENCIA_ID.Value</Value>
-          </QueryParameter>
-          <QueryParameter Name="@PERIODO">
-            <Value>=Parameters!PERIODO.Value</Value>
-          </QueryParameter>
           <QueryParameter Name="@GRUPO_ORGANIZACIONAL_CODIGO">
             <Value>=Parameters!GRUPO_ORGANIZACIONAL_CODIGO.Value</Value>
-          </QueryParameter>
-        </QueryParameters>
-        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
-      </Query>
-    </DataSet>
-    <DataSet Name="dsCompetencias">
-      <Fields>
-        <Field Name="COMPETENCIA_ID">
-          <DataField>COMPETENCIA_ID</DataField>
-          <rd:TypeName>System.Guid</rd:TypeName>
-        </Field>
-        <Field Name="COMPETENCIA_DESCRIPCION">
-          <DataField>COMPETENCIA_DESCRIPCION</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-      </Fields>
-      <Query>
-        <DataSourceName>DSREPORTS</DataSourceName>
-        <CommandType>StoredProcedure</CommandType>
-        <CommandText>USP_COMPETENCIA_POR_TIPO</CommandText>
-        <QueryParameters>
-          <QueryParameter Name="@COMPETENCIA_TIPO_ID">
-            <Value>=Parameters!COMPETENCIA_TIPO_ID.Value</Value>
           </QueryParameter>
         </QueryParameters>
         <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
@@ -297,7 +208,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>="REPORTE DE EVALUACIÓN DE COMPETENCIAS" &amp; " - " &amp; Parameters!PERIODO.Value</Value>
+                <Value>="REPORTE DE COMPETENCIAS POR PUESTO"</Value>
                 <Style>
                   <FontSize>16pt</FontSize>
                   <FontWeight>Bold</FontWeight>
@@ -308,7 +219,7 @@
             <LeftIndent>0cm</LeftIndent>
             <HangingIndent>0cm</HangingIndent>
             <Style>
-              <TextAlign>Center</TextAlign>
+              <TextAlign>Left</TextAlign>
             </Style>
           </Paragraph>
         </Paragraphs>
@@ -328,42 +239,42 @@
           <PaddingBottom>2pt</PaddingBottom>
         </Style>
       </Textbox>
-      <Tablix Name="Tablix1">
+      <Tablix Name="Tablix2">
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>2.2743in</Width>
+              <Width>1.73425in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.2817in</Width>
+              <Width>1.97384in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.79675in</Width>
+              <Width>2.27592in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.953in</Width>
+              <Width>1.54675in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.24841in</Width>
+              <Width>2.33842in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>0.7655in</Width>
+              <Width>0.92021in</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
             <TablixRow>
-              <Height>0.39247in</Height>
+              <Height>0.20497in</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox3">
+                    <Textbox Name="Textbox46">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>GERENCIA</Value>
+                              <Value>GERENCIA </Value>
                               <Style>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
@@ -374,7 +285,7 @@
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Textbox3</rd:DefaultName>
+                      <rd:DefaultName>Textbox46</rd:DefaultName>
                       <Style>
                         <Border>
                           <Style>Solid</Style>
@@ -410,7 +321,7 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox5">
+                    <Textbox Name="Textbox44">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
@@ -423,14 +334,12 @@
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <LeftIndent>0cm</LeftIndent>
-                          <HangingIndent>0cm</HangingIndent>
                           <Style>
                             <TextAlign>Center</TextAlign>
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Textbox5</rd:DefaultName>
+                      <rd:DefaultName>Textbox44</rd:DefaultName>
                       <Style>
                         <Border>
                           <Style>Solid</Style>
@@ -466,7 +375,7 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox9">
+                    <Textbox Name="Textbox36">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
@@ -484,7 +393,7 @@
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Textbox9</rd:DefaultName>
+                      <rd:DefaultName>Textbox35</rd:DefaultName>
                       <Style>
                         <Border>
                           <Style>Solid</Style>
@@ -520,14 +429,48 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox11">
+                    <Textbox Name="Textbox38">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>COLABORADOR</Value>
+                              <Value>TIPO COMPETENCIA</Value>
+                              <Style>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox37</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Style>Solid</Style>
+                        </Border>
+                        <BackgroundColor>LightBlue</BackgroundColor>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox12">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>COMPETENCIA</Value>
                               <Style>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
@@ -545,26 +488,6 @@
                         <Border>
                           <Style>Solid</Style>
                         </Border>
-                        <TopBorder>
-                          <Color>Black</Color>
-                          <Style>Solid</Style>
-                          <Width>1pt</Width>
-                        </TopBorder>
-                        <BottomBorder>
-                          <Color>Black</Color>
-                          <Style>Solid</Style>
-                          <Width>1pt</Width>
-                        </BottomBorder>
-                        <LeftBorder>
-                          <Color>Black</Color>
-                          <Style>Solid</Style>
-                          <Width>1pt</Width>
-                        </LeftBorder>
-                        <RightBorder>
-                          <Color>Black</Color>
-                          <Style>Solid</Style>
-                          <Width>1pt</Width>
-                        </RightBorder>
                         <BackgroundColor>LightBlue</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
@@ -576,14 +499,14 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox13">
+                    <Textbox Name="Textbox2">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>COMPETENCIA DESARROLLADA</Value>
+                              <Value>REQUERIDO</Value>
                               <Style>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
@@ -594,85 +517,11 @@
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Textbox13</rd:DefaultName>
+                      <rd:DefaultName>Textbox1</rd:DefaultName>
                       <Style>
                         <Border>
                           <Style>Solid</Style>
                         </Border>
-                        <TopBorder>
-                          <Color>Black</Color>
-                          <Style>Solid</Style>
-                          <Width>1pt</Width>
-                        </TopBorder>
-                        <BottomBorder>
-                          <Color>Black</Color>
-                          <Style>Solid</Style>
-                          <Width>1pt</Width>
-                        </BottomBorder>
-                        <LeftBorder>
-                          <Color>Black</Color>
-                          <Style>Solid</Style>
-                          <Width>1pt</Width>
-                        </LeftBorder>
-                        <RightBorder>
-                          <Color>Black</Color>
-                          <Style>Solid</Style>
-                          <Width>1pt</Width>
-                        </RightBorder>
-                        <BackgroundColor>LightBlue</BackgroundColor>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="Textbox15">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value>BRECHA</Value>
-                              <Style>
-                                <FontWeight>Bold</FontWeight>
-                              </Style>
-                            </TextRun>
-                          </TextRuns>
-                          <Style>
-                            <TextAlign>Center</TextAlign>
-                          </Style>
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>Textbox15</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Style>Solid</Style>
-                        </Border>
-                        <TopBorder>
-                          <Color>Black</Color>
-                          <Style>Solid</Style>
-                          <Width>1pt</Width>
-                        </TopBorder>
-                        <BottomBorder>
-                          <Color>Black</Color>
-                          <Style>Solid</Style>
-                          <Width>1pt</Width>
-                        </BottomBorder>
-                        <LeftBorder>
-                          <Color>Black</Color>
-                          <Style>Solid</Style>
-                          <Width>1pt</Width>
-                        </LeftBorder>
-                        <RightBorder>
-                          <Color>Black</Color>
-                          <Style>Solid</Style>
-                          <Width>1pt</Width>
-                        </RightBorder>
                         <BackgroundColor>LightBlue</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
@@ -700,9 +549,7 @@
                               <Style />
                             </TextRun>
                           </TextRuns>
-                          <Style>
-                            <TextAlign>Center</TextAlign>
-                          </Style>
+                          <Style />
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>GERENCIA_DESCRIPCION</rd:DefaultName>
@@ -751,9 +598,7 @@
                               <Style />
                             </TextRun>
                           </TextRuns>
-                          <Style>
-                            <TextAlign>Center</TextAlign>
-                          </Style>
+                          <Style />
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>AREA_DESCRIPCION</rd:DefaultName>
@@ -791,7 +636,7 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="PUESTO_DESCRIPCION">
+                    <Textbox Name="PUESTO_DESCRIPCION1">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
@@ -802,12 +647,10 @@
                               <Style />
                             </TextRun>
                           </TextRuns>
-                          <Style>
-                            <TextAlign>Center</TextAlign>
-                          </Style>
+                          <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>PUESTO_DESCRIPCION</rd:DefaultName>
+                      <rd:DefaultName>PUESTO_DESCRIPCION1</rd:DefaultName>
                       <Style>
                         <Border>
                           <Style>Solid</Style>
@@ -842,23 +685,21 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="NOMBRES_COMPLETOS">
+                    <Textbox Name="COMPETENCIA_TIPO1">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!NOMBRES_COMPLETOS.Value</Value>
+                              <Value>=Fields!COMPETENCIA_TIPO.Value</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
-                          <Style>
-                            <TextAlign>Center</TextAlign>
-                          </Style>
+                          <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>NOMBRES_COMPLETOS</rd:DefaultName>
+                      <rd:DefaultName>COMPETENCIA_TIPO1</rd:DefaultName>
                       <Style>
                         <Border>
                           <Style>Solid</Style>
@@ -893,23 +734,21 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Competencia_Desarrollada">
+                    <Textbox Name="COMPETENCIA_DESCRIPCION1">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!Competencia_Desarrollada.Value</Value>
+                              <Value>=Fields!COMPETENCIA_DESCRIPCION.Value</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
-                          <Style>
-                            <TextAlign>Center</TextAlign>
-                          </Style>
+                          <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Competencia_Desarrollada</rd:DefaultName>
+                      <rd:DefaultName>COMPETENCIA_DESCRIPCION1</rd:DefaultName>
                       <Style>
                         <Border>
                           <Style>Solid</Style>
@@ -944,23 +783,21 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="EVALUACION_COMPETENCIA_BRECHA">
+                    <Textbox Name="COMPETENCIA_PUESTO_VALOR_REQUERIDO1">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!EVALUACION_COMPETENCIA_BRECHA.Value</Value>
+                              <Value>=Fields!COMPETENCIA_PUESTO_VALOR_REQUERIDO.Value</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
-                          <Style>
-                            <TextAlign>Center</TextAlign>
-                          </Style>
+                          <Style />
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>EVALUACION_COMPETENCIA_BRECHA</rd:DefaultName>
+                      <rd:DefaultName>COMPETENCIA_PUESTO_VALOR_REQUERIDO1</rd:DefaultName>
                       <Style>
                         <Border>
                           <Style>Solid</Style>
@@ -1013,280 +850,60 @@
               <KeepWithGroup>After</KeepWithGroup>
             </TablixMember>
             <TablixMember>
-              <Group Name="Details" />
+              <Group Name="Details">
+                <GroupExpressions>
+                  <GroupExpression>=Fields!PUESTO_DESCRIPCION.Value</GroupExpression>
+                  <GroupExpression>=Fields!COMPETENCIA_DESCRIPCION.Value</GroupExpression>
+                </GroupExpressions>
+              </Group>
+              <SortExpressions>
+                <SortExpression>
+                  <Value>=Fields!PUESTO_DESCRIPCION.Value</Value>
+                </SortExpression>
+                <SortExpression>
+                  <Value>=Fields!COMPETENCIA_TIPO.Value</Value>
+                </SortExpression>
+              </SortExpressions>
             </TablixMember>
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>dsEvaluacion_Colaboradores_por_Competencias</DataSetName>
-        <Top>5.0927cm</Top>
-        <Left>0.70591cm</Left>
-        <Height>1.59687cm</Height>
-        <Width>26.21194cm</Width>
+        <Top>2.58445cm</Top>
+        <Left>0.34997cm</Left>
+        <Height>1.12062cm</Height>
+        <Width>27.40508cm</Width>
         <ZIndex>2</ZIndex>
         <Style>
           <Border>
-            <Style>None</Style>
+            <Style>Solid</Style>
           </Border>
+          <TopBorder>
+            <Color>Black</Color>
+            <Style>Solid</Style>
+            <Width>1pt</Width>
+          </TopBorder>
+          <BottomBorder>
+            <Color>Black</Color>
+            <Style>Solid</Style>
+            <Width>1pt</Width>
+          </BottomBorder>
+          <LeftBorder>
+            <Color>Black</Color>
+            <Style>Solid</Style>
+            <Width>1pt</Width>
+          </LeftBorder>
+          <RightBorder>
+            <Color>Black</Color>
+            <Style>Solid</Style>
+            <Width>1pt</Width>
+          </RightBorder>
         </Style>
       </Tablix>
-      <Textbox Name="Textbox150">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>Indicador de Competencias Desarrolladas:</Value>
-                <Style>
-                  <FontSize>12pt</FontSize>
-                  <FontWeight>Bold</FontWeight>
-                </Style>
-              </TextRun>
-              <TextRun>
-                <Value xml:space="preserve"> </Value>
-                <Style>
-                  <FontSize>16pt</FontSize>
-                  <FontWeight>Bold</FontWeight>
-                  <Color>DarkBlue</Color>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <LeftIndent>0cm</LeftIndent>
-            <HangingIndent>0cm</HangingIndent>
-            <Style>
-              <TextAlign>Left</TextAlign>
-            </Style>
-          </Paragraph>
-        </Paragraphs>
-        <rd:DefaultName>Textbox149</rd:DefaultName>
-        <Top>3.32149cm</Top>
-        <Left>0.70591cm</Left>
-        <Height>0.70583cm</Height>
-        <Width>8.95472cm</Width>
-        <ZIndex>3</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="EVALUACION_COLABORADORES_POR_COMPETENCIA">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>=(Sum(IIF(Fields!EVALUACION_COMPETENCIA_BRECHA.Value&gt;0,0,1), "dsEvaluacion_Colaboradores_por_Competencias"))/(Count(Fields!Competencia_Desarrollada.Value, "dsEvaluacion_Colaboradores_por_Competencias"))</Value>
-                <Style>
-                  <FontSize>14pt</FontSize>
-                  <FontWeight>Bold</FontWeight>
-                  <Format>0%</Format>
-                  <Color>CornflowerBlue</Color>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style>
-              <TextAlign>Left</TextAlign>
-            </Style>
-          </Paragraph>
-        </Paragraphs>
-        <Top>3.32149cm</Top>
-        <Left>9.37258cm</Left>
-        <Height>0.70583cm</Height>
-        <Width>2.5cm</Width>
-        <ZIndex>4</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="PERIODO2">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>=Parameters!COMPETENCIA_ID.Label</Value>
-                <Style>
-                  <FontSize>14pt</FontSize>
-                  <FontWeight>Bold</FontWeight>
-                  <Color>CornflowerBlue</Color>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style />
-          </Paragraph>
-        </Paragraphs>
-        <rd:DefaultName>PERIODO</rd:DefaultName>
-        <Top>2.44456cm</Top>
-        <Left>3.76925cm</Left>
-        <Height>0.83812cm</Height>
-        <Width>10.17763cm</Width>
-        <ZIndex>5</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="Textbox151">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>Competencia:</Value>
-                <Style>
-                  <FontSize>12pt</FontSize>
-                  <FontWeight>Bold</FontWeight>
-                </Style>
-              </TextRun>
-              <TextRun>
-                <Value xml:space="preserve"> </Value>
-                <Style>
-                  <FontSize>16pt</FontSize>
-                  <FontWeight>Bold</FontWeight>
-                  <Color>DarkBlue</Color>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <LeftIndent>0cm</LeftIndent>
-            <HangingIndent>0cm</HangingIndent>
-            <Style>
-              <TextAlign>Left</TextAlign>
-            </Style>
-          </Paragraph>
-        </Paragraphs>
-        <rd:DefaultName>Textbox149</rd:DefaultName>
-        <Top>2.43927cm</Top>
-        <Left>0.70591cm</Left>
-        <Height>0.70583cm</Height>
-        <Width>3.1868cm</Width>
-        <ZIndex>6</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="Textbox152">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>Total de Personas:</Value>
-                <Style>
-                  <FontSize>12pt</FontSize>
-                  <FontWeight>Bold</FontWeight>
-                </Style>
-              </TextRun>
-              <TextRun>
-                <Value xml:space="preserve"> </Value>
-                <Style>
-                  <FontSize>16pt</FontSize>
-                  <FontWeight>Bold</FontWeight>
-                  <Color>DarkBlue</Color>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <LeftIndent>0cm</LeftIndent>
-            <HangingIndent>0cm</HangingIndent>
-            <Style>
-              <TextAlign>Left</TextAlign>
-            </Style>
-          </Paragraph>
-        </Paragraphs>
-        <rd:DefaultName>Textbox149</rd:DefaultName>
-        <Top>4.15051cm</Top>
-        <Left>0.70591cm</Left>
-        <Height>0.70583cm</Height>
-        <Width>4.21867cm</Width>
-        <ZIndex>7</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
-      <Textbox Name="PERIODO3">
-        <CanGrow>true</CanGrow>
-        <KeepTogether>true</KeepTogether>
-        <Paragraphs>
-          <Paragraph>
-            <TextRuns>
-              <TextRun>
-                <Value>=Count(Fields!Competencia_Desarrollada.Value, "dsEvaluacion_Colaboradores_por_Competencias")</Value>
-                <Style>
-                  <FontSize>14pt</FontSize>
-                  <FontWeight>Bold</FontWeight>
-                  <Color>CornflowerBlue</Color>
-                </Style>
-              </TextRun>
-            </TextRuns>
-            <Style>
-              <TextAlign>Left</TextAlign>
-            </Style>
-          </Paragraph>
-        </Paragraphs>
-        <rd:DefaultName>PERIODO</rd:DefaultName>
-        <Top>4.14874cm</Top>
-        <Left>4.92459cm</Left>
-        <Height>0.83812cm</Height>
-        <Width>9.02229cm</Width>
-        <ZIndex>8</ZIndex>
-        <Style>
-          <Border>
-            <Style>None</Style>
-          </Border>
-          <VerticalAlign>Middle</VerticalAlign>
-          <PaddingLeft>2pt</PaddingLeft>
-          <PaddingRight>2pt</PaddingRight>
-          <PaddingTop>2pt</PaddingTop>
-          <PaddingBottom>2pt</PaddingBottom>
-        </Style>
-      </Textbox>
     </ReportItems>
     <Height>3.17127in</Height>
     <Style />
   </Body>
   <ReportParameters>
-    <ReportParameter Name="PERIODO">
-      <DataType>String</DataType>
-      <Prompt>PERIODO</Prompt>
-      <ValidValues>
-        <DataSetReference>
-          <DataSetName>dsAno</DataSetName>
-          <ValueField>ANO</ValueField>
-          <LabelField>ANO</LabelField>
-        </DataSetReference>
-      </ValidValues>
-    </ReportParameter>
     <ReportParameter Name="EMPRESA_ID">
       <DataType>String</DataType>
       <Prompt>EMPRESA</Prompt>
@@ -1339,28 +956,6 @@
           <DataSetName>dsGrupoOrganizacional</DataSetName>
           <ValueField>GRUPO_ORGANIZACIONAL_CODIGO</ValueField>
           <LabelField>GRUPO_ORGANIZACIONAL_DESCRIPCION</LabelField>
-        </DataSetReference>
-      </ValidValues>
-    </ReportParameter>
-    <ReportParameter Name="COMPETENCIA_TIPO_ID">
-      <DataType>String</DataType>
-      <Prompt>TIPO DE COMPETENCIA</Prompt>
-      <ValidValues>
-        <DataSetReference>
-          <DataSetName>dsTipo_competencia</DataSetName>
-          <ValueField>COMPETENCIA_TIPO_ID</ValueField>
-          <LabelField>COMPETENCIA_TIPO_DESCRIPCION</LabelField>
-        </DataSetReference>
-      </ValidValues>
-    </ReportParameter>
-    <ReportParameter Name="COMPETENCIA_ID">
-      <DataType>String</DataType>
-      <Prompt>COMPETENCIA</Prompt>
-      <ValidValues>
-        <DataSetReference>
-          <DataSetName>dsCompetencias</DataSetName>
-          <ValueField>COMPETENCIA_ID</ValueField>
-          <LabelField>COMPETENCIA_DESCRIPCION</LabelField>
         </DataSetReference>
       </ValidValues>
     </ReportParameter>

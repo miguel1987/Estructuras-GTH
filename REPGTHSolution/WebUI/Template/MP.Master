@@ -83,7 +83,8 @@ AsyncPostBackTimeout="360000">
           <ul>
             <li><a href="../UI_REPORTES/ReporteCompetenciasPuesto.aspx">Evaluaciones de Competencias por Puesto</a></li>
             <li><a href="../UI_REPORTES/ReporteCompetenciasPuestoJerarquia.aspx">Resumen de Evaluaciones Por Competencia</a></li>    
-            <li><a href="../UI_REPORTES/Reporte_Evaluacion_Colaboradores.aspx">Evaluación de Competencias</a></li>         
+            <li><a href="../UI_REPORTES/Reporte_Evaluacion_Colaboradores.aspx">Evaluaciones de Competencias</a></li>    
+            <li><a href="../UI_REPORTES/Reporte_de_Competencias.aspx">Reporte de Competencias</a></li>       
           </ul>
         </li>
       </ul></td>

@@ -1735,7 +1735,7 @@
     </ReportParameter>
     <ReportParameter Name="AREA_ID">
       <DataType>String</DataType>
-      <Prompt>AREA</Prompt>
+      <Prompt>DEPARTAMENTO</Prompt>
       <ValidValues>
         <DataSetReference>
           <DataSetName>dsArea</DataSetName>

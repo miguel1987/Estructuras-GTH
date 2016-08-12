@@ -1976,8 +1976,8 @@
         <DataSetName>dsEvaluacionesTransversales</DataSetName>
         <Top>3.08716cm</Top>
         <Left>1.83092cm</Left>
-        <Height>4.40227cm</Height>
-        <Width>19.16323cm</Width>
+        <Height>4.40225cm</Height>
+        <Width>19.16321cm</Width>
         <ZIndex>2</ZIndex>
         <Style>
           <Border>
@@ -2079,7 +2079,7 @@
     </ReportParameter>
     <ReportParameter Name="AREA_ID">
       <DataType>String</DataType>
-      <Prompt>AREA</Prompt>
+      <Prompt>DEPARTAMENTO</Prompt>
       <ValidValues>
         <DataSetReference>
           <DataSetName>dsArea</DataSetName>
