@@ -66,7 +66,7 @@ namespace WebUI.UI_ADMINISTRACION
 
                 }
             }
-            lblMensaje.Text = file.GetName();
+            lblFile.Text = file.GetName();
             cargarGrilla();
 
         }
@@ -82,10 +82,10 @@ namespace WebUI.UI_ADMINISTRACION
             if (this.AsyncUpload1.UploadedFiles.Count > 0 || rgImportarTransversales.Items.Count > 0)
             {
                
-                if (lblMensaje.Text != string.Empty)
+                if (lblFile.Text != string.Empty)
                 {
                     string strConn = provider +
-                         DataSource + path + lblMensaje.Text + "; " + Extended;
+                         DataSource + path + lblFile.Text + "; " + Extended;
 
                     DataSet ds = new DataSet();
                     string select = ConfigurationManager.AppSettings["Select_Competencias_Transversales"].ToString();
@@ -103,15 +103,6 @@ namespace WebUI.UI_ADMINISTRACION
                 rgImportarTransversales.DataSource = String.Empty;
             }
         }
-
-
-        
-
-
-
-
-
-
 
 
         protected void btnGrabar_Click(object sender, EventArgs e)
@@ -165,7 +156,7 @@ namespace WebUI.UI_ADMINISTRACION
                         lblMensaje.Text = msjerror;
                     }
 
-               
+               lblRegistro.Text = "GRABACION CON EXITO";
 
             }
             rgImportarTransversales.AllowPaging = true;

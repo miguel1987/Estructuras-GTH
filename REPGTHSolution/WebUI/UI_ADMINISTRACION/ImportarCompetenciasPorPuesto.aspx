@@ -36,14 +36,25 @@
 	<script type="text/javascript">
 	    //Put your JavaScript code here.
     </script>
-	<telerik:RadAjaxManager ID="RadAjaxManager1" runat="server">
-	</telerik:RadAjaxManager>
+	
+    <telerik:RadAjaxManager ID="RadAjaxManager2" DefaultLoadingPanelID="RadAjaxLoadingPanel2"
+        runat="server">
+        <AjaxSettings>
+            <telerik:AjaxSetting AjaxControlID="RadAjaxPanel1">
+                <UpdatedControls>
+                    <%--<telerik:AjaxUpdatedControl ControlID="btnUpload"/>--%>
+                    <telerik:AjaxUpdatedControl ControlID="rgImportarCompetencias"  />
+                </UpdatedControls>
+            </telerik:AjaxSetting>
+            </AjaxSettings>
+ </telerik:RadAjaxManager>
     <div class="frm_titulo01">Importar Competencias Por Puesto</div>
     <br />
     <br />
     <br />
     <br />
     <br />   
+    <telerik:RadAjaxPanel ID="RadAjaxPanel1" runat="server" LoadingPanelID="RadAjaxLoadingPanel2">
     <table style="width: 100%">
         <tr>
             <td class="area-tree" style="width: 153px">	   
@@ -84,8 +95,9 @@
         </table>
          <br />
          <br />
+         <asp:Label ID="lblRegistro" runat="server" Font-Bold="true" Font-Size="Medium" ForeColor="Red"></asp:Label>
          <br />
-         <div style="text-align: justify">
+         
         <telerik:RadGrid ID="rgImportarCompetencias" HorizontalAlign="Center" runat="server" 
         CellSpacing="0" Culture="es-ES"
              AutoGenerateColumns="false" GridLines="None"
@@ -117,7 +129,9 @@
             </telerik:RadGrid>        
         <br />
         <asp:Label ID="lblMensajeCompetencia" runat="server" Font-Bold="true" Font-Size="Medium" ForeColor="Red"></asp:Label>
-	</div>        	
+        </telerik:RadAjaxPanel>
+        <asp:Label ID="lblFile" runat="server" Font-Bold="true" Font-Size="Medium" ForeColor="Red"></asp:Label>
+	      	
 </body>
 </html>
 </asp:Content>

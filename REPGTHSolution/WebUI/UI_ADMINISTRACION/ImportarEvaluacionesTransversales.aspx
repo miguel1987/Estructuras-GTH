@@ -46,7 +46,7 @@
     </script>
 	
     <telerik:RadAjaxManager ID="RadAjaxManager2" DefaultLoadingPanelID="RadAjaxLoadingPanel2"
-        runat="server" OnAjaxRequest="RadAjaxManager1_AjaxRequest">
+        runat="server">
         <AjaxSettings>
             <telerik:AjaxSetting AjaxControlID="RadAjaxPanel1">
                 <UpdatedControls>
@@ -103,13 +103,10 @@
         </table>
          <br />
          <br />
+         <asp:Label ID="lblRegistro" runat="server" Font-Bold="true" Font-Size="Medium" ForeColor="Red"></asp:Label>
          <br />
          
-<%--         <telerik:RadAjaxLoadingPanel ID="RadAjaxLoadingPanel2" IsSticky="true" 
-        runat="server" style="position:absolute; top: 618px; left: 653px;" 
-><img alt="Loading..." src='<%= RadAjaxLoadingPanel.GetWebResourceUrl(Page, "Telerik.Web.UI.Skins.Default.Ajax.loading.gif") %>' 
-                    style="border: 0px;" /> 
-                </telerik:RadAjaxLoadingPanel>--%>
+
          
       
          
@@ -133,9 +130,12 @@
                 </Columns>                                              
             </MasterTableView>                                                
             </telerik:RadGrid>
-                </telerik:RadAjaxPanel>         
+                         
         <br />
         <asp:Label ID="lblMensaje" runat="server" Font-Bold="true" Font-Size="Medium" ForeColor="Red"></asp:Label>
+       
+        </telerik:RadAjaxPanel>
+        <asp:Label ID="lblFile" runat="server" Font-Bold="true" Font-Size="Medium" ForeColor="Red"></asp:Label>
 	       	
 </body>
 </html>

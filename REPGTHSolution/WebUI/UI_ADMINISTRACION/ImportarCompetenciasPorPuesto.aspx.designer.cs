@@ -22,13 +22,22 @@ namespace WebUI.UI_ADMINISTRACION {
         protected global::Telerik.Web.UI.RadStyleSheetManager RadStyleSheetManager1;
         
         /// <summary>
-        /// RadAjaxManager1 control.
+        /// RadAjaxManager2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::Telerik.Web.UI.RadAjaxManager RadAjaxManager1;
+        protected global::Telerik.Web.UI.RadAjaxManager RadAjaxManager2;
+        
+        /// <summary>
+        /// RadAjaxPanel1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadAjaxPanel RadAjaxPanel1;
         
         /// <summary>
         /// lblArchivo control.
@@ -67,6 +76,15 @@ namespace WebUI.UI_ADMINISTRACION {
         protected global::Telerik.Web.UI.RadButton btnGrabar;
         
         /// <summary>
+        /// lblRegistro control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblRegistro;
+        
+        /// <summary>
         /// rgImportarCompetencias control.
         /// </summary>
         /// <remarks>
@@ -83,5 +101,14 @@ namespace WebUI.UI_ADMINISTRACION {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblMensajeCompetencia;
+        
+        /// <summary>
+        /// lblFile control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblFile;
     }
 }

@@ -76,6 +76,15 @@ namespace WebUI.UI_ADMINISTRACION {
         protected global::Telerik.Web.UI.RadButton btnGrabar;
         
         /// <summary>
+        /// lblRegistro control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblRegistro;
+        
+        /// <summary>
         /// rgImportarTransversales control.
         /// </summary>
         /// <remarks>
@@ -92,5 +101,14 @@ namespace WebUI.UI_ADMINISTRACION {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label lblMensaje;
+        
+        /// <summary>
+        /// lblFile control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblFile;
     }
 }

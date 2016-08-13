@@ -26,10 +26,8 @@ namespace WebUI.UI_ADMINISTRACION
         protected void Page_Load(object sender, EventArgs e)
         {
             USUARIO = Guid.Parse(Session["PERSONAL_ID"].ToString());
-            if (!IsPostBack)
-            {
-                rgImportarCompetencias.DataSource = String.Empty;
-            }
+
+            cargarGrilla();
 
         }
 
@@ -64,7 +62,7 @@ namespace WebUI.UI_ADMINISTRACION
 
                 }
             }
-
+            lblFile.Text = file.GetName();
             cargarGrilla();
 
         }
@@ -76,8 +74,14 @@ namespace WebUI.UI_ADMINISTRACION
             string provider = ConfigurationManager.AppSettings["Provider"].ToString();
             string Extended = ConfigurationManager.AppSettings["Extended"].ToString();
             string DataSource = ConfigurationManager.AppSettings["Data_Source"].ToString();
+
+            if (this.AsyncUpload2.UploadedFiles.Count > 0 || rgImportarCompetencias.Items.Count > 0)
+            {
+               
+                if (lblFile.Text != string.Empty)
+                {
             string strConn = provider +
-                 DataSource + path + file.FileName +"; "+ Extended;
+                 DataSource + path + lblFile.Text +"; "+ Extended;
 
             DataSet ds = new DataSet();
             string select = ConfigurationManager.AppSettings["Select_Competencias_Por_Puesto"].ToString();
@@ -87,6 +91,12 @@ namespace WebUI.UI_ADMINISTRACION
             dynamic data = ds;
             rgImportarCompetencias.MasterTableView.DataSource = data;
             rgImportarCompetencias.DataBind();
+                }
+            }
+            else
+            {
+                rgImportarCompetencias.DataSource = String.Empty;
+            }
         }
 
 
@@ -94,6 +104,7 @@ namespace WebUI.UI_ADMINISTRACION
         {
             rgImportarCompetencias.AllowPaging = false;
             rgImportarCompetencias.Rebind();
+            string msjerror = "Los siguientes códigos de usuarios no han sido registrados: ";
             BL_EVALUACIONES_COMPETENCIAS_PUESTOS_PERSONAL BL_EVALUACIONES_COMPETENCIAS_PUESTOS_PERSONAL = new BL_EVALUACIONES_COMPETENCIAS_PUESTOS_PERSONAL();
             
 
@@ -133,9 +144,16 @@ namespace WebUI.UI_ADMINISTRACION
                 else
                     if (OBE_COMPE_PUESTO_PERSONAL.PERSONAL_ID != Guid.Empty)
                         BL_EVALUACIONES_COMPETENCIAS_PUESTOS_PERSONAL.InsertarEvaluacionCompetenciasPuestosPersonal(OBE_COMPE_PUESTO_PERSONAL);
-                
 
+                    else
+                    {
 
+                        if (msjerror.Contains(Codigo_personal) == false)
+                            msjerror += Codigo_personal + " - ";
+
+                      lblMensajeCompetencia.Text = msjerror;
+                    }
+                lblRegistro.Text = "GRABACION CON EXITO";
 
 
             }
