@@ -86,7 +86,7 @@
         
             </td>
             <td style="width: 626px; text-align: left;">
-            <telerik:RadButton ID="btnGrabar" runat="server" Text="Importar Competencias" 
+            <telerik:RadButton ID="btnGrabar" runat="server" Text="Importar Evaluaciones" 
             OnClick="btnGrabar_Click" Skin="Office2010Silver" style="text-align: right" 
                     Width="136px" Height="22px">
         </telerik:RadButton>           
@@ -108,7 +108,7 @@
          ShowHeadersWhenNoRecords="true" EnableNoRecordsTemplate="True" ShowHeader="True" HorizontalAlign="NotSet" AutoGenerateColumns="False"   
          OverrideDataSourceControlSorting="true"> 
          <NoRecordsTemplate>
-                No existen Competencias por Puesto registradas.
+                No existen Evaluaciones de Competencias por Puesto Cargadas.
             </NoRecordsTemplate>                              
                 <Columns>                                        
                     <telerik:GridBoundColumn DataField="cod_trabajador" HeaderText="cod_trabajador">
@@ -119,19 +119,15 @@
                     </telerik:GridBoundColumn>
                     <telerik:GridBoundColumn DataField="comentario" HeaderText="comentario">
                     </telerik:GridBoundColumn>
-
-
-
-
-                    <%--<telerik:GridNumericColumn DataField="evaluacion" HeaderText="evaluacion" DataFormatString="{0:f2}" AllowRounding="false"   DataType="System.Decimal"  />--%>                                                           
-                </Columns>                                              
-            </MasterTableView>                                                
+                </Columns>      
+              <PagerStyle Mode="NextPrevAndNumeric" PageSizeLabelText="Nro. Items por Página:" PagerTextFormat="{4} Página {0} de {1}, Filas {2} a {3} de {5}" />                                        
+            </MasterTableView>    
+            <PagerStyle PrevPageImageUrl="../Styles/Grid/PagingPrev.gif" NextPageImageUrl="../Styles/Grid/PagingNext.gif" FirstPageImageUrl="../Styles/Grid/PagingFirst.gif" LastPageImageUrl="../Styles/Grid/PagingLast.gif" PageSizeControlType="RadComboBox"></PagerStyle>                                            
             </telerik:RadGrid>        
         <br />
         <asp:Label ID="lblMensajeCompetencia" runat="server" Font-Bold="true" Font-Size="Medium" ForeColor="Red"></asp:Label>
         </telerik:RadAjaxPanel>
         <asp:Label ID="lblFile" runat="server" Font-Bold="true" Font-Size="Medium" ForeColor="Red"></asp:Label>
-	      	
 </body>
 </html>
 </asp:Content>

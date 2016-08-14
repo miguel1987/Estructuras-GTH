@@ -49,7 +49,7 @@ namespace WebUI.UI_EVALUACION
                 catch (Exception ex)
                 {
 
-                    lblMensaje.Text = "Error al Cargar Solicitudes:" + ex.ToString();
+                    lblMensaje.Text = "Error al Cargar Evaluaciones:" + ex.ToString();
 
                 }
 
@@ -404,24 +404,13 @@ namespace WebUI.UI_EVALUACION
             decimal contadorTotalRegistros = 0;
             
             string valor = string.Empty;
-            //TODO: Traer de BD
-            obtenervalor(valor);
-            //int parametroCompetenciasDesarrolladas = BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES.VALOR;
             
+            obtenervalor(valor);
 
             decimal indicador = 0;
             contadorTotalRegistros = lstPersonalCompetencias.Count;
 
-            //contadorTotalRegistros = oListaEvaluacionesIndicador.Count;
-
-            //foreach (var itemevaluaciones in oListaEvaluacionesIndicador)
-            //{
-            //    BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES oEvaluacion_Competencia_Transversales = new BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES();
-            //    oEvaluacion_Competencia_Transversales.PORCENTAJE = itemevaluaciones.PORCENTAJE * 100;
-            //    if (oEvaluacion_Competencia_Transversales.PORCENTAJE >= parametroCompetenciasDesarrolladas)
-
-            //        contadorGerencia++;
-            //}
+          
             foreach (var itemPersonas in lstPersonalCompetencias)
             {
 
@@ -433,6 +422,7 @@ namespace WebUI.UI_EVALUACION
                 indicador = (contadorGerencia / contadorTotalRegistros) * 100;
 
             this.lblIndicadorGerencia.Text = Decimal.Round(indicador, 0).ToString() + "%";
+            //TODO: Reemplazar este valor que esté configurado como un parámetro del sistema
             if (indicador >= 76)
                 this.lblIndicadorGerencia.ForeColor = System.Drawing.Color.Green;
             if (indicador < 76)
@@ -441,11 +431,11 @@ namespace WebUI.UI_EVALUACION
 
         protected void obtenervalor(string valor)
         {
-            int prueba;
+            int parametro;
 
             valor = BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES.PARAMETRO_SISTEMA.DESARROLLADAS.ToString();
-            prueba = BL_EVALUACIONES_COMPETENCIAS_TRANSVERSALES.ParametroSistemaporValor(valor);
-            BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES.VALOR = prueba;
+            parametro = BL_EVALUACIONES_COMPETENCIAS_TRANSVERSALES.ParametroSistemaporValor(valor);
+            BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES.VALOR = parametro;
         }
 
         protected void obtenerColorVerde(string valor)

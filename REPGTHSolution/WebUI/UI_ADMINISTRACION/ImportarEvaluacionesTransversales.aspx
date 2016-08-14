@@ -49,8 +49,7 @@
         runat="server">
         <AjaxSettings>
             <telerik:AjaxSetting AjaxControlID="RadAjaxPanel1">
-                <UpdatedControls>
-                    <%--<telerik:AjaxUpdatedControl ControlID="btnUpload"/>--%>
+                <UpdatedControls>                   
                     <telerik:AjaxUpdatedControl ControlID="rgImportarTransversales"  />
                 </UpdatedControls>
             </telerik:AjaxSetting>
@@ -76,10 +75,9 @@
             <td style="width: 238px" class="area-tree">
  
         <telerik:RadAsyncUpload runat="server" ID="AsyncUpload1" RenderMode="Lightweight" CssClass="photo-upload"
-            OnClientFileUploaded="OnClientFileUploaded" AllowedFileExtensions="jpg,jpeg,png,gif,pdf,doc,docx,xls,xlsx"
-                                                                     
+            OnClientFileUploaded="OnClientFileUploaded" AllowedFileExtensions="xls,xlsx"                                                                     
             MaxFileSize="1048576" OnFileUploaded="AsyncUpload1_FileUploaded" Width="200px" 
-            ChunkSize="0" Culture="es-ES" Skin="Office2010Silver" 
+            ChunkSize="0" Culture="es-ES" Skin="Office2010Silver"
               style="text-align: justify" Height="19px" AutoAddFileInputs="False">
         </telerik:RadAsyncUpload>
         
@@ -104,11 +102,7 @@
          <br />
          <br />
          <asp:Label ID="lblRegistro" runat="server" Font-Bold="true" Font-Size="Medium" ForeColor="Red"></asp:Label>
-         <br />
-         
-
-         
-      
+         <br />         
          
         <telerik:RadGrid ID="rgImportarTransversales" HorizontalAlign="Center" runat="server" PageSize="10" 
         CellSpacing="0" Culture="es-ES"
@@ -120,15 +114,17 @@
          ShowHeadersWhenNoRecords="true" EnableNoRecordsTemplate="True" ShowHeader="True" HorizontalAlign="NotSet" AutoGenerateColumns="false"   
          OverrideDataSourceControlSorting="true" >    
          <NoRecordsTemplate>
-                No existen Competencias por Puesto registradas.</NoRecordsTemplate>                           
+                No existen Evaluaciones de Competencias Transversales Cargadas.</NoRecordsTemplate>                           
                 <Columns>                                        
                     <telerik:GridBoundColumn DataField="user_id" HeaderText="user_id">
                     </telerik:GridBoundColumn>
                     <telerik:GridBoundColumn DataField="cod_competencia" HeaderText="cod_competencia">
                     </telerik:GridBoundColumn>
                     <telerik:GridNumericColumn DataField="evaluacion" HeaderText="evaluacion" DataFormatString="{0:f2}" AllowRounding="false"   DataType="System.Decimal"  />                                                           
-                </Columns>                                              
-            </MasterTableView>                                                
+                </Columns>  
+               <PagerStyle Mode="NextPrevAndNumeric" PageSizeLabelText="Nro. Items por Página:" PagerTextFormat="{4} Página {0} de {1}, Filas {2} a {3} de {5}" />                                                                                    
+            </MasterTableView>   
+            <PagerStyle PrevPageImageUrl="../Styles/Grid/PagingPrev.gif" NextPageImageUrl="../Styles/Grid/PagingNext.gif" FirstPageImageUrl="../Styles/Grid/PagingFirst.gif" LastPageImageUrl="../Styles/Grid/PagingLast.gif" PageSizeControlType="RadComboBox"></PagerStyle>                                            
             </telerik:RadGrid>
                          
         <br />

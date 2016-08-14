@@ -18,6 +18,13 @@ namespace BusinessEntities
         public Int32 ESTADO { get; set; }
         public Guid EMPRESA_ID { get; set; }
         public BE_EMPRESA oBE_EMPRESA { get; set; }
+        public Guid GERENCIA_ID { get; set; }
+        public BE_EMPRESA oBE_GERENCIA { get; set; }
+        public Guid AREA_ID { get; set; }
+        public BE_EMPRESA oBE_AREA { get; set; }
+        public Guid COORDINACION_ID { get; set; }
+        public BE_EMPRESA oBE_COORDINACION { get; set; }
+
         public BE_NIVEL_PUESTO oBE_NIVEL_PUESTO { get; set; }
         
         public enum PUESTO_NIVEL

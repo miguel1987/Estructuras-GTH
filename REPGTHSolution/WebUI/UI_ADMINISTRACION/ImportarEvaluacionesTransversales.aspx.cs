@@ -28,9 +28,18 @@ namespace WebUI.UI_ADMINISTRACION
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            USUARIO = Guid.Parse(Session["PERSONAL_ID"].ToString());          
+            try
+            {
+                USUARIO = Guid.Parse(Session["PERSONAL_ID"].ToString());          
           
-            cargarGrilla();
+                cargarGrilla();
+                this.AsyncUpload1.Localization.Select = "Seleccionar";
+            }
+            catch (Exception ex)
+            {
+                lblMensaje.Text = "Error al Cargar Datos: " + ex.ToString();
+
+            }
             
         }
 
@@ -52,22 +61,30 @@ namespace WebUI.UI_ADMINISTRACION
 
         protected void btnUpload_Click(object sender, EventArgs e)
         {
-            //Validar que se haya subido un archivo
-            if (AsyncUpload1.UploadedFiles.Count > 0)
+            try
             {
-                path = Server.MapPath(ConfigurationManager.AppSettings["DocumentPath"].ToString());
-
-                file = AsyncUpload1.UploadedFiles[0];
-
-                if (file.ContentLength < MaxTotalBytes)
+                //Validar que se haya subido un archivo
+                if (AsyncUpload1.UploadedFiles.Count > 0)
                 {
-                    file.SaveAs(path + file.GetName(), true);
+                    path = Server.MapPath(ConfigurationManager.AppSettings["DocumentPath"].ToString());
+
+                    file = AsyncUpload1.UploadedFiles[0];
+
+                    if (file.ContentLength < MaxTotalBytes)
+                    {
+                        file.SaveAs(path + file.GetName(), true);
                     
 
+                    }
                 }
+                lblFile.Text = file.GetName();
+                cargarGrilla();
             }
-            lblFile.Text = file.GetName();
-            cargarGrilla();
+            catch (Exception ex)
+            {
+                lblMensaje.Text = "Error al Cargar Datos: " + ex.ToString();
+
+            }
 
         }
 
@@ -93,7 +110,7 @@ namespace WebUI.UI_ADMINISTRACION
                     (select, strConn);
                     da.Fill(ds);
                     dynamic data = ds;
-                    //rgImportarTransversales.MasterTableView.DataSource = data;
+                    
                     rgImportarTransversales.DataSource = ds;
                     rgImportarTransversales.DataBind();
                 }
@@ -107,60 +124,72 @@ namespace WebUI.UI_ADMINISTRACION
 
         protected void btnGrabar_Click(object sender, EventArgs e)
         {
-            rgImportarTransversales.AllowPaging = false;
-            rgImportarTransversales.Rebind();
-            string msjerror = "Los siguientes códigos de usuarios no han sido registrados: ";
-
-            foreach (GridDataItem item in rgImportarTransversales.MasterTableView.Items)
+            try
             {
+                rgImportarTransversales.AllowPaging = false;
+                rgImportarTransversales.Rebind();
+                string msjerror = "los siguientes códigos de usuarios no fueron encontrados: ";
 
-                BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES OBE_COMPE_TRANS = new BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES();
-                BL_IMPORTAR_EVALUACIONES_TRANSVERSALES BL_IMPORTAR_EVALUACIONES = new BL_IMPORTAR_EVALUACIONES_TRANSVERSALES();
-                BE_PERSONAL OBE_PERSONAL = new BE_PERSONAL();
-                string porcentaje;
-                string Codigo = item["user_id"].Text;
-                string Codigo_personal = Codigo.Remove(0, 6);
-                OBE_PERSONAL = BL_IMPORTAR_EVALUACIONES.SeleccionarPersonalporCodigo(Codigo_personal);
-                OBE_COMPE_TRANS.CODIGO = Codigo_personal;
-                OBE_COMPE_TRANS.PERSONAL_ID = OBE_PERSONAL.ID;
-                OBE_COMPE_TRANS.PUESTO_ID = OBE_PERSONAL.PUESTO_ID;
-                OBE_COMPE_TRANS.USUARIO_CREACION =USUARIO;
-                OBE_COMPE_TRANS.ANIO = DateTime.Now.Year;
-                string Codigo_competencia =item["cod_competencia"].Text;
+                foreach (GridDataItem item in rgImportarTransversales.MasterTableView.Items)
+                {
 
-               
-                OBE_COMPE_TRANS.COMPETENCIA_TRANSVERSAL_ID = Guid.Parse(BL_IMPORTAR_EVALUACIONES_TRANSVERSALES.seleccionarporCodigo(Codigo_competencia));
-                porcentaje = item["evaluacion"].Text;
-                
-
-
-                decimal valor = Convert.ToDecimal(porcentaje);
-                valor.ToString("0.##");
+                    BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES OBE_COMPE_TRANS = new BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES();
+                    BL_IMPORTAR_EVALUACIONES_TRANSVERSALES BL_IMPORTAR_EVALUACIONES = new BL_IMPORTAR_EVALUACIONES_TRANSVERSALES();
+                    BE_PERSONAL OBE_PERSONAL = new BE_PERSONAL();
+                    string porcentaje;
+                    string Codigo = item["user_id"].Text;
+                    string Codigo_personal = Codigo.Remove(0, 6);
+                    OBE_PERSONAL = BL_IMPORTAR_EVALUACIONES.SeleccionarPersonalporCodigo(Codigo_personal);
+                    OBE_COMPE_TRANS.CODIGO = Codigo_personal;
+                    OBE_COMPE_TRANS.PERSONAL_ID = OBE_PERSONAL.ID;
+                    OBE_COMPE_TRANS.PUESTO_ID = OBE_PERSONAL.PUESTO_ID;
+                    OBE_COMPE_TRANS.USUARIO_CREACION = USUARIO;
+                    OBE_COMPE_TRANS.ANIO = DateTime.Now.Year;
+                    string Codigo_competencia = item["cod_competencia"].Text;
 
 
+                    OBE_COMPE_TRANS.COMPETENCIA_TRANSVERSAL_ID = Guid.Parse(BL_IMPORTAR_EVALUACIONES_TRANSVERSALES.seleccionarporCodigo(Codigo_competencia));
+                    porcentaje = item["evaluacion"].Text;
 
-                OBE_COMPE_TRANS.PORCENTAJE = valor;
+                    decimal valor = Convert.ToDecimal(porcentaje);
+                    valor.ToString("0.##");
 
-                bool Existe_Evaluacion = BL_EVALUACIONES_COMPETENCIAS_TRANSVERSALES.ExisteEvaluacionTransversal(OBE_COMPE_TRANS);
-                if (Existe_Evaluacion == true)
-                    BL_EVALUACIONES_COMPETENCIAS_TRANSVERSALES.ActualizacionEvaluacionTransversal(OBE_COMPE_TRANS);
-                else
-                    if (OBE_COMPE_TRANS.PERSONAL_ID != Guid.Empty && OBE_COMPE_TRANS.COMPETENCIA_TRANSVERSAL_ID != Guid.Empty)
-                        BL_IMPORTAR_EVALUACIONES_TRANSVERSALES.InsertarEvaluacionTransversales(OBE_COMPE_TRANS);
+
+
+                    OBE_COMPE_TRANS.PORCENTAJE = valor;
+
+                    bool Existe_Evaluacion = BL_EVALUACIONES_COMPETENCIAS_TRANSVERSALES.ExisteEvaluacionTransversal(OBE_COMPE_TRANS);
+                    if (Existe_Evaluacion == true)
+                        BL_EVALUACIONES_COMPETENCIAS_TRANSVERSALES.ActualizacionEvaluacionTransversal(OBE_COMPE_TRANS);
                     else
-                    {
+                        if (OBE_COMPE_TRANS.PERSONAL_ID != Guid.Empty && OBE_COMPE_TRANS.COMPETENCIA_TRANSVERSAL_ID != Guid.Empty)
+                            BL_IMPORTAR_EVALUACIONES_TRANSVERSALES.InsertarEvaluacionTransversales(OBE_COMPE_TRANS);
+                        else
+                        {
 
-                        if (msjerror.Contains(Codigo_personal) == false)
-                            msjerror += Codigo_personal + " - ";
+                            if (msjerror.Contains(Codigo_personal) == false)
+                                msjerror += Codigo_personal + " - ";
 
-                        lblMensaje.Text = msjerror;
-                    }
+                            lblMensaje.Text = msjerror;
+                        }      
+                }
 
-               lblRegistro.Text = "GRABACION CON EXITO";
+                if (lblMensaje.Text != String.Empty)
+                    lblRegistro.Text = "Las evaluaciones fueron importadas con éxito, sin embargo " + lblMensaje.Text;
+                else
+                    lblRegistro.Text = "Las evaluaciones fueron importadas con éxito";
+
+                lblMensaje.Text = String.Empty;
+
+                rgImportarTransversales.AllowPaging = true;
+                rgImportarTransversales.Rebind();
 
             }
-            rgImportarTransversales.AllowPaging = true;
-            rgImportarTransversales.Rebind();
+            catch (Exception ex)
+            {
+                lblMensaje.Text = "Error al Importar Evaluaciones :" + ex.ToString();
+
+            }
 
         }
 

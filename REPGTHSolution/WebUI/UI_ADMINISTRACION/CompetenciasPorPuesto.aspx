@@ -27,69 +27,37 @@
       </div>
     <table style="width: 100%">
         <tr>
-            <td class="area-tree" style="width: 93px">
-                <asp:Label ID="lblEmpresa" 
-        runat="server" CssClass="estilosLabel" Text="EMPRESA:">
-      </asp:Label></td>
-            <td style="text-align: left; width: 171px">
-                <telerik:RadComboBox ID="rcbEmpresaCab" Runat="server" DataValueField="ID" MarkFirstMatch="true" Filter="None" EnableTextSelection="true" Skin="Office2010Silver"
+            <td style="text-align: left; width: 25%">
+                <asp:Label ID="lblEmpresa" runat="server" CssClass="estilosLabel" Text="EMPRESA:"></asp:Label>
+            </td>
+            <td style="text-align: left; width: 25%">
+                <telerik:RadComboBox ID="rcbEmpresaCab" Runat="server" DataValueField="ID" MarkFirstMatch="true" Filter="None" EnableTextSelection="true"
                 DataTextField="DESCRIPCION" AllowCustomText="true" DataSourceID="odsEmpresa" LoadingMessage="Cargando..." AutoPostBack="true"  OnSelectedIndexChanged="rcbEmpresaCab_SelectedIndexChanged">
                 </telerik:RadComboBox>
             </td>
-            <td style="text-align: left; width: 90px">
-                          <asp:Label ID="lblGerencia" 
-        runat="server" CssClass="estilosLabel" Text="GERENCIA:">
-      </asp:Label></td>
+            <td style="text-align: left; width: 25%">
+               <asp:Label ID="lblGerencia" runat="server" CssClass="estilosLabel" Text="GERENCIA:"></asp:Label></td>
             <td style="text-align: left; width: 167px">
-                <telerik:RadComboBox ID="rcbGerenciaCab" Runat="server" DataValueField="ID"
-                             Filter="None" EnableTextSelection="true" DataTextField="DESCRIPCION"
-                        AllowCustomText="true"  DataSourceID="odsGerencia" LoadingMessage="Cargando..." Skin="Office2010Silver" AutoPostBack="true"  OnSelectedIndexChanged="rcbGerenciaCab_SelectedIndexChanged"> 
+               <telerik:RadComboBox ID="rcbGerenciaCab" Runat="server" DataValueField="ID" Filter="None" EnableTextSelection="true" DataTextField="DESCRIPCION"
+                  AllowCustomText="true"  DataSourceID="odsGerencia" LoadingMessage="Cargando..." AutoPostBack="true"  OnSelectedIndexChanged="rcbGerenciaCab_SelectedIndexChanged"> 
                 </telerik:RadComboBox>
             </td>
-            <td style="text-align: left; width: 138px">
-                          <asp:Label ID="lblDepartamento" 
-        runat="server" CssClass="estilosLabel" Text="DEPARTAMENTO:">
-      </asp:Label></td>
+            <td style="text-align: left; width: 25%">
+               <asp:Label ID="lblDepartamento" runat="server" CssClass="estilosLabel" Text="DEPARTAMENTO:"></asp:Label></td>
             <td style="text-align: left">
                 <telerik:RadComboBox ID="rcbAreaCab" Runat="server" DataValueField="ID" MarkFirstMatch="true" Filter="None" EnableTextSelection="true" DataTextField="DESCRIPCION"
-                            AllowCustomText="true" DataSourceID="odsArea" LoadingMessage="Cargando..." Skin="Office2010Silver" AutoPostBack="true"  OnSelectedIndexChanged="rcbAreaCab_SelectedIndexChanged" >
+                            AllowCustomText="true" DataSourceID="odsArea" LoadingMessage="Cargando..." AutoPostBack="true"  OnSelectedIndexChanged="rcbAreaCab_SelectedIndexChanged">
                 </telerik:RadComboBox>
             </td>
-        </tr>
-        <tr>
-            <td class="area-tree" style="width: 93px">
-                &nbsp;</td>
-            <td style="width: 171px">
-                &nbsp;</td>
-            <td style="width: 90px">
-                &nbsp;</td>
-            <td class="area-tree" style="width: 167px">
-                &nbsp;</td>
-            <td style="width: 138px">
-                &nbsp;</td>
-            <td>
-                &nbsp;</td>
-        </tr>
-        <tr>
-            <td class="area-tree" style="width: 93px">
-                          <asp:Label ID="lblCoordinacion" 
-        runat="server" CssClass="estilosLabel" Text="COORDINACION:">
-      </asp:Label></td>
+            <td style="text-align: left; width: 25%">
+               <asp:Label ID="lblCoordinacion" runat="server" CssClass="estilosLabel" Text="COORDINACION:"></asp:Label></td>
             <td style="width: 171px">
                 <telerik:RadComboBox ID="rcbCoordinacionCab" Runat="server" DataValueField="ID"
                             MarkFirstMatch="true" Filter="None" EnableTextSelection="true" DataTextField="DESCRIPCION"
-                            AllowCustomText="true" DataSourceID="odsCoordinacion" LoadingMessage="Cargando..." Skin="Office2010Silver">
+                            AllowCustomText="true" DataSourceID="odsCoordinacion" LoadingMessage="Cargando..."  AutoPostBack="true" OnSelectedIndexChanged="rcbCoordinacionCab_SelectedIndexChanged">
                 </telerik:RadComboBox>
             </td>
-            <td style="width: 90px">
-                &nbsp;</td>
-            <td class="area-tree" style="width: 167px">
-                &nbsp;</td>
-            <td style="width: 138px">
-                &nbsp;</td>
-            <td>
-                &nbsp;</td>
-        </tr>
+        </tr>       
     </table>
           <div class="margen"></div>
       <table border="0" cellpadding="0" cellspacing="0" class="grid">   
@@ -118,7 +86,7 @@
 <ExpandCollapseColumn ExpandImageUrl="../Styles/Grid/SinglePlus.gif" CollapseImageUrl="../Styles/Grid/SingleMinus.gif" Visible="True" FilterImageUrl="../Styles/Grid/Filter.gif" SortAscImageUrl="../Styles/Grid/SortAsc.gif" SortDescImageUrl="../Styles/Grid/SortDesc.gif" FilterControlAltText="Filter ExpandColumn column"></ExpandCollapseColumn>
             <Columns>                                                  
                 <telerik:GridTemplateColumn  HeaderText="EMPRESA" HeaderStyle-Width="10%" SortExpression="oBE_EMPRESA.DESCRIPCION" UniqueName="oBE_EMPRESA.DESCRIPCION" DataField="oBE_EMPRESA.DESCRIPCION" Display="false"
-                AutoPostBackOnFilter="true">
+                AutoPostBackOnFilter="true">                       
                         <ItemTemplate>
                             <%# Eval("oBE_EMPRESA.DESCRIPCION")%>
                         </ItemTemplate>
@@ -176,7 +144,7 @@
                         <EditItemTemplate>
                         <telerik:RadComboBox
                             runat="server" ID="rcbCoordinacion" DataValueField="ID" MarkFirstMatch="true" Filter="None" EnableTextSelection="true"
-                                DataTextField="DESCRIPCION" AllowCustomText="true" DataSourceID="odsCoordinacion" LoadingMessage="Cargando..." Width="50%">
+                                DataTextField="DESCRIPCION" AllowCustomText="true" DataSourceID="odsCoordinacion" LoadingMessage="Cargando..." Width="50%" AutoPostBack="true" OnSelectedIndexChanged="rcbCoordinacion_SelectedIndexChanged">
                             </telerik:RadComboBox>
                                  
                         </EditItemTemplate>
@@ -184,12 +152,6 @@
 <HeaderStyle Width="10%"></HeaderStyle>
 
                     </telerik:GridTemplateColumn>
-
-
-
-
-
-
 
                     <telerik:GridTemplateColumn  HeaderText="PUESTO" HeaderStyle-Width="50%" SortExpression="oBE_PUESTO.DESCRIPCION" UniqueName="oBE_PUESTO.DESCRIPCION" DataField="oBE_PUESTO.DESCRIPCION"
                 AutoPostBackOnFilter="true">
@@ -283,12 +245,12 @@
     </asp:ObjectDataSource>  
     <asp:ObjectDataSource ID="odsTipoCompetencia" runat="server" SelectMethod="SeleccionarCompetenciasTipos"
         TypeName="BusinessLogicLayer.BL_COMPETENCIAS_TIPOS" DataObjectTypeName="BusinessEntities.BE_COMPETENCIAS_TIPOS"></asp:ObjectDataSource>    
-        <asp:ObjectDataSource ID="odsGerencia" runat="server" SelectMethod="SeleccionarGerencia"
-        TypeName="BusinessLogicLayer.BL_GERENCIA"></asp:ObjectDataSource> 
-        <asp:ObjectDataSource ID="odsArea" runat="server" SelectMethod="SeleccionarArea"
-        TypeName="BusinessLogicLayer.BL_AREA"></asp:ObjectDataSource>
-        <asp:ObjectDataSource ID="odsCoordinacion" runat="server" SelectMethod="SeleccionarCoordinacion"
-        TypeName="BusinessLogicLayer.BL_COORDINACION"></asp:ObjectDataSource>
+    <asp:ObjectDataSource ID="odsGerencia" runat="server" SelectMethod="SeleccionarGerencia"
+    TypeName="BusinessLogicLayer.BL_GERENCIA"></asp:ObjectDataSource> 
+    <asp:ObjectDataSource ID="odsArea" runat="server" SelectMethod="SeleccionarArea"
+    TypeName="BusinessLogicLayer.BL_AREA"></asp:ObjectDataSource>
+    <asp:ObjectDataSource ID="odsCoordinacion" runat="server" SelectMethod="SeleccionarCoordinacion"
+    TypeName="BusinessLogicLayer.BL_COORDINACION"></asp:ObjectDataSource>
 
         
 

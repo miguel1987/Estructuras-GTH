@@ -43,7 +43,7 @@ namespace WebUI.UI_EVALUACION
                 catch (Exception ex)
                 {
 
-                    lblMensaje.Text = "Error al Cargar Solicitudes:" + ex.ToString();
+                    lblMensaje.Text = "Error al Cargar Evaluaciones de Comptencias:" + ex.ToString();
                 }
 
             }
