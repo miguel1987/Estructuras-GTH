@@ -133,7 +133,9 @@ namespace DataAccessLayer
                     int USUARIO_ACTUALIZACION = dr.GetOrdinal("USUARIO_ACTUALIZACION");
                     int FECHA_ACTUALIZACION = dr.GetOrdinal("FECHA_ACTUALIZACION");
                     int EMPRESA_ID = dr.GetOrdinal("EMPRESA_ID");
-
+                    int GERENCIA_ID = dr.GetOrdinal("GERENCIA_ID");
+                    int AREA_ID = dr.GetOrdinal("AREA_ID");
+                    int COORDINACION_ID = dr.GetOrdinal("COORDINACION_ID");
 
                     // creamos un objeto del tamaño de la tupla en el array de objeto Valores
                     object[] Valores = new object[dr.FieldCount];
@@ -158,7 +160,10 @@ namespace DataAccessLayer
                             oBE_PUESTO.FECHA_CREACION = Convert.ToDateTime(Valores.GetValue(FECHA_CREACION));
                             oBE_PUESTO.USUARIO_ACTUALIZACION = (Guid)Valores.GetValue(USUARIO_ACTUALIZACION);
                             oBE_PUESTO.FECHA_ACTUALIZACION = Convert.ToDateTime(Valores.GetValue(FECHA_ACTUALIZACION));
-                            oBE_PUESTO.EMPRESA_ID = (Guid)Valores.GetValue(EMPRESA_ID);                            
+                            oBE_PUESTO.EMPRESA_ID = (Guid)Valores.GetValue(EMPRESA_ID);
+                            oBE_PUESTO.GERENCIA_ID = DBNull.Value == Valores.GetValue(GERENCIA_ID) ? Guid.Empty : (Guid)Valores.GetValue(GERENCIA_ID);
+                            oBE_PUESTO.AREA_ID = DBNull.Value == Valores.GetValue(AREA_ID) ? Guid.Empty : (Guid)Valores.GetValue(AREA_ID);
+                            oBE_PUESTO.COORDINACION_ID = DBNull.Value == Valores.GetValue(COORDINACION_ID) ? Guid.Empty : (Guid)Valores.GetValue(COORDINACION_ID);
 
                         }
                     }

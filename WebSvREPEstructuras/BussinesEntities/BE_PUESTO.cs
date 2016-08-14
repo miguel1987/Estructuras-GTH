@@ -14,6 +14,10 @@ namespace BussinesEntities
         public Int32 NIVEL { get; set; }
         public Int32 ESTADO { get; set; }
         public Guid EMPRESA_ID { get; set; }
+        public Guid GERENCIA_ID { get; set; }       
+        public Guid AREA_ID { get; set; }        
+        public Guid COORDINACION_ID { get; set; }
+        
         public List<BE_COORDINACION_PUESTO> lstBE_COORDINACION_PUESTO { get; set; }
         public List<BE_GERENCIA> lstBE_GERENCIA { get; set; }
         public List<BE_AREA> lstBE_AREA { get; set; }
