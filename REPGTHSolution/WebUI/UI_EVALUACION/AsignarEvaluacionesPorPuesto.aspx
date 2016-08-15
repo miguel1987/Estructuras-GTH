@@ -19,7 +19,7 @@
     <h2>Evaluar Competencias por Puesto</h2>
 
     <div style="height: 72px">
-    Area: 
+    Departamento: 
         <asp:Label ID="lblArea" runat="server" Text=""></asp:Label>
    <br />
    <br />

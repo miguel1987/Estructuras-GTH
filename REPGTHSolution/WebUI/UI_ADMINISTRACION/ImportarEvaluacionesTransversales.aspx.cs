@@ -126,6 +126,7 @@ namespace WebUI.UI_ADMINISTRACION
         {
             try
             {
+                System.Threading.Thread.Sleep(2000);
                 rgImportarTransversales.AllowPaging = false;
                 rgImportarTransversales.Rebind();
                 string msjerror = "los siguientes códigos de usuarios no fueron encontrados: ";

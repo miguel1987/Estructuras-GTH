@@ -41,7 +41,7 @@ AsyncPostBackTimeout="360000">
             <li ><a href="#" class="separador">Configuración del Sistema</a></li>
             <li><a href="../UI_ADMINISTRACION/Empresa.aspx">Empresas</a></li>
             <li><a href="../UI_ADMINISTRACION/Gerencia.aspx">Gerencias</a></li>
-            <li><a href="../UI_ADMINISTRACION/Area.aspx">Áreas</a></li>
+            <li><a href="../UI_ADMINISTRACION/Area.aspx">Departamentos</a></li>
             <li><a href="../UI_ADMINISTRACION/Coordinacion.aspx">Coordinaciones</a></li>
             <li><a href="../UI_ADMINISTRACION/Sede.aspx">Sedes</a></li>
             <li><a href="../UI_ADMINISTRACION/GrupoOrganizacional.aspx">Grupos Organizacionales</a></li>

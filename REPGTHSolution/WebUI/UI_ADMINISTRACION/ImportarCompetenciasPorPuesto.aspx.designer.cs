@@ -31,6 +31,15 @@ namespace WebUI.UI_ADMINISTRACION {
         protected global::Telerik.Web.UI.RadAjaxManager RadAjaxManager2;
         
         /// <summary>
+        /// Control RadAjaxLoadingPanel2.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadAjaxLoadingPanel RadAjaxLoadingPanel2;
+        
+        /// <summary>
         /// Control RadAjaxPanel1.
         /// </summary>
         /// <remarks>

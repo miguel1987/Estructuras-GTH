@@ -6,10 +6,10 @@
   <link href="../Styles/Grid.MySilk.css" rel="stylesheet" type="text/css" /> 
   <script type="text/javascript">
       function showRadConfirm(text) {
-          radalert(text, null, null, "Eliminar Área");
+          radalert(text, null, null, "Eliminar Departamento");
       }
   </script>        
-          <div class="frm_titulo01">Administrar Áreas</div>          
+          <div class="frm_titulo01">Administrar Departamento</div>          
        
           <div class="margen"></div>
           <div class="izquierda">        
@@ -42,9 +42,9 @@
         <MasterTableView DataSourceID="odsArea"
         CommandItemDisplay="Top" DataKeyNames="ID" HorizontalAlign="NotSet" AutoGenerateColumns="False" EditMode="EditForms" OverrideDataSourceControlSorting="true">
             <NoRecordsTemplate>
-                No existen áreas registradas.
+                No existen departamentos registrados.
             </NoRecordsTemplate>
-            <CommandItemSettings AddNewRecordText="Añadir Área" RefreshText="Actualizar"></CommandItemSettings>   
+            <CommandItemSettings AddNewRecordText="Añadir Departamento" RefreshText="Actualizar"></CommandItemSettings>   
 
 <RowIndicatorColumn Visible="True" FilterImageUrl="../Styles/Grid/Filter.gif" SortAscImageUrl="../Styles/Grid/SortAsc.gif" SortDescImageUrl="../Styles/Grid/SortDesc.gif" FilterControlAltText="Filter RowIndicator column"></RowIndicatorColumn>
 
@@ -62,7 +62,7 @@
 <HeaderStyle Width="350px"></HeaderStyle>
                 </telerik:GridBoundColumn>                 
                 <telerik:GridBoundColumn DataField="DESCRIPCION"
-                    HeaderText="AREA" SortExpression="DESCRIPCION" UniqueName="DESCRIPCION" HeaderStyle-Width="350px" 
+                    HeaderText="DEPARTAMENTO" SortExpression="DESCRIPCION" UniqueName="DESCRIPCION" HeaderStyle-Width="350px" 
                     AutoPostBackOnFilter="true" FilterControlWidth="120px" CurrentFilterFunction="Contains" ShowFilterIcon="false">
                     <ColumnValidationSettings EnableRequiredFieldValidation="true">
                         <RequiredFieldValidator ForeColor="Red" Text="*">
@@ -107,8 +107,8 @@
                     InsertImageUrl="../Styles/Grid/Update.gif" UpdateImageUrl="../Styles/Grid/Update.gif">
                     <ItemStyle CssClass="MyImageButton"></ItemStyle>
                 </telerik:GridEditCommandColumn>
-                <telerik:GridButtonColumn ConfirmText="¿Deseas eliminar esta Área?" ConfirmDialogType="RadWindow"
-                    ConfirmTitle="Eliminar Área" ButtonType="ImageButton" CommandName="Delete" Text="Eliminar"
+                <telerik:GridButtonColumn ConfirmText="¿Deseas eliminar este Departamento?" ConfirmDialogType="RadWindow"
+                    ConfirmTitle="Eliminar Departamento" ButtonType="ImageButton" CommandName="Delete" Text="Eliminar"
                     UniqueName="EliminarArea">
                     <ItemStyle HorizontalAlign="Center" CssClass="MyImageButton"></ItemStyle>
                 </telerik:GridButtonColumn>

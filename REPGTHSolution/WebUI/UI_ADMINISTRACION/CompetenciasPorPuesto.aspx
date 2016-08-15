@@ -20,8 +20,9 @@
               <tr>
             <td><telerik:RadTextBox CssClass="frmTxtBuscar"  ID="txtBuscar" runat="server" AutoPostBack="true" OnTextChanged="txtBuscar_TextChanged" EnableEmbeddedSkins="false"
                  Skin="MySilk"></telerik:RadTextBox></td>
-            <td><asp:HyperLink class="frm_boton" ID="linkBuscar" runat="server">Ir</asp:HyperLink>
-            </td>
+            <td><asp:HyperLink class="frm_boton" ID="linkBuscar" runat="server">Ir</asp:HyperLink></td>
+            <td><a class="frm_boton" href="../UI_REPORTES/Reporte_Competencias_por_Puesto.aspx" target="_blank" runat="server" id="linkGenerarReporte">Generar Reporte</a></td>
+            <td></td>
           </tr>
             </table>
       </div>

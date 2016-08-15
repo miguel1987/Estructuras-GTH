@@ -128,6 +128,7 @@ namespace WebUI.UI_ADMINISTRACION
         {
             try
             {
+                System.Threading.Thread.Sleep(2000);
                 rgImportarCompetencias.AllowPaging = false;
                 rgImportarCompetencias.Rebind();
                 string msjerror = "los siguientes códigos de usuarios no han sido registrados: ";

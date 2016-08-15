@@ -137,7 +137,7 @@
 
 <HeaderStyle Width="250px"></HeaderStyle>
                 </telerik:GridTemplateColumn>               
-                <telerik:GridTemplateColumn HeaderText="AREA" HeaderStyle-Width="250px" SortExpression="oBE_AREA.DESCRIPCION" DataField="oBE_AREA.DESCRIPCION" UniqueName="oBE_AREA.DESCRIPCION"
+                <telerik:GridTemplateColumn HeaderText="DEPARTAMENTO" HeaderStyle-Width="250px" SortExpression="oBE_AREA.DESCRIPCION" DataField="oBE_AREA.DESCRIPCION" UniqueName="oBE_AREA.DESCRIPCION"
                 AutoPostBackOnFilter="true">
                     <ItemTemplate>
                         <%# Eval("oBE_AREA.DESCRIPCION")%>

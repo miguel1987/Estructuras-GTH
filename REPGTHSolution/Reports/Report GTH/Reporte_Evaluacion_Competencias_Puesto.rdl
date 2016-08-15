@@ -1674,7 +1674,7 @@
             <LeftIndent>0cm</LeftIndent>
             <HangingIndent>0cm</HangingIndent>
             <Style>
-              <TextAlign>Center</TextAlign>
+              <TextAlign>Left</TextAlign>
             </Style>
           </Paragraph>
         </Paragraphs>
