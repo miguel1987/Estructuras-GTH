@@ -1,0 +1,9 @@
+﻿.RadGrid_MySilk .rgEditForm label {
+    display: block;
+    width: 120px;
+}
+
+
+.RadGrid_MySilk .rgEditForm input[type=text] {
+    width: 60%;
+}

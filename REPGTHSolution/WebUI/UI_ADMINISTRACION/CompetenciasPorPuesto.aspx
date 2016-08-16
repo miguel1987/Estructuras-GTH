@@ -5,19 +5,38 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="cph_contenedor" runat="server">
   <link href="../Styles/Grid.MySilk.css" rel="stylesheet" type="text/css" /> 
   <link href="../Styles/style.css" rel="stylesheet" type="text/css" />
+  <link href="../Styles/CompetenciaPorPuesto.css" rel="stylesheet" type="text/css" />
   <script type="text/javascript">
       function showRadConfirm(text) {
           radalert(text, null, null, "Eliminar Competencias Por Puesto");
       }
   </script>        
+  <telerik:RadAjaxManager ID="RadAjaxManager2" DefaultLoadingPanelID="RadAjaxLoadingPanel2"
+        runat="server">
+        <AjaxSettings>
+            <telerik:AjaxSetting AjaxControlID="RadAjaxPanel1">
+                <UpdatedControls>                   
+                    <telerik:AjaxUpdatedControl ControlID="rgCompetenciasPuesto"  />
+                    
+                </UpdatedControls>
+            </telerik:AjaxSetting>
+            </AjaxSettings>
+ </telerik:RadAjaxManager>
           <div class="frm_titulo01">Administrar Competencias Por Puesto</div>          
        
           <div class="margen"></div>
           <div class="izquierda">        
       </div>
           <div class="derecha">
+          <telerik:RadAjaxLoadingPanel ID="RadAjaxLoadingPanel2" IsSticky="true" 
+        runat="server" style="position:absolute; top: 383px; left: 592px;">
+        <img alt="Cargando..." src='<%= RadAjaxLoadingPanel.GetWebResourceUrl(Page, "Telerik.Web.UI.Skins.Default.Ajax.loading.gif") %>' 
+                    style="border: 0px;" /> 
+                </telerik:RadAjaxLoadingPanel>
+          
         <table width="100%" border="0" cellspacing="0" cellpadding="0">
               <tr>
+              
             <td><telerik:RadTextBox CssClass="frmTxtBuscar"  ID="txtBuscar" runat="server" AutoPostBack="true" OnTextChanged="txtBuscar_TextChanged" EnableEmbeddedSkins="false"
                  Skin="MySilk"></telerik:RadTextBox></td>
             <td><asp:HyperLink class="frm_boton" ID="linkBuscar" runat="server">Ir</asp:HyperLink></td>
@@ -63,8 +82,9 @@
           <div class="margen"></div>
       <table border="0" cellpadding="0" cellspacing="0" class="grid">   
       </table>    
+      <telerik:RadAjaxPanel ID="RadAjaxPanel1" runat="server" LoadingPanelID="RadAjaxLoadingPanel2">
  <telerik:RadGrid ID="rgCompetenciasPuesto" HorizontalAlign="Center" runat="server" EditMode="EditForms" 
-        CellSpacing="0" Culture="es-ES" DataSourceID="odsCompetenciaPuesto"
+        CellSpacing="0" Culture="es-ES" 
         OnInsertCommand="rgCompetenciasPuesto_InsertCommand" OnDeleteCommand="rgCompetenciasPuesto_DeleteCommand"
         OnUpdateCommand="rgCompetenciasPuesto_UpdateCommand" PageSize="10"
         GridLines="None" AllowPaging="True" Width="100%" 
@@ -75,11 +95,10 @@
             <Pdf PageWidth="" />
 <Pdf PageWidth=""></Pdf>
         </ExportSettings>
-        <MasterTableView DataSourceID="odsCompetenciaPuesto"
+        <MasterTableView 
         CommandItemDisplay="Top" DataKeyNames="ID" HorizontalAlign="NotSet" AutoGenerateColumns="False" EditMode="EditForms" OverrideDataSourceControlSorting="true">
             <NoRecordsTemplate>
-                No existen Competencias por Puesto registradas.
-            </NoRecordsTemplate>
+                No existen Competencias por Puesto registradas.</NoRecordsTemplate>
             <CommandItemSettings AddNewRecordText="Añadir Competencias Por Puesto" RefreshText="Actualizar"></CommandItemSettings>   
 
 <RowIndicatorColumn Visible="True" FilterImageUrl="../Styles/Grid/Filter.gif" SortAscImageUrl="../Styles/Grid/SortAsc.gif" SortDescImageUrl="../Styles/Grid/SortDesc.gif" FilterControlAltText="Filter RowIndicator column"></RowIndicatorColumn>
@@ -120,7 +139,7 @@
 
                     </telerik:GridTemplateColumn> 
 
-                    <telerik:GridTemplateColumn  HeaderText="AREA" HeaderStyle-Width="10%" SortExpression="oBE_AREA.DESCRIPCION" UniqueName="oBE_AREA.DESCRIPCION" DataField="oBE_AREA.DESCRIPCION" Display="false"
+                    <telerik:GridTemplateColumn  HeaderText="DEPARTAMENTO" HeaderStyle-Width="10%" SortExpression="oBE_AREA.DESCRIPCION" UniqueName="oBE_AREA.DESCRIPCION" DataField="oBE_AREA.DESCRIPCION" Display="false"
                 AutoPostBackOnFilter="true">
                         <ItemTemplate>
                             <%# Eval("oBE_AREA.DESCRIPCION")%>
@@ -224,6 +243,7 @@
 
 <HeaderContextMenu EnableEmbeddedSkins="False"></HeaderContextMenu>
     </telerik:RadGrid>
+    </telerik:RadAjaxPanel> 
     <br />
     <div>
     <asp:ValidationSummary ID="ValidationSummary" ForeColor="Red" 
@@ -231,7 +251,8 @@
         DisplayMode="SingleParagraph"
         EnableClientScript="true"
         runat="server"/>
-        </div>  
+        </div> 
+        
      <asp:ObjectDataSource ID="odsCompetenciaPuesto" runat="server" SelectMethod="SeleccionarCompetenciasPorPuesto"         
         TypeName="BusinessLogicLayer.BL_COMPETENCIAS_POR_PUESTO">    
     </asp:ObjectDataSource>  
@@ -258,4 +279,5 @@
 
     <telerik:RadWindowManager ID="RadWindowManager1" runat="server">
     </telerik:RadWindowManager>
+    </div>
 </asp:Content>

@@ -9,6 +9,8 @@ using BusinessLogicLayer;
 using Telerik.Web.UI;
 using System.Collections;
 using System.Text;
+using System.Web.DynamicData;
+using System.Data;
 
 namespace WebUI.UI_ADMINISTRACION
 {
@@ -20,7 +22,11 @@ namespace WebUI.UI_ADMINISTRACION
         {
             this.validarUsuarioEnDominio();
             USUARIO = Guid.Parse(Session["PERSONAL_ID"].ToString());
-            rcbEmpresaCab.SelectedIndex = 0;      
+            rcbEmpresaCab.SelectedIndex = 0;
+            dynamic data = odsCompetenciaPuesto;
+            
+            rgCompetenciasPuesto.MasterTableView.DataSource =data;
+            
         }
 
         protected void rgCompetenciasPuesto_ItemDataBound(object sender, GridItemEventArgs e)
@@ -328,7 +334,7 @@ namespace WebUI.UI_ADMINISTRACION
 
         protected void txtBuscar_TextChanged(object sender, EventArgs e)
         {
-            rgCompetenciasPuesto.MasterTableView.FilterExpression = "([oBE_PUESTO.DESCRIPCION] LIKE \'%" + txtBuscar.Text.Trim() + "%\' OR [oBE_COMPETENCIA.DESCRIPCION]LIKE \'%" + txtBuscar.Text.Trim() + "%\')";
+            rgCompetenciasPuesto.MasterTableView.FilterExpression = "([oBE_PUESTO.DESCRIPCION] LIKE \'%" + txtBuscar.Text.Trim() + "%\' OR [oBE_COMPETENCIA_TIPO.COMPETENCIA_TIPO_DESCRIPCION]LIKE \'%" + txtBuscar.Text.Trim() + "%\' OR [oBE_COMPETENCIA.DESCRIPCION]LIKE \'%" + txtBuscar.Text.Trim() + "%\')";
 
             rgCompetenciasPuesto.Rebind();
         }

@@ -3,7 +3,8 @@
 <%@ Register assembly="Telerik.Web.UI" namespace="Telerik.Web.UI" tagprefix="telerik" %>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="cph_contenedor" runat="server">
-  <link href="../Styles/Grid.MySilk.css" rel="stylesheet" type="text/css" /> 
+  <link href="../Styles/Grid.MySilk.css" rel="stylesheet" type="text/css" />
+   <link href="../Styles/CompetenciaPorPuesto.css" rel="stylesheet" type="text/css" />
   <script type="text/javascript">
       function showRadConfirm(text) {
           radalert(text, null, null, "Eliminar Coordinación");

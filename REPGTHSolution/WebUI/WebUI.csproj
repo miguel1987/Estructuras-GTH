@@ -95,10 +95,14 @@
     <Content Include="Images\pag_primero.png" />
     <Content Include="Images\pag_siguiente.png" />
     <Content Include="Images\pag_ultimo.png" />
+    <Content Include="Images\prueba.gif" />
     <Content Include="Images\sort.gif" />
     <Content Include="Scripts\jquery.tree.js" />
     <Content Include="Scripts\prueba.js" />
     <Content Include="Scripts\pruebatootip.js" />
+    <Content Include="Styles\CompetenciaPorPuesto.css" />
+    <Content Include="Styles\Empresa.css" />
+    <Content Include="Styles\Gerencias.css" />
     <Content Include="Styles\Grid.gridskin.css" />
     <Content Include="Styles\Grid.Material.css" />
     <Content Include="Styles\Grid.nuevogrid.css" />
@@ -135,6 +139,7 @@
     <Content Include="Styles\Grid\SortDesc.gif" />
     <Content Include="Styles\Grid\sprite.png" />
     <Content Include="Styles\Grid\Update.gif" />
+    <Content Include="Styles\Grupo Organizacionales.css" />
     <Content Include="Styles\jquerysctipttop.css" />
     <Content Include="Styles\main.css" />
     <Content Include="Styles\menu.css" />

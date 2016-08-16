@@ -3,6 +3,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="cph_contenedor" runat="server">
            
   <link href="../Styles/Grid.MySilk.css" rel="stylesheet" type="text/css" /> 
+   <link href="../Styles/Empresa.css" rel="stylesheet" type="text/css" />
   <script type="text/javascript">
         function showRadConfirm(text) {
             radalert(text, null, null, "Eliminar Empresa");
@@ -60,7 +61,7 @@
 
 <HeaderStyle Width="50%"></HeaderStyle>
                 </telerik:GridBoundColumn>              
-                <telerik:GridBoundColumn DataField="DESCRIPCION" HeaderText="EMPRESA" SortExpression="DESCRIPCION" UniqueName="DESCRIPCION" HeaderStyle-Width="50%" 
+                <telerik:GridBoundColumn DataField="DESCRIPCION" HeaderText="EMPRESA" SortExpression="DESCRIPCION" UniqueName="DESCRIPCION" HeaderStyle-Width="50%"
                     AutoPostBackOnFilter="true">
                     <ColumnValidationSettings EnableRequiredFieldValidation="true">
                         <RequiredFieldValidator ForeColor="Red" Text="*">

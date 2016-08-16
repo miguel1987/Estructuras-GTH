@@ -37,6 +37,7 @@ namespace BusinessLogicLayer
                     oArea.ESTADO = item.ESTADO;
 
                     wsMaestros.BE_GERENCIA[] oGerencia = wsMantenimientoEstructuras.SeleccionarGerencia();
+                    
                    
                     if (oGerencia != null)
                     {

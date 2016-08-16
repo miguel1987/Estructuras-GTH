@@ -471,6 +471,9 @@
               <s:element minOccurs="1" maxOccurs="1" name="NIVEL" type="s:int" />
               <s:element minOccurs="1" maxOccurs="1" name="ESTADO" type="s:int" />
               <s:element minOccurs="1" maxOccurs="1" name="EMPRESA_ID" type="s1:guid" />
+              <s:element minOccurs="1" maxOccurs="1" name="GERENCIA_ID" type="s1:guid" />
+              <s:element minOccurs="1" maxOccurs="1" name="AREA_ID" type="s1:guid" />
+              <s:element minOccurs="1" maxOccurs="1" name="COORDINACION_ID" type="s1:guid" />
               <s:element minOccurs="0" maxOccurs="1" name="lstBE_COORDINACION_PUESTO" type="tns:ArrayOfBE_COORDINACION_PUESTO" />
               <s:element minOccurs="0" maxOccurs="1" name="lstBE_GERENCIA" type="tns:ArrayOfBE_GERENCIA" />
               <s:element minOccurs="0" maxOccurs="1" name="lstBE_AREA" type="tns:ArrayOfBE_AREA" />

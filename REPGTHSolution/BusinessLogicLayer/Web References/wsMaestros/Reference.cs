@@ -2907,6 +2907,12 @@ namespace BusinessLogicLayer.wsMaestros {
         
         private System.Guid eMPRESA_IDField;
         
+        private System.Guid gERENCIA_IDField;
+        
+        private System.Guid aREA_IDField;
+        
+        private System.Guid cOORDINACION_IDField;
+        
         private BE_COORDINACION_PUESTO[] lstBE_COORDINACION_PUESTOField;
         
         private BE_GERENCIA[] lstBE_GERENCIAField;
@@ -2972,6 +2978,36 @@ namespace BusinessLogicLayer.wsMaestros {
             }
             set {
                 this.eMPRESA_IDField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public System.Guid GERENCIA_ID {
+            get {
+                return this.gERENCIA_IDField;
+            }
+            set {
+                this.gERENCIA_IDField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public System.Guid AREA_ID {
+            get {
+                return this.aREA_IDField;
+            }
+            set {
+                this.aREA_IDField = value;
+            }
+        }
+        
+        /// <remarks/>
+        public System.Guid COORDINACION_ID {
+            get {
+                return this.cOORDINACION_IDField;
+            }
+            set {
+                this.cOORDINACION_IDField = value;
             }
         }
         

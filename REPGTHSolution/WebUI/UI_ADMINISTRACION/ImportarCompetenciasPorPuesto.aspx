@@ -59,6 +59,11 @@
         <img alt="Cargando..." src='<%= RadAjaxLoadingPanel.GetWebResourceUrl(Page, "Telerik.Web.UI.Skins.Default.Ajax.loading.gif") %>' 
                     style="border: 0px;" /> 
      </telerik:RadAjaxLoadingPanel> 
+    <telerik:RadAjaxLoadingPanel ID="RadAjaxLoadingPanel2" IsSticky="true" 
+        runat="server" style="position:absolute; top: 168px; left: 535px;" 
+><img alt="Loading..." src='<%= RadAjaxLoadingPanel.GetWebResourceUrl(Page, "Telerik.Web.UI.Skins.Default.Ajax.loading.gif") %>' 
+                    style="border: 0px;" /> 
+                </telerik:RadAjaxLoadingPanel>
     <telerik:RadAjaxPanel ID="RadAjaxPanel1" runat="server" LoadingPanelID="RadAjaxLoadingPanel2">
     <table style="width: 100%">
         <tr>

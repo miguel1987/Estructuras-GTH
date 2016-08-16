@@ -49,7 +49,7 @@
 
 <ExpandCollapseColumn ExpandImageUrl="../Styles/Grid/SinglePlus.gif" CollapseImageUrl="../Styles/Grid/SingleMinus.gif" Visible="True" FilterImageUrl="../Styles/Grid/Filter.gif" SortAscImageUrl="../Styles/Grid/SortAsc.gif" SortDescImageUrl="../Styles/Grid/SortDesc.gif" FilterControlAltText="Filter ExpandColumn column"></ExpandCollapseColumn>
             <Columns>     
-                <telerik:GridBoundColumn DataField="CODIGO" HeaderText="CODIGO" SortExpression="CODIGO" UniqueName="CODIGO" HeaderStyle-Width="30%" 
+                <telerik:GridBoundColumn DataField="CODIGO" HeaderText="CODIGO" SortExpression="CODIGO" UniqueName="CODIGO" HeaderStyle-Width="30%" Display="false"
                     AutoPostBackOnFilter="true">
                     <ColumnValidationSettings EnableRequiredFieldValidation="true">
                         <RequiredFieldValidator ForeColor="Red" Text="*">
@@ -67,14 +67,14 @@
 
 <HeaderStyle Width="40%"></HeaderStyle>
                 </telerik:GridBoundColumn>     
-                <telerik:GridBoundColumn DataField="VALOR" HeaderText="VALOR" SortExpression="VALOR" UniqueName="VALOR" HeaderStyle-Width="30%" 
+                <telerik:GridBoundColumn DataField="VALOR" HeaderText="VALOR" SortExpression="VALOR" UniqueName="VALOR" HeaderStyle-Width="60%" 
                     AutoPostBackOnFilter="true">
                     <ColumnValidationSettings EnableRequiredFieldValidation="true">
                         <RequiredFieldValidator ForeColor="Red" Text="*">
                         </RequiredFieldValidator>
                     </ColumnValidationSettings>
 
-<HeaderStyle Width="30%"></HeaderStyle>
+<HeaderStyle Width="50%"></HeaderStyle>
                 </telerik:GridBoundColumn>                    
                     <telerik:GridEditCommandColumn ButtonType="ImageButton" EditText="Actualizar"
                     UniqueName="EditCommandColumn" CancelImageUrl="../Styles/Grid/Cancel.gif" 
