@@ -182,7 +182,16 @@ namespace DataAccessLayer
                   int COMPETENCIA_ID = dr.GetOrdinal("COMPETENCIA_ID");
                   int COMPETENCIA_TIPO_ID = dr.GetOrdinal("COMPETENCIA_TIPO_ID");
                   int COMPETENCIA_DESCRIPCION = dr.GetOrdinal("COMPETENCIA_DESCRIPCION");
-                  int COMPETENCIA_PUESTO_VALOR_REQUERIDO = dr.GetOrdinal("COMPETENCIA_PUESTO_VALOR_REQUERIDO");                
+                  int COMPETENCIA_PUESTO_VALOR_REQUERIDO = dr.GetOrdinal("COMPETENCIA_PUESTO_VALOR_REQUERIDO");
+                  int EMPRESA_ID = dr.GetOrdinal("EMPRESA_ID");
+                  int GERENCIA_ID = dr.GetOrdinal("GERENCIA_ID");
+                  int AREA_ID = dr.GetOrdinal("AREA_ID");
+                  int COORDINACION_ID = dr.GetOrdinal("COORDINACION_ID");
+                  int EMPRESA_DESCRIPCION = dr.GetOrdinal("EMPRESA_DESCRIPCION");
+                  int GERENCIA_DESCRIPCION = dr.GetOrdinal("GERENCIA_DESCRIPCION");
+                  int AREA_DESCRIPCION = dr.GetOrdinal("AREA_DESCRIPCION");                  
+                  int COORDINACION_DESCRIPCION = dr.GetOrdinal("COORDINACION_DESCRIPCION");
+                  int PUESTO_DESCRIPCION = dr.GetOrdinal("PUESTO_DESCRIPCION");
 
                   // creamos un objeto del tamaño de la tupla en el array de objeto Valores
                   object[] Valores = new object[dr.FieldCount];
@@ -204,12 +213,43 @@ namespace DataAccessLayer
                           oBE_COMPETENCIASPUESTO.COMPETENCIA_TIPO_ID = (Guid)Valores.GetValue(COMPETENCIA_TIPO_ID);
                           oBE_COMPETENCIASPUESTO.COMPETENCIA_DESCRIPCION = Valores.GetValue(COMPETENCIA_DESCRIPCION).ToString(); 
                           oBE_COMPETENCIASPUESTO.COMPETENCIA_PUESTO_VALOR_REQUERIDO = (int)Valores.GetValue(COMPETENCIA_PUESTO_VALOR_REQUERIDO);
+                          oBE_COMPETENCIASPUESTO.EMPRESA_ID = (Guid)Valores.GetValue(EMPRESA_ID);
+
+                          BE_COMPETENCIA oBE_COMPETENCIA = new BE_COMPETENCIA();
+                          oBE_COMPETENCIA.ID = oBE_COMPETENCIASPUESTO.COMPETENCIA_ID;
+                          oBE_COMPETENCIA.DESCRIPCION = oBE_COMPETENCIASPUESTO.COMPETENCIA_DESCRIPCION;
+                          oBE_COMPETENCIASPUESTO.oBE_COMPETENCIA = oBE_COMPETENCIA;
 
                           BE_COMPETENCIAS_TIPOS oBE_COMPETENCIA_TIPO = new BE_COMPETENCIAS_TIPOS();
                           DA_COMPETENCIAS_TIPOS DA_COMPETENCIAS_TIPOS = new DA_COMPETENCIAS_TIPOS();
-
                           oBE_COMPETENCIA_TIPO = DA_COMPETENCIAS_TIPOS.SeleccionarCompetenciasTiposPorId(oBE_COMPETENCIASPUESTO.COMPETENCIA_TIPO_ID)[0];
                           oBE_COMPETENCIASPUESTO.oBE_COMPETENCIA_TIPO = oBE_COMPETENCIA_TIPO;
+
+                          BE_EMPRESA oBE_EMPRESA = new BE_EMPRESA();
+                          oBE_EMPRESA.ID = oBE_COMPETENCIASPUESTO.EMPRESA_ID;
+                          oBE_EMPRESA.DESCRIPCION = Valores.GetValue(EMPRESA_DESCRIPCION).ToString();
+                          oBE_COMPETENCIASPUESTO.oBE_EMPRESA = oBE_EMPRESA;
+
+                          BE_GERENCIA oBE_GERENCIA = new BE_GERENCIA();
+                          oBE_GERENCIA.ID = (Guid)Valores.GetValue(GERENCIA_ID);
+                          oBE_GERENCIA.DESCRIPCION = Valores.GetValue(GERENCIA_DESCRIPCION).ToString();
+                          oBE_COMPETENCIASPUESTO.oBE_GERENCIA = oBE_GERENCIA;
+
+                          BE_AREA oBE_AREA = new BE_AREA();
+                          oBE_AREA.ID = (Guid)Valores.GetValue(AREA_ID);
+                          oBE_AREA.DESCRIPCION = Valores.GetValue(AREA_DESCRIPCION).ToString();
+                          oBE_COMPETENCIASPUESTO.oBE_AREA = oBE_AREA;
+
+                          BE_COORDINACION oBE_COORDINACION = new BE_COORDINACION();
+                          oBE_COORDINACION.ID = (Guid)Valores.GetValue(COORDINACION_ID);
+                          oBE_COORDINACION.DESCRIPCION = Valores.GetValue(COORDINACION_DESCRIPCION).ToString();
+                          oBE_COMPETENCIASPUESTO.oBE_COORDINACION = oBE_COORDINACION;
+
+                          BE_PUESTO oBE_PUESTO = new BE_PUESTO();
+                          oBE_PUESTO.ID = oBE_COMPETENCIASPUESTO.PUESTO_ID;
+                          oBE_PUESTO.DESCRIPCION = Valores.GetValue(PUESTO_DESCRIPCION).ToString();
+                          oBE_COMPETENCIASPUESTO.oBE_PUESTO = oBE_PUESTO;
+
                           oCOMPETENCIASPORPUESTO.Add(oBE_COMPETENCIASPUESTO);
                       }
                   }
