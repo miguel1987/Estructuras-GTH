@@ -247,6 +247,44 @@
         <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
       </Query>
     </DataSet>
+    <DataSet Name="dsParametroLimiteInferior">
+      <Fields>
+        <Field Name="PARAMETRO_VALOR">
+          <DataField>PARAMETRO_VALOR</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DSREPORTS</DataSourceName>
+        <CommandType>StoredProcedure</CommandType>
+        <CommandText>USP_PARAMETROS_SISTEMA_POR_VALOR</CommandText>
+        <QueryParameters>
+          <QueryParameter Name="@CODIGO">
+            <Value>FACTOR_INFERIOR_BRECHA</Value>
+          </QueryParameter>
+        </QueryParameters>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+      </Query>
+    </DataSet>
+    <DataSet Name="dsParametroLimiteSuperior">
+      <Fields>
+        <Field Name="PARAMETRO_VALOR">
+          <DataField>PARAMETRO_VALOR</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DSREPORTS</DataSourceName>
+        <CommandType>StoredProcedure</CommandType>
+        <CommandText>USP_PARAMETROS_SISTEMA_POR_VALOR_COLOR</CommandText>
+        <QueryParameters>
+          <QueryParameter Name="@CODIGO">
+            <Value>FACTOR_SUPERIOR_BRECHA</Value>
+          </QueryParameter>
+        </QueryParameters>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+      </Query>
+    </DataSet>
   </DataSets>
   <Body>
     <ReportItems>
@@ -954,7 +992,7 @@
                         <Border>
                           <Style>Solid</Style>
                         </Border>
-                        <BackgroundColor>=IIF((Sum(Fields!EVALUACION_COMPETENCIA_BRECHA.Value)/ Sum(Fields!COMPETENCIA_VALOR_REQUERIDO.Value)) &gt;= 0.60 AND (Sum(Fields!EVALUACION_COMPETENCIA_BRECHA.Value)/ Sum(Fields!COMPETENCIA_VALOR_REQUERIDO.Value)) &lt;= 0.79, "Yellow", IIF((Sum(Fields!EVALUACION_COMPETENCIA_BRECHA.Value)/ Sum(Fields!COMPETENCIA_VALOR_REQUERIDO.Value)) &gt;= 0.80 AND (Sum(Fields!EVALUACION_COMPETENCIA_BRECHA.Value)/ Sum(Fields!COMPETENCIA_VALOR_REQUERIDO.Value)) &lt;= 1, "Red", "LightGreen"))</BackgroundColor>
+                        <BackgroundColor>=IIF((Sum(Fields!EVALUACION_COMPETENCIA_BRECHA.Value)/ Sum(Fields!COMPETENCIA_VALOR_REQUERIDO.Value)) &gt;= (First(Fields!PARAMETRO_VALOR.Value, "dsParametroLimiteInferior")+1)/100 AND (Sum(Fields!EVALUACION_COMPETENCIA_BRECHA.Value)/ Sum(Fields!COMPETENCIA_VALOR_REQUERIDO.Value)) &lt;= (First(Fields!PARAMETRO_VALOR.Value, "dsParametroLimiteSuperior"))/100, "Yellow", IIF((Sum(Fields!EVALUACION_COMPETENCIA_BRECHA.Value)/ Sum(Fields!COMPETENCIA_VALOR_REQUERIDO.Value)) &gt;= (First(Fields!PARAMETRO_VALOR.Value, "dsParametroLimiteSuperior")+1)/100 AND (Sum(Fields!EVALUACION_COMPETENCIA_BRECHA.Value)/ Sum(Fields!COMPETENCIA_VALOR_REQUERIDO.Value)) &lt;= 1, "Red", "LightGreen"))</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -987,7 +1025,7 @@
                         <Border>
                           <Style>Solid</Style>
                         </Border>
-                        <BackgroundColor>=IIF((Sum(Fields!EVALUACION_COMPETENCIA_BRECHA.Value)/ Sum(Fields!COMPETENCIA_VALOR_REQUERIDO.Value)) &gt;= 0.60 AND (Sum(Fields!EVALUACION_COMPETENCIA_BRECHA.Value)/ Sum(Fields!COMPETENCIA_VALOR_REQUERIDO.Value)) &lt;= 0.79, "Yellow", IIF((Sum(Fields!EVALUACION_COMPETENCIA_BRECHA.Value)/ Sum(Fields!COMPETENCIA_VALOR_REQUERIDO.Value)) &gt;= 0.80 AND (Sum(Fields!EVALUACION_COMPETENCIA_BRECHA.Value)/ Sum(Fields!COMPETENCIA_VALOR_REQUERIDO.Value)) &lt;= 1, "Red", "LightGreen"))</BackgroundColor>
+                        <BackgroundColor>=IIF((Sum(Fields!EVALUACION_COMPETENCIA_BRECHA.Value)/ Sum(Fields!COMPETENCIA_VALOR_REQUERIDO.Value)) &gt;= (First(Fields!PARAMETRO_VALOR.Value, "dsParametroLimiteInferior")+1)/100 AND (Sum(Fields!EVALUACION_COMPETENCIA_BRECHA.Value)/ Sum(Fields!COMPETENCIA_VALOR_REQUERIDO.Value)) &lt;= (First(Fields!PARAMETRO_VALOR.Value, "dsParametroLimiteSuperior"))/100, "Yellow", IIF((Sum(Fields!EVALUACION_COMPETENCIA_BRECHA.Value)/ Sum(Fields!COMPETENCIA_VALOR_REQUERIDO.Value)) &gt;= (First(Fields!PARAMETRO_VALOR.Value, "dsParametroLimiteSuperior")+1)/100 AND (Sum(Fields!EVALUACION_COMPETENCIA_BRECHA.Value)/ Sum(Fields!COMPETENCIA_VALOR_REQUERIDO.Value)) &lt;= 1, "Red", "LightGreen"))</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -1601,7 +1639,7 @@
                           <Border>
                             <Style>Solid</Style>
                           </Border>
-                          <BackgroundColor>=IIF((Sum(Fields!EVALUACION_COMPETENCIA_BRECHA.Value)/ Sum(Fields!COMPETENCIA_VALOR_REQUERIDO.Value)) &gt;= 0.60 AND (Sum(Fields!EVALUACION_COMPETENCIA_BRECHA.Value)/ Sum(Fields!COMPETENCIA_VALOR_REQUERIDO.Value)) &lt;= 0.79, "Yellow", IIF((Sum(Fields!EVALUACION_COMPETENCIA_BRECHA.Value)/ Sum(Fields!COMPETENCIA_VALOR_REQUERIDO.Value)) &gt;= 0.80 AND (Sum(Fields!EVALUACION_COMPETENCIA_BRECHA.Value)/ Sum(Fields!COMPETENCIA_VALOR_REQUERIDO.Value)) &lt;= 1, "Red", "LightGreen"))</BackgroundColor>
+                          <BackgroundColor>LightBlue</BackgroundColor>
                           <PaddingLeft>2pt</PaddingLeft>
                           <PaddingRight>2pt</PaddingRight>
                           <PaddingTop>2pt</PaddingTop>

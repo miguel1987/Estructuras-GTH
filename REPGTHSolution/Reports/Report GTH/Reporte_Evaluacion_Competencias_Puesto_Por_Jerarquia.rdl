@@ -273,6 +273,44 @@
         <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
       </Query>
     </DataSet>
+    <DataSet Name="dsParametroLimiteInferior">
+      <Fields>
+        <Field Name="PARAMETRO_VALOR">
+          <DataField>PARAMETRO_VALOR</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DSREPORTS</DataSourceName>
+        <CommandType>StoredProcedure</CommandType>
+        <CommandText>USP_PARAMETROS_SISTEMA_POR_VALOR</CommandText>
+        <QueryParameters>
+          <QueryParameter Name="@CODIGO">
+            <Value>FACTOR_INFERIOR_BRECHA</Value>
+          </QueryParameter>
+        </QueryParameters>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+      </Query>
+    </DataSet>
+    <DataSet Name="dsParametroLimiteSuperior">
+      <Fields>
+        <Field Name="PARAMETRO_VALOR">
+          <DataField>PARAMETRO_VALOR</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DSREPORTS</DataSourceName>
+        <CommandType>StoredProcedure</CommandType>
+        <CommandText>USP_PARAMETROS_SISTEMA_POR_VALOR</CommandText>
+        <QueryParameters>
+          <QueryParameter Name="@CODIGO">
+            <Value>FACTOR_SUPERIOR_BRECHA</Value>
+          </QueryParameter>
+        </QueryParameters>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+      </Query>
+    </DataSet>
   </DataSets>
   <Body>
     <ReportItems>
@@ -378,7 +416,7 @@
               <Width>1.47696in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>1.54988in</Width>
+              <Width>1.3897in</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -443,13 +481,14 @@
                         <Border>
                           <Style>Solid</Style>
                         </Border>
-                        <BackgroundColor>=IIF((1-Sum(Fields!EVALUACION_COMPETENCIA_BRECHA.Value)/ Sum(Fields!COMPETENCIA_VALOR_REQUERIDO.Value)) &gt;= 0.60 AND (1-Sum(Fields!EVALUACION_COMPETENCIA_BRECHA.Value)/ Sum(Fields!COMPETENCIA_VALOR_REQUERIDO.Value)) &lt;= 0.79, "Yellow", IIF((1-Sum(Fields!EVALUACION_COMPETENCIA_BRECHA.Value)/ Sum(Fields!COMPETENCIA_VALOR_REQUERIDO.Value)) &gt;= 0.80 AND (1-Sum(Fields!EVALUACION_COMPETENCIA_BRECHA.Value)/ Sum(Fields!COMPETENCIA_VALOR_REQUERIDO.Value)) &lt;= 1, "LightGreen", "Red"))</BackgroundColor>
+                        <BackgroundColor>=IIF((1-Sum(Fields!EVALUACION_COMPETENCIA_BRECHA.Value)/ Sum(Fields!COMPETENCIA_VALOR_REQUERIDO.Value)) &gt;= (100 - First(Fields!PARAMETRO_VALOR.Value, "dsParametroLimiteSuperior"))/100  AND (1-Sum(Fields!EVALUACION_COMPETENCIA_BRECHA.Value)/ Sum(Fields!COMPETENCIA_VALOR_REQUERIDO.Value)) &lt;= (100 - (First(Fields!PARAMETRO_VALOR.Value, "dsParametroLimiteInferior")+1))/100, "Yellow", IIF((1-Sum(Fields!EVALUACION_COMPETENCIA_BRECHA.Value)/ Sum(Fields!COMPETENCIA_VALOR_REQUERIDO.Value)) &gt;= (100 - (First(Fields!PARAMETRO_VALOR.Value, "dsParametroLimiteInferior")))/100 AND (1-Sum(Fields!EVALUACION_COMPETENCIA_BRECHA.Value)/ Sum(Fields!COMPETENCIA_VALOR_REQUERIDO.Value)) &lt;= 1, "LightGreen", "Red"))</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
                         <PaddingBottom>2pt</PaddingBottom>
                       </Style>
                     </Textbox>
+                    <rd:Selected>true</rd:Selected>
                   </CellContents>
                 </TablixCell>
               </TablixCells>
@@ -470,7 +509,7 @@
                 </SortExpression>
               </SortExpressions>
               <TablixHeader>
-                <Size>0.39768in</Size>
+                <Size>0.5956in</Size>
                 <CellContents>
                   <Textbox Name="COMPETENCIA_TIPO">
                     <CanGrow>true</CanGrow>
@@ -512,7 +551,7 @@
             </TablixMember>
             <TablixMember>
               <TablixHeader>
-                <Size>0.39768in</Size>
+                <Size>0.5956in</Size>
                 <CellContents>
                   <Textbox Name="Textbox15">
                     <CanGrow>true</CanGrow>
@@ -521,7 +560,7 @@
                       <Paragraph>
                         <TextRuns>
                           <TextRun>
-                            <Value>PORCENTAJE DESARROLLO</Value>
+                            <Value>PORCENTAJE COMPETENCIAS  DESARROLLADAS</Value>
                             <Style>
                               <FontWeight>Bold</FontWeight>
                               <Color>White</Color>
@@ -658,8 +697,8 @@
         </SortExpressions>
         <Top>4.30424cm</Top>
         <Left>0.37042cm</Left>
-        <Height>2.69489cm</Height>
-        <Width>19.42252cm</Width>
+        <Height>3.19761cm</Height>
+        <Width>19.01566cm</Width>
         <ZIndex>1</ZIndex>
         <Style>
           <Border>

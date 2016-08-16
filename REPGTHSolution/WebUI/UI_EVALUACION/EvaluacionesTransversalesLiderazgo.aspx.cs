@@ -355,10 +355,10 @@ namespace WebUI.UI_EVALUACION
 
             decimal contadorCompetenciasDesarrolladas = 0;
             decimal contadorTotalRegistros = 0;
-            string valor = string.Empty;
+            //string valor = string.Empty;
             //TODO: Traer de BD
-            obtenervalor(valor);
-            int parametroCompetenciasDesarrolladas = BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES.VALOR;
+            //obtenervalor(valor);
+            int parametroCompetenciasDesarrolladas = obtenervalorparametroindicador();
 
             decimal indicador = 0;
 
@@ -376,9 +376,9 @@ namespace WebUI.UI_EVALUACION
                 indicador = (contadorCompetenciasDesarrolladas / contadorTotalRegistros) * 100;
 
             this.lblIndicador.Text = Decimal.Round(indicador, 0).ToString()+"%";
-            if (indicador >= 76)
+            if (indicador >= parametroCompetenciasDesarrolladas)
                 this.lblIndicador.ForeColor = System.Drawing.Color.Green;
-            if (indicador < 76)
+            if (indicador < parametroCompetenciasDesarrolladas)
                 this.lblIndicador.ForeColor = System.Drawing.Color.Red;
         }
 
@@ -403,9 +403,11 @@ namespace WebUI.UI_EVALUACION
             decimal contadorGerencia = 0;
             decimal contadorTotalRegistros = 0;
             
-            string valor = string.Empty;
+            //string valor = string.Empty;
             
-            obtenervalor(valor);
+            //obtenervalor(valor);
+
+            int parametroCompetenciasDesarrolladas = obtenervalorparametroindicador();
 
             decimal indicador = 0;
             contadorTotalRegistros = lstPersonalCompetencias.Count;
@@ -422,10 +424,10 @@ namespace WebUI.UI_EVALUACION
                 indicador = (contadorGerencia / contadorTotalRegistros) * 100;
 
             this.lblIndicadorGerencia.Text = Decimal.Round(indicador, 0).ToString() + "%";
-            //TODO: Reemplazar este valor que esté configurado como un parámetro del sistema
-            if (indicador >= 76)
+
+            if (indicador >= parametroCompetenciasDesarrolladas)
                 this.lblIndicadorGerencia.ForeColor = System.Drawing.Color.Green;
-            if (indicador < 76)
+            if (indicador < parametroCompetenciasDesarrolladas)
                 this.lblIndicadorGerencia.ForeColor = System.Drawing.Color.Red;
         }
 
@@ -436,6 +438,15 @@ namespace WebUI.UI_EVALUACION
             valor = BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES.PARAMETRO_SISTEMA.DESARROLLADAS.ToString();
             parametro = BL_EVALUACIONES_COMPETENCIAS_TRANSVERSALES.ParametroSistemaporValor(valor);
             BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES.VALOR = parametro;
+        }
+
+        protected int obtenervalorparametroindicador()
+        {
+            int parametro;
+            string valor;
+            valor = BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES.PARAMETRO_SISTEMA.INDICADOR_DESARROLLO_TRANSVERSALES.ToString();
+            parametro = BL_EVALUACIONES_COMPETENCIAS_TRANSVERSALES.ParametroSistemaporValor(valor);
+            return BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES.VALOR = parametro;
         }
 
         protected void obtenerColorVerde(string valor)
@@ -466,6 +477,12 @@ namespace WebUI.UI_EVALUACION
             
             int porcentaje;
 
+            string valor_desarrolladas = string.Empty;
+
+            obtenervalor(valor_desarrolladas);
+
+            int parametroCompetenciasDesarrolladas = BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES.VALOR;
+
             if (e.Cell is PivotGridDataCell)
             {
                 PivotGridDataCell cell = e.Cell as PivotGridDataCell;
@@ -487,7 +504,7 @@ namespace WebUI.UI_EVALUACION
                                     
                                     decimal price = Convert.ToDecimal(cell.DataItem);
                                     porcentaje = Convert.ToInt32(price * 100);
-                                    if (porcentaje >= 80)
+                                    if (porcentaje >= parametroCompetenciasDesarrolladas)
                                     {
 
                                         
@@ -499,7 +516,7 @@ namespace WebUI.UI_EVALUACION
                                         
                                         cell.BackColor = ColorTranslator.FromHtml(color);                                        
                                     }
-                                    else if (porcentaje < 80)
+                                    else if (porcentaje < parametroCompetenciasDesarrolladas)
                                     {
                                         string valor = string.Empty;
 

@@ -52,9 +52,10 @@ namespace BusinessEntities
 
         public enum PARAMETRO_SISTEMA
         {            
-        DESARROLLADAS,
-        VERDE,
-        AMARILLO        
+            DESARROLLADAS,
+            VERDE,
+            AMARILLO,
+            INDICADOR_DESARROLLO_TRANSVERSALES
         }
 
         public decimal PORCENTAJE_INSPIRAR { get; set; }

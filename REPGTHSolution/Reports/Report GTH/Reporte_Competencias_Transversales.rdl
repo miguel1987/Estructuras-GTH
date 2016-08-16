@@ -195,6 +195,44 @@
         <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
       </Query>
     </DataSet>
+    <DataSet Name="dsParametroFactorDesarrollo">
+      <Fields>
+        <Field Name="PARAMETRO_VALOR">
+          <DataField>PARAMETRO_VALOR</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DSREPORTS</DataSourceName>
+        <CommandType>StoredProcedure</CommandType>
+        <CommandText>USP_PARAMETROS_SISTEMA_POR_VALOR</CommandText>
+        <QueryParameters>
+          <QueryParameter Name="@CODIGO">
+            <Value>DESARROLLADAS</Value>
+          </QueryParameter>
+        </QueryParameters>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+      </Query>
+    </DataSet>
+    <DataSet Name="dsParametroIndicador">
+      <Fields>
+        <Field Name="PARAMETRO_VALOR">
+          <DataField>PARAMETRO_VALOR</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>DSREPORTS</DataSourceName>
+        <CommandType>StoredProcedure</CommandType>
+        <CommandText>USP_PARAMETROS_SISTEMA_POR_VALOR</CommandText>
+        <QueryParameters>
+          <QueryParameter Name="@CODIGO">
+            <Value>INDICADOR_DESARROLLO_TRANSVERSALES</Value>
+          </QueryParameter>
+        </QueryParameters>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+      </Query>
+    </DataSet>
   </DataSets>
   <Body>
     <ReportItems>
@@ -336,7 +374,7 @@
                         <LeftBorder>
                           <Style>Solid</Style>
                         </LeftBorder>
-                        <BackgroundColor>=IIF(Fields!EVALUACION_COMPETENCIA_TRANSVERSAL_PORCENTAJE.Value  &gt;= 0.8, "LightGreen", IIF(Fields!EVALUACION_COMPETENCIA_TRANSVERSAL_PORCENTAJE.Value = 0, "White", "Yellow"))</BackgroundColor>
+                        <BackgroundColor>=IIF(Fields!EVALUACION_COMPETENCIA_TRANSVERSAL_PORCENTAJE.Value  &gt;= (First(Fields!PARAMETRO_VALOR.Value, "dsParametroFactorDesarrollo")/100), "LightGreen", IIF(Fields!EVALUACION_COMPETENCIA_TRANSVERSAL_PORCENTAJE.Value = 0, "White", "Yellow"))</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -1009,7 +1047,7 @@
                     <FontSize>14pt</FontSize>
                     <FontWeight>Bold</FontWeight>
                     <Format>0%</Format>
-                    <Color>=IIF(ReportItems!Textbox96.Value &gt;= 76,"LightGreen","Red")</Color>
+                    <Color>=IIF(ReportItems!Textbox96.Value &gt;= (First(Fields!PARAMETRO_VALOR.Value, "dsParametroIndicador")/100),"LightGreen","Red")</Color>
                   </Style>
                 </TextRun>
               </TextRuns>
