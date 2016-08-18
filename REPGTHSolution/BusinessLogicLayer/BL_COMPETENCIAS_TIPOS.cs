@@ -21,6 +21,7 @@ namespace BusinessLogicLayer
        /// <summary>
        ///  Devuelve los datos de un tipo de competencias por Id
        /// </summary>
+       /// <param name="competencia_tipo_id"> id de tipo de competencia que se desea consultar</param>
        /// <returns> List de BE_COMPETENCIAS_TIPOS con los objetos de la entidad, que a su vez representan la tabla COMPETENCIAS_TIPOS de la base de datos.En caso no haiga datos devuelve nothing </returns>
        public static List<BE_COMPETENCIAS_TIPOS> SeleccionarCompetenciasTiposPorId(Guid competencia_tipo_id)
        {

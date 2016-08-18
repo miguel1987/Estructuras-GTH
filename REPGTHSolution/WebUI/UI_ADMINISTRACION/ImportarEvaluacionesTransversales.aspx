@@ -134,6 +134,7 @@
                          
         <br />
         <asp:Label ID="lblMensaje" runat="server" Font-Bold="true" Font-Size="Medium" ForeColor="Red"></asp:Label>
+        <asp:Label ID="lblError" runat="server" Font-Bold="true" Font-Size="Medium" ForeColor="Red"></asp:Label>
        
         </telerik:RadAjaxPanel>
         <asp:Label ID="lblFile" runat="server" Font-Bold="true" Font-Size="Medium" ForeColor="Red"></asp:Label>

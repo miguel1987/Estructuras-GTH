@@ -15,7 +15,7 @@ namespace BusinessLogicLayer
         /// <summary>
         ///  Devuelve los datos de todas las Competencias
         /// </summary>
-        /// <returns> List de BE_CUENTA_MAYOR con los objetos de la entidad, que a su vez representan la tabla CUENTAS MAYORES de la base de datos.En caso no existan datos devuelve nothing </returns>
+        /// <returns> List de BE_COMPETENCIA con los objetos de la entidad, que a su vez representan la tabla COMPETENCIA de la base de datos.En caso no existan datos devuelve nothing </returns>
         /// 
         //Inicializamos web service para consulta y actualización de maestros genéricos.          
         wsMaestros.mantenimientoEstructuras wsMantenimientoEstructuras = new wsMaestros.mantenimientoEstructuras();
@@ -27,7 +27,7 @@ namespace BusinessLogicLayer
         /// <summary>
         ///  Devuelve los datos de todas las Competencias de un tipo de competencia determinado
         /// </summary>
-        /// <returns> List de BE_CUENTA_MAYOR con los objetos de la entidad, que a su vez representan la tabla CUENTAS MAYORES de la base de datos.En caso no existan datos devuelve nothing </returns>
+        /// <returns> List de BE_COMPETENCIA con los objetos de la entidad, que a su vez representan la tabla COMPETENCIA de la base de datos.En caso no existan datos devuelve nothing </returns>
         public static List<BE_COMPETENCIA> SeleccionarCompetencias(Guid idTipoCompetencia)
         {
             return new DA_COMPETENCIA().SeleccionarCompetencias(idTipoCompetencia);
@@ -36,7 +36,7 @@ namespace BusinessLogicLayer
         /// <summary>
         /// Ingresa una nueva Competencia
         /// </summary>
-        /// <param name="oBE_COMPETENCIA">Objeto BE_CUENTA_MAYOR con todos sus campos llenos</param>
+        /// <param name="oBE_COMPETENCIA">Objeto BE_COMPETENCIA con todos sus campos llenos</param>
         /// <returns>True o False. True, si se ingreso con exito. False, si hubo un error al ingresar</returns>
         public static Boolean InsertarCompetencia(BE_COMPETENCIA oBE_COMPETENCIA)
         {
@@ -46,7 +46,7 @@ namespace BusinessLogicLayer
         /// <summary>
         /// Actualiza una Cuenta Mayor
         /// </summary>
-        /// <param name="oBE_CUENTA_MAYOR">Objeto BE_CUENTA_MAYOR con todos sus campos llenos</param>
+        /// <param name="oBE_COMPETENCIA">Objeto BE_COMPETENCIA con todos sus campos llenos</param>
         /// <returns>True o False. True, si se ingreso con exito. False, si hubo un error al ingresar</returns>
         public static Boolean ActualizarCompetencia(BE_COMPETENCIA oBE_COMPETENCIA)
         {
@@ -56,7 +56,7 @@ namespace BusinessLogicLayer
         /// <summary>
         /// Eliminar una Competencia 
         /// </summary>
-        /// <param name="competencia_id">Codigo de la cuenta mayor que se desea eliminar</param>
+        /// <param name="competencia_id">Codigo de la competencia_id que se desea eliminar</param>
         /// <returns>True o False. True, si se ingreso con exito. False, si hubo un error al ingresar</returns>
         public static Boolean EliminarCompetencia(Guid competencia_id)
         {
@@ -65,7 +65,8 @@ namespace BusinessLogicLayer
 
         /// <summary>
         /// se obtiene la lista de personal por codigo  
-        /// </summary>       
+        /// </summary> 
+        /// <param name="Codigo_Personal">Codigo de personal a seleccionar</param>
         public BE_PERSONAL SeleccionarPersonalporCodigo(string Codigo_Personal)
         {
             wsMaestros.BE_PERSONAL oLista = wsMantenimientoEstructuras.SeleccionarPersonalPorCodigo(Codigo_Personal);
@@ -83,7 +84,8 @@ namespace BusinessLogicLayer
 
         /// <summary>
         /// devuelve idCompetencia 
-        /// </summary>        
+        /// </summary> 
+        /// <param name="codigo_competencia">Codigo de competencia a seleccionar</param>
         public static string seleccionarporCodigo(string codigo_competencia)
         {
             DA_COMPETENCIA DA_COMPETENCIA = new DA_COMPETENCIA();

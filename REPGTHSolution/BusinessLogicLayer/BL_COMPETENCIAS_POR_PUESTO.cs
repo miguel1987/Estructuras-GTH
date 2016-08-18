@@ -15,8 +15,9 @@ namespace BusinessLogicLayer
         /// <summary>
         ///  Devuelve los datos de las Competencias de un Puesto por Puesto, Tipo de Competencia y Personal
         /// </summary>
-        /// <param name="puestoId">puesto id de la cual se desea consultar sus competencias</param>
-        /// <param name="tipoCompetenciaId">tipo de competencia que se desea consultar</param>
+       /// <param name="idPuesto">puesto id de la cual se desea consultar sus competencias</param>
+       /// <param name="idTipoCompetencia">tipo de competencia que se desea consultar</param>
+       /// <param name="idPersonal">personal id que se desea consultar</param>
         /// <returns> List de BE_COMPETENCIAS_POR_PUESTO con los objetos de la entidad, que a su vez representan la tabla COMPETENCIAS_PUESTOS de la base de datos.En caso no existan datos devuelve nothing </returns>
        public static List<BE_COMPETENCIAS_POR_PUESTO> SeleccionarCompetenciasPorPuestoyTipo(Guid idPuesto, Guid idTipoCompetencia,Guid idPersonal)
         {
@@ -26,8 +27,8 @@ namespace BusinessLogicLayer
        /// <summary>
        ///  Devuelve los datos de las Competencias de un Puesto por Puesto, Tipo de Competencia y Personal
        /// </summary>
-       /// <param name="puestoId">puesto id de la cual se desea consultar sus competencias</param>
-       /// <param name="tipoCompetenciaId">tipo de competencia que se desea consultar</param>
+       /// <param name="idPuesto">puesto id de la cual se desea consultar sus competencias</param>
+       /// <param name="idTipoCompetencia">tipo de competencia que se desea consultar</param>
        /// <returns> List de BE_COMPETENCIAS_POR_PUESTO con los objetos de la entidad, que a su vez representan la tabla COMPETENCIAS_PUESTOS de la base de datos.En caso no existan datos devuelve nothing </returns>
        public static List<BE_COMPETENCIAS_POR_PUESTO> SeleccionarCompetenciasPorPuestoyTipo(Guid idPuesto, Guid idTipoCompetencia)
        {
@@ -36,6 +37,7 @@ namespace BusinessLogicLayer
 
        /// <summary>
        /// devuelve el tipo de evaluacion 
+       /// <param name="idPuesto">puesto id de a cual se desea consultar sus competencias</param>
        /// </summary>
        public static int EvaluacionFinalGrabar(Guid idPuesto)
        {
@@ -200,8 +202,9 @@ namespace BusinessLogicLayer
        }
 
        /// <summary>
-       /// devuelve el codigo del valor requerido
+       /// devuelve el codigo del valor requerido por Puesto de Personal
        /// </summary>
+       /// <param name="oBE_COMPE_PUESTO_PERSONAL">Objeto BE_EVALUACIONES_COMPETENCIAS_PUESTOS_PERSONAL con todos sus campos llenos</param>
        public int SeleccionarValorRequerido(BE_EVALUACIONES_COMPETENCIAS_PUESTOS_PERSONAL oBE_COMPE_PUESTO_PERSONAL)
        {
            DA_COMPETENCIAS_POR_PUESTO DA_COMPETENCIAS_POR_PUESTO = new DA_COMPETENCIAS_POR_PUESTO();

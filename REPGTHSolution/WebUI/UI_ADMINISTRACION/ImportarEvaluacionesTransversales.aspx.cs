@@ -30,16 +30,20 @@ namespace WebUI.UI_ADMINISTRACION
         {
             try
             {
-                USUARIO = Guid.Parse(Session["PERSONAL_ID"].ToString());          
-          
+
+                USUARIO = Guid.Parse(Session["PERSONAL_ID"].ToString());
+                lblError.Text = string.Empty;
+                
+
                 cargarGrilla();
                 this.AsyncUpload1.Localization.Select = "Seleccionar";
             }
             catch (Exception ex)
             {
-                lblMensaje.Text = "Error al Cargar Datos: " + ex.ToString();
-
+                lblFile.Text = string.Empty;
+                lblError.Text = "Error al Cargar Datos: Formato de Archivo no válido" + ex.Message;
             }
+           
             
         }
 
@@ -60,9 +64,10 @@ namespace WebUI.UI_ADMINISTRACION
 
 
         protected void btnUpload_Click(object sender, EventArgs e)
-        {
+        {            
             try
             {
+                
                 //Validar que se haya subido un archivo
                 if (AsyncUpload1.UploadedFiles.Count > 0)
                 {
@@ -82,8 +87,10 @@ namespace WebUI.UI_ADMINISTRACION
             }
             catch (Exception ex)
             {
-                lblMensaje.Text = "Error al Cargar Datos: " + ex.ToString();
-
+                lblError.Text = "Error al Cargar Datos: Formato de Archivo no válido" + ex.Message;
+                lblFile.Text = string.Empty;
+                rgImportarTransversales.DataSource = String.Empty;
+                rgImportarTransversales.Rebind();
             }
 
         }
@@ -118,6 +125,7 @@ namespace WebUI.UI_ADMINISTRACION
             else
             {
                 rgImportarTransversales.DataSource = String.Empty;
+                
             }
         }
 
@@ -188,7 +196,7 @@ namespace WebUI.UI_ADMINISTRACION
             }
             catch (Exception ex)
             {
-                lblMensaje.Text = "Error al Importar Evaluaciones :" + ex.ToString();
+                lblError.Text = "Error al Importar Evaluaciones :" + ex.ToString();
 
             }
 

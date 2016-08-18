@@ -176,7 +176,7 @@ namespace BusinessLogicLayer
         /// <summary>
         /// Actualiza los datos de una Coordinación
         /// </summary>
-        /// <param name="oBE_COORDINACION">Entidad BE_AREA, que representa la tabla AREAS, con todos sus atributos </param>
+        /// <param name="oBE_COORDINACION">Entidad BE_COORDINACION, que representa la tabla COORDINACION, con todos sus atributos </param>
         /// <returns>True o False. True, si se ingreso con exito. False, si hubo un error al ingresar</returns>
         public Boolean ActualizarCoordinacion(BE_COORDINACION oBE_COORDINACION)
         {

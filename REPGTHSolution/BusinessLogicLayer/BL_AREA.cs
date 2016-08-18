@@ -201,6 +201,6 @@ namespace BusinessLogicLayer
         {
             return wsMantenimientoEstructuras.EliminarArea(area_id);
         }
-
+       
     }
 }

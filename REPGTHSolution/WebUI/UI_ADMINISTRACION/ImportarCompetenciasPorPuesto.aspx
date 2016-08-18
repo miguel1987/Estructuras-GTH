@@ -32,11 +32,6 @@
 
 </head>
 <body>
-    
-	<script type="text/javascript">
-	    //Put your JavaScript code here.
-    </script>
-	
     <telerik:RadAjaxManager ID="RadAjaxManager2" DefaultLoadingPanelID="RadAjaxLoadingPanel2"
         runat="server">
         <AjaxSettings>
@@ -59,41 +54,28 @@
         <img alt="Cargando..." src='<%= RadAjaxLoadingPanel.GetWebResourceUrl(Page, "Telerik.Web.UI.Skins.Default.Ajax.loading.gif") %>' 
                     style="border: 0px;" /> 
      </telerik:RadAjaxLoadingPanel> 
-    <telerik:RadAjaxLoadingPanel ID="RadAjaxLoadingPanel2" IsSticky="true" 
-        runat="server" style="position:absolute; top: 168px; left: 535px;" 
-><img alt="Loading..." src='<%= RadAjaxLoadingPanel.GetWebResourceUrl(Page, "Telerik.Web.UI.Skins.Default.Ajax.loading.gif") %>' 
-                    style="border: 0px;" /> 
-                </telerik:RadAjaxLoadingPanel>
+
     <telerik:RadAjaxPanel ID="RadAjaxPanel1" runat="server" LoadingPanelID="RadAjaxLoadingPanel2">
     <table style="width: 100%">
         <tr>
             <td class="area-tree" style="width: 153px">	   
     <asp:Label ID="lblArchivo" 
         runat="server" CssClass="estilosLabel" Text="Seleccionar Archivo :">
-      </asp:Label>
-     
-      
+      </asp:Label>      
             </td>
-            <td style="width: 275px">
-     
-      
+            <td style="width: 275px">      
         <telerik:RadAsyncUpload runat="server" ID="AsyncUpload2" RenderMode="Lightweight" CssClass="photo-upload"
-            OnClientFileUploaded="OnClientFileUploaded" AllowedFileExtensions="jpg,jpeg,png,gif,pdf,doc,docx,xls,xlsx"
-                                                                     
+            OnClientFileUploaded="OnClientFileUploaded" AllowedFileExtensions="jpg,jpeg,png,gif,pdf,doc,docx,xls,xlsx"                                                                     
             MaxFileSize="1048576" OnFileUploaded="AsyncUpload2_FileUploaded" Width="200px" 
             ChunkSize="0" Culture="es-ES" Skin="Office2010Silver" 
               style="text-align: justify" Height="19px" AutoAddFileInputs="False">
-        </telerik:RadAsyncUpload>
-        
+        </telerik:RadAsyncUpload>        
             </td>
-            <td style="width: 127px; text-align: left;">
-     
-      
+            <td style="width: 127px; text-align: left;">      
         <telerik:RadButton ID="btnUpload" runat="server" Text="Cargar Datos" 
             OnClick="btnUpload_Click" Skin="Office2010Silver" style="text-align: right" 
                     Height="22px" Width="80px">
-        </telerik:RadButton>
-        
+        </telerik:RadButton>        
             </td>
             <td style="width: 626px; text-align: left;">
             <telerik:RadButton ID="btnGrabar" runat="server" Text="Importar Evaluaciones" 
@@ -106,8 +88,7 @@
          <br />
          <br />
          <asp:Label ID="lblRegistro" runat="server" Font-Bold="true" Font-Size="Medium" ForeColor="Red"></asp:Label>
-         <br />
-         
+         <br />         
         <telerik:RadGrid ID="rgImportarCompetencias" HorizontalAlign="Center" runat="server" 
         CellSpacing="0" Culture="es-ES"
              AutoGenerateColumns="false" GridLines="None"

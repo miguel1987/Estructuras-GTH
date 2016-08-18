@@ -17,6 +17,8 @@ namespace BusinessLogicLayer
         /// <summary>
         ///  Devuelve los datos de todos los puesto y colaboradores.
         /// </summary>
+        /// <param name="jerarquia_id">id de jerarquia a consultar</param>
+        /// <param name="nivel">codigo de nivel a consultar</param>
         /// <returns> List de BE_PUESTO con los objetos de la entidad, que a su vez representan la tabla PUESTOS de la base de datos.En caso no existan datos devuelve nothing </returns>
         /// 
         public List<BE_PUESTO> SeleccionarPuestosPorJerarquia(Guid jerarquia_id, int nivel)
@@ -61,7 +63,9 @@ namespace BusinessLogicLayer
         /// <summary>
         ///  Devuelve los datos de todos los puesto y colaboradores.
         /// </summary>
-        /// <returns> List de BE_EVALUACION_COMPETENCIA_PUESTO con los objetos de la entidad, que a su vez representan la tabla PUESTOS de la base de datos.En caso no existan datos devuelve nothing </returns>
+        /// <param name="competencia_tipo_id">id tipo competencia a consultar </param>
+        /// <param name="puesto_id">id puesto a consultar</param>
+        /// <returns> List de BE_EVALUACION_COMPETENCIA_PUESTO con los objetos de la entidad, que a su vez representan la tabla EVALUACION COMPETENCIA PUESTO de la base de datos.En caso no existan datos devuelve nothing </returns>
         ///
         public List<BE_EVALUACION_COMPETENCIA_PUESTO> SeleccionarEvaluaciones(Guid puesto_id, Guid competencia_tipo_id)
         {

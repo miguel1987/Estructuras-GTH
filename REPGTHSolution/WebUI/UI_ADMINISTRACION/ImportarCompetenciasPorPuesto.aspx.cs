@@ -28,12 +28,16 @@ namespace WebUI.UI_ADMINISTRACION
             try
             {
                 USUARIO = Guid.Parse(Session["PERSONAL_ID"].ToString());
-                this.AsyncUpload2.Localization.Select = "Seleccionar";
+                
+                lblMensajeCompetencia.Text = string.Empty;
                 cargarGrilla();
+                this.AsyncUpload2.Localization.Select = "Seleccionar";
+                
             }
             catch (Exception ex)
             {
-                lblMensajeCompetencia.Text = "Error al Cargar Datos: " + ex.ToString();
+                lblFile.Text = string.Empty;
+                lblMensajeCompetencia.Text = "Error al Cargar Datos: Formato de Archivo no válido" + ex.Message;
 
             }
 
@@ -77,7 +81,10 @@ namespace WebUI.UI_ADMINISTRACION
             }
             catch (Exception ex)
             {
-                lblMensajeCompetencia.Text = "Error al Cargar Datos: " + ex.ToString();
+                lblMensajeCompetencia.Text = "Error al Cargar Datos: Formato de Archivo no válido" + ex.Message;
+                lblFile.Text = string.Empty;
+                rgImportarCompetencias.DataSource = string.Empty;
+                rgImportarCompetencias.Rebind();
 
             }
 
@@ -86,8 +93,7 @@ namespace WebUI.UI_ADMINISTRACION
 
         void cargarGrilla()
         {
-            try
-            {
+           
                 path = Server.MapPath(ConfigurationManager.AppSettings["DocumentPath"].ToString());
                 string provider = ConfigurationManager.AppSettings["Provider"].ToString();
                 string Extended = ConfigurationManager.AppSettings["Extended"].ToString();
@@ -114,13 +120,7 @@ namespace WebUI.UI_ADMINISTRACION
                 else
                 {
                     rgImportarCompetencias.DataSource = String.Empty;
-                }
-            }
-            catch (Exception ex)
-            {
-                lblMensajeCompetencia.Text = "Error al Cargar Datos: " + ex.ToString();
-
-            }
+                }            
         }
 
 

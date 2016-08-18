@@ -12,6 +12,12 @@ namespace BusinessLogicLayer
         //Inicializamos web service para consulta y actualización de maestros genéricos.  
 
         wsMaestros.mantenimientoEstructuras wsMantenimientoEstructuras = new wsMaestros.mantenimientoEstructuras();
+
+       /// <summary>
+       /// Devuelve los datos al seleccionar personal por codigo
+       /// </summary>
+       /// <param name="Codigo_Personal">Codigo de personal a consultar</param>
+       /// <returns></returns>
         public BE_PERSONAL SeleccionarPersonalporCodigo(string Codigo_Personal)
         {
          wsMaestros.BE_PERSONAL oLista = wsMantenimientoEstructuras.SeleccionarPersonalPorCodigo(Codigo_Personal);
@@ -30,24 +36,26 @@ namespace BusinessLogicLayer
             
         }
 
+       /// <summary>
+       /// Devuelve los datos al seleccionar por codigo la competencia
+       /// </summary>
+       /// <param name="codigo_competencia">Codigo de competencia a consultar</param>
+       /// <returns></returns>
         public static string seleccionarporCodigo(string codigo_competencia)
         {
             DA_IMPORTAR_EVALUACIONES_TRANSVERSALES DA_IMPORTAR_EVALUACIONES_TRANSVERSALES=new DA_IMPORTAR_EVALUACIONES_TRANSVERSALES();
-            return DA_IMPORTAR_EVALUACIONES_TRANSVERSALES.EvaluacionSeleccionarporCodigo(codigo_competencia);
-        
-        
+            return DA_IMPORTAR_EVALUACIONES_TRANSVERSALES.EvaluacionSeleccionarporCodigo(codigo_competencia);       
         }
 
-
+       /// <summary>
+       /// Inserta la evaluaciones Transversales al Importar
+       /// </summary>
+        /// <param name="OBE_COMPE_TRANS">Entidad BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES que representa a la tabla EVALUACIONES_COMPETENCIAS_TRANSVERSALES,con todos sus atributos </param>
+       /// <returns></returns>
         public static Boolean InsertarEvaluacionTransversales(BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES OBE_COMPE_TRANS)
         {
             DA_IMPORTAR_EVALUACIONES_TRANSVERSALES DA_IMPORTAR_EVALUACIONES_TRANSVERSALES = new DA_IMPORTAR_EVALUACIONES_TRANSVERSALES();
-            return DA_IMPORTAR_EVALUACIONES_TRANSVERSALES.InsertarTransversales(OBE_COMPE_TRANS);
-        
-        
+            return DA_IMPORTAR_EVALUACIONES_TRANSVERSALES.InsertarTransversales(OBE_COMPE_TRANS);        
         }
-
-
-
     }
 }

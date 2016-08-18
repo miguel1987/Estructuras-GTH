@@ -52,6 +52,9 @@ namespace WebUI.UI_EVALUACION
                     odsCompetenciasPuesto.SelectParameters.Add("idPuesto", hf_PuestoId.Value);
                     odsCompetenciasPuesto.SelectParameters.Add("idTipoCompetencia", ddlTipoCompetencias.SelectedValue);
                     odsCompetenciasPuesto.SelectParameters.Add("idPersonal", hf_PersonalId.Value);
+
+                  
+                    
                 }
                 catch (Exception ex)
                 {
@@ -181,6 +184,7 @@ namespace WebUI.UI_EVALUACION
         {
             try
             {
+
                 int competencias_por_evaluar = 0;
                 Guid idPuesto = Guid.Parse(hf_PuestoId.Value);
 
