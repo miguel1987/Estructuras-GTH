@@ -87,7 +87,7 @@ namespace WebUI.UI_ADMINISTRACION
                 rgImportarCompetencias.Rebind();
 
             }
-
+            lblRegistro.Text = string.Empty;
         }
 
 
@@ -126,77 +126,82 @@ namespace WebUI.UI_ADMINISTRACION
 
         protected void btnGrabar_Click(object sender, EventArgs e)
         {
-            try
+            if (rgImportarCompetencias.Items.Count > 0)
             {
-                System.Threading.Thread.Sleep(2000);
-                rgImportarCompetencias.AllowPaging = false;
-                rgImportarCompetencias.Rebind();
-                string msjerror = "los siguientes códigos de usuarios no han sido registrados: ";
-                BL_EVALUACIONES_COMPETENCIAS_PUESTOS_PERSONAL BL_EVALUACIONES_COMPETENCIAS_PUESTOS_PERSONAL = new BL_EVALUACIONES_COMPETENCIAS_PUESTOS_PERSONAL();
-
-
-                foreach (GridDataItem item in rgImportarCompetencias.MasterTableView.Items)
+                try
                 {
+                    System.Threading.Thread.Sleep(2000);
+                    rgImportarCompetencias.AllowPaging = false;
+                    rgImportarCompetencias.Rebind();
+                    string msjerror = "los siguientes códigos de usuarios no han sido registrados: ";
+                    BL_EVALUACIONES_COMPETENCIAS_PUESTOS_PERSONAL BL_EVALUACIONES_COMPETENCIAS_PUESTOS_PERSONAL = new BL_EVALUACIONES_COMPETENCIAS_PUESTOS_PERSONAL();
 
-                    BE_EVALUACIONES_COMPETENCIAS_PUESTOS_PERSONAL OBE_COMPE_PUESTO_PERSONAL = new BE_EVALUACIONES_COMPETENCIAS_PUESTOS_PERSONAL();
-                    BL_COMPETENCIA BL_COMPETENCIA = new BL_COMPETENCIA();
-                    BL_COMPETENCIAS_POR_PUESTO BL_COMPETENCIAS_POR_PUESTO = new BusinessLogicLayer.BL_COMPETENCIAS_POR_PUESTO();
-                    BE_PERSONAL OBE_PERSONAL = new BE_PERSONAL();
-                    string Codigo = item["cod_trabajador"].Text;
-                    string Codigo_personal = Codigo;
-                    OBE_PERSONAL = BL_COMPETENCIA.SeleccionarPersonalporCodigo(Codigo_personal);
-                    OBE_COMPE_PUESTO_PERSONAL.PUESTO_ID = OBE_PERSONAL.PUESTO_ID;
-                    OBE_COMPE_PUESTO_PERSONAL.PERSONAL_ID = OBE_PERSONAL.ID;
-                    string Codigo_competencia = item["cod_competencia"].Text;
 
-                    OBE_COMPE_PUESTO_PERSONAL.COMPETENCIA_ID = Guid.Parse(BL_COMPETENCIA.seleccionarporCodigo(Codigo_competencia));
-                    OBE_COMPE_PUESTO_PERSONAL.COMPETENCIA_PUESTO_VALOR_REQUERIDO = Convert.ToInt32((BL_COMPETENCIAS_POR_PUESTO.SeleccionarValorRequerido(OBE_COMPE_PUESTO_PERSONAL)));
-                    OBE_COMPE_PUESTO_PERSONAL.REAL = int.Parse(item["evaluacion"].Text);
-                    OBE_COMPE_PUESTO_PERSONAL.BRECHA = OBE_COMPE_PUESTO_PERSONAL.COMPETENCIA_PUESTO_VALOR_REQUERIDO - OBE_COMPE_PUESTO_PERSONAL.REAL;
-                    OBE_COMPE_PUESTO_PERSONAL.COMENTARIO = item["comentario"].Text;
-                    OBE_COMPE_PUESTO_PERSONAL.USUARIO_CREACION = USUARIO;
-                    OBE_COMPE_PUESTO_PERSONAL.ANIO_EVALUACION = DateTime.Now.Year;
-
-                    if (OBE_COMPE_PUESTO_PERSONAL.BRECHA < 0)
+                    foreach (GridDataItem item in rgImportarCompetencias.MasterTableView.Items)
                     {
-                        OBE_COMPE_PUESTO_PERSONAL.BRECHA = 0;
-                    }
 
-                    bool Existe_Competencia = BL_EVALUACIONES_COMPETENCIAS_PUESTOS_PERSONAL.ExisteEvaluacionCompetenciasPuestoPersonal(OBE_COMPE_PUESTO_PERSONAL);
-                    if (Existe_Competencia == true)
-                    {
-                        OBE_COMPE_PUESTO_PERSONAL.ESTADO_EVALUACION = (int)BE_EVALUACION_COMPETENCIA_PUESTO.ESTADO_EVALUACION.En_Evaluacion;
-                        BL_EVALUACIONES_COMPETENCIAS_PUESTOS_PERSONAL.ActualizarEvaluacionCompetenciasPuestosPersonal(OBE_COMPE_PUESTO_PERSONAL);
-                    }
-                    else
-                        if (OBE_COMPE_PUESTO_PERSONAL.PERSONAL_ID != Guid.Empty)
-                            BL_EVALUACIONES_COMPETENCIAS_PUESTOS_PERSONAL.InsertarEvaluacionCompetenciasPuestosPersonal(OBE_COMPE_PUESTO_PERSONAL);
+                        BE_EVALUACIONES_COMPETENCIAS_PUESTOS_PERSONAL OBE_COMPE_PUESTO_PERSONAL = new BE_EVALUACIONES_COMPETENCIAS_PUESTOS_PERSONAL();
+                        BL_COMPETENCIA BL_COMPETENCIA = new BL_COMPETENCIA();
+                        BL_COMPETENCIAS_POR_PUESTO BL_COMPETENCIAS_POR_PUESTO = new BusinessLogicLayer.BL_COMPETENCIAS_POR_PUESTO();
+                        BE_PERSONAL OBE_PERSONAL = new BE_PERSONAL();
+                        string Codigo = item["cod_trabajador"].Text;
+                        string Codigo_personal = Codigo;
+                        OBE_PERSONAL = BL_COMPETENCIA.SeleccionarPersonalporCodigo(Codigo_personal);
+                        OBE_COMPE_PUESTO_PERSONAL.PUESTO_ID = OBE_PERSONAL.PUESTO_ID;
+                        OBE_COMPE_PUESTO_PERSONAL.PERSONAL_ID = OBE_PERSONAL.ID;
+                        string Codigo_competencia = item["cod_competencia"].Text;
 
-                        else
+                        OBE_COMPE_PUESTO_PERSONAL.COMPETENCIA_ID = Guid.Parse(BL_COMPETENCIA.seleccionarporCodigo(Codigo_competencia));
+                        OBE_COMPE_PUESTO_PERSONAL.COMPETENCIA_PUESTO_VALOR_REQUERIDO = Convert.ToInt32((BL_COMPETENCIAS_POR_PUESTO.SeleccionarValorRequerido(OBE_COMPE_PUESTO_PERSONAL)));
+                        OBE_COMPE_PUESTO_PERSONAL.REAL = int.Parse(item["evaluacion"].Text);
+                        OBE_COMPE_PUESTO_PERSONAL.BRECHA = OBE_COMPE_PUESTO_PERSONAL.COMPETENCIA_PUESTO_VALOR_REQUERIDO - OBE_COMPE_PUESTO_PERSONAL.REAL;
+                        OBE_COMPE_PUESTO_PERSONAL.COMENTARIO = item["comentario"].Text;
+                        OBE_COMPE_PUESTO_PERSONAL.USUARIO_CREACION = USUARIO;
+                        OBE_COMPE_PUESTO_PERSONAL.ANIO_EVALUACION = DateTime.Now.Year;
+
+                        if (OBE_COMPE_PUESTO_PERSONAL.BRECHA < 0)
                         {
+                            OBE_COMPE_PUESTO_PERSONAL.BRECHA = 0;
+                        }
 
-                            if (msjerror.Contains(Codigo_personal) == false)
-                                msjerror += Codigo_personal + " - ";
+                        bool Existe_Competencia = BL_EVALUACIONES_COMPETENCIAS_PUESTOS_PERSONAL.ExisteEvaluacionCompetenciasPuestoPersonal(OBE_COMPE_PUESTO_PERSONAL);
+                        if (Existe_Competencia == true)
+                        {
+                            OBE_COMPE_PUESTO_PERSONAL.ESTADO_EVALUACION = (int)BE_EVALUACION_COMPETENCIA_PUESTO.ESTADO_EVALUACION.En_Evaluacion;
+                            BL_EVALUACIONES_COMPETENCIAS_PUESTOS_PERSONAL.ActualizarEvaluacionCompetenciasPuestosPersonal(OBE_COMPE_PUESTO_PERSONAL);
+                        }
+                        else
+                            if (OBE_COMPE_PUESTO_PERSONAL.PERSONAL_ID != Guid.Empty)
+                                BL_EVALUACIONES_COMPETENCIAS_PUESTOS_PERSONAL.InsertarEvaluacionCompetenciasPuestosPersonal(OBE_COMPE_PUESTO_PERSONAL);
 
-                            lblMensajeCompetencia.Text = msjerror;
-                        }    
+                            else
+                            {
+
+                                if (msjerror.Contains(Codigo_personal) == false)
+                                    msjerror += Codigo_personal + " - ";
+
+                                lblMensajeCompetencia.Text = msjerror;
+                            }
+                    }
+
+                    if (lblMensajeCompetencia.Text != String.Empty)
+                        lblRegistro.Text = "Las evaluaciones fueron importadas con éxito, sin embargo " + lblMensajeCompetencia.Text;
+                    else
+                        lblRegistro.Text = "Las evaluaciones fueron importadas con éxito";
+
+                    lblMensajeCompetencia.Text = String.Empty;
+
+                    rgImportarCompetencias.AllowPaging = true;
+                    rgImportarCompetencias.Rebind();
                 }
+                catch (Exception ex)
+                {
+                    lblMensajeCompetencia.Text = "Error al Importar Evaluaciones: " + ex.ToString();
 
-                if (lblMensajeCompetencia.Text != String.Empty)
-                    lblRegistro.Text = "Las evaluaciones fueron importadas con éxito, sin embargo " + lblMensajeCompetencia.Text;
-                else
-                    lblRegistro.Text = "Las evaluaciones fueron importadas con éxito";
-
-                lblMensajeCompetencia.Text = String.Empty;
-
-                rgImportarCompetencias.AllowPaging = true;
-                rgImportarCompetencias.Rebind();
+                }
             }
-            catch (Exception ex)
-            {
-                lblMensajeCompetencia.Text = "Error al Importar Evaluaciones: " + ex.ToString();
-
-            }
+            else
+                lblRegistro.Text = "Datos Incompletos no a Cargado el archivo a Importar";
         }
 
     }

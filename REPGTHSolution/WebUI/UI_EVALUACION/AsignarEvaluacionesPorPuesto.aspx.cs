@@ -52,8 +52,8 @@ namespace WebUI.UI_EVALUACION
                     odsCompetenciasPuesto.SelectParameters.Add("idPuesto", hf_PuestoId.Value);
                     odsCompetenciasPuesto.SelectParameters.Add("idTipoCompetencia", ddlTipoCompetencias.SelectedValue);
                     odsCompetenciasPuesto.SelectParameters.Add("idPersonal", hf_PersonalId.Value);
-
                   
+                   
                     
                 }
                 catch (Exception ex)
@@ -64,7 +64,7 @@ namespace WebUI.UI_EVALUACION
                 }
             }
 
-
+            btnGuardarEvaluacionFinal.Visible = false;
         }
 
         protected void LoadTipoCompetencia()
@@ -72,7 +72,7 @@ namespace WebUI.UI_EVALUACION
             BL_COMPETENCIAS_TIPOS BL_COMPETENCIAS_TIPOS = new BL_COMPETENCIAS_TIPOS();
 
             this.CargarDropDownList(ddlTipoCompetencias, "ID", "COMPETENCIA_TIPO_DESCRIPCION", BL_COMPETENCIAS_TIPOS.SeleccionarCompetenciasTipos(), 0);
-           
+            
         }
 
         protected void ddlTipoCompetencias_SelectedIndexChanged(object sender, EventArgs e)
@@ -96,8 +96,8 @@ namespace WebUI.UI_EVALUACION
         }
 
         protected void rgAsignarCompetencias_ItemDataBound(object sender, GridItemEventArgs e)
-        {          
-
+        {
+            
             if (e.Item is GridEditableItem && e.Item.IsInEditMode)
             {
 
@@ -116,6 +116,18 @@ namespace WebUI.UI_EVALUACION
                 }
 
             }
+
+            if (e.Item is GridPagerItem)
+            {
+                GridPagerItem pagerItem = e.Item as GridPagerItem;
+                int itemsCount = pagerItem.Paging.DataSourceCount;
+                if (itemsCount > 0)
+                    btnGuardarEvaluacionFinal.Visible = true;
+                
+            }
+            
+
+            
         }
 
         
