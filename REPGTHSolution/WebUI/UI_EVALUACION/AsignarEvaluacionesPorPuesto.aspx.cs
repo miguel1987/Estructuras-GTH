@@ -122,7 +122,12 @@ namespace WebUI.UI_EVALUACION
                 GridPagerItem pagerItem = e.Item as GridPagerItem;
                 int itemsCount = pagerItem.Paging.DataSourceCount;
                 if (itemsCount > 0)
-                    btnGuardarEvaluacionFinal.Visible = true;
+                {
+                    if (hf_Estado.Value == BE_EVALUACION_COMPETENCIA_PUESTO.ESTADO_EVALUACION.Evaluado.ToString() && Session["PERFIL_ID"].ToString() == "2")
+                        btnGuardarEvaluacionFinal.Visible = false;
+                    else
+                        btnGuardarEvaluacionFinal.Visible = true;
+                }
                 
             }
             
