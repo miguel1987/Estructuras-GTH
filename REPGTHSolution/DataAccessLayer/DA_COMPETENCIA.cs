@@ -98,6 +98,7 @@ namespace DataAccessLayer
         /// <summary>
         ///  Devuelve los datos de todas las Competencias Transversales
         /// </summary>
+        /// <param name="idTipoCompetencia">Codigo de Tipo de Competencia cuyas competencia se desea listar</param>
         /// <returns> List de BE_COMPETENCIA_TRANSVERSAL con los objetos de la entidad, que a su vez representan la tabla COMPETENCIAS TRANSVERSALES de la base de datos.En caso no existan datos devuelve nothing </returns>
         public List<BE_COMPETENCIA> SeleccionarCompetencias(Guid idTipoCompetencia)
         {
@@ -328,7 +329,8 @@ namespace DataAccessLayer
 
         /// <summary>
         /// devuelve idCompetencia 
-        /// </summary>   
+        /// </summary> 
+        /// <param name="codigo_competencia">Codigo de COmpetencia que se desea consultar</param>
         public string SeleccionarporCodigo(string codigo_competencia)
         {
             SqlConnection cnx = new SqlConnection();

@@ -46,6 +46,13 @@ namespace DataAccessLayer
 
         }
 
+       /// <summary>
+       /// Se Actualiza los datos de la evaluacion de competencia por personal
+       /// </summary>
+       /// <param name="oBE_EVALUACIONES_COMPETENCIAS_PERSONAL">Objeto BE_EVALUACIONES_COMPETENCIAS_PUESTOS_PERSONAL, con todos sus campos llenos</param>
+       /// <param name="otransaction">Objeto de sqlserver para realizar transacciones</param>
+       /// <param name="objCmd">objeto para pasar paremtros de sqlserver</param>
+       /// <returns></returns>
        public Boolean ActalizarEvalucionCompetenciaPersonal(BE_EVALUACIONES_COMPETENCIAS_PUESTOS_PERSONAL oBE_EVALUACIONES_COMPETENCIAS_PERSONAL, SqlTransaction otransaction, SqlCommand objCmd)
        {
            bool bIndicador = false;

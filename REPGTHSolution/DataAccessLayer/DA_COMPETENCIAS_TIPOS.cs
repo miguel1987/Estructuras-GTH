@@ -87,6 +87,7 @@ namespace DataAccessLayer
        /// <summary>
        ///  Devuelve los datos de un tipo de competencia
        /// </summary>
+       /// <param name="competencia_tipo_id">Codigo de Tipo Competencia que se desea Consultar</param>
        /// <returns> LIST BE_COMPETENCIAS_TIPOS con los objetos de la entidad, que a su vez representan la tabla COMPETENCIAS_TIPOS de la base de datos.En caso no haiga datos devuelve nothing </returns>
        /// 
 

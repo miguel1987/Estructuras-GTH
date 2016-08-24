@@ -12,6 +12,11 @@ namespace DataAccessLayer
 {
    public class DA_IMPORTAR_EVALUACIONES_TRANSVERSALES
     {
+       /// <summary>
+       /// Devuelve la Evaluacion al selleccionar por codigo
+       /// </summary>
+       /// <param name="codigo_competencia">Codigo de Competencia que se desea Consultar</param>
+       /// <returns></returns>
        public string EvaluacionSeleccionarporCodigo(string codigo_competencia)
        {
            SqlConnection cnx = new SqlConnection();
@@ -43,15 +48,16 @@ namespace DataAccessLayer
            {
                cnx.Close();
            
-           }
-       
-       
-       
+           }       
        
        }
 
 
-
+       /// <summary>
+       /// Insertar a la Hora de Importar el Archivo de Evaluaciones de Competencias Transversales
+       /// </summary>
+       /// <param name="OBE_COMPE_TRANS">Objeto BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES con todos sus valores llenos </param>
+       /// <returns></returns>
        public Boolean InsertarTransversales(BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES OBE_COMPE_TRANS)
        {
            SqlConnection cnx = new SqlConnection();
@@ -98,9 +104,5 @@ namespace DataAccessLayer
 
            return bIndicador;
        }
-
-
-
-
     }
 }

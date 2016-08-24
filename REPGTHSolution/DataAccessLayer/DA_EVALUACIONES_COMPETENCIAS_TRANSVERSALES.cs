@@ -12,6 +12,12 @@ namespace DataAccessLayer
 {
    public class DA_EVALUACIONES_COMPETENCIAS_TRANSVERSALES
     {
+       /// <summary>
+       /// Devuelve el procentaje de las evaluaciones por competencia transversal
+       /// </summary>
+       /// <param name="PERSONAL_ID">Codigo del Personal al que se desea consultar</param>
+       /// <param name="COMPETENCIA_TRANSVERSALES_CODIGO">Codigo de Competencia Transversal que se desea consultar</param>
+       /// <returns></returns>
        public static decimal SeleccionarEvaluacionPorCompetenciaTransversal(Guid PERSONAL_ID,string COMPETENCIA_TRANSVERSALES_CODIGO)
        {
            SqlConnection cnx = new SqlConnection();
@@ -46,6 +52,11 @@ namespace DataAccessLayer
            }
        }
 
+       /// <summary>
+       /// Devuelve la lista de objetos de Evaluaciones Competencias Transversales
+       /// </summary>
+       /// <param name="PERSONAL_ID">Codigo de Personal que se desea Consultar</param>
+       /// <returns></returns>
        public static List<BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES> SeleccionarCompetenciasTransversalesPorPersonal(Guid PERSONAL_ID)
       {
 
@@ -109,6 +120,11 @@ namespace DataAccessLayer
           }
       }
 
+       /// <summary>
+       /// Devuelve el valor del Parametro del Sistema
+       /// </summary>
+       /// <param name="PARAMETRO_DESCRIPCION">Descripcion del Parametro que se desea consultar</param>
+       /// <returns></returns>
        public static int ParametroSistemaporValor(String PARAMETRO_DESCRIPCION)
        {
 
@@ -144,6 +160,11 @@ namespace DataAccessLayer
            }
        }
 
+       /// <summary>
+       /// Devuelve el Valor del Color del parametro de sistema
+       /// </summary>
+       /// <param name="PARAMETRO_COLOR">Parametro Color que se desea consultar</param>
+       /// <returns></returns>
        public static string ParametroSistemaporValorColor(String PARAMETRO_COLOR)
        {
 
@@ -181,7 +202,11 @@ namespace DataAccessLayer
 
 
 
-
+       /// <summary>
+       /// Devuelve si Existen Registros en las Evaluaciones Transversales
+       /// </summary>
+       /// <param name="OBE_COMPE_TRANS">Objeto BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES con todos sus valor llenos </param>
+       /// <returns></returns>
        public static bool ExisteRegistrosEvaluacionTransversales(BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES OBE_COMPE_TRANS)
        {
 
@@ -219,7 +244,11 @@ namespace DataAccessLayer
            }
        }
 
-
+       /// <summary>
+       /// Actualiza las evaluaciones COmpetencias Transversales pasando como parametro el Objeto de la Entidad
+       /// </summary>
+       /// <param name="OBE_COMPE_TRANS">Objeto BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES con todos sus valores llenos  </param>
+       /// <returns></returns>
        public static Boolean ActualizarEvaluacionTransversal(BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES OBE_COMPE_TRANS)
        {
            SqlConnection cnx = new SqlConnection();
@@ -265,9 +294,6 @@ namespace DataAccessLayer
 
            return bIndicador;
        }
-
-
-
 
     }
 }

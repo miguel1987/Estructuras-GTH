@@ -122,8 +122,10 @@ namespace WebUI.UI_ADMINISTRACION
             this.odsGerencia.SelectParameters.Clear();
             this.odsGerencia.SelectParameters.Add("empresa_id", System.Data.DbType.Guid, selected);
             rcbTempGerencia.DataBind();
+            this.odsSede.SelectParameters.Clear();
             this.odsSede.SelectParameters.Add("empresa_id", System.Data.DbType.Guid, selected);
             rcbTempSede.DataBind();
+            this.odsPuesto.SelectParameters.Clear();
             this.odsPuesto.SelectParameters.Add("empresa_id", System.Data.DbType.Guid, selected);
             rcbTempPuesto.DataBind();
         }

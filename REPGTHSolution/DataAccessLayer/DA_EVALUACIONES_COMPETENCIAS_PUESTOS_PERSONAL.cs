@@ -94,6 +94,11 @@ namespace DataAccessLayer
             return evluacion_competencia_puesto_personal_id;
         }
 
+        /// <summary>
+        /// Actualiza las evaluaciones de competencia puesto personal
+        /// </summary>
+        /// <param name="oBE_EVALUACIONES_COMPETENCIAS_PUESTOS_PERSONAL">Objeto BE_EVALUACIONES_COMPETENCIAS_PUESTOS_PERSONAL con todos sus campos llenos</param>
+        /// <returns></returns>
         public bool ActualizarEvaluacionCompetenciaPuestoPersonal(BE_EVALUACIONES_COMPETENCIAS_PUESTOS_PERSONAL oBE_EVALUACIONES_COMPETENCIAS_PUESTOS_PERSONAL)
         {
             SqlConnection cnx = new SqlConnection();
@@ -166,6 +171,11 @@ namespace DataAccessLayer
             return bSolicitud;
         }
 
+        /// <summary>
+        /// Se Actualiza las evaluaciones de competencia por pusto personal
+        /// </summary>
+        /// <param name="oBE_EVALUACIONES_COMPETENCIAS_PUESTOS_PERSONAL">Objeto BE_EVALUACIONES_COMPETENCIAS_PUESTOS_PERSONAL,con todos sus campos llenos </param>
+        /// <returns></returns>
         public bool ActualizarEvaluacionFinal(BE_EVALUACIONES_COMPETENCIAS_PUESTOS_PERSONAL oBE_EVALUACIONES_COMPETENCIAS_PUESTOS_PERSONAL)
         {
             SqlConnection cnx = new SqlConnection();
@@ -213,6 +223,11 @@ namespace DataAccessLayer
             return bSolicitud;
         }
 
+        /// <summary>
+        /// Devuelve si existen registros de competencias puesto personal
+        /// </summary>
+        /// <param name="OBE_COMPE_PUESTO_PERSONAL">Objeto BE_EVALUACIONES_COMPETENCIAS_PUESTOS_PERSONAL,con todos sus campos llenos </param>
+        /// <returns></returns>
         public static bool ExisteRegistrosCompetenciasPuestoPersonal(BE_EVALUACIONES_COMPETENCIAS_PUESTOS_PERSONAL OBE_COMPE_PUESTO_PERSONAL)
         {
 
@@ -248,17 +263,6 @@ namespace DataAccessLayer
                 cnx.Close();
             }
         }
-
-
-
-
-
-
-
-
-
-
-
 
     }
 }

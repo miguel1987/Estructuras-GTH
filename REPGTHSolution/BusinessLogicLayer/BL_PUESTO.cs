@@ -195,7 +195,7 @@ namespace BusinessLogicLayer
         /// </summary>
         /// <param name="empresa_id">Codigo del la Empresa de la cual se desea consultar sus gerencias</param>
         /// <param name="gerencia_id">Codigo de la Gerencia de la cual se desea consultar</param>
-        /// <param name="area_id"></param>
+        /// <param name="area_id">Codigo del Area de la cual se desea consultar</param>
         /// <returns> List de BE_PUESTO con los objetos de la entidad, que a su vez representan la tabla PUESTOS de la base de datos.En caso no haiga datos devuelve nothing </returns>
         public List<BE_PUESTO> SeleccionarPuesto(Guid empresa_id, Guid gerencia_id, Guid area_id, Guid coordinacion_id)
         {

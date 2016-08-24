@@ -12,7 +12,12 @@ namespace DataAccessLayer
 {
   public  class DA_COMPETENCIAS_POR_PUESTO
     {
-
+      /// <summary>
+      /// Se lista las competencias por puesto y tipo
+      /// </summary>
+      /// <param name="PUESTO_ID">Codigo del Puesto que se desea consultar</param>
+      /// <param name="COMPETENCIA_TIPO_ID">Codigo de Tipo de Competencia que se desea consultar</param>
+      /// <returns></returns>
       public List<BE_COMPETENCIAS_POR_PUESTO>SeleccionarCompetenciasPorPuestoyTipo(Guid PUESTO_ID, Guid COMPETENCIA_TIPO_ID)
       {
 
@@ -86,6 +91,14 @@ namespace DataAccessLayer
           }
       }
 
+
+      /// <summary>
+      /// Se Lista la competencia por puesto y tipo se sobre carga el metodo
+      /// </summary>
+      /// <param name="PUESTO_ID">Codigo del Puesto que sea desea consultar</param>
+      /// <param name="COMPETENCIA_TIPO_ID">Codigo del Tipo de Competencia que se desea consultar</param>
+      /// <param name="PERSONAL_ID">Codigo de Personal que se desea consultar</param>
+      /// <returns></returns>
       public List<BE_COMPETENCIAS_POR_PUESTO> SeleccionarCompetenciasPorPuestoyTipo(Guid PUESTO_ID, Guid COMPETENCIA_TIPO_ID, Guid PERSONAL_ID)
       {
 
@@ -157,6 +170,10 @@ namespace DataAccessLayer
           }
       }
 
+      /// <summary>
+      /// Devuelve la lista de compentencias por puesto a consultar
+      /// </summary>
+      /// <returns></returns>
       public List<BE_COMPETENCIAS_POR_PUESTO> SeleccionarCompetenciasPorPuesto()
       {
 
@@ -269,7 +286,8 @@ namespace DataAccessLayer
 
       /// <summary>
       /// devuelve el tipo de evaluacion 
-      /// </summary>   
+      /// </summary> 
+      /// <param name="PUESTO_ID">Codigo de Puesto que se desea consultar</param>
       public int EvaluacionFinalGrabar(Guid PUESTO_ID)
       {
 
@@ -458,6 +476,7 @@ namespace DataAccessLayer
       /// <summary>
       /// devuelve el codigo del valor requerido
       /// </summary>
+      /// <param name="oBE_COMPE_PUESTO_PERSONAL">Objeto BE_EVALUACIONES_COMPETENCIAS_PUESTOS_PERSONAL, con todos sus campos llenos</param>
       public int SeleccionarValorRequerido(BE_EVALUACIONES_COMPETENCIAS_PUESTOS_PERSONAL oBE_COMPE_PUESTO_PERSONAL)
       {
           SqlConnection cnx = new SqlConnection();

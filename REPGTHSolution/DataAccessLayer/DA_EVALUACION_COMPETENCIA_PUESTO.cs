@@ -12,7 +12,11 @@ namespace DataAccessLayer
 {
     public class DA_EVALUACION_COMPETENCIA_PUESTO
     {
-
+        /// <summary>
+        /// Devuelve los datos del estado de evaluaciones por personal
+        /// </summary>
+        /// <param name="PERSONAL_ID">Codigo de Personal que se desea consultar</param>
+        /// <returns></returns>
         public  int SeleccionarEvaluacionEstadoPorPersonal(Guid PERSONAL_ID)
         {
 
