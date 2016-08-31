@@ -65,7 +65,7 @@
             </td>
             <td style="width: 275px">      
         <telerik:RadAsyncUpload runat="server" ID="AsyncUpload2" RenderMode="Lightweight" CssClass="photo-upload"
-            OnClientFileUploaded="OnClientFileUploaded" AllowedFileExtensions="jpg,jpeg,png,gif,pdf,doc,docx,xls,xlsx"                                                                     
+            OnClientFileUploaded="OnClientFileUploaded" AllowedFileExtensions="xls,xlsx"                                                                     
             MaxFileSize="1048576" OnFileUploaded="AsyncUpload2_FileUploaded" Width="200px" 
             ChunkSize="0" Culture="es-ES" Skin="Office2010Silver" 
               style="text-align: justify" Height="19px" AutoAddFileInputs="False">

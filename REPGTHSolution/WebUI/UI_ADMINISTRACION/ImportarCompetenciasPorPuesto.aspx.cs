@@ -81,7 +81,7 @@ namespace WebUI.UI_ADMINISTRACION
             }
             catch (Exception ex)
             {
-                lblMensajeCompetencia.Text = "Error al Cargar Datos: Formato de Archivo no válido" + ex.Message;
+                lblMensajeCompetencia.Text = "Error al Cargar Datos: Formato de Archivo no válido " + ex.Message;
                 lblFile.Text = string.Empty;
                 rgImportarCompetencias.DataSource = string.Empty;
                 rgImportarCompetencias.Rebind();
@@ -113,7 +113,7 @@ namespace WebUI.UI_ADMINISTRACION
                         (select, strConn);
                         da.Fill(ds);
                         dynamic data = ds;
-                        rgImportarCompetencias.MasterTableView.DataSource = data;
+                        rgImportarCompetencias.DataSource = data;
                         rgImportarCompetencias.DataBind();
                     }
                 }
