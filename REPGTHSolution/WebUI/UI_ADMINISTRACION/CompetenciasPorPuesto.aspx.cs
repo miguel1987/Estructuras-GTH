@@ -230,6 +230,7 @@ namespace WebUI.UI_ADMINISTRACION
         protected void rcbGerenciaCab_SelectedIndexChanged(object sender, EventArgs e)
         {   
             rcbAreaCab.ClearSelection();
+            rcbCoordinacionCab.ClearSelection();
            
             odsArea.SelectParameters.Clear();
             odsArea.SelectParameters.Add("gerencia_id", System.Data.DbType.Guid, rcbGerenciaCab.SelectedValue);
