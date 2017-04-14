@@ -482,6 +482,81 @@ namespace BusinessLogicLayer
             return oListaEvaluacionesTransversales;
         }
 
+
+
+        public List<BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES> CalcularIndicadorporEmpresa(Guid jerarquia_id, int nivel)
+        {
+            List<BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES> oListaEvaluacionesTransversales = new List<BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES>();
+
+            switch (nivel)
+            {
+                case 0:
+                    oListaPorEmpresa = wsMantenimientoEstructuras.SeleccionarPersonalPorEmpresa(jerarquia_id);
+                    break;
+                case 1:
+                    oListaPorEmpresa = wsMantenimientoEstructuras.SeleccionarPersonalPorEmpresa(jerarquia_id);
+                    break;
+                case 2:
+                    oListaPorGerencia = wsMantenimientoEstructuras.SeleccionarPersonalPorGerencia(jerarquia_id);
+                    break;
+                case 3:
+                    oListaPorArea = wsMantenimientoEstructuras.SeleccionarPersonalPorArea(jerarquia_id);
+                    break;
+                case 4:
+                    oListaPorCoordinacion = wsMantenimientoEstructuras.SeleccionarPersonalPorCoordinacion(jerarquia_id);
+                    break;
+            }
+
+            if (oListaPorEmpresa != null)
+            {
+                foreach (var item in oListaPorEmpresa)
+                {
+                    List<BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES> oListaEvaluacionesTransversales_Temp = new List<BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES>();
+                    oListaEvaluacionesTransversales_Temp = CargarListaEvaluaciones(item);
+                    oListaEvaluacionesTransversales.AddRange(oListaEvaluacionesTransversales_Temp);
+                }
+            }
+
+            if (oListaPorGerencia != null)
+            {
+                foreach (var item in oListaPorGerencia)
+                {
+
+                    List<BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES> oListaEvaluacionesTransversales_Temp = new List<BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES>();
+                    oListaEvaluacionesTransversales_Temp = CargarListaEvaluaciones(item);
+                    oListaEvaluacionesTransversales.AddRange(oListaEvaluacionesTransversales_Temp);
+                }
+            }
+
+            if (oListaPorArea != null)
+            {
+                foreach (var item in oListaPorArea)
+                {
+                    List<BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES> oListaEvaluacionesTransversales_Temp = new List<BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES>();
+                    oListaEvaluacionesTransversales_Temp = CargarListaEvaluaciones(item);
+                    oListaEvaluacionesTransversales.AddRange(oListaEvaluacionesTransversales_Temp);
+                }
+            }
+
+            return oListaEvaluacionesTransversales;
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
        /// <summary>
        /// Devuelve la data si existe o no evaluaciones transversales
        /// </summary>

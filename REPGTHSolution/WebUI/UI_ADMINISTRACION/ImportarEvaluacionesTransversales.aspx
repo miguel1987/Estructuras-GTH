@@ -68,7 +68,7 @@
                 </telerik:RadAjaxLoadingPanel>
        <telerik:RadAjaxPanel ID="RadAjaxPanel1" runat="server" LoadingPanelID="RadAjaxLoadingPanel2"> 
      
-    <table style="width: 100%">
+    <table style="width: 100%; height: 73px;">
         <tr>
             <td class="area-tree" style="width: 153px">	   
     <asp:Label ID="lblArchivo" 
@@ -96,14 +96,42 @@
         </telerik:RadButton>
         
             </td>
-            <td style="width: 626px; text-align: left;">
-            <telerik:RadButton ID="btnGrabar" runat="server" Text="Importar Evaluaciones" 
-            OnClick="btnGrabar_Click" Skin="Office2010Silver" style="text-align: right" 
-                    Width="147px">
-        </telerik:RadButton>           
+            <td style="width: 223px; text-align: left;">
                 &nbsp;</td>
+       <td>&nbsp;</td>
+            
         </tr>
         </table>
+        <table align="left" style="width: 599px; margin-left: 0px">
+            <tr>
+                <td class="area-tree" style="width: 20px; text-align: left;">
+                    <asp:Label ID="Label1" runat="server" CssClass="estilosLabel" 
+                        Text="Seleccionar Fecha:"> </asp:Label>
+                </td>
+                <td style="width: 44px">
+                    <telerik:RadComboBox ID="rcbFecha" Runat="server">
+                        <Items>
+                            <telerik:RadComboBoxItem runat="server" Text="2015" Value="2015" />
+                            <telerik:RadComboBoxItem runat="server" Text="2016" Value="2016" />
+                            <telerik:RadComboBoxItem runat="server" Text="2017" Value="2017" />
+                            <telerik:RadComboBoxItem runat="server" Text="2018" Value="2018" />
+                        </Items>
+                    </telerik:RadComboBox>
+                </td>
+                <td style="width: 2px">
+                    <telerik:RadButton ID="btnGrabar" runat="server" OnClick="btnGrabar_Click" 
+                        Skin="Office2010Silver" style="text-align: right" Text="Importar Evaluaciones" 
+                        Width="147px">
+                    </telerik:RadButton>
+                </td>
+                <td class="area-tree" style="width: 37px">
+                    <telerik:RadButton ID="btnEliminar" runat="server" Skin="Office2010Silver" 
+                        style="text-align: right" Text="Eliminar" onclick="btnEliminar_Click">
+                    </telerik:RadButton>
+                </td>
+            </tr>
+           </table>
+           
          <br />
          <br />
          <asp:Label ID="lblRegistro" runat="server" Font-Bold="true" Font-Size="Medium" ForeColor="Red"></asp:Label>

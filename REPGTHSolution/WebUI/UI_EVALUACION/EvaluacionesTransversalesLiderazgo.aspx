@@ -38,10 +38,14 @@
                 </div></td>
               <td width="10">&nbsp;</td>
               <td valign="top">
-              <telerik:RadPivotGrid ID="rgEvaluacionesTransversalesporPersonal" CssClass="Pivot" runat="server" ShowColumnHeaderZone="false" ShowRowHeaderZone="false" ShowDataHeaderZone="false" EnableZoneContextMenu="false"  ShowFilterHeaderZone="false"   TotalsSettings-GrandTotalsVisibility="None" 
-               AllowSort="false" AllowFilteringByColumn="false" DataSourceID="odsEvaluacionesTransversales" OnCellDataBound="rgEvaluacionesTransversalesporPersonal_CellDataBound" width="800px"
+              <telerik:RadPivotGrid ID="rgEvaluacionesTransversalesporPersonal" CssClass="Pivot" 
+                      runat="server" ShowColumnHeaderZone="False" ShowRowHeaderZone="False" 
+                      ShowDataHeaderZone="False"  ShowFilterHeaderZone="False"   TotalsSettings-GrandTotalsVisibility="None" 
+               AllowSort="false" AllowFilteringByColumn="false" 
+                      DataSourceID="odsEvaluacionesTransversales" 
+                      OnCellDataBound="rgEvaluacionesTransversalesporPersonal_CellDataBound" width="800px"
                        Culture="es-PE" CellPadding="4" CellSpacing="4" 
-                       AllowPaging="True" AllowFiltering="true" >
+                       AllowPaging="True"  >
         
         <ClientSettings EnableFieldsDragDrop="true">  
         
@@ -50,10 +54,10 @@
             <TotalsSettings RowsSubTotalsPosition="None" RowGrandTotalsPosition="None"
             ColumnsSubTotalsPosition="None" ColumnGrandTotalsPosition="None"  />               
         <Fields>          
-            <telerik:PivotGridRowField DataField="CODIGO" UniqueName="CODIGO" CellStyle-Width="140px" CellStyle-Height="10px"
+            <telerik:PivotGridRowField DataField="CODIGO"  UniqueName="CODIGO" CellStyle-Width="140px" CellStyle-Height="10px"
                >                
             </telerik:PivotGridRowField>
-            <telerik:PivotGridRowField DataField="PERSONAL_DESCRIPCION" UniqueName="PERSONAL_DESCRIPCION" CellStyle-Width="60px" CellStyle-Height="10px"
+            <telerik:PivotGridRowField DataField="PERSONAL_DESCRIPCION"   UniqueName="PERSONAL_DESCRIPCION" CellStyle-Width="60px" CellStyle-Height="10px"
                 >                
             </telerik:PivotGridRowField>
             <telerik:PivotGridRowField DataField="PUESTO_DESCRIPCION" UniqueName="PUESTO_DESCRIPCION" CellStyle-Width="140px" CellStyle-Height="10px"
@@ -67,12 +71,14 @@
 <TotalsSettings GrandTotalsVisibility="None" RowsSubTotalsPosition="None" 
                       RowGrandTotalsPosition="None" ColumnsSubTotalsPosition="None" 
                       ColumnGrandTotalsPosition="None"></TotalsSettings>
-        <ConfigurationPanelSettings EnableOlapTreeViewLoadOnDemand="True"></ConfigurationPanelSettings>
+        <ConfigurationPanelSettings EnableOlapTreeViewLoadOnDemand="true"></ConfigurationPanelSettings>
 <DataCellStyle Width="100px"></DataCellStyle>
     </telerik:RadPivotGrid>  
-        <div style="clear:both;" class="texto derecha"> Indicador general de colaboradores con competencias desarolladas: <span class="anotacion1"> <asp:Label ID="lblIndicador" runat="server"></asp:Label></span> 
-              <br />
-          Indicador general de colaboradores por Gerencia/Departamento<span class="anotacion1"> <asp:Label ID="lblIndicadorGerencia" runat="server"></asp:Label></span>          
+        <div style="clear:both;" class="texto derecha"> Indicador general de colaboradores por Gerencia/Departamento<span class="anotacion1"> <asp:Label ID="lblIndicadorGerencia" runat="server"></asp:Label></span>
+            <br />
+            Indicador general de colaboradores con competencias desarolladas: <span class="anotacion1"> <asp:Label ID="lblIndicador" runat="server"></asp:Label></span>  
+            <br /> 
+            Indicador de Empresa : <span class="anotacion1"> <asp:Label ID="lblIndicadorEmpresa" runat="server"></asp:Label></span>      
           </div>   
       </table>      
           <div class="margen">
@@ -84,7 +90,8 @@
     <p class="mensaje">
          <asp:Label ID="lblMensaje" runat="server" Font-Bold="true" Font-Size="Medium" ForeColor="Red"></asp:Label>
        </p>
-          <!--Area de Contenido -->
-<asp:HiddenField ID="hf_Contador" runat="server" />    
+          <!--Area de Contenido -->a
+<asp:HiddenField ID="hf_Contador" runat="server" />  
+<asp:HiddenField ID="hf_NodoParent" runat="server" />  
 </asp:Content>
 

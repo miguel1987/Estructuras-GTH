@@ -104,5 +104,55 @@ namespace DataAccessLayer
 
            return bIndicador;
        }
+
+
+       public Boolean ImportarEvaluacionesTransversalesEliminar(int Parametro_ANIO)
+       {
+           SqlConnection cnx = new SqlConnection();
+           bool bIndicador = false;
+
+           cnx = DC_Connection.getConnection();
+
+           try
+           {
+
+               using (
+                   SqlCommand objCmd = new SqlCommand()
+                   {
+                       Connection = cnx,
+                       CommandType = CommandType.StoredProcedure,
+                       CommandText = "USP_IMPORTAR_EVALACIONES_TRANSVERSALES_ELIMINAR"
+                   }
+                   )
+               {
+                   objCmd.Parameters.Add("@PARAMETRO_ANIO", SqlDbType.Int).Value = Parametro_ANIO;
+
+
+                   cnx.Open();
+
+                   bIndicador = objCmd.ExecuteNonQuery() > 0;
+               }
+
+           }
+           catch (Exception ex)
+           {
+               throw new Exception("Error: " + ex.Message);
+
+           }
+           finally
+           {
+               cnx.Close();
+           }
+
+
+           return bIndicador;
+       }
+
+
+
+
+
+
+
     }
 }

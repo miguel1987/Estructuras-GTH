@@ -57,5 +57,11 @@ namespace BusinessLogicLayer
             DA_IMPORTAR_EVALUACIONES_TRANSVERSALES DA_IMPORTAR_EVALUACIONES_TRANSVERSALES = new DA_IMPORTAR_EVALUACIONES_TRANSVERSALES();
             return DA_IMPORTAR_EVALUACIONES_TRANSVERSALES.InsertarTransversales(OBE_COMPE_TRANS);        
         }
+
+        public static Boolean EliminarEvaluacionTransversales(int Parametro_ANIO)
+        {   
+            DA_IMPORTAR_EVALUACIONES_TRANSVERSALES DA_IMPORTAR_EVALUACIONES_TRANSVERSALES = new DA_IMPORTAR_EVALUACIONES_TRANSVERSALES();
+            return DA_IMPORTAR_EVALUACIONES_TRANSVERSALES.ImportarEvaluacionesTransversalesEliminar(Parametro_ANIO);
+        }
     }
 }

@@ -13,6 +13,7 @@ using Telerik.Web.UI;
 using System.Data.OleDb;
 using BusinessEntities;
 using BusinessLogicLayer;
+using System.Windows.Forms; 
 
 
 namespace WebUI.UI_ADMINISTRACION
@@ -155,7 +156,7 @@ namespace WebUI.UI_ADMINISTRACION
                         OBE_COMPE_TRANS.PERSONAL_ID = OBE_PERSONAL.ID;
                         OBE_COMPE_TRANS.PUESTO_ID = OBE_PERSONAL.PUESTO_ID;
                         OBE_COMPE_TRANS.USUARIO_CREACION = USUARIO;
-                        OBE_COMPE_TRANS.ANIO = DateTime.Now.Year;
+                        OBE_COMPE_TRANS.ANIO =Convert.ToInt32( rcbFecha.SelectedValue);
                         string Codigo_competencia = item["cod_competencia"].Text;
 
 
@@ -206,6 +207,20 @@ namespace WebUI.UI_ADMINISTRACION
             else
                 lblRegistro.Text = "Datos Incompletos no a Cargado el archivo a Importar";
 
+        }
+
+        protected void btnEliminar_Click(object sender, EventArgs e)
+        {
+            if (rgImportarTransversales.Items.Count > 0)
+            {
+                MessageBox.Show("Esta seguro de Eliminar el año", "eliminar Importacion", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                BL_IMPORTAR_EVALUACIONES_TRANSVERSALES BL_IMPORTAR_EVALUACIONES_TRANSVERSALES = new BL_IMPORTAR_EVALUACIONES_TRANSVERSALES();
+                int ANIO = Convert.ToInt32(rcbFecha.SelectedValue);
+                BL_IMPORTAR_EVALUACIONES_TRANSVERSALES.EliminarEvaluacionTransversales(ANIO);
+            }
+            else
+                MessageBox.Show("No se puede eliminar por que no se ha Importado la Informacion");
+            
         }
 
     }

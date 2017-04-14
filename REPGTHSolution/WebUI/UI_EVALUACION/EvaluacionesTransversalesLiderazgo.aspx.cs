@@ -18,6 +18,7 @@ namespace WebUI.UI_EVALUACION
     {
         Guid USUARIO = Guid.Empty;
         string USUARIO_GRUPO_ORGANIZACIONAL = String.Empty;
+        string USUARIO_EMPRESA = String.Empty;
         BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES = new BusinessEntities.BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES();
         
 
@@ -26,6 +27,7 @@ namespace WebUI.UI_EVALUACION
             this.validarUsuarioEnDominio();
             USUARIO = Guid.Parse(Session["PERSONAL_ID"].ToString());
             USUARIO_GRUPO_ORGANIZACIONAL = Session["GRUPO_ORGANIZACIONAL_CODIGO"].ToString();
+            USUARIO_EMPRESA = Session["EMPRESA_ID"].ToString();
             
             if (!Page.IsPostBack)
             {
@@ -35,6 +37,7 @@ namespace WebUI.UI_EVALUACION
                     if (Session["PERFIL_ID"].ToString() == "1")
                     {
                         LoadEstructura();
+                        hf_NodoParent.Value = USUARIO_EMPRESA;
                         LoadGrilla(Session["EMPRESA_ID"].ToString(), "0");
 
 
@@ -61,8 +64,14 @@ namespace WebUI.UI_EVALUACION
 
         protected void rtvTransversales_NodeClick(object sender, RadTreeNodeEventArgs e)
         {
-            string idNodo = e.Node.Value.ToString();
+            string idNodo = e.Node.Value.ToString();          
             string nivel = rtvTransversales.SelectedNode.Level.ToString();
+
+            if (nivel == "0" || nivel == "1" || nivel == "2")
+                hf_NodoParent.Value = USUARIO_EMPRESA;
+            else
+                hf_NodoParent.Value = e.Node.ParentNode.Value.ToString();
+
             LoadGrilla(idNodo, nivel);            
         }
 
@@ -310,7 +319,11 @@ namespace WebUI.UI_EVALUACION
         }
 
         protected void LoadGrilla(string idNodo, string nivel)
+        // protected void LoadGrilla(string idNodo, string nivel, string idNodoSuperior)
         {
+            int result;
+            int res;
+            string total;
 
             odsEvaluacionesTransversales.SelectParameters.Clear();
 
@@ -327,6 +340,18 @@ namespace WebUI.UI_EVALUACION
 
             CalcularIndicador(idNodo, nivel);
             CalcularIndicadorGerente(idNodo, nivel);
+            
+            
+            result = Convert.ToInt16(nivel);
+            if (result > 0)
+                res = result - 1;
+            else
+                res = result;
+            //CalcularIndicadorGerente(idNodoSuperior, nivel -1)
+            
+            total = res.ToString();
+            CalcularIndicadorEmpresa(hf_NodoParent.Value, total);
+           
 
             
             if(lblIndicadorGerencia.Text=="0%")
@@ -351,7 +376,8 @@ namespace WebUI.UI_EVALUACION
             .Select(i => new object[]
             {
                 i.Key,
-                i.Sum(x => x.COMPETENCIA_NO_DESARROLLADA)
+                i.Average(x=>x.PORCENTAJE*100)
+                //i.Average(x => x.PORCENTAJE)
             })
             .ToList();
 
@@ -363,13 +389,16 @@ namespace WebUI.UI_EVALUACION
             int parametroCompetenciasDesarrolladas = obtenervalorparametroindicador();
 
             decimal indicador = 0;
+            decimal cont = 80;
 
             contadorTotalRegistros = lstPersonalCompetencias.Count;
 
             foreach (var itemPersonas in lstPersonalCompetencias)
             {
+                decimal itemsPersonas = (decimal)itemPersonas[1];
+                decimal TotalPersonas = decimal.Round(itemsPersonas, 0);
 
-                if ((int)itemPersonas[1] == 0)
+                if (TotalPersonas > cont)
                     contadorCompetenciasDesarrolladas++;
             }
         
@@ -398,7 +427,7 @@ namespace WebUI.UI_EVALUACION
             .Select(i => new object[]
             {
                 i.Key,
-                i.Sum(x => x.COMPETENCIA_NO_DESARROLLADA)
+                i.Average(x=>x.PORCENTAJE*100)
             })
             .ToList();
 
@@ -412,13 +441,16 @@ namespace WebUI.UI_EVALUACION
             int parametroCompetenciasDesarrolladas = obtenervalorparametroindicador();
 
             decimal indicador = 0;
+            decimal cont = 80;
             contadorTotalRegistros = lstPersonalCompetencias.Count;
 
           
             foreach (var itemPersonas in lstPersonalCompetencias)
             {
+                decimal itemsPersonas = (decimal)itemPersonas[1];
+                decimal TotalPersonas = decimal.Round(itemsPersonas, 0);
 
-                if ((int)itemPersonas[1] == 0)
+                if (TotalPersonas > cont)
                     contadorGerencia++;
             }
             if (contadorGerencia > 0 && contadorTotalRegistros > 0)
@@ -431,6 +463,61 @@ namespace WebUI.UI_EVALUACION
                 this.lblIndicadorGerencia.ForeColor = System.Drawing.Color.Green;
             if (indicador < parametroCompetenciasDesarrolladas)
                 this.lblIndicadorGerencia.ForeColor = System.Drawing.Color.Red;
+        }
+
+
+        protected void CalcularIndicadorEmpresa(string idNodo, string nivel)
+        {
+
+            List<BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES> oListaEvaluacionesIndicador = new List<BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES>();
+            BL_EVALUACIONES_COMPETENCIAS_TRANSVERSALES BL_EVALUACIONES_COMPETENCIAS_TRANSVERSALES = new BL_EVALUACIONES_COMPETENCIAS_TRANSVERSALES();
+
+            oListaEvaluacionesIndicador = BL_EVALUACIONES_COMPETENCIAS_TRANSVERSALES.CalcularIndicadorporEmpresa(Guid.Parse(idNodo), Int32.Parse(nivel));
+            
+            List<object[]> lstPersonalCompetencias = oListaEvaluacionesIndicador
+                /* Group the list by the element at position 0 in each item */
+            .GroupBy(o => o.PERSONAL_ID)
+                /* Project the created grouping into a new object[]: */
+            .Select(i => new object[]
+            {
+                i.Key,
+                i.Average(x=>x.PORCENTAJE*100)
+                //i.Sum(x => x.COMPETENCIA_NO_DESARROLLADA)
+            })
+            .ToList();
+
+            decimal contadorGerencia = 0;
+            decimal contadorTotalRegistros = 0;
+
+            //string valor = string.Empty;
+
+            //obtenervalor(valor);
+
+            int parametroCompetenciasDesarrolladas = obtenervalorparametroindicador();
+
+            decimal indicador = 0;
+            decimal cont =80;
+            contadorTotalRegistros = lstPersonalCompetencias.Count;
+
+
+            foreach (var itemPersonas in lstPersonalCompetencias)
+            {
+                decimal itemsPersonas = (decimal)itemPersonas[1];
+                decimal TotalPersonas = decimal.Round(itemsPersonas, 0);
+
+                if (TotalPersonas > cont)
+                    contadorGerencia++;
+            }
+            if (contadorGerencia > 0 && contadorTotalRegistros > 0)
+
+                indicador = (contadorGerencia / contadorTotalRegistros) * 100;
+
+            this.lblIndicadorEmpresa.Text = Decimal.Round(indicador, 0).ToString() + "%";
+
+            if (indicador >= parametroCompetenciasDesarrolladas)
+                this.lblIndicadorEmpresa.ForeColor = System.Drawing.Color.Green;
+            if (indicador < parametroCompetenciasDesarrolladas)
+                this.lblIndicadorEmpresa.ForeColor = System.Drawing.Color.Red;
         }
 
         protected void obtenervalor(string valor)
