@@ -347,7 +347,7 @@ namespace WebUI.UI_EVALUACION
                 res = result - 1;
             else
                 res = result;
-            //CalcularIndicadorGerente(idNodoSuperior, nivel -1)
+            //Para Indicador de Nivel Superior el nivel debe ser uno menos: CalcularIndicadorGerente(idNodoSuperior, nivel -1)
             
             total = res.ToString();
             CalcularIndicadorEmpresa(hf_NodoParent.Value, total);
@@ -383,22 +383,25 @@ namespace WebUI.UI_EVALUACION
 
             decimal contadorCompetenciasDesarrolladas = 0;
             decimal contadorTotalRegistros = 0;
-            //string valor = string.Empty;
-            //TODO: Traer de BD
-            //obtenervalor(valor);
+            
+            //Indicador utilizado para el color
             int parametroCompetenciasDesarrolladas = obtenervalorparametroindicador();
 
             decimal indicador = 0;
-            decimal cont = 80;
+
+            //valor de Competencia Desarrollada = 80;
+            string valor = string.Empty;
+            int valorDesarrollo = obtenerParametroCompetenciaDesarrollada(valor);
+            decimal valorCompetenciaDesarrollada = (decimal)valorDesarrollo;
 
             contadorTotalRegistros = lstPersonalCompetencias.Count;
 
             foreach (var itemPersonas in lstPersonalCompetencias)
             {
-                decimal itemsPersonas = (decimal)itemPersonas[1];
-                decimal TotalPersonas = decimal.Round(itemsPersonas, 0);
-
-                if (TotalPersonas > cont)
+                decimal itemEvaluacion = (decimal)itemPersonas[1];
+                decimal itemTotalEvaluacion = decimal.Round(itemEvaluacion, 0);
+                //Si el promedio es >= 80 se considera Competencia Desarrollada
+                if (itemTotalEvaluacion >= valorCompetenciaDesarrollada)
                     contadorCompetenciasDesarrolladas++;
             }
         
@@ -433,24 +436,26 @@ namespace WebUI.UI_EVALUACION
 
             decimal contadorGerencia = 0;
             decimal contadorTotalRegistros = 0;
-            
-            //string valor = string.Empty;
-            
-            //obtenervalor(valor);
 
+            //Obtener valor de competencia desarrollada = 76 para el color
             int parametroCompetenciasDesarrolladas = obtenervalorparametroindicador();
 
             decimal indicador = 0;
-            decimal cont = 80;
-            contadorTotalRegistros = lstPersonalCompetencias.Count;
 
+            //Obtener valor de competencia desarrollada = 80
+            string valor = string.Empty;
+            int valorDesarrollo = obtenerParametroCompetenciaDesarrollada(valor);
+            decimal valorCompetenciaDesarrollada = (decimal)valorDesarrollo;
+            
+            contadorTotalRegistros = lstPersonalCompetencias.Count;
           
             foreach (var itemPersonas in lstPersonalCompetencias)
             {
-                decimal itemsPersonas = (decimal)itemPersonas[1];
-                decimal TotalPersonas = decimal.Round(itemsPersonas, 0);
+                decimal itemEvaluacion = (decimal)itemPersonas[1];
+                decimal itemTotalEvaluacion = decimal.Round(itemEvaluacion, 0);
 
-                if (TotalPersonas > cont)
+                //Si el promedio es >= 80 se considera Competencia Desarrollada
+                if (itemTotalEvaluacion >= valorCompetenciaDesarrollada)
                     contadorGerencia++;
             }
             if (contadorGerencia > 0 && contadorTotalRegistros > 0)
@@ -482,30 +487,31 @@ namespace WebUI.UI_EVALUACION
             {
                 i.Key,
                 i.Average(x=>x.PORCENTAJE*100)
-                //i.Sum(x => x.COMPETENCIA_NO_DESARROLLADA)
+                
             })
             .ToList();
 
             decimal contadorGerencia = 0;
-            decimal contadorTotalRegistros = 0;
+            decimal contadorTotalRegistros = 0;            
 
-            //string valor = string.Empty;
-
-            //obtenervalor(valor);
-
+            //obtener indicador de color para competencias desarrolladas
             int parametroCompetenciasDesarrolladas = obtenervalorparametroindicador();
 
             decimal indicador = 0;
-            decimal cont =80;
-            contadorTotalRegistros = lstPersonalCompetencias.Count;
 
+            //Obtener valor de competencia desarrollada = 80
+            string valor = string.Empty;
+            int valorDesarrollo = obtenerParametroCompetenciaDesarrollada(valor);
+            decimal valorCompetenciaDesarrollada = (decimal)valorDesarrollo;
+
+            contadorTotalRegistros = lstPersonalCompetencias.Count;
 
             foreach (var itemPersonas in lstPersonalCompetencias)
             {
-                decimal itemsPersonas = (decimal)itemPersonas[1];
-                decimal TotalPersonas = decimal.Round(itemsPersonas, 0);
+                decimal itemEvaluacion = (decimal)itemPersonas[1];
+                decimal itemTotalEvaluacion = decimal.Round(itemEvaluacion, 0);
 
-                if (TotalPersonas > cont)
+                if (itemTotalEvaluacion >= valorCompetenciaDesarrollada)
                     contadorGerencia++;
             }
             if (contadorGerencia > 0 && contadorTotalRegistros > 0)
@@ -527,6 +533,15 @@ namespace WebUI.UI_EVALUACION
             valor = BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES.PARAMETRO_SISTEMA.DESARROLLADAS.ToString();
             parametro = BL_EVALUACIONES_COMPETENCIAS_TRANSVERSALES.ParametroSistemaporValor(valor);
             BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES.VALOR = parametro;
+        }
+
+        protected int obtenerParametroCompetenciaDesarrollada(string valor)
+        {
+            int parametro;
+
+            valor = BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES.PARAMETRO_SISTEMA.DESARROLLADAS.ToString();
+            parametro = BL_EVALUACIONES_COMPETENCIAS_TRANSVERSALES.ParametroSistemaporValor(valor);
+            return BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES.VALOR = parametro;
         }
 
         protected int obtenervalorparametroindicador()

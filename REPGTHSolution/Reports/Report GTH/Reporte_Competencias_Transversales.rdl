@@ -397,7 +397,7 @@
                           <TextRuns>
                             <TextRun>
                               <Label>INDICADOR</Label>
-                              <Value>=SUM(IIF(Fields!EVALUACION_COMPETENCIA_TRANSVERSAL_PORCENTAJE.Value&lt; 0.8,1,0))</Value>
+                              <Value>=IIF(Avg(Fields!EVALUACION_COMPETENCIA_TRANSVERSAL_PORCENTAJE.Value)&lt; 0.8,1,0)</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
@@ -640,6 +640,11 @@
                   <GroupExpression>=Fields!PERSONAL_CODIGO_TRABAJO.Value</GroupExpression>
                 </GroupExpressions>
               </Group>
+              <SortExpressions>
+                <SortExpression>
+                  <Value>=Fields!PERSONAL_CODIGO_TRABAJO.Value</Value>
+                </SortExpression>
+              </SortExpressions>
               <TablixHeader>
                 <Size>0.69539in</Size>
                 <CellContents>
@@ -690,6 +695,7 @@
                       <PaddingBottom>2pt</PaddingBottom>
                     </Style>
                   </Textbox>
+                  <rd:Selected>true</rd:Selected>
                 </CellContents>
               </TablixHeader>
               <TablixMembers>

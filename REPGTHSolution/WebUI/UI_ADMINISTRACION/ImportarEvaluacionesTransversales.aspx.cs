@@ -33,7 +33,7 @@ namespace WebUI.UI_ADMINISTRACION
             {
 
                 USUARIO = Guid.Parse(Session["PERSONAL_ID"].ToString());
-                lblError.Text = string.Empty;
+                lblError.Text = string.Empty;              
                 
 
                 cargarGrilla();
@@ -194,7 +194,7 @@ namespace WebUI.UI_ADMINISTRACION
                     lblMensaje.Text = String.Empty;
 
                     rgImportarTransversales.AllowPaging = true;
-                    rgImportarTransversales.Rebind();
+                    rgImportarTransversales.Rebind();                    
 
                 }
                 catch (Exception ex)
@@ -213,14 +213,15 @@ namespace WebUI.UI_ADMINISTRACION
         {
             if (rgImportarTransversales.Items.Count > 0)
             {
-                MessageBox.Show("Esta seguro de Eliminar el año", "eliminar Importacion", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                MessageBox.Show("Esta seguro de Eliminar las Evaluaciones del año", "eliminar Importacion", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 BL_IMPORTAR_EVALUACIONES_TRANSVERSALES BL_IMPORTAR_EVALUACIONES_TRANSVERSALES = new BL_IMPORTAR_EVALUACIONES_TRANSVERSALES();
                 int ANIO = Convert.ToInt32(rcbFecha.SelectedValue);
                 BL_IMPORTAR_EVALUACIONES_TRANSVERSALES.EliminarEvaluacionTransversales(ANIO);
+                lblRegistro.Text = "Se eliminaron correctamente las evaluaciones del año " + rcbFecha.SelectedValue;
+                
             }
-            else
-                MessageBox.Show("No se puede eliminar por que no se ha Importado la Informacion");
-            
+            else                
+                lblRegistro.Text = "No se puede eliminar por que no se ha Cargado la Informacion del año " + rcbFecha.SelectedValue;            
         }
 
     }

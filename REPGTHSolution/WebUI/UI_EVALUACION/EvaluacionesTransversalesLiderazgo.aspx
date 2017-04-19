@@ -74,11 +74,12 @@
         <ConfigurationPanelSettings EnableOlapTreeViewLoadOnDemand="true"></ConfigurationPanelSettings>
 <DataCellStyle Width="100px"></DataCellStyle>
     </telerik:RadPivotGrid>  
-        <div style="clear:both;" class="texto derecha"> Indicador general de colaboradores por Gerencia/Departamento<span class="anotacion1"> <asp:Label ID="lblIndicadorGerencia" runat="server"></asp:Label></span>
+        <div style="clear:both;" class="texto derecha"> 
+            Indicador general de colaboradores por Nivel Superior : <span class="anotacion1"> <asp:Label ID="lblIndicadorEmpresa" runat="server"></asp:Label></span>                   
             <br />
-            Indicador general de colaboradores con competencias desarolladas: <span class="anotacion1"> <asp:Label ID="lblIndicador" runat="server"></asp:Label></span>  
+            Indicador general de colaboradores por Gerencia/Departamento<span class="anotacion1"> <asp:Label ID="lblIndicadorGerencia" runat="server"></asp:Label></span>            
             <br /> 
-            Indicador de Empresa : <span class="anotacion1"> <asp:Label ID="lblIndicadorEmpresa" runat="server"></asp:Label></span>      
+            Indicador general de colaboradores con competencias desarolladas: <span class="anotacion1"> <asp:Label ID="lblIndicador" runat="server"></asp:Label></span>  
           </div>   
       </table>      
           <div class="margen">
