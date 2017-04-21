@@ -26,6 +26,7 @@ namespace WebUI.UI_ADMINISTRACION
         UploadedFile file;
         string file_name = string.Empty;
         List<BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES> lst = new List<BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES>();
+        
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -33,7 +34,8 @@ namespace WebUI.UI_ADMINISTRACION
             {
 
                 USUARIO = Guid.Parse(Session["PERSONAL_ID"].ToString());
-                lblError.Text = string.Empty;              
+                lblError.Text = string.Empty;
+                lblRegistro.Text = string.Empty;               
                 
 
                 cargarGrilla();
@@ -212,8 +214,7 @@ namespace WebUI.UI_ADMINISTRACION
         protected void btnEliminar_Click(object sender, EventArgs e)
         {
             if (rgImportarTransversales.Items.Count > 0)
-            {
-                MessageBox.Show("Esta seguro de Eliminar las Evaluaciones del año", "eliminar Importacion", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            {                
                 BL_IMPORTAR_EVALUACIONES_TRANSVERSALES BL_IMPORTAR_EVALUACIONES_TRANSVERSALES = new BL_IMPORTAR_EVALUACIONES_TRANSVERSALES();
                 int ANIO = Convert.ToInt32(rcbFecha.SelectedValue);
                 BL_IMPORTAR_EVALUACIONES_TRANSVERSALES.EliminarEvaluacionTransversales(ANIO);
