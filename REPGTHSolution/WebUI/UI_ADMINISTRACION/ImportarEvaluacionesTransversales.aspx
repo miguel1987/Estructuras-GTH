@@ -38,6 +38,12 @@
   
   </script>
 
+  <script type="text/javascript">
+      function Clicking(sender, args) {
+          if (confirm('¿Está seguro de eliminar las evaluaciones de este año?\nNOTA: No podra recuperarlas una vez eliminadas. ') == false) return false;
+      }
+</script>
+
 </head>
 <body>
     
@@ -125,11 +131,10 @@
                     </telerik:RadButton>
                 </td>
                 <td class="area-tree" style="width: 37px">
-                    <%--<telerik:RadButton ID="btnEliminar" runat="server" Skin="Office2010Silver" 
-                        style="text-align: right" Text="Eliminar" onclick="btnEliminar_Click">
-                    </telerik:RadButton>--%>
-                    <asp:Button ID="btnEliminar" runat="server" Text="Eliminar" style="background-color: #F3F3F0;color: #003C69;font-size: 12px;font-family: Comic Sans MS"
-                    OnClick="btnEliminar_Click" OnClientClick="javascript:if(confirm('¿Está seguro que desea elininar las evaluaciones de este año?\nNOTA: Una vez eliminado no se podrá recuperar. ') == false) return false;"/>
+                    <telerik:RadButton ID="btnEliminar" runat="server" Skin="Office2010Silver" 
+                        style="text-align: right" Text="Eliminar"  onclick="btnEliminar_Click">
+                    </telerik:RadButton>
+                    
                 </td>
             </tr>
            </table>

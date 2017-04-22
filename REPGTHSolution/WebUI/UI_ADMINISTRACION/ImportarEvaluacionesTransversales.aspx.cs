@@ -214,7 +214,10 @@ namespace WebUI.UI_ADMINISTRACION
         protected void btnEliminar_Click(object sender, EventArgs e)
         {
             if (rgImportarTransversales.Items.Count > 0)
-            {                
+            {
+                ScriptManager.RegisterStartupScript(this, this.GetType(), "Clicking", "Clicking();", true);
+
+
                 BL_IMPORTAR_EVALUACIONES_TRANSVERSALES BL_IMPORTAR_EVALUACIONES_TRANSVERSALES = new BL_IMPORTAR_EVALUACIONES_TRANSVERSALES();
                 int ANIO = Convert.ToInt32(rcbFecha.SelectedValue);
                 BL_IMPORTAR_EVALUACIONES_TRANSVERSALES.EliminarEvaluacionTransversales(ANIO);
