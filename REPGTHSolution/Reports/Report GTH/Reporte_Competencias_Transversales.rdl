@@ -240,19 +240,19 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>0.12417in</Width>
+              <Width>0.12287in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>0.12417in</Width>
+              <Width>0.12287in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>0.12417in</Width>
+              <Width>0.12287in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>0.72633in</Width>
+              <Width>0.72503in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>0.92708in</Width>
+              <Width>0.04036in</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -457,7 +457,7 @@
           <TablixMembers>
             <TablixMember>
               <TablixHeader>
-                <Size>0.69539in</Size>
+                <Size>0.69409in</Size>
                 <CellContents>
                   <Textbox Name="Textbox15">
                     <CanGrow>true</CanGrow>
@@ -514,7 +514,7 @@
               <TablixMembers>
                 <TablixMember>
                   <TablixHeader>
-                    <Size>2.36375in</Size>
+                    <Size>2.36245in</Size>
                     <CellContents>
                       <Textbox Name="Textbox62">
                         <CanGrow>true</CanGrow>
@@ -571,7 +571,7 @@
                   <TablixMembers>
                     <TablixMember>
                       <TablixHeader>
-                        <Size>1.55125in</Size>
+                        <Size>1.54995in</Size>
                         <CellContents>
                           <Textbox Name="Textbox59">
                             <CanGrow>true</CanGrow>
@@ -646,7 +646,7 @@
                 </SortExpression>
               </SortExpressions>
               <TablixHeader>
-                <Size>0.69539in</Size>
+                <Size>0.69409in</Size>
                 <CellContents>
                   <Textbox Name="PERSONAL_CODIGO_TRABAJO">
                     <CanGrow>true</CanGrow>
@@ -705,7 +705,7 @@
                     </GroupExpressions>
                   </Group>
                   <TablixHeader>
-                    <Size>2.36375in</Size>
+                    <Size>2.36245in</Size>
                     <CellContents>
                       <Textbox Name="Group3">
                         <CanGrow>true</CanGrow>
@@ -762,7 +762,7 @@
                         </GroupExpressions>
                       </Group>
                       <TablixHeader>
-                        <Size>1.55125in</Size>
+                        <Size>1.54995in</Size>
                         <CellContents>
                           <Textbox Name="Group2">
                             <CanGrow>true</CanGrow>
@@ -839,7 +839,7 @@
         <Top>0.3355cm</Top>
         <Left>0.05292cm</Left>
         <Height>2.91978cm</Height>
-        <Width>16.85624cm</Width>
+        <Width>14.58081cm</Width>
         <Style>
           <Border>
             <Style>Solid</Style>
