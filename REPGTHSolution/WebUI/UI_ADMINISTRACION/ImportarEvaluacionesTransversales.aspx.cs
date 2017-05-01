@@ -20,6 +20,7 @@ namespace WebUI.UI_ADMINISTRACION
 {
     public partial class ImportarEvaluacionesTransversales : System.Web.UI.Page
     {
+        string confirmValuex = String.Empty;
         Guid USUARIO = Guid.Empty;
         const int MaxTotalBytes = 1048576; // 1 MB
         string path;
@@ -213,19 +214,29 @@ namespace WebUI.UI_ADMINISTRACION
 
         protected void btnEliminar_Click(object sender, EventArgs e)
         {
+            
+            
             if (rgImportarTransversales.Items.Count > 0)
             {
-                ScriptManager.RegisterStartupScript(this, this.GetType(), "Clicking", "Clicking();", true);
+                
+                
+                    //ScriptManager.RegisterStartupScript(this, this.GetType(), "Clicking", "Clicking();", false);
+                string confirmValue = hfResponse.Value;
+                if (confirmValue == "Yes")
+                {
 
-
-                BL_IMPORTAR_EVALUACIONES_TRANSVERSALES BL_IMPORTAR_EVALUACIONES_TRANSVERSALES = new BL_IMPORTAR_EVALUACIONES_TRANSVERSALES();
-                int ANIO = Convert.ToInt32(rcbFecha.SelectedValue);
-                BL_IMPORTAR_EVALUACIONES_TRANSVERSALES.EliminarEvaluacionTransversales(ANIO);
-                lblRegistro.Text = "Se eliminaron correctamente las evaluaciones del año " + rcbFecha.SelectedValue;
+                    BL_IMPORTAR_EVALUACIONES_TRANSVERSALES BL_IMPORTAR_EVALUACIONES_TRANSVERSALES = new BL_IMPORTAR_EVALUACIONES_TRANSVERSALES();
+                    int ANIO = Convert.ToInt32(rcbFecha.SelectedValue);
+                    BL_IMPORTAR_EVALUACIONES_TRANSVERSALES.EliminarEvaluacionTransversales(ANIO);
+                    lblRegistro.Text = "Se eliminaron correctamente las evaluaciones del año " + rcbFecha.SelectedValue;
+                }
+              
+                
                 
             }
             else                
-                lblRegistro.Text = "No se puede eliminar por que no se ha Cargado la Informacion del año " + rcbFecha.SelectedValue;            
+                lblRegistro.Text = "No se puede eliminar por que no se ha Cargado la Informacion del año " + rcbFecha.SelectedValue;
+            
         }
 
     }

@@ -39,14 +39,20 @@
   </script>
 
   <script type="text/javascript">
-      function Clicking(sender, args) {
-          if (confirm('¿Está seguro de eliminar las evaluaciones de este año?\nNOTA: No podra recuperarlas una vez eliminadas. ') == false) return false;
+      function Clicking(sender) {
+          var selectedText = $(sender).find("option:selected").text();
+          if (confirm('¿Está seguro de eliminar las evaluaciones de este año?\nNOTA: No podra recuperarlas una vez eliminadas. ' + selectedText + " ?")) {
+              $("#hfResponse").val('Yes');
+          } else {
+              $("#hfResponse").val('No');
+          }
+
       }
 </script>
 
 </head>
 <body>
-    
+    <asp:HiddenField ID="hfResponse" runat="server" ClientIDMode="Static"/>
 	<script type="text/javascript">
 	    //Put your JavaScript code here.
     </script>
@@ -131,8 +137,10 @@
                     </telerik:RadButton>
                 </td>
                 <td class="area-tree" style="width: 37px">
+                <telerik:RadWindowManager  ID="RadWindowManager1"  runat="server">
+</telerik:RadWindowManager>
                     <telerik:RadButton ID="btnEliminar" runat="server" Skin="Office2010Silver" 
-                        style="text-align: right" Text="Eliminar"  onclick="btnEliminar_Click">
+                        style="text-align: right" Text="Eliminar"  onclick="btnEliminar_Click" OnClientClicked="Clicking">
                     </telerik:RadButton>
                     
                 </td>
@@ -173,7 +181,7 @@
        
         </telerik:RadAjaxPanel>
         <asp:Label ID="lblFile" runat="server" Font-Bold="true" Font-Size="Medium" ForeColor="Red"></asp:Label>
-	       	
+	      	
 </body>
 </html>
     

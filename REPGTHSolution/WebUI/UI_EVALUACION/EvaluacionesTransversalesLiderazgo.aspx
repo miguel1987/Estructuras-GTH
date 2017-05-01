@@ -74,12 +74,31 @@
         <ConfigurationPanelSettings EnableOlapTreeViewLoadOnDemand="true"></ConfigurationPanelSettings>
 <DataCellStyle Width="100px"></DataCellStyle>
     </telerik:RadPivotGrid>  
-        <div style="clear:both;" class="texto derecha"> 
-            Indicador general de colaboradores por Nivel Superior : <span class="anotacion1"> <asp:Label ID="lblIndicadorEmpresa" runat="server"></asp:Label></span>                   
-            <br />
-            Indicador general de colaboradores por Gerencia/Departamento<span class="anotacion1"> <asp:Label ID="lblIndicadorGerencia" runat="server"></asp:Label></span>            
+        <div style="clear:both;" class="texto derecha">            
+            Promedio de Evaluación de Competencias Humanas: <span class="anotacion1"> <asp:Label ID="lblIndicador" runat="server"></asp:Label></span> 
+            <br />  
+            <%--Promedio de Evaluación de Competencias Humanas: <span class="anotacion1"> <asp:Label ID="lblIndicadorGerencia" runat="server"></asp:Label></span> --%>                    
+            <br />                       
             <br /> 
-            Indicador general de colaboradores con competencias desarolladas: <span class="anotacion1"> <asp:Label ID="lblIndicador" runat="server"></asp:Label></span>  
+            
+            <table style="border-style: solid; width: 100%;">
+                <tr>
+                    <td style="border-style: solid; background-color: #66FFFF; height: 19px;">
+                        &nbsp;
+                        Indicador Nivel Superior</td>
+                </tr>
+                
+                <tr>
+                    <td>
+                    Promedio de Evaluación Nivel Superior : <span class="anotacion1"> <asp:Label ID="lblIndicadorEmpresa" runat="server"></asp:Label></span>   </td>
+                   
+                </tr>
+                
+            </table>
+
+
+
+             
           </div>   
       </table>      
           <div class="margen">
@@ -91,7 +110,7 @@
     <p class="mensaje">
          <asp:Label ID="lblMensaje" runat="server" Font-Bold="true" Font-Size="Medium" ForeColor="Red"></asp:Label>
        </p>
-          <!--Area de Contenido -->a
+          <!--Area de Contenido -->
 <asp:HiddenField ID="hf_Contador" runat="server" />  
 <asp:HiddenField ID="hf_NodoParent" runat="server" />  
 </asp:Content>

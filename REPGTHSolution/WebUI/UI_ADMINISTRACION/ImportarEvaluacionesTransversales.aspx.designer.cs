@@ -22,6 +22,15 @@ namespace WebUI.UI_ADMINISTRACION {
         protected global::Telerik.Web.UI.RadStyleSheetManager RadStyleSheetManager1;
         
         /// <summary>
+        /// hfResponse control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hfResponse;
+        
+        /// <summary>
         /// RadAjaxManager2 control.
         /// </summary>
         /// <remarks>
@@ -101,6 +110,15 @@ namespace WebUI.UI_ADMINISTRACION {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::Telerik.Web.UI.RadButton btnGrabar;
+        
+        /// <summary>
+        /// RadWindowManager1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::Telerik.Web.UI.RadWindowManager RadWindowManager1;
         
         /// <summary>
         /// btnEliminar control.
