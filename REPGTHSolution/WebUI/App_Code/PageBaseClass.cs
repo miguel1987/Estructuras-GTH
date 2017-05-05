@@ -110,9 +110,9 @@ namespace WebUI
 
         public void validarUsuarioEnDominio()
         {
-            //string userId = HttpContext.Current.User.Identity.Name.ToString();
+            string userId = HttpContext.Current.User.Identity.Name.ToString();
 
-            string userId = "Pc\\soporte_ipd";           
+            //string userId = "Pc\\soporte_ipd";           
             
             string[] useridNew = userId.Trim().Split(new[] { "\\" }, StringSplitOptions.None);
             

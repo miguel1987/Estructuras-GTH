@@ -137,10 +137,10 @@
     <WebReferences Include="Web References\" />
   </ItemGroup>
   <ItemGroup>
-    <WebReferenceUrl Include="http://localhost:50930/mantenimientoEstructuras.asmx">
+    <WebReferenceUrl Include="http://pelimrepaplv02/wsEstructuras/mantenimientoEstructuras.asmx">
       <UrlBehavior>Dynamic</UrlBehavior>
       <RelPath>Web References\wsMaestros\</RelPath>
-      <UpdateFromURL>http://localhost:50930/mantenimientoEstructuras.asmx</UpdateFromURL>
+      <UpdateFromURL>http://pelimrepaplv02/wsEstructuras/mantenimientoEstructuras.asmx</UpdateFromURL>
       <ServiceLocationURL>
       </ServiceLocationURL>
       <CachedDynamicPropName>

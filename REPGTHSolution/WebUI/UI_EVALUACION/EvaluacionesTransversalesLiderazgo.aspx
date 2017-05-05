@@ -77,20 +77,26 @@
         <div style="clear:both;" class="texto derecha">            
             Promedio de Evaluación de Competencias Humanas: <span class="anotacion1"> <asp:Label ID="lblIndicador" runat="server"></asp:Label></span> 
             <br />  
-            <%--Promedio de Evaluación de Competencias Humanas: <span class="anotacion1"> <asp:Label ID="lblIndicadorGerencia" runat="server"></asp:Label></span> --%>                    
+                               
             <br />                       
             <br /> 
             
-            <table style="border-style: solid; width: 100%;">
+            <table style="width: 100%;">
                 <tr>
-                    <td style="border-style: solid; background-color: #66FFFF; height: 19px;">
-                        &nbsp;
-                        Indicador Nivel Superior</td>
+                    <td style="background-color: #5BC6E8; height: 19px; color: #FFFFFF;">
+                        &nbsp; Indicadores de Evaluación</td>
+                </tr>
+                <tr>
+                    <td>
+                    Promedio de Evaluación Nivel Superior : <span class="anotacion1"> <asp:Label ID="lblIndicadorEmpresa" runat="server"></asp:Label></span>
+                      </td>
+                   
                 </tr>
                 
                 <tr>
                     <td>
-                    Promedio de Evaluación Nivel Superior : <span class="anotacion1"> <asp:Label ID="lblIndicadorEmpresa" runat="server"></asp:Label></span>   </td>
+                    <asp:Label ID="lblGerenciaDepartamento" runat="server" Text="Promedio Evaluacion Gerencia"></asp:Label>  <span class="anotacion1"> <asp:Label ID="lblIndicadorGerencia" runat="server"></asp:Label></span>
+                       </td>
                    
                 </tr>
                 
@@ -113,5 +119,6 @@
           <!--Area de Contenido -->
 <asp:HiddenField ID="hf_Contador" runat="server" />  
 <asp:HiddenField ID="hf_NodoParent" runat="server" />  
+<asp:HiddenField ID="hf_HasChild" runat="server" /> 
 </asp:Content>
 

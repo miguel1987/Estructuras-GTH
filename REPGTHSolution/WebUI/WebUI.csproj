@@ -253,6 +253,7 @@
     <Content Include="UI_EVALUACION\EvaluacionesTransversalesLiderazgo.aspx" />
     <Content Include="UI_EVALUACION\EvaluacionCompetenciasPuesto.aspx" />
     <Content Include="UI_REPORTES\ReporteCompetenciasPuestoJerarquia.aspx" />
+    <Content Include="UI_REPORTES\Reporte_de_Competencias.aspx" />
     <Content Include="UI_REPORTES\Reporte_Evaluacion_Colaboradores.aspx" />
     <Content Include="UI_REPORTES\ReporteCompetenciasPuesto.aspx" />
     <Content Include="UI_REPORTES\ReporteCompetenciasTransversales.aspx" />
@@ -438,6 +439,13 @@
     </Compile>
     <Compile Include="UI_REPORTES\ReporteCompetenciasPuestoJerarquia.aspx.designer.cs">
       <DependentUpon>ReporteCompetenciasPuestoJerarquia.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI_REPORTES\Reporte_de_Competencias.aspx.cs">
+      <DependentUpon>Reporte_de_Competencias.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI_REPORTES\Reporte_de_Competencias.aspx.designer.cs">
+      <DependentUpon>Reporte_de_Competencias.aspx</DependentUpon>
     </Compile>
     <Compile Include="UI_REPORTES\Reporte_Evaluacion_Colaboradores.aspx.cs">
       <DependentUpon>Reporte_Evaluacion_Colaboradores.aspx</DependentUpon>

@@ -72,6 +72,11 @@ namespace WebUI.UI_EVALUACION
             else
                 hf_NodoParent.Value = e.Node.ParentNode.Value.ToString();
 
+            //Validamos si tiene nodos hijos
+            var node = rtvTransversales.FindNodeByText(e.Node.Text);
+            this.hf_HasChild.Value = node.GetAllNodes().Count.ToString();           
+                 
+
             LoadGrilla(idNodo, nivel);            
         }
 
@@ -326,7 +331,7 @@ namespace WebUI.UI_EVALUACION
         }
 
         protected void LoadGrilla(string idNodo, string nivel)
-        // protected void LoadGrilla(string idNodo, string nivel, string idNodoSuperior)
+        
         {
             int result;
             int res;
@@ -346,7 +351,7 @@ namespace WebUI.UI_EVALUACION
             rgEvaluacionesTransversalesporPersonal.DataBind();
 
             CalcularIndicador(idNodo, nivel);
-            //CalcularIndicadorGerente(idNodo, nivel);
+            CalcularIndicadorGerente(idNodo, nivel);
             
             
             result = Convert.ToInt16(nivel);
@@ -361,8 +366,27 @@ namespace WebUI.UI_EVALUACION
 
 
 
-            //if (lblIndicadorGerencia.Text == "0%")
-            //    this.lblIndicadorGerencia.Text = this.lblIndicador.Text;
+            if (lblIndicadorGerencia.Text == "0%")
+            {
+                this.lblIndicadorGerencia.Text = this.lblIndicador.Text;
+                this.lblGerenciaDepartamento.Visible = false;
+                this.lblIndicadorGerencia.Visible = false;
+            }
+           
+            if (hf_HasChild.Value == "0" || nivel == "0" || nivel == "1")
+            {
+                this.lblGerenciaDepartamento.Visible = false;
+                this.lblIndicadorGerencia.Visible = false;
+            }
+            else
+            {
+                this.lblGerenciaDepartamento.Visible = true;
+                this.lblIndicadorGerencia.Visible = true;
+                if (nivel == "3")
+                    this.lblGerenciaDepartamento.Text = "Promedio Evaluacion Departamento : ";
+                else
+                    this.lblGerenciaDepartamento.Text = "Promedio Evaluacion Gerencia : ";
+            }
         }
 
         protected void CalcularIndicador(string idNodo, string nivel)
@@ -372,9 +396,14 @@ namespace WebUI.UI_EVALUACION
 
             BL_EVALUACIONES_COMPETENCIAS_TRANSVERSALES BL_EVALUACIONES_COMPETENCIAS_TRANSVERSALES = new BL_EVALUACIONES_COMPETENCIAS_TRANSVERSALES();
 
-            
-
-            oListaEvaluacionesTransversales = BL_EVALUACIONES_COMPETENCIAS_TRANSVERSALES.SeleccionarEvaluacionesTransversalesPorJerarquia(Guid.Parse(idNodo), Int32.Parse(nivel));
+            if (Session["PERFIL_ID"].ToString() == "2")
+            {
+                oListaEvaluacionesTransversales = BL_EVALUACIONES_COMPETENCIAS_TRANSVERSALES.SeleccionarEvaluacionesTransversalesPorJerarquia(Guid.Parse(idNodo), Int32.Parse(nivel), USUARIO, USUARIO_GRUPO_ORGANIZACIONAL);
+            }
+            else
+            {
+                oListaEvaluacionesTransversales = BL_EVALUACIONES_COMPETENCIAS_TRANSVERSALES.SeleccionarEvaluacionesTransversalesPorJerarquia(Guid.Parse(idNodo), Int32.Parse(nivel));
+            }
 
             List<object[]> lstPersonalCompetencias = oListaEvaluacionesTransversales
                 /* Group the list by the element at position 0 in each item */
@@ -409,9 +438,7 @@ namespace WebUI.UI_EVALUACION
                 decimal itemEvaluacion = (decimal)itemPersonas[1];
                 decimal itemTotalEvaluacion = Decimal.Round(itemEvaluacion, 0);
                 totalEvaluaciones += itemTotalEvaluacion;
-                //Si el promedio es >= 80 se considera Competencia Desarrollada
-                //if (itemTotalEvaluacion >= valorCompetenciaDesarrollada)
-                //    contadorCompetenciasDesarrolladas++;
+                
 
             }
 
@@ -426,60 +453,58 @@ namespace WebUI.UI_EVALUACION
                 this.lblIndicador.ForeColor = System.Drawing.Color.Red;
         }
 
-        //protected void CalcularIndicadorGerente(string idNodo, string nivel)
-        //{
+        protected void CalcularIndicadorGerente(string idNodo, string nivel)
+        {
 
-        //    List<BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES> oListaEvaluacionesIndicador = new List<BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES>();
-        //    BL_EVALUACIONES_COMPETENCIAS_TRANSVERSALES BL_EVALUACIONES_COMPETENCIAS_TRANSVERSALES = new BL_EVALUACIONES_COMPETENCIAS_TRANSVERSALES();
+            List<BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES> oListaEvaluacionesIndicador = new List<BE_EVALUACIONES_COMPETENCIAS_TRANSVERSALES>();
+            BL_EVALUACIONES_COMPETENCIAS_TRANSVERSALES BL_EVALUACIONES_COMPETENCIAS_TRANSVERSALES = new BL_EVALUACIONES_COMPETENCIAS_TRANSVERSALES();
 
-        //    oListaEvaluacionesIndicador = BL_EVALUACIONES_COMPETENCIAS_TRANSVERSALES.CalcularIndicadorporGerencia(Guid.Parse(idNodo), Int32.Parse(nivel));
-        //    List<object[]> lstPersonalCompetencias = oListaEvaluacionesIndicador
-        //        /* Group the list by the element at position 0 in each item */
-        //    .GroupBy(o => o.PERSONAL_ID)
-        //        /* Project the created grouping into a new object[]: */
-        //    .Select(i => new object[]
-        //    {
-        //        i.Key,
-        //        i.Average(x=>x.PORCENTAJE*100)
-        //    })
-        //    .ToList();
+            oListaEvaluacionesIndicador = BL_EVALUACIONES_COMPETENCIAS_TRANSVERSALES.CalcularIndicadorporGerencia(Guid.Parse(idNodo), Int32.Parse(nivel));
+            List<object[]> lstPersonalCompetencias = oListaEvaluacionesIndicador
+                /* Group the list by the element at position 0 in each item */
+            .GroupBy(o => o.PERSONAL_ID)
+                /* Project the created grouping into a new object[]: */
+            .Select(i => new object[]
+            {
+                i.Key,
+                i.Average(x=>x.PORCENTAJE*100)
+            })
+            .ToList();
 
-        //    decimal contadorGerencia = 0;
-        //    decimal contadorTotalRegistros = 0;
+            decimal contadorGerencia = 0;
+            decimal contadorTotalRegistros = 0;
 
-        //    //Obtener valor de competencia desarrollada = 76 para el color
-        //    int parametroCompetenciasDesarrolladas = obtenervalorparametroindicador();
+            //Obtener valor de competencia desarrollada = 76 para el color
+            int parametroCompetenciasDesarrolladas = obtenervalorparametroindicador();
 
-        //    decimal indicador = 0;
-        //    decimal totalEvaluaciones = 0;
+            decimal indicador = 0;
+            decimal totalEvaluaciones = 0;
 
-        //    //Obtener valor de competencia desarrollada = 80
-        //    string valor = string.Empty;
-        //    int valorDesarrollo = obtenerParametroCompetenciaDesarrollada(valor);
-        //    decimal valorCompetenciaDesarrollada = (decimal)valorDesarrollo;
+            //Obtener valor de competencia desarrollada = 80
+            string valor = string.Empty;
+            int valorDesarrollo = obtenerParametroCompetenciaDesarrollada(valor);
+            decimal valorCompetenciaDesarrollada = (decimal)valorDesarrollo;
 
-        //    contadorTotalRegistros = lstPersonalCompetencias.Count;
+            contadorTotalRegistros = lstPersonalCompetencias.Count;
 
-        //    foreach (var itemPersonas in lstPersonalCompetencias)
-        //    {
-        //        decimal itemEvaluacion = (decimal)itemPersonas[1];
-        //        decimal itemTotalEvaluacion = decimal.Round(itemEvaluacion, 0);
-        //        totalEvaluaciones += itemTotalEvaluacion;
-        //        //Si el promedio es >= 80 se considera Competencia Desarrollada
-        //        //if (itemTotalEvaluacion >= valorCompetenciaDesarrollada)
-        //        //    contadorGerencia++;
-        //    }
-        //    if (totalEvaluaciones > 0 && contadorTotalRegistros > 0)
+            foreach (var itemPersonas in lstPersonalCompetencias)
+            {
+                decimal itemEvaluacion = (decimal)itemPersonas[1];
+                decimal itemTotalEvaluacion = decimal.Round(itemEvaluacion, 0);
+                totalEvaluaciones += itemTotalEvaluacion;
+                
+            }
+            if (totalEvaluaciones > 0 && contadorTotalRegistros > 0)
 
-        //        indicador = (totalEvaluaciones / contadorTotalRegistros);
+                indicador = (totalEvaluaciones / contadorTotalRegistros);
 
-        //    this.lblIndicadorGerencia.Text = Decimal.Round(indicador, 0).ToString() + "%";
+            this.lblIndicadorGerencia.Text = Decimal.Round(indicador, 0).ToString() + "%";
 
-        //    if (indicador >= parametroCompetenciasDesarrolladas)
-        //        this.lblIndicadorGerencia.ForeColor = System.Drawing.Color.Green;
-        //    if (indicador < parametroCompetenciasDesarrolladas)
-        //        this.lblIndicadorGerencia.ForeColor = System.Drawing.Color.Red;
-        //}
+            if (indicador >= parametroCompetenciasDesarrolladas)
+                this.lblIndicadorGerencia.ForeColor = System.Drawing.Color.Green;
+            if (indicador < parametroCompetenciasDesarrolladas)
+                this.lblIndicadorGerencia.ForeColor = System.Drawing.Color.Red;
+        }
 
 
         protected void CalcularIndicadorEmpresa(string idNodo, string nivel)

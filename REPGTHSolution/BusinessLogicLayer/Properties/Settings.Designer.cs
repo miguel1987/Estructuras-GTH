@@ -26,7 +26,7 @@ namespace BusinessLogicLayer.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.WebServiceUrl)]
-        [global::System.Configuration.DefaultSettingValueAttribute("http://localhost:50930/mantenimientoEstructuras.asmx")]
+        [global::System.Configuration.DefaultSettingValueAttribute("http://pelimrepaplv02/wsEstructuras/mantenimientoEstructuras.asmx")]
         public string BusinessLogicLayer_wsMaestros_mantenimientoMaestros {
             get {
                 return ((string)(this["BusinessLogicLayer_wsMaestros_mantenimientoMaestros"]));

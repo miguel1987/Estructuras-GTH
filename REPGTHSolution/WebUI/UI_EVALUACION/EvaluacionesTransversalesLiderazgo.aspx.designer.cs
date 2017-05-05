@@ -67,6 +67,24 @@ namespace WebUI.UI_EVALUACION {
         protected global::System.Web.UI.WebControls.Label lblIndicadorEmpresa;
         
         /// <summary>
+        /// lblGerenciaDepartamento control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblGerenciaDepartamento;
+        
+        /// <summary>
+        /// lblIndicadorGerencia control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblIndicadorGerencia;
+        
+        /// <summary>
         /// odsEvaluacionesTransversales control.
         /// </summary>
         /// <remarks>
@@ -101,5 +119,14 @@ namespace WebUI.UI_EVALUACION {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField hf_NodoParent;
+        
+        /// <summary>
+        /// hf_HasChild control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hf_HasChild;
     }
 }

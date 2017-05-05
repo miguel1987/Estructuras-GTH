@@ -4,7 +4,6 @@
     <DataSource Name="DSREPORTS">
       <DataSourceReference>DSREPORTS</DataSourceReference>
       <rd:DataSourceID>8cd57586-8d54-456f-9b2f-01731ecfae6a</rd:DataSourceID>
-      <rd:SecurityType>None</rd:SecurityType>
     </DataSource>
   </DataSources>
   <DataSets>
@@ -249,10 +248,10 @@
               <Width>0.12287in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>0.72503in</Width>
+              <Width>0.71331in</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>0.04036in</Width>
+              <Width>0.03125in</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -839,7 +838,7 @@
         <Top>0.3355cm</Top>
         <Left>0.05292cm</Left>
         <Height>2.91978cm</Height>
-        <Width>14.58081cm</Width>
+        <Width>14.52793cm</Width>
         <Style>
           <Border>
             <Style>Solid</Style>
